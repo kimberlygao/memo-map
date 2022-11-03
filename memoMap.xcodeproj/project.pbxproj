@@ -39,6 +39,13 @@
 		E5BFDC8D2913456200DF0180 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E5BFDC8C2913456200DF0180 /* FirebaseRemoteConfigSwift */; };
 		E5BFDC8F2913456200DF0180 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E5BFDC8E2913456200DF0180 /* FirebaseStorage */; };
 		E5BFDC912913456200DF0180 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E5BFDC902913456200DF0180 /* FirebaseStorageCombine-Community */; };
+		E5BFDC972913499D00DF0180 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC962913499D00DF0180 /* MapView.swift */; };
+		E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC98291349A500DF0180 /* CameraView.swift */; };
+		E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC9A291349AF00DF0180 /* PromptView.swift */; };
+		E5BFDC9D29134D2D00DF0180 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC9C29134D2D00DF0180 /* ImagePickerView.swift */; };
+		E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC9F29134DE500DF0180 /* ViewController.swift */; };
+		E5BFDCA229134E1400DF0180 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDCA129134E1400DF0180 /* Location.swift */; };
+		E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDCA62913537900DF0180 /* CameraController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +55,14 @@
 		E5BFDC492913433300DF0180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5BFDC4C2913433300DF0180 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5BFDC592913449400DF0180 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E5BFDC962913499D00DF0180 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E5BFDC98291349A500DF0180 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		E5BFDC9A291349AF00DF0180 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
+		E5BFDC9C29134D2D00DF0180 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		E5BFDC9F29134DE500DF0180 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E5BFDCA129134E1400DF0180 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		E5BFDCA329134FD900DF0180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E5BFDCA62913537900DF0180 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +122,11 @@
 		E5BFDC442913433300DF0180 /* memoMap */ = {
 			isa = PBXGroup;
 			children = (
+				E5BFDCA329134FD900DF0180 /* Info.plist */,
+				E5BFDC9E29134DD600DF0180 /* Controllers */,
 				E5BFDC452913433300DF0180 /* memoMapApp.swift */,
-				E5BFDC472913433300DF0180 /* ContentView.swift */,
-				E5BFDC492913433300DF0180 /* Assets.xcassets */,
+				E5BFDC93291347A000DF0180 /* Models */,
+				E5BFDC922913474E00DF0180 /* Views */,
 				E5BFDC592913449400DF0180 /* GoogleService-Info.plist */,
 				E5BFDC4B2913433300DF0180 /* Preview Content */,
 			);
@@ -122,6 +139,36 @@
 				E5BFDC4C2913433300DF0180 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E5BFDC922913474E00DF0180 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5BFDC492913433300DF0180 /* Assets.xcassets */,
+				E5BFDC472913433300DF0180 /* ContentView.swift */,
+				E5BFDC962913499D00DF0180 /* MapView.swift */,
+				E5BFDC98291349A500DF0180 /* CameraView.swift */,
+				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
+				E5BFDC9C29134D2D00DF0180 /* ImagePickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E5BFDC93291347A000DF0180 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5BFDCA129134E1400DF0180 /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E5BFDC9E29134DD600DF0180 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E5BFDC9F29134DE500DF0180 /* ViewController.swift */,
+				E5BFDCA62913537900DF0180 /* CameraController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,8 +274,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */,
 				E5BFDC482913433300DF0180 /* ContentView.swift in Sources */,
+				E5BFDC972913499D00DF0180 /* MapView.swift in Sources */,
+				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
+				E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */,
+				E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */,
+				E5BFDC9D29134D2D00DF0180 /* ImagePickerView.swift in Sources */,
+				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +413,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"memoMap/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = memoMap/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app would like to use your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -387,6 +444,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"memoMap/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = memoMap/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app would like to use your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
