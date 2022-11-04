@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4133658729155FBF00D120D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4133658629155FBF00D120D9 /* User.swift */; };
+		413365892915603500D120D9 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413365882915603500D120D9 /* Memory.swift */; };
+		4133658D2915787E00D120D9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4133658C2915787E00D120D9 /* Location.swift */; };
+		4133658F291578E500D120D9 /* FriendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4133658E291578E500D120D9 /* FriendRequest.swift */; };
+		413365912915791600D120D9 /* DailyPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413365902915791600D120D9 /* DailyPrompt.swift */; };
+		413365932915796600D120D9 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413365922915796600D120D9 /* Prompt.swift */; };
 		E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC452913433300DF0180 /* memoMapApp.swift */; };
 		E5BFDC482913433300DF0180 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC472913433300DF0180 /* ContentView.swift */; };
 		E5BFDC4A2913433300DF0180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BFDC492913433300DF0180 /* Assets.xcassets */; };
@@ -42,6 +48,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4133658629155FBF00D120D9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		413365882915603500D120D9 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
+		4133658C2915787E00D120D9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4133658E291578E500D120D9 /* FriendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequest.swift; sourceTree = "<group>"; };
+		413365902915791600D120D9 /* DailyPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPrompt.swift; sourceTree = "<group>"; };
+		413365922915796600D120D9 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
 		E5BFDC422913433300DF0180 /* memoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BFDC452913433300DF0180 /* memoMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoMapApp.swift; sourceTree = "<group>"; };
 		E5BFDC472913433300DF0180 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +100,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4133658529155FB300D120D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4133658629155FBF00D120D9 /* User.swift */,
+				413365882915603500D120D9 /* Memory.swift */,
+				4133658C2915787E00D120D9 /* Location.swift */,
+				4133658E291578E500D120D9 /* FriendRequest.swift */,
+				413365902915791600D120D9 /* DailyPrompt.swift */,
+				413365922915796600D120D9 /* Prompt.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E5BFDC392913433300DF0180 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +132,7 @@
 		E5BFDC442913433300DF0180 /* memoMap */ = {
 			isa = PBXGroup;
 			children = (
+				4133658529155FB300D120D9 /* Models */,
 				E5BFDC452913433300DF0180 /* memoMapApp.swift */,
 				E5BFDC472913433300DF0180 /* ContentView.swift */,
 				E5BFDC492913433300DF0180 /* Assets.xcassets */,
@@ -227,8 +253,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				413365892915603500D120D9 /* Memory.swift in Sources */,
+				413365932915796600D120D9 /* Prompt.swift in Sources */,
 				E5BFDC482913433300DF0180 /* ContentView.swift in Sources */,
+				4133658D2915787E00D120D9 /* Location.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
+				413365912915791600D120D9 /* DailyPrompt.swift in Sources */,
+				4133658729155FBF00D120D9 /* User.swift in Sources */,
+				4133658F291578E500D120D9 /* FriendRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
