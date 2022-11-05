@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41283516291700590072F3E6 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41283515291700590072F3E6 /* UserRepository.swift */; };
+		41283518291706F70072F3E6 /* LocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41283517291706F70072F3E6 /* LocationRepository.swift */; };
 		4133658729155FBF00D120D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4133658629155FBF00D120D9 /* User.swift */; };
 		413365892915603500D120D9 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413365882915603500D120D9 /* Memory.swift */; };
 		4133658D2915787E00D120D9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4133658C2915787E00D120D9 /* Location.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41283515291700590072F3E6 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		41283517291706F70072F3E6 /* LocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepository.swift; sourceTree = "<group>"; };
 		4133658629155FBF00D120D9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		413365882915603500D120D9 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		4133658C2915787E00D120D9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				E5BFDC492913433300DF0180 /* Assets.xcassets */,
 				E5BFDC592913449400DF0180 /* GoogleService-Info.plist */,
 				E5BFDC4B2913433300DF0180 /* Preview Content */,
+				41283515291700590072F3E6 /* UserRepository.swift */,
+				41283517291706F70072F3E6 /* LocationRepository.swift */,
 			);
 			path = memoMap;
 			sourceTree = "<group>";
@@ -255,9 +261,11 @@
 			files = (
 				413365892915603500D120D9 /* Memory.swift in Sources */,
 				413365932915796600D120D9 /* Prompt.swift in Sources */,
+				41283516291700590072F3E6 /* UserRepository.swift in Sources */,
 				E5BFDC482913433300DF0180 /* ContentView.swift in Sources */,
 				4133658D2915787E00D120D9 /* Location.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
+				41283518291706F70072F3E6 /* LocationRepository.swift in Sources */,
 				413365912915791600D120D9 /* DailyPrompt.swift in Sources */,
 				4133658729155FBF00D120D9 /* User.swift in Sources */,
 				4133658F291578E500D120D9 /* FriendRequest.swift in Sources */,

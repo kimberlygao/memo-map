@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    var userRepository = UserRepository()
+    var locationRepository = LocationRepository()
     var body: some View {
         VStack {
             Image(systemName: "globe")

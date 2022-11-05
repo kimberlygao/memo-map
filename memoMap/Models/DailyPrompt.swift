@@ -11,12 +11,12 @@ import FirebaseFirestoreSwift
 struct DailyPrompt: Identifiable, Codable {
   
   // MARK: Fields
-  @DocumentID var username: String?
+  @DocumentID var id: String?
   var memory: [Memory]
   
   // MARK: Codable
   enum CodingKeys: String, CodingKey {
-    case username
+    case id = "username"
     case memory
   }
 }

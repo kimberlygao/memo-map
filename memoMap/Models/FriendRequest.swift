@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 struct FriendRequest: Identifiable, Codable {
   
   // MARK: Fields
-  @DocumentID var id: Int?
+  @DocumentID var id: String?
   var receiver: String
   var requester: String
   

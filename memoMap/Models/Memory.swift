@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 struct Memory: Identifiable, Codable {
   
   // MARK: Fields
-  @DocumentID var id: Int?
+  @DocumentID var id: String?
   var caption: String
   var front: String
   var back: String
@@ -21,11 +21,11 @@ struct Memory: Identifiable, Codable {
   
   // MARK: Codable
   enum CodingKeys: String, CodingKey {
+    case caption
+    case front
+    case back
+    case location
     case username
-    case email
-    case friends
-    case memories
-    case name
-    case password
+    case timestamp
   }
 }
