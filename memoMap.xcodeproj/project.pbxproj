@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E54B64E929170F42006BBD2F /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64E829170F42006BBD2F /* Camera.swift */; };
+		E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EA29186494006BBD2F /* CameraControlsView.swift */; };
+		E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */; };
+		E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EE29187345006BBD2F /* LocationRowView.swift */; };
+		E54B64F1291875BB006BBD2F /* MiniPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */; };
 		E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC452913433300DF0180 /* memoMapApp.swift */; };
 		E5BFDC482913433300DF0180 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC472913433300DF0180 /* ContentView.swift */; };
 		E5BFDC4A2913433300DF0180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BFDC492913433300DF0180 /* Assets.xcassets */; };
@@ -51,6 +55,10 @@
 
 /* Begin PBXFileReference section */
 		E54B64E829170F42006BBD2F /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		E54B64EA29186494006BBD2F /* CameraControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControlsView.swift; sourceTree = "<group>"; };
+		E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryControlsView.swift; sourceTree = "<group>"; };
+		E54B64EE29187345006BBD2F /* LocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRowView.swift; sourceTree = "<group>"; };
+		E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPhotoView.swift; sourceTree = "<group>"; };
 		E5BFDC422913433300DF0180 /* memoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BFDC452913433300DF0180 /* memoMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoMapApp.swift; sourceTree = "<group>"; };
 		E5BFDC472913433300DF0180 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -150,8 +158,12 @@
 				E5BFDC472913433300DF0180 /* ContentView.swift */,
 				E5BFDC962913499D00DF0180 /* MapView.swift */,
 				E5BFDC98291349A500DF0180 /* CameraView.swift */,
+				E54B64EA29186494006BBD2F /* CameraControlsView.swift */,
+				E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */,
+				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
 				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
 				E5BFDC9C29134D2D00DF0180 /* ImagePickerView.swift */,
+				E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,16 +289,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E54B64F1291875BB006BBD2F /* MiniPhotoView.swift in Sources */,
 				E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */,
 				E5BFDC482913433300DF0180 /* ContentView.swift in Sources */,
 				E5BFDC972913499D00DF0180 /* MapView.swift in Sources */,
 				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
+				E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
 				E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */,
 				E54B64E929170F42006BBD2F /* Camera.swift in Sources */,
 				E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */,
 				E5BFDC9D29134D2D00DF0180 /* ImagePickerView.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
+				E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */,
+				E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

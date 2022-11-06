@@ -17,10 +17,12 @@ struct CameraView: View {
         .ignoresSafeArea(.all, edges: .all)
       
       VStack {
+        // after photo is taken -> add controls
         if camera.isTaken {
           HStack {
             Spacer()
-            Button(action: {camera.reTake()}, label: {
+            Button(action: {if camera.isTaken{
+              camera.reTake()} else {}}, label: {
               Image(systemName: "xmark")
                 .foregroundColor(.white)
                 .padding()
@@ -32,19 +34,10 @@ struct CameraView: View {
         Spacer()
         HStack {
           if camera.isTaken {
-            Button(action: {if !camera.isSaved{camera.savePhoto()}}, label: {
-              Text("Save")
-                .foregroundColor(.black)
-                .fontWeight(.semibold)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 20)
-                .background(Color.white)
-                .clipShape(Capsule())
-            })
-            .padding(.leading)
-            
-            Spacer()
-            
+            MemoryControlsView()
+              .background(Color.white)
+              .padding(.bottom)
+              .cornerRadius(20)
           } else {
             Button (action: camera.takePhoto, label: {
               ZStack {

@@ -13,20 +13,20 @@ struct ContentView: View {
   @State private var showingAlert = false
   
   var body: some View {
-    TabView {
-      MapView(viewController: viewController)
-        .tabItem {
-          Image(systemName: "map")
-      }.ignoresSafeArea()
+//    TabView {
+//      MapView(viewController: viewController)
+//        .tabItem {
+//          Image(systemName: "map")
+//      }.ignoresSafeArea()
       CameraView()
         .tabItem {
           Image(systemName: "camera")
       }
-      MapView(viewController: viewController)
-        .tabItem {
-          Image(systemName: "mappin.circle")
-      }
-    }
+//      MapView(viewController: viewController)
+//        .tabItem {
+//          Image(systemName: "mappin.circle")
+//      }
+//    }
     
   }
 }
