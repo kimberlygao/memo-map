@@ -18,8 +18,8 @@ struct User: Identifiable, Codable {
   var email: String
   var friends: [User]
 //  var memories: [Memory]
-//  var name: String
-//  var password: String
+  var name: String
+  var password: String
 //  var requests: [FriendRequest]?
   
   // MARK: Codable
@@ -28,8 +28,8 @@ struct User: Identifiable, Codable {
     case email
     case friends
 //    case memories
-//    case name
-//    case password
+    case name
+    case password
 //    case requests = "friend_requests"
   }
   

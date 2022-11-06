@@ -12,11 +12,11 @@ struct DailyPrompt: Identifiable, Codable {
   
   // MARK: Fields
   @DocumentID var id: String?
-  var memory: [Memory]
+  var memory: Memory
   
   // MARK: Codable
   enum CodingKeys: String, CodingKey {
-    case id = "username"
+    case id
     case memory
   }
 }
