@@ -6,15 +6,18 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct User: Identifiable, Codable {
   
   // MARK: Fields
   @DocumentID var id: String?
+//  var ref: DocumentReference?
   var email: String
-  var friends: [String]
-  var memories: [Memory]
+  var friends: [User]
+//  var memories: [Memory]
 //  var name: String
 //  var password: String
 //  var requests: [FriendRequest]?
@@ -24,9 +27,10 @@ struct User: Identifiable, Codable {
     case id
     case email
     case friends
-    case memories
+//    case memories
 //    case name
 //    case password
 //    case requests = "friend_requests"
   }
+  
 }

@@ -18,7 +18,6 @@ class UserRepository: ObservableObject {
   private var cancellables: Set<AnyCancellable> = []
 
   init() {
-    print("init")
     self.get()
   }
 
@@ -30,22 +29,32 @@ class UserRepository: ObservableObject {
           print("Error getting users: \(error.localizedDescription)")
           return
         }
-
+//        print("test")
+//        if let q = querySnapshot {
+//          for doc in q.documents {
+//            print("inside q")
+//            try? print(doc.data)
+//          }
+//          
+//        } else {print("no query snapshot")}
+        
+        
+        
         self.users = querySnapshot?.documents.compactMap { document in
           try? document.data(as: User.self)
         } ?? []
         print("hello")
         print("---------------------------")
-          print("\n")
+        print(self.users)
           for user in self.users {
-            for memory in user.memories {
-              print("memory caption")
-              print(memory.caption)
-            }
-
+//            for memory in user.memories {
+//              print("memory caption")
+//              print(memory.caption)
+//            }
+            print("friends")
+            print(user.friends)
             print("\n")
           }
-        
       }
     print("bye")
   }

@@ -18,12 +18,10 @@ class LocationRepository: ObservableObject {
   private var cancellables: Set<AnyCancellable> = []
 
   init() {
-    print("init")
     self.get()
   }
 
   func get() {
-    print("first line")
     store.collection(path)
       .addSnapshotListener { querySnapshot, error in
         if let error = error {
@@ -34,17 +32,7 @@ class LocationRepository: ObservableObject {
         self.locations = querySnapshot?.documents.compactMap { document in
           try? document.data(as: Location.self)
         } ?? []
-        print("hello")
-        print("---------------------------")
-          print("\n")
-          for location in self.locations {
-            print("address:")
-            print(location.address)
-            print("\n")
-          }
-        
       }
-    print("bye")
   }
 
   // MARK: CRUD methods
