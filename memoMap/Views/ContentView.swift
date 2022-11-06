@@ -17,8 +17,8 @@ struct ContentView: View {
       MapView(viewController: viewController)
         .tabItem {
           Image(systemName: "map")
-      }
-      CameraView(cameraController: cameraController)
+      }.ignoresSafeArea()
+      CameraView()
         .tabItem {
           Image(systemName: "camera")
       }
