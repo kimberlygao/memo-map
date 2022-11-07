@@ -15,7 +15,7 @@ struct Memory: Identifiable, Codable {
   var caption: String
   var front: String
   var back: String
-  var location: [Location]
+//  var location: [Location]
   var username: String
   var timestamp: Date
   
@@ -24,7 +24,7 @@ struct Memory: Identifiable, Codable {
     case caption
     case front
     case back
-    case location
+//    case location
     case username
     case timestamp
   }

@@ -14,7 +14,7 @@ struct User: Identifiable, Codable {
   
   // MARK: Fields
   @DocumentID var id: String?
-//  var ref: DocumentReference?
+  var ref: DocumentReference?
   var email: String
   var friends: [User]
 //  var memories: [Memory]
@@ -31,6 +31,15 @@ struct User: Identifiable, Codable {
     case name
     case password
 //    case requests = "friend_requests"
+  }
+  
+  init(email: String, friends: [User], name: String, password: String) {
+    self.ref = nil
+    self.email = email
+    self.friends = friends
+    self.name = name
+    self.password = password
+    
   }
   
 }
