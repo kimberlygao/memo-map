@@ -16,8 +16,8 @@ struct MemoryControlsView: View {
           Image(systemName: "mappin.and.ellipse")
             .foregroundColor(.black)
             .font(.system(size: 30))
-          Button("Location") {
-
+          Button(action: {}) {
+            Text("Location")
           }
         }
         

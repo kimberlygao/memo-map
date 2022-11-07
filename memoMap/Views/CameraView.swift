@@ -9,12 +9,21 @@ import SwiftUI
 import AVFoundation
 
 struct CameraView: View {
-//  let cameraController : CameraController
-  @StateObject var camera = Camera()
+  //  let cameraController = CameraController()
+  @StateObject var camera = CameraController()
   var body: some View {
     ZStack {
+      
       CameraPreview(camera: camera)
         .ignoresSafeArea(.all, edges: .all)
+      
+//      if camera.isTaken {
+//        Image(uiImage: camera.image2).frame(width: 100, height: 100)
+//      }
+      
+      if camera.image1Done {
+        Image(uiImage: camera.image1).frame(width: 50, height: 50, alignment: .topLeading)
+      }
       
       VStack {
         // after photo is taken -> add controls
@@ -23,11 +32,11 @@ struct CameraView: View {
             Spacer()
             Button(action: {if camera.isTaken{
               camera.reTake()} else {}}, label: {
-              Image(systemName: "xmark")
-                .foregroundColor(.white)
-                .padding()
-                .font(.system(size: 30))
-            })
+                Image(systemName: "xmark")
+                  .foregroundColor(.white)
+                  .padding()
+                  .font(.system(size: 30))
+              })
             .padding(.trailing, 10)
           }
         }
@@ -39,14 +48,7 @@ struct CameraView: View {
               .padding(.bottom)
               .cornerRadius(20)
           } else {
-            Button (action: camera.takePhoto, label: {
-              ZStack {
-                Circle()
-                  .stroke(Color.white, lineWidth: 2)
-                  .frame(width: 65, height: 65)
-               
-              }
-            })
+            CameraControlsView(camera: camera)
           }
         }
         .frame(height: 75)
@@ -58,30 +60,18 @@ struct CameraView: View {
   }
 }
 
-//struct CameraView_Previews: PreviewProvider {
-//  static var previews: some View {
-//      CameraView(cameraController: CameraController)
-//  }
-//}
-
-
 struct CameraPreview: UIViewRepresentable {
+  var camera : CameraController
+  
   func updateUIView(_ uiView: UIView, context: Context) {
-  
+    
   }
-  
-  @ObservedObject var camera : Camera
   
   func makeUIView(context: Context) ->  UIView {
     let view = UIView(frame: UIScreen.main.bounds)
     
-    camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
-    camera.preview.frame = view.frame
-    
-    camera.preview.videoGravity = .resizeAspectFill
+    camera.setUpPreviewLayer()
     view.layer.addSublayer(camera.preview)
-    
-    camera.session.startRunning()
     
     return view
   }
