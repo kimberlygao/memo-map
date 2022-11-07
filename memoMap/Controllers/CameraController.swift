@@ -129,12 +129,11 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
       
       if self.image1Done {
         print("TAKING IMaGE 2")
-        self.flipCamera()
         self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
         print("finished taking image 2")
       } else {
         self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-        
+        self.flipCamera()
       }
     
     }
@@ -149,6 +148,8 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   func reTake() {
     DispatchQueue.global(qos: .background).async {
       self.session.startRunning()
+      
+      self.flipCamera()
       
       DispatchQueue.main.async {
         withAnimation{self.isTaken.toggle()}
@@ -214,7 +215,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     } else {
       print("processing image 2")
       self.photo2 = imageData
-      self.image2 = UIImage(data: self.photo1)!
+      self.image2 = UIImage(data: self.photo2)!
       print(image2)
       self.session.stopRunning()
       

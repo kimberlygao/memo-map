@@ -17,13 +17,41 @@ struct CameraView: View {
       CameraPreview(camera: camera)
         .ignoresSafeArea(.all, edges: .all)
       
-//      if camera.isTaken {
-//        Image(uiImage: camera.image2).frame(width: 100, height: 100)
-//      }
+      //
+      
+      if camera.isTaken {
+        Image(uiImage: camera.image2).resizable().padding(.leading).frame(width: 400, height: 800)
+        
+      }
       
       if camera.image1Done {
-        Image(uiImage: camera.image1).frame(width: 50, height: 50, alignment: .topLeading)
+        VStack{
+          HStack {
+            Image(uiImage: camera.image1).resizable().padding(.leading)
+            .scaledToFit().frame(width: 200, height: 400)
+            Spacer()
+          }
+          Spacer()
+        }
+        
+        
+          
+      
+      
+//      HStack {
+        
+//          Image(uiImage: camera.image1)
+//          CapturedImageView(image: camera.image1)
+//        }
+//
+//        if camera.isTaken {
+//          Image(uiImage: camera.image2).frame(width: 100, height: 100)
+//        }
+        
+        
       }
+      
+      
       
       VStack {
         // after photo is taken -> add controls
@@ -43,10 +71,10 @@ struct CameraView: View {
         Spacer()
         HStack {
           if camera.isTaken {
-            MemoryControlsView()
-              .background(Color.white)
-              .padding(.bottom)
-              .cornerRadius(20)
+//            MemoryControlsView()
+//              .background(Color.white)
+//              .padding(.bottom)
+//              .cornerRadius(20)
           } else {
             CameraControlsView(camera: camera)
           }
