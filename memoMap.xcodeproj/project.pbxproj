@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E54909A3291AE0D5003AEF7C /* LocationSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54909A2291AE0D5003AEF7C /* LocationSelectView.swift */; };
 		E54B64E929170F42006BBD2F /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64E829170F42006BBD2F /* Camera.swift */; };
 		E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EA29186494006BBD2F /* CameraControlsView.swift */; };
 		E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E54909A2291AE0D5003AEF7C /* LocationSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectView.swift; sourceTree = "<group>"; };
 		E54B64E829170F42006BBD2F /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		E54B64EA29186494006BBD2F /* CameraControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControlsView.swift; sourceTree = "<group>"; };
 		E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryControlsView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */,
 				E54B64F229188969006BBD2F /* CapturedImageView.swift */,
 				E54B64F429188FF5006BBD2F /* CameraView2.swift */,
+				E54909A2291AE0D5003AEF7C /* LocationSelectView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
 				E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */,
 				E54B64E929170F42006BBD2F /* Camera.swift in Sources */,
+				E54909A3291AE0D5003AEF7C /* LocationSelectView.swift in Sources */,
 				E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */,
 				E5BFDC9D29134D2D00DF0180 /* ImagePickerView.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,

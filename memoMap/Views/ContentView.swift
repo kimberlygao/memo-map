@@ -13,26 +13,46 @@ struct ContentView: View {
   @State private var showingAlert = false
   
   var body: some View {
-//    TabView {
+    CameraView(camera: cameraController)
+//
+//    VStack {
 //      MapView(viewController: viewController)
-//        .tabItem {
-//          Image(systemName: "map")
-//      }.ignoresSafeArea()
-      CameraView()
-        .tabItem {
-          Image(systemName: "camera")
-      }
-//      MapView(viewController: viewController)
-//        .tabItem {
-//          Image(systemName: "mappin.circle")
+//
+//      HStack {
+////        Spacer()
+////        Image(systemName: "map").padding()
+////        Spacer()
+////        Image(systemName: "mappin.circle")
+////        Spacer()
+//        NavigationLink {
+//            CameraView(camera: cameraController)
+//        } label: {
+//          Image(systemName: "camera")
+//        }
 //      }
 //    }
+   
+
+    //    TabView {
+    //      MapView(viewController: viewController)
+    //        .tabItem {
+    //          Image(systemName: "map")
+    //      }.ignoresSafeArea()
+    //      CameraView()
+    //        .tabItem {
+    //          Image(systemName: "camera")
+    //      }
+    //      MapView(viewController: viewController)
+    //        .tabItem {
+    //          Image(systemName: "mappin.circle")
+    //      }
+    //    }
     
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }

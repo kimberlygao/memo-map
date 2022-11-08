@@ -14,7 +14,12 @@ struct LocationRowView: View {
           .foregroundColor(.black)
           .font(.system(size: 30))
         Text("Location Name")
+          .foregroundColor(.black)
+        Spacer()
       }
+      .padding()
+      .background(Color("Pastel"))
+      .cornerRadius(10)
     }
 }
 

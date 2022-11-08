@@ -67,7 +67,7 @@ struct CameraView: View {
             MemoryControlsView()
               .background(Color.white)
               .padding(.bottom)
-              .cornerRadius(20)
+              .cornerRadius(30)
           } else {
             CameraControlsView(camera: camera)
           }
