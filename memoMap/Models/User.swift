@@ -33,6 +33,15 @@ struct User: Identifiable, Codable {
     case requests = "friend_requests"
   }
   
+  init(email: String, friends: [String], memories: [String], name: String, password: String, requests: [String]) {
+    self.email = email
+    self.friends = friends
+    self.memories = memories
+    self.name = name
+    self.password = password
+    self.requests = requests
+      
+  }
   
 }
 

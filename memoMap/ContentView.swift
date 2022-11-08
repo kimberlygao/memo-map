@@ -6,20 +6,26 @@
 //
 
 import SwiftUI
+import Combine
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct ContentView: View {
-    var userRepository = UserRepository()
-    var locationRepository = LocationRepository()
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-//          Text("\(userRepository.users)")
-        }
-        .padding()
+  @ObservedObject var userRepository = UserRepository()
+  var locationRepository = LocationRepository()
+  
+  var body: some View {
+    VStack {
+      Image(systemName: "globe")
+        .imageScale(.large)
+        .foregroundColor(.accentColor)
+      Text("Hello, world!").onAppear {
+        userRepository.getUserData(username: "chloec")
+      }
+      Text(userRepository.name)
     }
+    .padding()
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
