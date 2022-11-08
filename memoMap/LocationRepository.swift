@@ -32,6 +32,10 @@ class LocationRepository: ObservableObject {
         self.locations = querySnapshot?.documents.compactMap { document in
           try? document.data(as: Location.self)
         } ?? []
+        print("---------------------------")
+        print("hello location")
+        print(self.locations)
+        print("\n")
       }
   }
 

@@ -12,8 +12,8 @@ struct FriendRequest: Identifiable, Codable {
   
   // MARK: Fields
   @DocumentID var id: String?
-  var receiver: User
-  var requester: User
+  var receiver: String
+  var requester: String
   
   // MARK: Codable
   enum CodingKeys: String, CodingKey {

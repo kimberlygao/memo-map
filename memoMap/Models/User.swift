@@ -16,30 +16,24 @@ struct User: Identifiable, Codable {
   @DocumentID var id: String?
   var ref: DocumentReference?
   var email: String
-  var friends: [User]
-//  var memories: [Memory]
+  var friends: [String]
+  var memories: [String]
   var name: String
   var password: String
-//  var requests: [FriendRequest]?
+  var requests: [String]?
   
   // MARK: Codable
   enum CodingKeys: String, CodingKey {
     case id
     case email
     case friends
-//    case memories
+    case memories
     case name
     case password
-//    case requests = "friend_requests"
+    case requests = "friend_requests"
   }
   
-  init(email: String, friends: [User], name: String, password: String) {
-    self.ref = nil
-    self.email = email
-    self.friends = friends
-    self.name = name
-    self.password = password
-    
-  }
   
 }
+
+
