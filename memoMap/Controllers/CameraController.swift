@@ -22,7 +22,8 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   
   @Published var isSaved = false
 
-  
+  @Published var photos = []
+  @Published var images : [UIImage] = []
   @Published var photo1 = Data(count: 0)
   @Published var photo2 = Data(count: 0)
   
@@ -125,35 +126,86 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   }
   
   func takePhoto() {
+    print("TAKEPHOTO")
     DispatchQueue.global(qos: .background).async {
-      
-      if self.image1Done {
-        print("TAKING IMaGE 2")
-        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-        print("finished taking image 2")
-      } else {
-        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-        self.flipCamera()
-      }
+      self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+//      if self.image1Done {
+//        print("TAKING IMaGE 2")
+//        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+//        print("finished taking image 2")
+//      } else {
+//        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+//        self.flipCamera()
+//      }
     
     }
-    
-    
   }
   
-  func displayPhoto() {
+  func photoOutput(_ _output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+    if error != nil {
+      return
+    }
+    
+    guard let imageData = photo.fileDataRepresentation() else {return}
+    
+    var photo = Data(count: 0)
+    photo = imageData
+
+    self.images.append(UIImage(data: photo)!)
+    
+    self.photos.append(photo)
+    
+    print(photos)
+    
+    if photos.count == 1 {
+      DispatchQueue.main.async {
+        withAnimation{self.image1Done.toggle()}
+      }
+      self.flipCamera()
+      self.takePhoto()
+    } else {
+      self.session.stopRunning()
+      
+      DispatchQueue.main.async {
+        withAnimation{self.isTaken.toggle()}
+      }
+    }
+          
+//    if !image1Done {
+//      print("processing image 1")
+//      self.photo1 = imageData
+//      self.image1 = UIImage(data: self.photo1)!
+//      print(image1)
+//
+//      DispatchQueue.main.async {
+//        withAnimation{self.image1Done.toggle()}
+//      }
+//      
+//      self.takePhoto()
+//    } else {
+//      print("processing image 2")
+//      self.photo2 = imageData
+//      self.image2 = UIImage(data: self.photo2)!
+//      print(image2)
+//      self.session.stopRunning()
+//
+//      DispatchQueue.main.async {
+//        withAnimation{self.isTaken.toggle()}
+//      }
+//    }
     
   }
   
   func reTake() {
+    print("RETAKING")
     DispatchQueue.global(qos: .background).async {
-      self.session.startRunning()
-      
       self.flipCamera()
+      self.session.startRunning()
       
       DispatchQueue.main.async {
         withAnimation{self.isTaken.toggle()}
-        
+        self.photos = []
+        self.images = []
         self.isSaved = false
         self.image1Done = false
       }
@@ -192,38 +244,6 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
 //    @unknown default:
 //      <#fatalError()#>
 //    }
-  }
-  
-  func photoOutput(_ _output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-    if error != nil {
-      return
-    }
-    
-    guard let imageData = photo.fileDataRepresentation() else {return}
-    
-    if !image1Done {
-      print("processing image 1")
-      self.photo1 = imageData
-      self.image1 = UIImage(data: self.photo1)!
-      print(image1)
-      
-      DispatchQueue.main.async {
-        withAnimation{self.image1Done.toggle()}
-      }
-      
-      self.takePhoto()
-    } else {
-      print("processing image 2")
-      self.photo2 = imageData
-      self.image2 = UIImage(data: self.photo2)!
-      print(image2)
-      self.session.stopRunning()
-      
-      DispatchQueue.main.async {
-        withAnimation{self.isTaken.toggle()}
-      }
-    }
-    
   }
   
   func savePhoto () {

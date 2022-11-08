@@ -16,40 +16,33 @@ struct CameraView: View {
       
       CameraPreview(camera: camera)
         .ignoresSafeArea(.all, edges: .all)
-      
-      //
+
       
       if camera.isTaken {
-        Image(uiImage: camera.image2).resizable().padding(.leading).frame(width: 400, height: 800)
-        
+        GeometryReader { geo in
+          Image(uiImage: camera.images[1])
+            .resizable()
+            .scaledToFill()
+            .frame(width: geo.size.width + 20, height: geo.size.width / 3 * 4)
+            .ignoresSafeArea(.all, edges: .all)
+        }
       }
       
       if camera.image1Done {
         VStack{
           HStack {
-            Image(uiImage: camera.image1).resizable().padding(.leading)
-            .scaledToFit().frame(width: 200, height: 400)
+            Image(uiImage: camera.images[0])
+              .resizable()
+              .scaledToFill()
+              .frame(width: 150, height: 200)
             Spacer()
           }
           Spacer()
         }
-        
-        
-          
-      
-      
-//      HStack {
-        
-//          Image(uiImage: camera.image1)
-//          CapturedImageView(image: camera.image1)
-//        }
-//
-//        if camera.isTaken {
-//          Image(uiImage: camera.image2).frame(width: 100, height: 100)
-//        }
-        
-        
+        .padding(20)
       }
+        
+        
       
       
       
@@ -71,10 +64,10 @@ struct CameraView: View {
         Spacer()
         HStack {
           if camera.isTaken {
-//            MemoryControlsView()
-//              .background(Color.white)
-//              .padding(.bottom)
-//              .cornerRadius(20)
+            MemoryControlsView()
+              .background(Color.white)
+              .padding(.bottom)
+              .cornerRadius(20)
           } else {
             CameraControlsView(camera: camera)
           }

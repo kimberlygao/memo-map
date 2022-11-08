@@ -11,7 +11,7 @@ struct CameraControlsView: View {
     @StateObject var camera = CameraController()
     var body: some View {
       HStack {
-        Button (action: camera.flipCamera, label: {
+        Button (action: {}, label: {
           Image(systemName: "bolt")
             .foregroundColor(.white)
             .padding()
