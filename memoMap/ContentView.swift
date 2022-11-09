@@ -13,6 +13,7 @@ import FirebaseFirestoreSwift
 struct ContentView: View {
   @ObservedObject var userController = UserController()
   @ObservedObject var locationController = LocationController()
+  @ObservedObject var memoryController = MemoryController()
   
   var body: some View {
     VStack {
@@ -21,6 +22,7 @@ struct ContentView: View {
         .foregroundColor(.accentColor)
       Text(userController.user.name)
       Text(locationController.location.name)
+      Text(memoryController.memory.caption)
     }
     .padding()
   }

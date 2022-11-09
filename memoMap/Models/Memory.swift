@@ -15,7 +15,7 @@ struct Memory: Identifiable, Codable {
   var caption: String
   var front: String
   var back: String
-  var location: [String]
+  var location: String
   var username: String
   var timestamp: Date
   
@@ -27,5 +27,15 @@ struct Memory: Identifiable, Codable {
     case location
     case username
     case timestamp
+  }
+  
+  init(id: String, caption: String, front: String, back: String, location: String, username: String, timestamp: Date) {
+    self.id = id
+    self.caption = caption
+    self.front = front
+    self.back = back
+    self.location = location
+    self.username = username
+    self.timestamp = timestamp
   }
 }
