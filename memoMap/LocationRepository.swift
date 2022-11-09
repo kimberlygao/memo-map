@@ -32,39 +32,35 @@ class LocationRepository: ObservableObject {
         self.locations = querySnapshot?.documents.compactMap { document in
           try? document.data(as: Location.self)
         } ?? []
-        print("---------------------------")
-        print("hello location")
-        print(self.locations)
-        print("\n")
       }
   }
 
   // MARK: CRUD methods
-  func add(_ user: User) {
+  func add(_ location: Location) {
     do {
-      let newUser = user
-      _ = try store.collection(path).addDocument(from: newUser)
+      let newLocation = location
+      _ = try store.collection(path).addDocument(from: newLocation)
     } catch {
-      fatalError("Unable to add user: \(error.localizedDescription).")
+      fatalError("Unable to add location: \(error.localizedDescription).")
     }
   }
 
-  func update(_ user: User) {
-    guard let username = user.id else { return }
+  func update(_ location: Location) {
+    guard let locationID = location.id else { return }
     
     do {
-      try store.collection(path).document(username).setData(from: user)
+      try store.collection(path).document(locationID).setData(from: location)
     } catch {
-      fatalError("Unable to update user: \(error.localizedDescription).")
+      fatalError("Unable to update location: \(error.localizedDescription).")
     }
   }
 
-  func remove(_ user: User) {
-    guard let username = user.id else { return }
+  func remove(_ location: Location) {
+    guard let locationID = location.id else { return }
     
-    store.collection(path).document(username).delete { error in
+    store.collection(path).document(locationID).delete { error in
       if let error = error {
-        print("Unable to remove user: \(error.localizedDescription)")
+        print("Unable to remove location: \(error.localizedDescription)")
       }
     }
   }

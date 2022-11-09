@@ -15,6 +15,8 @@
 		4133658F291578E500D120D9 /* FriendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4133658E291578E500D120D9 /* FriendRequest.swift */; };
 		413365912915791600D120D9 /* DailyPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413365902915791600D120D9 /* DailyPrompt.swift */; };
 		413365932915796600D120D9 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413365922915796600D120D9 /* Prompt.swift */; };
+		41A6BC27291C3A68004FE2F4 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6BC26291C3A68004FE2F4 /* UserController.swift */; };
+		41A6BC29291C3D8B004FE2F4 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6BC28291C3D8B004FE2F4 /* LocationController.swift */; };
 		E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC452913433300DF0180 /* memoMapApp.swift */; };
 		E5BFDC482913433300DF0180 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC472913433300DF0180 /* ContentView.swift */; };
 		E5BFDC4A2913433300DF0180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BFDC492913433300DF0180 /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		4133658E291578E500D120D9 /* FriendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequest.swift; sourceTree = "<group>"; };
 		413365902915791600D120D9 /* DailyPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPrompt.swift; sourceTree = "<group>"; };
 		413365922915796600D120D9 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
+		41A6BC26291C3A68004FE2F4 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		41A6BC28291C3D8B004FE2F4 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		E5BFDC422913433300DF0180 /* memoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BFDC452913433300DF0180 /* memoMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoMapApp.swift; sourceTree = "<group>"; };
 		E5BFDC472913433300DF0180 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				E5BFDC4B2913433300DF0180 /* Preview Content */,
 				41283515291700590072F3E6 /* UserRepository.swift */,
 				41283517291706F70072F3E6 /* LocationRepository.swift */,
+				41A6BC26291C3A68004FE2F4 /* UserController.swift */,
+				41A6BC28291C3D8B004FE2F4 /* LocationController.swift */,
 			);
 			path = memoMap;
 			sourceTree = "<group>";
@@ -262,6 +268,8 @@
 				413365892915603500D120D9 /* Memory.swift in Sources */,
 				413365932915796600D120D9 /* Prompt.swift in Sources */,
 				41283516291700590072F3E6 /* UserRepository.swift in Sources */,
+				41A6BC27291C3A68004FE2F4 /* UserController.swift in Sources */,
+				41A6BC29291C3D8B004FE2F4 /* LocationController.swift in Sources */,
 				E5BFDC482913433300DF0180 /* ContentView.swift in Sources */,
 				4133658D2915787E00D120D9 /* Location.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,

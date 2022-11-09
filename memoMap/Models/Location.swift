@@ -27,4 +27,13 @@ struct Location: Identifiable, Codable {
     case longitude
     case name
   }
+  
+  init(id: String, address: String, city: String, latitude: Float, longitude: Float, name: String) {
+    self.id = id
+    self.address = address
+    self.city = city
+    self.latitude = latitude
+    self.longitude = longitude
+    self.name = name
+  }
 }

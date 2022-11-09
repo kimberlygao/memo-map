@@ -11,18 +11,16 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct ContentView: View {
-  @ObservedObject var userRepository = UserRepository()
-  var locationRepository = LocationRepository()
+  @ObservedObject var userController = UserController()
+  @ObservedObject var locationController = LocationController()
   
   var body: some View {
     VStack {
       Image(systemName: "globe")
         .imageScale(.large)
         .foregroundColor(.accentColor)
-      Text("Hello, world!").onAppear {
-        userRepository.getUserData(username: "chloec")
-      }
-      Text(userRepository.name)
+      Text(userController.user.name)
+      Text(locationController.location.name)
     }
     .padding()
   }
