@@ -35,6 +35,8 @@ struct CameraView: View {
               .resizable()
               .scaledToFill()
               .frame(width: 150, height: 200)
+              .cornerRadius(20)
+              
             Spacer()
           }
           Spacer()

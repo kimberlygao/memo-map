@@ -14,20 +14,35 @@ struct ContentView: View {
   @State private var showingAlert = false
   
   var body: some View {
-    TabView {
-      MapView(viewController: viewController)
-        .tabItem {
+    NavigationView {
+      TabView {
+        ZStack {
+          MapView(viewController: viewController).ignoresSafeArea()
+          VStack {
+            HStack {
+              NavigationLink(destination: AddFriendsView()) {
+                Image(systemName: "person.badge.plus")
+                  .padding()
+                  .font(.system(size: 24))
+                  .foregroundColor(.black)
+              }
+              Spacer()
+            }
+            Spacer()
+          }
+        }.tabItem {
           Image(systemName: "map")
-      }.ignoresSafeArea()
-      CameraView(camera: camera, memoryController: memoryController)
-        .tabItem {
-          Image(systemName: "camera")
+        }
+        CameraView(camera: camera, memoryController: memoryController)
+          .tabItem {
+            Image(systemName: "camera")
+        }
+        MapView(viewController: viewController)
+          .tabItem {
+            Image(systemName: "mappin.circle")
+        }
+        
       }
-      MapView(viewController: viewController)
-        .tabItem {
-          Image(systemName: "mappin.circle")
-      }
-      
     }
     .onAppear(perform: {
       camera.check()

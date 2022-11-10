@@ -52,6 +52,24 @@ class MemoryController: ObservableObject {
     let username = "chloec" // later on make this username of curr user
     
     let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time)
+//    self.uploadImagePic(field: "back", image: back)
+//    self.uploadImagePic(field: "front", image: front)
     memoryRepository.add(mem)
   }
+  
+  func uploadImagePic(field: String, image: Data) {
+      let filePath = "memories/1" // path where you wanted to store img in storage
+      
+      Firestore.firestore().collection("memories").document("1").setData([field : image as Data]){(error) in
+        if let error = error {
+          print(error.localizedDescription)
+          return
+        }else{
+          //store downloadURL
+          print("works")
+        }
+      }
+  //    Firestore.firestore().collection("memories").document("1").updateData({"front": downloadURL})
+    }
+  
 }

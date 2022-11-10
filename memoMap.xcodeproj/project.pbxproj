@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
+		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E521D734291CB252002EB6FF /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D731291CB252002EB6FF /* UserRepository.swift */; };
 		E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D732291CB252002EB6FF /* PlaceRepository.swift */; };
 		E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D733291CB252002EB6FF /* MemoryRepository.swift */; };
@@ -66,6 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
+		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
 		E521D731291CB252002EB6FF /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		E521D732291CB252002EB6FF /* PlaceRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
 		E521D733291CB252002EB6FF /* MemoryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryRepository.swift; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 				E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */,
 				E54B64F229188969006BBD2F /* CapturedImageView.swift */,
 				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
+				E51B3B54291CD20D00399450 /* AddFriendsView.swift */,
+				E51B3B56291CD55E00399450 /* FriendsProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,6 +349,8 @@
 				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
 				E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */,
 				E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */,
+				E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */,
+				E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
 				E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */,
 				E54B64E929170F42006BBD2F /* Camera.swift in Sources */,
