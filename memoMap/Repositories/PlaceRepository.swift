@@ -32,6 +32,8 @@ class PlaceRepository: ObservableObject {
         self.places = querySnapshot?.documents.compactMap { document in
           try? document.data(as: Place.self)
         } ?? []
+          
+          print("in repository: \(self.places)")
       }
   }
 

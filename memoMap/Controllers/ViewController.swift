@@ -8,7 +8,7 @@
 import Foundation
 
 class ViewController {
-  let current : Location = Location()
+//  let current : Location = Location()
 //  let carLocation : Location = Location()
 //  
 //  func generateTitle() -> String {

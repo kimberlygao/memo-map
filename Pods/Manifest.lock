@@ -1,0 +1,20 @@
+PODS:
+  - FloatingPanel (2.5.5)
+  - SwiftyJSON (5.0.1)
+
+DEPENDENCIES:
+  - FloatingPanel
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - FloatingPanel
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  FloatingPanel: a27e7827e0f710fa6236fe2596dd1b5484cb4fc1
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+
+PODFILE CHECKSUM: 16b3b62032086365975e95f84893f030a1637a30
+
+COCOAPODS: 1.11.3

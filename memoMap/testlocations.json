@@ -1,0 +1,18 @@
+{
+    "locations": [
+        {
+            "address": "1737 E Carson St, Pittsburgh, PA 15203",
+            "city" "Pittsburgh",
+            "latitude": 40.4288961,
+            "longitude": -79.9807498,
+            "name": "Delainie's Coffee"
+        },
+        {
+            "address": "1733 E Carson St, Pittsburgh, PA 15203",
+            "city" "Pittsburgh",
+            "latitude": 40.4290,
+            "longitude": -79.9809,
+            "name": "Bird on the Run South Side"
+        }
+    ]
+}

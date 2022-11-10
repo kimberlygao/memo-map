@@ -14,7 +14,8 @@ class PlaceController: ObservableObject {
   @Published var place: Place = Place(id: "", address: "", city: "", latitude: 0, longitude: 0, name: "")
   
   init() {
-    getPlaceData(id: "WDh4Ypy1PkNoC2u8JzcG")
+    getPlaceData(id: "1")
+    print("in place ontroller: \(self.places)")
   }
   
   func getPlaceData(id: String) {
@@ -28,8 +29,8 @@ class PlaceController: ObservableObject {
         
         let address = data!["address"]! as? String ?? ""
         let city = data!["city"]! as? String ?? ""
-        let latitude = data!["latitude"]! as? Float ?? 0.0
-        let longitude = data!["longitude"]! as? Float ?? 0.0
+        let latitude = data!["latitude"]! as? Double ?? 0.00
+        let longitude = data!["longitude"]! as? Double ?? 0.00
         let name = data!["name"]! as? String ?? ""
         
         self.place = Place(id: id, address: address, city: city, latitude: latitude, longitude: longitude, name: name)
@@ -39,4 +40,8 @@ class PlaceController: ObservableObject {
       }
     }
   }
+    
+    func addAllPlaces () {
+        
+    }
 }
