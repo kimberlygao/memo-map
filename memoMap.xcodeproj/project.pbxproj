@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E521D734291CB252002EB6FF /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D731291CB252002EB6FF /* UserRepository.swift */; };
+		E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D732291CB252002EB6FF /* PlaceRepository.swift */; };
+		E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D733291CB252002EB6FF /* MemoryRepository.swift */; };
 		E54B64E929170F42006BBD2F /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64E829170F42006BBD2F /* Camera.swift */; };
 		E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EA29186494006BBD2F /* CameraControlsView.swift */; };
 		E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */; };
@@ -19,7 +22,6 @@
 		E55AD3AB291C9C0100F46D54 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A5291C9C0100F46D54 /* Place.swift */; };
 		E55AD3AC291C9C0100F46D54 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A6291C9C0100F46D54 /* User.swift */; };
 		E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A7291C9C0100F46D54 /* DailyPrompt.swift */; };
-		E55AD3AF291C9C4F00F46D54 /* Repositories in Resources */ = {isa = PBXBuildFile; fileRef = E55AD3AE291C9C4F00F46D54 /* Repositories */; };
 		E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */; };
 		E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B4291C9D9400F46D54 /* UserController.swift */; };
 		E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */; };
@@ -64,6 +66,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E521D731291CB252002EB6FF /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		E521D732291CB252002EB6FF /* PlaceRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
+		E521D733291CB252002EB6FF /* MemoryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryRepository.swift; sourceTree = "<group>"; };
 		E54B64E829170F42006BBD2F /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		E54B64EA29186494006BBD2F /* CameraControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControlsView.swift; sourceTree = "<group>"; };
 		E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryControlsView.swift; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		E55AD3A5291C9C0100F46D54 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		E55AD3A6291C9C0100F46D54 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E55AD3A7291C9C0100F46D54 /* DailyPrompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyPrompt.swift; sourceTree = "<group>"; };
-		E55AD3AE291C9C4F00F46D54 /* Repositories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Repositories; path = memoMap/Repositories; sourceTree = SOURCE_ROOT; };
 		E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryController.swift; sourceTree = "<group>"; };
 		E55AD3B4291C9D9400F46D54 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E521D730291CB252002EB6FF /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E521D731291CB252002EB6FF /* UserRepository.swift */,
+				E521D732291CB252002EB6FF /* PlaceRepository.swift */,
+				E521D733291CB252002EB6FF /* MemoryRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		E5BFDC392913433300DF0180 = {
 			isa = PBXGroup;
 			children = (
@@ -153,9 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				E5BFDCA329134FD900DF0180 /* Info.plist */,
+				E521D730291CB252002EB6FF /* Repositories */,
 				E5BFDC9E29134DD600DF0180 /* Controllers */,
 				E5BFDC452913433300DF0180 /* memoMapApp.swift */,
-				E55AD3AE291C9C4F00F46D54 /* Repositories */,
 				E5BFDC93291347A000DF0180 /* Models */,
 				E5BFDC922913474E00DF0180 /* Views */,
 				E5BFDC592913449400DF0180 /* GoogleService-Info.plist */,
@@ -306,7 +320,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E55AD3AF291C9C4F00F46D54 /* Repositories in Resources */,
 				E5BFDC4D2913433300DF0180 /* Preview Assets.xcassets in Resources */,
 				E5BFDC4A2913433300DF0180 /* Assets.xcassets in Resources */,
 				E5BFDC5A2913449400DF0180 /* GoogleService-Info.plist in Resources */,
@@ -334,6 +347,7 @@
 				E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */,
 				E54B64E929170F42006BBD2F /* Camera.swift in Sources */,
 				E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */,
+				E521D734291CB252002EB6FF /* UserRepository.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
 				E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */,
 				E54B64F329188969006BBD2F /* CapturedImageView.swift in Sources */,
@@ -342,6 +356,8 @@
 				E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */,
 				E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */,
 				E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */,
+				E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */,
+				E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */,
 				E55AD3AC291C9C0100F46D54 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
