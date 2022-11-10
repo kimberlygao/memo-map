@@ -18,10 +18,12 @@ class PlaceRepository: ObservableObject {
   private var cancellables: Set<AnyCancellable> = []
 
   init() {
-    self.get()
+    self.get({ (places) -> Void in
+      self.places = places
+    })
   }
 
-  func get() {
+  func get(_ completionHandler: @escaping (_ places: [Place]) -> Void) {
     store.collection(path)
       .addSnapshotListener { querySnapshot, error in
         if let error = error {
@@ -29,10 +31,13 @@ class PlaceRepository: ObservableObject {
           return
         }
 
-        self.places = querySnapshot?.documents.compactMap { document in
+        let places = querySnapshot?.documents.compactMap { document in
           try? document.data(as: Place.self)
         } ?? []
+        completionHandler(places)
+        print("repo: \(self.places)")
       }
+    print("outside: \(self.places)")
   }
 
   // MARK: CRUD methods

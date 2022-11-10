@@ -10,43 +10,46 @@ import SwiftUI
 struct ContentView: View {
   let viewController = ViewController()
   let memoryController = MemoryController()
-  @StateObject var camera = CameraController()
+  @ObservedObject var placeController = PlaceController()
+//  @StateObject var camera = CameraController()
   @State private var showingAlert = false
   
   var body: some View {
-    NavigationView {
-      TabView {
-        ZStack {
-          MapView(viewController: viewController).ignoresSafeArea()
-          VStack {
-            HStack {
-              NavigationLink(destination: AddFriendsView()) {
-                Image(systemName: "person.badge.plus")
-                  .padding()
-                  .font(.system(size: 24))
-                  .foregroundColor(.black)
-              }
-              Spacer()
-            }
-            Spacer()
-          }
-        }.tabItem {
-          Image(systemName: "map")
-        }
-        CameraView(camera: camera, memoryController: memoryController)
-          .tabItem {
-            Image(systemName: "camera")
-        }
-        MapView(viewController: viewController)
-          .tabItem {
-            Image(systemName: "mappin.circle")
-        }
-        
-      }
-    }
-    .onAppear(perform: {
-      camera.check()
-    })
+    Text("hi").onAppear {placeController.getPlaceData()}
+    Text(placeController.newplace)
+//    NavigationView {
+//      TabView {
+//        ZStack {
+//          MapView(viewController: viewController).ignoresSafeArea()
+//          VStack {
+//            HStack {
+//              NavigationLink(destination: AddFriendsView()) {
+//                Image(systemName: "person.badge.plus")
+//                  .padding()
+//                  .font(.system(size: 24))
+//                  .foregroundColor(.black)
+//              }
+//              Spacer()
+//            }
+//            Spacer()
+//          }
+//        }.tabItem {
+//          Image(systemName: "map")
+//        }
+//        CameraView(camera: camera, memoryController: memoryController)
+//          .tabItem {
+//            Image(systemName: "camera")
+//        }
+//        MapView(viewController: viewController)
+//          .tabItem {
+//            Image(systemName: "mappin.circle")
+//        }
+//
+//      }
+//    }
+//    .onAppear(perform: {
+//      camera.check()
+//    })
 //
 //    VStack {
 //      MapView(viewController: viewController)
