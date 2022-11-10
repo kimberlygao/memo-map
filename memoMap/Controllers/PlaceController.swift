@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 
 class PlaceController: ObservableObject {
   @Published var places: [Place] = PlaceRepository().places
-  @Published var places: Place = Place(id: "", address: "", city: "", latitude: 0, longitude: 0, name: "")
+  @Published var place: Place = Place(id: "", address: "", city: "", latitude: 0, longitude: 0, name: "")
   
   init() {
     getPlaceData(id: "WDh4Ypy1PkNoC2u8JzcG")
