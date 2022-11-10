@@ -17,9 +17,12 @@ struct MemoryControlsView: View {
         Image(systemName: "mappin.and.ellipse")
           .foregroundColor(.black)
           .font(.system(size: 30))
-        Button(action: {}) {
-          Text("Location")
-        }
+        Menu("Location") {
+          Button("One", action: {})
+          Button("Two", action: {})
+          Button("Three", action: {})
+        }.underline()
+          .foregroundColor(.black)
       }
       
       TextField("Add a caption...", text: $caption)
@@ -28,14 +31,12 @@ struct MemoryControlsView: View {
       
       HStack {
         Spacer()
-        NavigationLink(destination: MapView(viewController: viewController), label: {
-          Button(action: {}, label: {
-            Image(systemName: "paperplane")
-              .foregroundColor(.black)
-              .font(.system(size: 30))
-              .rotationEffect(Angle(degrees: 45))
-              .padding(.leading)
-          })
+        Button(action: {}, label: {
+          Image(systemName: "paperplane")
+            .foregroundColor(.black)
+            .font(.system(size: 30))
+            .rotationEffect(Angle(degrees: 45))
+            .padding(.leading)
         })
       }
       .padding(.bottom, 10)
