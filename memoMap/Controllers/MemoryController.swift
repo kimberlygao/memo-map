@@ -10,11 +10,13 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class MemoryController: ObservableObject {
-  @Published var memories: [Memory] = MemoryRepository().memories
+  var memoryRepository : MemoryRepository = MemoryRepository()
+  @Published var memories: [Memory] = []
   @Published var memory: Memory = Memory(id: "", caption: "", front: "", back: "", location: "", username: "", timestamp: Date())
   
   init() {
     getMemoryData(id: "1")
+    self.memories = self.memoryRepository.memories
   }
   
   func getMemoryData(id: String) {
@@ -22,7 +24,7 @@ class MemoryController: ObservableObject {
     docRef.getDocument { (document, error) in
       if let document = document, document.exists {
         let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//        print("Document data: \(dataDescription)")
+        //        print("Document data: \(dataDescription)")
         
         let data = document.data()
         
@@ -39,5 +41,17 @@ class MemoryController: ObservableObject {
         print("Document does not exist")
       }
     }
+  }
+  
+  func saveMemory(caption: String, front: Data, back: Data, location: String) {
+    let id = UUID().uuidString
+    print(type(of: front))
+    let newfront = String(data: front, encoding: .utf8)!
+    let newback = String(data: back, encoding: .utf8)!
+    let time = Date() // format is 2022-11-10 04:30:39 +0000
+    let username = "chloec" // later on make this username of curr user
+    
+    let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time)
+    memoryRepository.add(mem)
   }
 }

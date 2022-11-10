@@ -170,30 +170,6 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
         withAnimation{self.isTaken.toggle()}
       }
     }
-          
-//    if !image1Done {
-//      print("processing image 1")
-//      self.photo1 = imageData
-//      self.image1 = UIImage(data: self.photo1)!
-//      print(image1)
-//
-//      DispatchQueue.main.async {
-//        withAnimation{self.image1Done.toggle()}
-//      }
-//      
-//      self.takePhoto()
-//    } else {
-//      print("processing image 2")
-//      self.photo2 = imageData
-//      self.image2 = UIImage(data: self.photo2)!
-//      print(image2)
-//      self.session.stopRunning()
-//
-//      DispatchQueue.main.async {
-//        withAnimation{self.isTaken.toggle()}
-//      }
-//    }
-    
   }
   
   func reTake() {

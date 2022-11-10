@@ -9,15 +9,15 @@ import SwiftUI
 import AVFoundation
 
 struct CameraView: View {
-  //  let cameraController = CameraController()
-  @StateObject var camera = CameraController()
+  @StateObject var camera : CameraController
+  @ObservedObject var memoryController : MemoryController
+  
   var body: some View {
     ZStack {
       
       CameraPreview(camera: camera)
         .ignoresSafeArea(.all, edges: .all)
 
-      
       if camera.isTaken {
         GeometryReader { geo in
           Image(uiImage: camera.images[1])
@@ -42,10 +42,6 @@ struct CameraView: View {
         .padding(20)
       }
         
-        
-      
-      
-      
       VStack {
         // after photo is taken -> add controls
         if camera.isTaken {
@@ -64,7 +60,7 @@ struct CameraView: View {
         Spacer()
         HStack {
           if camera.isTaken {
-            MemoryControlsView()
+            MemoryControlsView(camera: camera, memoryController: memoryController)
               .background(Color.white)
               .padding(.bottom)
               .cornerRadius(30)
@@ -75,9 +71,6 @@ struct CameraView: View {
         .frame(height: 75)
       }
     }
-    .onAppear(perform: {
-      camera.check()
-    })
   }
 }
 

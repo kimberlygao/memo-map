@@ -10,7 +10,9 @@ import SwiftUI
 struct MemoryControlsView: View {
   @State private var selectedLocation = "one"
   @State private var caption: String = ""
-  let viewController: ViewController = ViewController()
+  @StateObject var camera : CameraController
+  @ObservedObject var memoryController : MemoryController
+  
   var body: some View {
     VStack (alignment: .leading) {
       HStack {
@@ -31,7 +33,10 @@ struct MemoryControlsView: View {
       
       HStack {
         Spacer()
-        Button(action: {}, label: {
+        Button(action: {
+          memoryController.saveMemory(caption: caption, front: camera.photo1, back: camera.photo2, location: "1")
+        },
+               label: {
           Image(systemName: "paperplane")
             .foregroundColor(.black)
             .font(.system(size: 30))
@@ -47,15 +52,12 @@ struct MemoryControlsView: View {
     .padding()
     .padding(.bottom, 20)
     .frame(height: 350)
-    
-    
-    
   }
 }
 
-
-struct MemoryControlsView_Previews: PreviewProvider {
-  static var previews: some View {
-    MemoryControlsView()
-  }
-}
+//
+//struct MemoryControlsView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    MemoryControlsView(camera: camera, memoryController: memoryController)
+//  }
+//}

@@ -8,12 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
-  let viewController: ViewController = ViewController()
-  let cameraController: CameraController = CameraController()
+  let viewController = ViewController()
+  let memoryController = MemoryController()
+  @StateObject var camera = CameraController()
   @State private var showingAlert = false
   
   var body: some View {
-    CameraView(camera: cameraController)
+    TabView {
+      MapView(viewController: viewController)
+        .tabItem {
+          Image(systemName: "map")
+      }.ignoresSafeArea()
+      CameraView(camera: camera, memoryController: memoryController)
+        .tabItem {
+          Image(systemName: "camera")
+      }
+      MapView(viewController: viewController)
+        .tabItem {
+          Image(systemName: "mappin.circle")
+      }
+      
+    }
+    .onAppear(perform: {
+      camera.check()
+    })
 //
 //    VStack {
 //      MapView(viewController: viewController)
@@ -31,22 +49,6 @@ struct ContentView: View {
 //        }
 //      }
 //    }
-   
-
-    //    TabView {
-    //      MapView(viewController: viewController)
-    //        .tabItem {
-    //          Image(systemName: "map")
-    //      }.ignoresSafeArea()
-    //      CameraView()
-    //        .tabItem {
-    //          Image(systemName: "camera")
-    //      }
-    //      MapView(viewController: viewController)
-    //        .tabItem {
-    //          Image(systemName: "mappin.circle")
-    //      }
-    //    }
     
   }
 }

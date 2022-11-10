@@ -167,9 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				E5BFDCA329134FD900DF0180 /* Info.plist */,
+				E5BFDC452913433300DF0180 /* memoMapApp.swift */,
 				E521D730291CB252002EB6FF /* Repositories */,
 				E5BFDC9E29134DD600DF0180 /* Controllers */,
-				E5BFDC452913433300DF0180 /* memoMapApp.swift */,
 				E5BFDC93291347A000DF0180 /* Models */,
 				E5BFDC922913474E00DF0180 /* Views */,
 				E5BFDC592913449400DF0180 /* GoogleService-Info.plist */,
@@ -195,10 +195,10 @@
 				E5BFDC98291349A500DF0180 /* CameraView.swift */,
 				E54B64EA29186494006BBD2F /* CameraControlsView.swift */,
 				E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */,
-				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
 				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
 				E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */,
 				E54B64F229188969006BBD2F /* CapturedImageView.swift */,
+				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
