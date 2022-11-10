@@ -20,9 +20,9 @@
 		E55AD3AC291C9C0100F46D54 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A6291C9C0100F46D54 /* User.swift */; };
 		E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A7291C9C0100F46D54 /* DailyPrompt.swift */; };
 		E55AD3AF291C9C4F00F46D54 /* Repositories in Resources */ = {isa = PBXBuildFile; fileRef = E55AD3AE291C9C4F00F46D54 /* Repositories */; };
-		E55AD3B1291C9D7F00F46D54 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B0291C9D7F00F46D54 /* LocationController.swift */; };
 		E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */; };
 		E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B4291C9D9400F46D54 /* UserController.swift */; };
+		E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */; };
 		E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC452913433300DF0180 /* memoMapApp.swift */; };
 		E5BFDC482913433300DF0180 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC472913433300DF0180 /* ContentView.swift */; };
 		E5BFDC4A2913433300DF0180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BFDC492913433300DF0180 /* Assets.xcassets */; };
@@ -77,9 +77,9 @@
 		E55AD3A6291C9C0100F46D54 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E55AD3A7291C9C0100F46D54 /* DailyPrompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyPrompt.swift; sourceTree = "<group>"; };
 		E55AD3AE291C9C4F00F46D54 /* Repositories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Repositories; path = memoMap/Repositories; sourceTree = SOURCE_ROOT; };
-		E55AD3B0291C9D7F00F46D54 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryController.swift; sourceTree = "<group>"; };
 		E55AD3B4291C9D9400F46D54 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceController.swift; sourceTree = "<group>"; };
 		E5BFDC422913433300DF0180 /* memoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BFDC452913433300DF0180 /* memoMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoMapApp.swift; sourceTree = "<group>"; };
 		E5BFDC472913433300DF0180 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -207,9 +207,9 @@
 		E5BFDC9E29134DD600DF0180 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */,
 				E5BFDC9F29134DE500DF0180 /* ViewController.swift */,
 				E5BFDCA62913537900DF0180 /* CameraController.swift */,
-				E55AD3B0291C9D7F00F46D54 /* LocationController.swift */,
 				E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */,
 				E55AD3B4291C9D9400F46D54 /* UserController.swift */,
 			);
@@ -320,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */,
 				E54B64F1291875BB006BBD2F /* MiniPhotoView.swift in Sources */,
 				E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */,
 				E5BFDC482913433300DF0180 /* ContentView.swift in Sources */,
@@ -334,7 +335,6 @@
 				E54B64E929170F42006BBD2F /* Camera.swift in Sources */,
 				E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
-				E55AD3B1291C9D7F00F46D54 /* LocationController.swift in Sources */,
 				E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */,
 				E54B64F329188969006BBD2F /* CapturedImageView.swift in Sources */,
 				E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */,

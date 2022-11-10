@@ -1,5 +1,5 @@
 //
-//  LocationController.swift
+//  PlaceController.swift
 //  memoMap
 //
 //  Created by Chloe Chan on 11/9/22.
@@ -9,16 +9,16 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class LocationController: ObservableObject {
-  @Published var locations: [Location] = LocationRepository().locations
-  @Published var location: Location = Location(id: "", address: "", city: "", latitude: 0, longitude: 0, name: "")
+class PlaceController: ObservableObject {
+  @Published var places: [Place] = PlaceRepository().places
+  @Published var places: Place = Place(id: "", address: "", city: "", latitude: 0, longitude: 0, name: "")
   
   init() {
-    getLocationData(id: "WDh4Ypy1PkNoC2u8JzcG")
+    getPlaceData(id: "WDh4Ypy1PkNoC2u8JzcG")
   }
   
-  func getLocationData(id: String) {
-    let docRef = Firestore.firestore().collection("locations").document(id)
+  func getPlaceData(id: String) {
+    let docRef = Firestore.firestore().collection("places").document(id)
     docRef.getDocument { (document, error) in
       if let document = document, document.exists {
         let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
@@ -32,7 +32,7 @@ class LocationController: ObservableObject {
         let longitude = data!["longitude"]! as? Float ?? 0.0
         let name = data!["name"]! as? String ?? ""
         
-        self.location = Location(id: id, address: address, city: city, latitude: latitude, longitude: longitude, name: name)
+        self.place = Place(id: id, address: address, city: city, latitude: latitude, longitude: longitude, name: name)
         
       } else {
         print("Document does not exist")
