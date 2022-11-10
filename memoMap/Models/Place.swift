@@ -14,8 +14,8 @@ struct Place: Identifiable, Codable {
   @DocumentID var id: String?
   var address: String
   var city: String
-  var latitude: Float
-  var longitude: Float
+  var latitude: Double
+  var longitude: Double
   var name: String
   
   // MARK: Codable
@@ -28,7 +28,7 @@ struct Place: Identifiable, Codable {
     case name
   }
   
-  init(id: String, address: String, city: String, latitude: Float, longitude: Float, name: String) {
+  init(id: String, address: String, city: String, latitude: Double, longitude: Double, name: String) {
     self.id = id
     self.address = address
     self.city = city
