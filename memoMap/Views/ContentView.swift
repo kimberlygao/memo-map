@@ -37,6 +37,7 @@ struct ContentView: View {
                 .foregroundColor(.black)
             }
           }
+          SearchView(mapViewController: mapViewController)
           Spacer()
         }
         VStack {
