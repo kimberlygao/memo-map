@@ -8,8 +8,11 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import UIKit
+import FirebaseStorage
 
 class MemoryController: ObservableObject {
+  let storage = Storage.storage()
   var memoryRepository : MemoryRepository = MemoryRepository()
   @Published var memories: [Memory] = []
   @Published var memory: Memory = Memory(id: "", caption: "", front: "", back: "", location: "", username: "", timestamp: Date())
@@ -42,13 +45,16 @@ class MemoryController: ObservableObject {
     }
   }
   
-  func saveMemory(caption: String, front: Data, back: Data, location: String) {
+   func saveMemory(caption: String, front: UIImage, back: UIImage, location: String) {
     let id = UUID().uuidString
     print(type(of: front))
-    let newfront = String(data: front, encoding: .utf8)!
-    let newback = String(data: back, encoding: .utf8)!
+    
+    let newfront =  uploadPhoto(front)
+    let newback =  uploadPhoto(back)
     let time = Date() // format is 2022-11-10 04:30:39 +0000
     let username = "chloec" // later on make this username of curr user
+     
+    print("STORING MEMORY")
     
     let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time)
 //    self.uploadImagePic(field: "back", image: back)
@@ -56,19 +62,31 @@ class MemoryController: ObservableObject {
     memoryRepository.add(mem)
   }
   
-  func uploadImagePic(field: String, image: Data) {
-      let filePath = "memories/1" // path where you wanted to store img in storage
-      
-      Firestore.firestore().collection("memories").document("1").setData([field : image as Data]){(error) in
-        if let error = error {
-          print(error.localizedDescription)
-          return
-        }else{
-          //store downloadURL
-          print("works")
+  func uploadPhoto(_ photo: UIImage) -> String {
+    print(photo)
+      let url = "\(UUID().uuidString).jpg"
+      print("ONE")
+      let storageRef = Storage.storage().reference().child(url)
+    print("TWO")
+      let data = photo.jpegData(compressionQuality: 0.2)
+    print("THREE")
+    print(data)
+      let metadata = StorageMetadata()
+      metadata.contentType = "image/jpg"
+      if let data = data {
+        print("PUTTING DATA")
+        storageRef.putData(data, metadata: metadata) { (metadata, error) in
+          print("ERROR CHECKING")
+          if let error = error {
+            print("Error while uploading file: ", error)
+          }
+          if let metadata = metadata {
+            print("Metadata: ", metadata)
+          }
         }
       }
-  //    Firestore.firestore().collection("memories").document("1").updateData({"front": downloadURL})
+    
+      return url
     }
   
 }

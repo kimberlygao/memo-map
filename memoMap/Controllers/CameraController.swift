@@ -27,9 +27,6 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   @Published var photo1 = Data(count: 0)
   @Published var photo2 = Data(count: 0)
   
-  var image1 : UIImage = UIImage()
-  var image2 : UIImage = UIImage()
-  
   var image1Done = false
   
   var backCameraOn = true
