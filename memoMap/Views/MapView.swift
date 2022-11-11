@@ -40,6 +40,7 @@ struct MapView: UIViewRepresentable {
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
         print("updating")
         uiView.showsUserLocation = true
+//        uiView.shows = true
         mapViewController.current.loadLocation()
         mapViewController.getNearbyLocations(using: MKLocalSearch.Request())
   }

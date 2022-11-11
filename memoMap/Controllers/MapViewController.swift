@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import SwiftyJSON
 import Foundation
+import SwiftUI
 //import FloatingPanel
 
 
@@ -21,8 +22,16 @@ class MapViewController: UIViewController, ObservableObject {
     let locations: [Location] = []
     var mapView : MKMapView = MKMapView(frame: .zero)
     var locationManager: CLLocationManager!
-    var nearbyPlaces: [MKMapItem] = []
+    var mkitems: [MKMapItem] = []
+    var nearbyLocations: [String] = []
     var searchRegion: MKCoordinateRegion = MKCoordinateRegion()
+    
+    // TODO: isolate this into another file
+    var pois = [
+        MKPointOfInterestCategory.bakery, MKPointOfInterestCategory.cafe, MKPointOfInterestCategory.school,
+        MKPointOfInterestCategory.fitnessCenter, MKPointOfInterestCategory.bank, MKPointOfInterestCategory.hotel, MKPointOfInterestCategory.foodMarket, MKPointOfInterestCategory.museum, MKPointOfInterestCategory.park, MKPointOfInterestCategory.store, MKPointOfInterestCategory.restaurant, MKPointOfInterestCategory.university
+    ]
+    
 //    var pointOfInterestCategory = MKPointOfInterestCategory? { get set }
     
     override func viewDidLoad() {
@@ -31,7 +40,7 @@ class MapViewController: UIViewController, ObservableObject {
         //        addMapAnnotations()
         
         //        self.initControls()
-        //        self.doLayout()
+//                self.doLayout()
         //        self.loadAnnotations()
         //        mapView.delegate = self
         //        addMapAnnotations()
@@ -47,80 +56,70 @@ class MapViewController: UIViewController, ObservableObject {
         //        panel.set(contentViewController: SearchViewController())
         //        panel.addPanel(toParent: self)
     }
+
     
-    //    func initControls() {
-    //            self.mapView = MKMapView()
-    //
-    //            self.mapView.isRotateEnabled = true
-    //            self.mapView.showsUserLocation = true
-    //            self.mapView.delegate = self
-    //
-    //            let center = CLLocationCoordinate2DMake(43.761539, -79.411079)
-    //            let region = MKCoordinateRegion(center: center, latitudinalMeters: 200, longitudinalMeters: 200)
-    //            self.mapView.setRegion(region, animated: true)
-    //        }
-    //
-    //        func doLayout() {
-    //            self.view.addSubview(self.mapView)
-    //            self.mapView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-    //            self.mapView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-    //            self.mapView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-    //            self.mapView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-    //            self.mapView.translatesAutoresizingMaskIntoConstraints = false
-    //        }
-    //
-    //    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-    //        if annotation.isKind(of: MKUserLocation.self) {  //Handle user location annotation..
-    //            return nil  //Default is to let the system handle it.
-    //        }
-    //
-    //        if !annotation.isKind(of: LocationAnnotation.self) {  //Handle non-ImageAnnotations..
-    //            var pinAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "DefaultPinView")
-    //            if pinAnnotationView == nil {
-    //                pinAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "DefaultPinView")
-    //            }
-    //            return pinAnnotationView
-    //        }
-    //
-    //        //Handle ImageAnnotations..
-    //        var view: LocationAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: "imageAnnotation") as? ImageAnnotationView
-    //        if view == nil {
-    //            view = LocationAnnotationView(annotation: annotation, reuseIdentifier: "imageAnnotation")
-    //        }
-    //
-    //        let annotation = annotation as! LocationAnnotation
-    //        view?.image = annotation.image
-    //        view?.annotation = annotation
-    //
-    //        return view
-    //    }
-    //
-    //        func loadAnnotations() {
-    //            let request = NSMutableURLRequest(url: URL(string: "https://i.imgur.com/zIoAyCx.png")!)
-    //            request.httpMethod = "GET"
-    //
-    //            let session = URLSession(configuration: URLSessionConfiguration.default)
-    //            let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
-    //                if error == nil {
-    //
-    //                    let annotation = LocationAnnotation()
-    //                    annotation.coordinate = CLLocationCoordinate2DMake(43.761539, -79.411079)
-    //                    annotation.image = UIImage(data: data!, scale: UIScreen.main.scale)
-    //                    annotation.title = "Toronto"
-    //                    annotation.subtitle = "Yonge & Bloor"
-    //
-    //
-    //                    DispatchQueue.main.async {
-    //                        self.mapView.addAnnotation(annotation)
-    //                    }
-    //                }
-    //            }
-    //
-    //            dataTask.resume()
-    //        }
+//        func doLayout() {
+//            self.view.addSubview(self.mapView)
+//            self.mapView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+//            self.mapView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+//            self.mapView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+//            self.mapView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+//            self.mapView.translatesAutoresizingMaskIntoConstraints = false
+//        }
+//
+//        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//            if annotation.isKind(of: MKUserLocation.self) {  //Handle user location annotation..
+//                return nil  //Default is to let the system handle it.
+//            }
+//
+//            if !annotation.isKind(of: LocationAnnotation) {  //Handle non-ImageAnnotations..
+//                var pinAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "DefaultPinView")
+//                if pinAnnotationView == nil {
+//                    pinAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "DefaultPinView")
+//                }
+//                return pinAnnotationView
+//            }
+//
+//            //Handle ImageAnnotations..
+//            var view: LocationAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: "locationAnnotation") as? LocationAnnotationView
+//            if view == nil {
+//                view = LocationAnnotationView(annotation: annotation, reuseIdentifier: "locationAnnotation")
+//            }
+//
+//            let annotation = annotation as! LocationAnnotation
+//            view?.image = annotation.image
+//            view?.annotation = annotation
+//
+//            return view
+//        }
+//
+//            func loadAnnotations() {
+//                let request = NSMutableURLRequest(url: URL(string: "https://i.imgur.com/zIoAyCx.png")!)
+//                request.httpMethod = "GET"
+//
+//                let session = URLSession(configuration: URLSessionConfiguration.default)
+//                let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
+//                    if error == nil {
+//
+//                        let annotation = LocationAnnotation()
+//                        annotation.coordinate = CLLocationCoordinate2DMake(43.761539, -79.411079)
+//                        annotation.image = UIImage(data: data!, scale: UIScreen.main.scale)
+//                        annotation.title = "Toronto"
+//                        annotation.subtitle = "Yonge & Bloor"
+//
+//
+//                        DispatchQueue.main.async {
+//                            self.mapView.addAnnotation(annotation)
+//                        }
+//                    }
+//                }
+//
+//                dataTask.resume()
+//            }
     
     func addMapAnnotations() {
         print("HERE")
+        
         let test_locations = [
             ["name": "Delainie's Coffee", "latitude": 40.4288961, "longitude": -79.9807498,],
             ["name": "Bird on the Run South Side", "latitude": 40.4290, "longitude": -79.9809],
@@ -128,23 +127,47 @@ class MapViewController: UIViewController, ObservableObject {
             ["name": "Bruegger's Bagels", "latitude": 40.428951, "longitude": -79.980377],
         ]
         print("HERE")
+        let annotationView = MKAnnotationView()
+        let detailButton: UIButton = UIButton(type: UIButton.ButtonType.detailDisclosure) as UIButton
+            annotationView.rightCalloutAccessoryView = detailButton
+        annotationView.canShowCallout = true
+        
         for location in test_locations {
             print("location: ", location)
-            let annotation = MKPointAnnotation()
-            annotation.title = location["name"] as? String
-            
+//            let annotation = MKPointAnnotation()
+//            annotation.title = location["name"] as? String
+//            annotation.subtitle = "hello test"
+            let name = location["name"] as? String ?? ""
             let loc = CLLocationCoordinate2D(latitude: location["latitude"] as! Double, longitude: location["longitude"] as! Double)
-            annotation.coordinate = loc
-            //            self.annotations.append(annotation)
+//            annotation.coordinate = loc
+//
+//            let rightButton = UIButton(type: .contactAdd)
+//                    rightButton.tag = annotation.hash
+            let annotation = LocationAnnotation(title: name, subtitle: "test", coordinate: loc)
             self.mapView.addAnnotation(annotation)
-            print("added")
+//            LocationMapAnnotationView
         }
     }
     
+    
     func getNearbyLocations(using searchRequest: MKLocalSearch.Request) {
         print("get nearby location")
-        self.searchRegion = MKCoordinateRegion(center: self.current.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+        
+//        self.mapView.selectableMapFeatures = [.po]
+//
+//        // Filter out any points of interest that aren't related to travel.
+//        let mapConfiguration = MKStandardMapConfiguration()
+//
+//        for interest in self.pois {
+//            mapConfiguration.pointOfInterestFilter =
+//        }
+
+//        mapView.preferredConfiguration = mapConfiguration
+
+        self.searchRegion = MKCoordinateRegion(center: self.current.coordinate, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
         searchRequest.region = self.searchRegion
+        searchRequest.naturalLanguageQuery = "Restaurants"
+//        searchRequest.resultTypes = self.pois
         
         let localSearch = MKLocalSearch(request: searchRequest)
         localSearch.start{
@@ -154,9 +177,12 @@ class MapViewController: UIViewController, ObservableObject {
                 return
             }
             //success
-            self.nearbyPlaces = resp?.mapItems ?? []
+            resp?.mapItems.forEach({
+                (mapItem) in self.nearbyLocations.append(mapItem.name ?? "")
+            })
+            
             print("nearby places")
-            print(self.nearbyPlaces)
+            print(self.nearbyLocations)
             if let updatedRegion = resp?.boundingRegion {
                 self.searchRegion = updatedRegion
             }
@@ -169,7 +195,8 @@ class MapViewController: UIViewController, ObservableObject {
         //            let annotations = mapViewController.locations.map(LocationAnnotation.init)
         //            mapView.addAnnotations(annotations)
         //        }
-        
+            
+    
         func performSearch(search: String) {
             print("searching")
             self.mapView.removeAnnotations(mapView.annotations)
@@ -194,6 +221,7 @@ class MapViewController: UIViewController, ObservableObject {
                 self.mapView.showAnnotations(self.mapView.annotations, animated: true)
             }
         }
+    
 }
 
         

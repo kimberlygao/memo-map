@@ -15,7 +15,7 @@ class PlaceController: ObservableObject {
   
   init() {
     getPlaceData(id: "1")
-    print("in place ontroller: \(self.places)")
+//    print("in place ontroller: \(self.places)")
   }
   
   func getPlaceData(id: String) {

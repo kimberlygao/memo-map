@@ -251,10 +251,10 @@
 			isa = PBXGroup;
 			children = (
 				E5BFDCA129134E1400DF0180 /* Location.swift */,
-				2BB494B8291CFC1700ED7040 /* LocationAnnotation.swift */,
 				E55AD3A7291C9C0100F46D54 /* DailyPrompt.swift */,
 				E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */,
 				E55AD3A2291C9C0100F46D54 /* Memory.swift */,
+				2BB494B8291CFC1700ED7040 /* LocationAnnotation.swift */,
 				E55AD3A5291C9C0100F46D54 /* Place.swift */,
 				E55AD3A4291C9C0100F46D54 /* Prompt.swift */,
 				E55AD3A6291C9C0100F46D54 /* User.swift */,
