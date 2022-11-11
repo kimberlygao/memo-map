@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
   let viewController = ViewController()
   let memoryController = MemoryController()
-  @ObservedObject var mapViewController = MapViewController()
-  @ObservedObject var placeController = PlaceController()
+  @StateObject var mapViewController = MapViewController()
+  @StateObject var placeController = PlaceController()
   @StateObject var camera = CameraController()
   @State private var showingAlert = false
 //    @State private var search: String = "Search"

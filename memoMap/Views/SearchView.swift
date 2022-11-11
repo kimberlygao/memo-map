@@ -10,7 +10,7 @@ import MapKit
 
 struct SearchView: View {
     @ObservedObject var mapViewController: MapViewController
-    @State var search: String = "Search"
+    @State var search: String = ""
     
      var body: some View {
          TextField("Search", text: $search, onEditingChanged: { _ in})

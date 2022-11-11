@@ -64,6 +64,7 @@ class Location: NSObject, Identifiable {
   }
   
     func getCurrentLocation() {
+      clearLocation()
       locationManager.requestWhenInUseAuthorization()
       if CLLocationManager.locationServicesEnabled() {
         locationManager.distanceFilter = kCLDistanceFilterNone
@@ -75,6 +76,7 @@ class Location: NSObject, Identifiable {
         self.latitude = currLocation.coordinate.latitude
         self.longitude = currLocation.coordinate.longitude
       }
+      saveLocation()
     }
       
       func documentsDirectory() -> String {

@@ -14,6 +14,7 @@
 		2BB494B9291CFC1700ED7040 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB494B8291CFC1700ED7040 /* LocationAnnotation.swift */; };
 		2BB494BF291D738100ED7040 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB494BE291D738100ED7040 /* LocationListView.swift */; };
 		2BB494C1291D812100ED7040 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB494C0291D812100ED7040 /* SearchView.swift */; };
+		2BB494C5291DC13100ED7040 /* LocationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB494C4291DC13100ED7040 /* LocationAnnotationView.swift */; };
 		5A1CFB7F77EDB5AA82690FCA /* libPods-memoMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3510A54F821BF3DAF96B29C5 /* libPods-memoMap.a */; };
 		E521D734291CB252002EB6FF /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D731291CB252002EB6FF /* UserRepository.swift */; };
 		E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D732291CB252002EB6FF /* PlaceRepository.swift */; };
@@ -81,6 +82,7 @@
 		2BB494B8291CFC1700ED7040 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
 		2BB494BE291D738100ED7040 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		2BB494C0291D812100ED7040 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		2BB494C4291DC13100ED7040 /* LocationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotationView.swift; sourceTree = "<group>"; };
 		3510A54F821BF3DAF96B29C5 /* libPods-memoMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memoMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B6CE55DB4904387262E6C5 /* Pods-memoMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.release.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.release.xcconfig"; sourceTree = "<group>"; };
 		6963FD2F77C175FAA48EFE89 /* Pods-memoMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.debug.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.debug.xcconfig"; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				2BB494BE291D738100ED7040 /* LocationListView.swift */,
 				2BB494C0291D812100ED7040 /* SearchView.swift */,
 				E54B64EA29186494006BBD2F /* CameraControlsView.swift */,
+				2BB494C4291DC13100ED7040 /* LocationAnnotationView.swift */,
 				E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */,
 				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
 				E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */,
@@ -415,6 +418,7 @@
 				E5BFDC972913499D00DF0180 /* MapView.swift in Sources */,
 				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
 				E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */,
+				2BB494C5291DC13100ED7040 /* LocationAnnotationView.swift in Sources */,
 				E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
 				E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */,
