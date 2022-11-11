@@ -10,17 +10,18 @@ import SwiftUI
 struct AddFriendsView: View {
   let names = ["kwgao"]
   @State private var searchText = ""
-  @Binding var showingFriends: Bool
+  @Environment(\.presentationMode) var presentationMode
+
   
   var body: some View {
     VStack {
-      HStack {
-        Spacer()
-        Button (action: {showingFriends.toggle()}) {
-          Image(systemName: "chevron.right")
-        }
-        .padding()
-      }
+//      HStack {
+//        Spacer()
+//        Button (action: {presentationMode.wrappedValue.dismiss()}) {
+//          Image(systemName: "chevron.right")
+//        }
+//        .padding()
+//      }
     
       List {
         ForEach(searchResults, id: \.self) { name in

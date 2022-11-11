@@ -15,37 +15,38 @@ struct ContentView: View {
   @StateObject var camera = CameraController()
   @State private var showingAlert = false
   @State private var showingCamera = false
-  @State var showingAddFriends = false
+  //  @State var showingAddFriends = false
   
   var body: some View {
-    ZStack {
-      MapView(mapViewController: mapViewController, placeController: placeController).ignoresSafeArea()
-      VStack {
-        HStack {
-          Button(action: {withAnimation {showingAddFriends.toggle()}}) {
-            Image(systemName: "person.badge.plus")
-              .padding()
-              .font(.system(size: 24))
-              .foregroundColor(.black)
+    NavigationView {
+      ZStack {
+        MapView(mapViewController: mapViewController, placeController: placeController).ignoresSafeArea()
+        VStack {
+          HStack {
+            NavigationLink(destination: AddFriendsView()) {
+              Image(systemName: "person.badge.plus")
+                .padding()
+                .font(.system(size: 24))
+                .foregroundColor(.black)
+            }
+            Spacer()
           }
           Spacer()
         }
-        Spacer()
-      }
-      VStack {
-        Spacer()
-        Button(action: {showingCamera.toggle()}) {
-          Image(systemName: "camera")
+        VStack {
+          Spacer()
+          Button(action: {showingCamera.toggle()}) {
+            Image(systemName: "camera")
+          }
+          .fullScreenCover(isPresented: $showingCamera, content: {
+            CameraView(camera: camera, memoryController: memoryController)
+          })
         }
-        .fullScreenCover(isPresented: $showingCamera, content: {
-          CameraView(camera: camera, memoryController: memoryController)
-        })
       }
-    }.onAppear(perform: {
+    }
+    .onAppear(perform: {
       camera.check()
     })
-    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-      .overlay(showingAddFriends ? AddFriendsView(showingFriends: $showingAddFriends.animation()) : nil)
     
     
     
