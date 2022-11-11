@@ -10,8 +10,18 @@ import SwiftUI
 struct AddFriendsView: View {
   let names = ["kwgao"]
   @State private var searchText = ""
+  @Binding var showingFriends: Bool
   
   var body: some View {
+    VStack {
+      HStack {
+        Spacer()
+        Button (action: {showingFriends.toggle()}) {
+          Image(systemName: "chevron.right")
+        }
+        .padding()
+      }
+    
       List {
         ForEach(searchResults, id: \.self) { name in
           ZStack {
@@ -20,27 +30,30 @@ struct AddFriendsView: View {
               EmptyView()
             }
             .opacity(0.0)
-
+            
             HStack {
               Image(systemName: "person.circle")
               Text(name)
               Spacer()
-//              Button (action: {requestSent.toggle()}, label: {
-//                if !requestSent {
-//                  Image(systemName: "plus")
-//                    .foregroundColor(.black)
-//                } else {
-//                  Image(systemName: "checkmark")
-//                    .foregroundColor(.black)
-//                }
-//
-//              })
+              //              Button (action: {requestSent.toggle()}, label: {
+              //                if !requestSent {
+              //                  Image(systemName: "plus")
+              //                    .foregroundColor(.black)
+              //                } else {
+              //                  Image(systemName: "checkmark")
+              //                    .foregroundColor(.black)
+              //                }
+              //
+              //              })
             }
           }
         }
       }
-      .searchable(text: $searchText)
-      .navigationTitle("Add Friends")
+    }
+    .searchable(text: $searchText)
+    .navigationTitle("Add Friends")
+    .transition(.move(edge: .leading))
+    .background(.white)
   }
   
   var searchResults: [String] {
@@ -52,8 +65,8 @@ struct AddFriendsView: View {
   }
 }
 
-struct AddFriendsView_Previews: PreviewProvider {
-  static var previews: some View {
-    AddFriendsView()
-  }
-}
+//struct AddFriendsView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    AddFriendsView()
+//  }
+//}

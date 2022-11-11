@@ -12,6 +12,8 @@ struct MemoryControlsView: View {
   @State private var caption: String = ""
   @StateObject var camera : CameraController
   @ObservedObject var memoryController : MemoryController
+  @Environment(\.presentationMode) var presentationMode
+
   
   var body: some View {
     VStack (alignment: .leading) {
@@ -35,6 +37,7 @@ struct MemoryControlsView: View {
         Spacer()
         Button(action: {
           memoryController.saveMemory(caption: caption, front: camera.images[0], back: camera.images[1], location: "1")
+          presentationMode.wrappedValue.dismiss()
         },
                label: {
           Image(systemName: "paperplane")

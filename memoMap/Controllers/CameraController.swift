@@ -181,6 +181,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
         self.images = []
         self.isSaved = false
         self.image1Done = false
+        self.isTaken = false
       }
     }
   }

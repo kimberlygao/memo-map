@@ -11,13 +11,14 @@ import AVFoundation
 struct CameraView: View {
   @StateObject var camera : CameraController
   @ObservedObject var memoryController : MemoryController
+  @Environment(\.presentationMode) var presentationMode
   
   var body: some View {
     ZStack {
       
       CameraPreview(camera: camera)
         .ignoresSafeArea(.all, edges: .all)
-
+      
       if camera.isTaken {
         GeometryReader { geo in
           Image(uiImage: camera.images[1])
@@ -36,28 +37,26 @@ struct CameraView: View {
               .scaledToFill()
               .frame(width: 150, height: 200)
               .cornerRadius(20)
-              
+            
             Spacer()
           }
           Spacer()
         }
         .padding(20)
       }
-        
+      
       VStack {
         // after photo is taken -> add controls
-        if camera.isTaken {
-          HStack {
-            Spacer()
-            Button(action: {if camera.isTaken{
-              camera.reTake()} else {}}, label: {
-                Image(systemName: "xmark")
-                  .foregroundColor(.white)
-                  .padding()
-                  .font(.system(size: 30))
-              })
-            .padding(.trailing, 10)
-          }
+        HStack {
+          Spacer()
+          Button(action: {if camera.isTaken{
+            camera.reTake()} else {presentationMode.wrappedValue.dismiss()}}, label: {
+              Image(systemName: "xmark")
+                .foregroundColor(.white)
+                .padding()
+                .font(.system(size: 30))
+            })
+          .padding(.trailing, 10)
         }
         Spacer()
         HStack {
