@@ -8,53 +8,49 @@
 import SwiftUI
 
 struct AddFriendsView: View {
-  let names = ["kwgao"]
+  let names = ["kwgao", "chloec"]
   @State private var searchText = ""
-  @Environment(\.presentationMode) var presentationMode
-
   
   var body: some View {
-    VStack {
-//      HStack {
-//        Spacer()
-//        Button (action: {presentationMode.wrappedValue.dismiss()}) {
-//          Image(systemName: "chevron.right")
-//        }
-//        .padding()
-//      }
-    
       List {
         ForEach(searchResults, id: \.self) { name in
           ZStack {
-            NavigationLink(destination: FriendsProfileView())
-            {
-              EmptyView()
+            if name == "kwgao" {
+              NavigationLink(destination: FriendsProfileView())
+              {
+                EmptyView()
+              }
+              .opacity(0.0)
             }
-            .opacity(0.0)
+            else {
+              NavigationLink(destination: FriendsProfileView2())
+              {
+                EmptyView()
+              }
+              .opacity(0.0)
+            }
             
+
             HStack {
               Image(systemName: "person.circle")
               Text(name)
               Spacer()
-              //              Button (action: {requestSent.toggle()}, label: {
-              //                if !requestSent {
-              //                  Image(systemName: "plus")
-              //                    .foregroundColor(.black)
-              //                } else {
-              //                  Image(systemName: "checkmark")
-              //                    .foregroundColor(.black)
-              //                }
-              //
-              //              })
+//              Button (action: {requestSent.toggle()}, label: {
+//                if !requestSent {
+//                  Image(systemName: "plus")
+//                    .foregroundColor(.black)
+//                } else {
+//                  Image(systemName: "checkmark")
+//                    .foregroundColor(.black)
+//                }
+//
+//              })
             }
           }
         }
       }
-    }
-    .searchable(text: $searchText)
-    .navigationTitle("Add Friends")
-    .transition(.move(edge: .leading))
-    .background(.white)
+      .searchable(text: $searchText)
+      .navigationTitle("Add Friends")
   }
   
   var searchResults: [String] {
@@ -66,8 +62,8 @@ struct AddFriendsView: View {
   }
 }
 
-//struct AddFriendsView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    AddFriendsView()
-//  }
-//}
+struct AddFriendsView_Previews: PreviewProvider {
+  static var previews: some View {
+    AddFriendsView()
+  }
+}
