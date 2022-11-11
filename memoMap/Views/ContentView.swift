@@ -12,7 +12,7 @@ struct ContentView: View {
   let memoryController = MemoryController()
   @StateObject var mapViewController = MapViewController()
   @StateObject var placeController = PlaceController()
-  @StateObject var camera = CameraController()
+//  @StateObject var camera = CameraController()
   @State private var showingAlert = false
   
   var body: some View {
@@ -36,10 +36,10 @@ struct ContentView: View {
         }.tabItem {
           Image(systemName: "map")
         }
-        CameraView(camera: camera, memoryController: memoryController)
-          .tabItem {
-            Image(systemName: "camera")
-        }
+//        CameraView(camera: camera, memoryController: memoryController)
+//          .tabItem {
+//            Image(systemName: "camera")
+//        }
         MapView(mapViewController: mapViewController, placeController: placeController)
           .tabItem {
             Image(systemName: "mappin.circle")
@@ -47,9 +47,9 @@ struct ContentView: View {
         
       }
     }
-    .onAppear(perform: {
-      camera.check()
-    })
+//    .onAppear(perform: {
+//      camera.check()
+//    })
 //
 //    VStack {
 //      MapView(viewController: viewController)

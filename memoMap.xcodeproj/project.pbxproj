@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4105D1F6291E0EE400FC3475 /* FriendsProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4105D1F5291E0EE400FC3475 /* FriendsProfileView2.swift */; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4105D1F5291E0EE400FC3475 /* FriendsProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView2.swift; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
 		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
 		E51B3B72291DFDBB00399450 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = memoMap/Controllers/MapViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -212,6 +214,7 @@
 				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
 				E51B3B54291CD20D00399450 /* AddFriendsView.swift */,
 				E51B3B56291CD55E00399450 /* FriendsProfileView.swift */,
+				4105D1F5291E0EE400FC3475 /* FriendsProfileView2.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */,
 				E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */,
 				E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */,
+				4105D1F6291E0EE400FC3475 /* FriendsProfileView2.swift in Sources */,
 				E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */,
 				E55AD3AC291C9C0100F46D54 /* User.swift in Sources */,
 			);

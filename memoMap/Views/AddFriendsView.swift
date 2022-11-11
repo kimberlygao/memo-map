@@ -8,18 +8,28 @@
 import SwiftUI
 
 struct AddFriendsView: View {
-  let names = ["kwgao"]
+  let names = ["kwgao", "chloec"]
   @State private var searchText = ""
   
   var body: some View {
       List {
         ForEach(searchResults, id: \.self) { name in
           ZStack {
-            NavigationLink(destination: FriendsProfileView())
-            {
-              EmptyView()
+            if name == "kwgao" {
+              NavigationLink(destination: FriendsProfileView())
+              {
+                EmptyView()
+              }
+              .opacity(0.0)
             }
-            .opacity(0.0)
+            else {
+              NavigationLink(destination: FriendsProfileView2())
+              {
+                EmptyView()
+              }
+              .opacity(0.0)
+            }
+            
 
             HStack {
               Image(systemName: "person.circle")
