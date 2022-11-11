@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct AddFriendsView: View {
-  let names = ["kwgao", "chloec", "fionac"]
+  let names = ["kwgao"]
   @State private var searchText = ""
-  @State private var friendAdded = false
   
   var body: some View {
       List {
         ForEach(searchResults, id: \.self) { name in
           ZStack {
-            NavigationLink(destination: Text(name)) {
+            NavigationLink(destination: FriendsProfileView())
+            {
               EmptyView()
             }
             .opacity(0.0)
@@ -25,16 +25,16 @@ struct AddFriendsView: View {
               Image(systemName: "person.circle")
               Text(name)
               Spacer()
-              Button (action: {}, label: {
-                if !friendAdded {
-                  Image(systemName: "plus")
-                    .foregroundColor(.black)
-                } else {
-                  Image(systemName: "checkmark")
-                    .foregroundColor(.black)
-                }
-                    
-              })
+//              Button (action: {requestSent.toggle()}, label: {
+//                if !requestSent {
+//                  Image(systemName: "plus")
+//                    .foregroundColor(.black)
+//                } else {
+//                  Image(systemName: "checkmark")
+//                    .foregroundColor(.black)
+//                }
+//
+//              })
             }
           }
         }

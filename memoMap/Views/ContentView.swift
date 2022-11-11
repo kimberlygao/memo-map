@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
   let viewController = ViewController()
   let memoryController = MemoryController()
+  @StateObject var mapViewController = MapViewController()
+  @StateObject var placeController = PlaceController()
   @StateObject var camera = CameraController()
   @State private var showingAlert = false
   
@@ -17,7 +19,7 @@ struct ContentView: View {
     NavigationView {
       TabView {
         ZStack {
-          MapView(viewController: viewController).ignoresSafeArea()
+          MapView(mapViewController: mapViewController, placeController: placeController).ignoresSafeArea()
           VStack {
             HStack {
               NavigationLink(destination: AddFriendsView()) {
@@ -28,6 +30,7 @@ struct ContentView: View {
               }
               Spacer()
             }
+            SearchView(mapViewController: mapViewController)
             Spacer()
           }
         }.tabItem {
@@ -37,7 +40,7 @@ struct ContentView: View {
           .tabItem {
             Image(systemName: "camera")
         }
-        MapView(viewController: viewController)
+        MapView(mapViewController: mapViewController, placeController: placeController)
           .tabItem {
             Image(systemName: "mappin.circle")
         }
