@@ -30,6 +30,12 @@ struct ContentView: View {
                 .foregroundColor(.black)
             }
             Spacer()
+            NavigationLink(destination: MemoryGridView(memoryController: memoryController)) {
+              Image(systemName: "checkmark")
+                .padding()
+                .font(.system(size: 24))
+                .foregroundColor(.black)
+            }
           }
           Spacer()
         }
