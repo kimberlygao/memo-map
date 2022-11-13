@@ -18,22 +18,24 @@ class UserRepository: ObservableObject {
   private var cancellables: Set<AnyCancellable> = []
   
   init() {
-    self.get()
+    self.get({ (users) -> Void in
+      self.users = users
+    })
   }
-
-  func get() {
+  
+  func get(_ completionHandler: @escaping (_ users: [User]) -> Void) {
     store.collection(path)
       .addSnapshotListener { querySnapshot, error in
         if let error = error {
-          print("Error getting users: \(error.localizedDescription)")
+          print("Error getting place: \(error.localizedDescription)")
           return
         }
-        
-        self.users = querySnapshot?.documents.compactMap { document in
+
+        let users = querySnapshot?.documents.compactMap { document in
           try? document.data(as: User.self)
         } ?? []
+        completionHandler(users)
       }
-  
   }
 
   // MARK: CRUD methods

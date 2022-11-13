@@ -10,33 +10,39 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class UserController: ObservableObject {
-  @Published var users: [User] = UserRepository().users
-  @Published var user: User = User(email: "", friends: [], memories: [], name: "", password: "", requests: nil)
+  @Published var requests = FriendRequestController().requests
+  @Published var userRepository: UserRepository = UserRepository()
+  @Published var users: [User] = []
+  @Published var currentUser: User = User(email: "", friends: [], memories: [], name: "", password: "", requests: nil)
   
   init() {
-    getUserData(username: "chloec")
+    self.userRepository.get({(users) -> Void in
+      for user in users {
+        if user.id == "kwgao" {
+          self.currentUser = user
+        }
+      }
+      self.users = users
+    })
   }
   
-  func getUserData(username: String) {
-    let docRef = Firestore.firestore().collection("users").document(username)
-    docRef.getDocument { (document, error) in
-      if let document = document, document.exists {
-        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//        print("Document data: \(dataDescription)")
-        
-        let data = document.data()
-        
-        let name = data!["name"]! as? String ?? ""
-        let friends = data!["friends"]! as? [String] ?? []
-        let email = data!["email"]! as? String ?? ""
-        let memories = data!["memories"]! as? [String] ?? []
-        let password = data!["password"]! as? String ?? ""
-        let requests = data!["requests"]! as? [String] ?? []
-        self.user = User(email: email, friends: friends, memories: memories, name: name, password: password, requests: requests)
-        
-      } else {
-        print("Document does not exist")
+  func getFriends(user: User) -> [User] {
+    var friends: [User] = []
+    for person in self.users {
+      if user.friends.contains(person.id!) {
+        friends.append(person)
       }
     }
+    return friends
+  }
+  
+  func getRequests(user: User) -> [User] {
+    var friends: [User] = []
+    for person in self.users {
+      if user.friends.contains(person.id!) {
+        friends.append(person)
+      }
+    }
+    return friends
   }
 }

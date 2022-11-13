@@ -11,12 +11,23 @@ struct ContentView: View {
   let viewController = ViewController()
   let memoryController = MemoryController()
   @ObservedObject var placeController = PlaceController()
+  @ObservedObject var userController = UserController()
 //  @StateObject var camera = CameraController()
   @State private var showingAlert = false
+//  var friends: [User] = []
+  
   
   var body: some View {
-    Text("hi").onAppear {placeController.getPlaceData()}
-    Text(placeController.newplace)
+    Text("hi").onAppear {
+      placeController.getPlaceData()
+    }
+    Text(placeController.newplace.name)
+    Text(userController.currentUser.name)
+    List {
+      ForEach(userController.getFriends(user: userController.currentUser), id: \.self) { friend in
+        Text(friend.name)
+      }
+    }
 //    NavigationView {
 //      TabView {
 //        ZStack {
