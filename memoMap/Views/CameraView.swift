@@ -11,6 +11,7 @@ import AVFoundation
 struct CameraView: View {
   @StateObject var camera : CameraController
   @ObservedObject var memoryController : MemoryController
+  @StateObject var mapViewController : MapViewController
   @Environment(\.presentationMode) var presentationMode
   
   var body: some View {
@@ -61,7 +62,7 @@ struct CameraView: View {
         Spacer()
         HStack {
           if camera.isTaken {
-            MemoryControlsView(camera: camera, memoryController: memoryController)
+            MemoryControlsView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
               .background(Color.white)
               .padding(.bottom)
               .cornerRadius(30)

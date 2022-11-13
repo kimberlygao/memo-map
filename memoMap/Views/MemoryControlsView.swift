@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct MemoryControlsView: View {
   @State private var selectedLocation = "one"
   @State private var caption: String = ""
   @StateObject var camera : CameraController
   @ObservedObject var memoryController : MemoryController
+  @StateObject var mapViewController : MapViewController
   @Environment(\.presentationMode) var presentationMode
 
   
@@ -22,9 +24,10 @@ struct MemoryControlsView: View {
           .foregroundColor(.black)
           .font(.system(size: 30))
         Menu("Location") {
-          Button("One", action: {})
-          Button("Two", action: {})
-          Button("Three", action: {})
+          ForEach (mapViewController.getNearbyLocations(using: MKLocalSearch.Request()), id: \.self) { name in
+              Button(name, action: {})
+   
+          }
         }.underline()
           .foregroundColor(.black)
       }
