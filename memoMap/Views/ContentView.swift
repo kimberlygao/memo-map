@@ -46,14 +46,14 @@ struct ContentView: View {
             Image(systemName: "camera")
           }
           .fullScreenCover(isPresented: $showingCamera, content: {
-            CameraView(camera: camera, memoryController: memoryController)
+//            CameraView(camera: camera, memoryController: memoryController)
           })
         }
       }
     }
-    .onAppear(perform: {
-      camera.check()
-    })
+//    .onAppear(perform: {
+//      camera.check()
+//    })
     
     
     
