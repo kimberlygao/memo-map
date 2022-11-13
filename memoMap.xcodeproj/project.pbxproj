@@ -7,14 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E54909A3291AE0D5003AEF7C /* LocationSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54909A2291AE0D5003AEF7C /* LocationSelectView.swift */; };
+		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
+		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
+		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
+		E51B3B75291DFDBB00399450 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B73291DFDBB00399450 /* SearchViewController.swift */; };
+		E51B3B77291DFE5F00399450 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B76291DFE5F00399450 /* SearchView.swift */; };
+		E51B3B79291E20C100399450 /* FriendsProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B78291E20C100399450 /* FriendsProfileView2.swift */; };
+		E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B7A291E211D00399450 /* MemoryGridView.swift */; };
+		E521D734291CB252002EB6FF /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D731291CB252002EB6FF /* UserRepository.swift */; };
+		E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D732291CB252002EB6FF /* PlaceRepository.swift */; };
+		E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D733291CB252002EB6FF /* MemoryRepository.swift */; };
 		E54B64E929170F42006BBD2F /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64E829170F42006BBD2F /* Camera.swift */; };
 		E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EA29186494006BBD2F /* CameraControlsView.swift */; };
 		E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */; };
 		E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EE29187345006BBD2F /* LocationRowView.swift */; };
 		E54B64F1291875BB006BBD2F /* MiniPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */; };
 		E54B64F329188969006BBD2F /* CapturedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64F229188969006BBD2F /* CapturedImageView.swift */; };
-		E54B64F529188FF5006BBD2F /* CameraView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64F429188FF5006BBD2F /* CameraView2.swift */; };
+		E55AD3A8291C9C0100F46D54 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A2291C9C0100F46D54 /* Memory.swift */; };
+		E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */; };
+		E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A4291C9C0100F46D54 /* Prompt.swift */; };
+		E55AD3AB291C9C0100F46D54 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A5291C9C0100F46D54 /* Place.swift */; };
+		E55AD3AC291C9C0100F46D54 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A6291C9C0100F46D54 /* User.swift */; };
+		E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A7291C9C0100F46D54 /* DailyPrompt.swift */; };
+		E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */; };
+		E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B4291C9D9400F46D54 /* UserController.swift */; };
+		E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */; };
 		E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC452913433300DF0180 /* memoMapApp.swift */; };
 		E5BFDC482913433300DF0180 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC472913433300DF0180 /* ContentView.swift */; };
 		E5BFDC4A2913433300DF0180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BFDC492913433300DF0180 /* Assets.xcassets */; };
@@ -50,21 +67,37 @@
 		E5BFDC972913499D00DF0180 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC962913499D00DF0180 /* MapView.swift */; };
 		E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC98291349A500DF0180 /* CameraView.swift */; };
 		E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC9A291349AF00DF0180 /* PromptView.swift */; };
-		E5BFDC9D29134D2D00DF0180 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC9C29134D2D00DF0180 /* ImagePickerView.swift */; };
 		E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC9F29134DE500DF0180 /* ViewController.swift */; };
 		E5BFDCA229134E1400DF0180 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDCA129134E1400DF0180 /* Location.swift */; };
 		E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDCA62913537900DF0180 /* CameraController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E54909A2291AE0D5003AEF7C /* LocationSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectView.swift; sourceTree = "<group>"; };
+		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
+		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
+		E51B3B72291DFDBB00399450 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = memoMap/Controllers/MapViewController.swift; sourceTree = SOURCE_ROOT; };
+		E51B3B73291DFDBB00399450 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = memoMap/Controllers/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		E51B3B76291DFE5F00399450 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		E51B3B78291E20C100399450 /* FriendsProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView2.swift; sourceTree = "<group>"; };
+		E51B3B7A291E211D00399450 /* MemoryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGridView.swift; sourceTree = "<group>"; };
+		E521D731291CB252002EB6FF /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		E521D732291CB252002EB6FF /* PlaceRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
+		E521D733291CB252002EB6FF /* MemoryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryRepository.swift; sourceTree = "<group>"; };
 		E54B64E829170F42006BBD2F /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		E54B64EA29186494006BBD2F /* CameraControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControlsView.swift; sourceTree = "<group>"; };
 		E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryControlsView.swift; sourceTree = "<group>"; };
 		E54B64EE29187345006BBD2F /* LocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRowView.swift; sourceTree = "<group>"; };
 		E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPhotoView.swift; sourceTree = "<group>"; };
 		E54B64F229188969006BBD2F /* CapturedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturedImageView.swift; sourceTree = "<group>"; };
-		E54B64F429188FF5006BBD2F /* CameraView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView2.swift; sourceTree = "<group>"; };
+		E55AD3A2291C9C0100F46D54 /* Memory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
+		E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequest.swift; sourceTree = "<group>"; };
+		E55AD3A4291C9C0100F46D54 /* Prompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
+		E55AD3A5291C9C0100F46D54 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		E55AD3A6291C9C0100F46D54 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E55AD3A7291C9C0100F46D54 /* DailyPrompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyPrompt.swift; sourceTree = "<group>"; };
+		E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryController.swift; sourceTree = "<group>"; };
+		E55AD3B4291C9D9400F46D54 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceController.swift; sourceTree = "<group>"; };
 		E5BFDC422913433300DF0180 /* memoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BFDC452913433300DF0180 /* memoMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoMapApp.swift; sourceTree = "<group>"; };
 		E5BFDC472913433300DF0180 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,7 +107,6 @@
 		E5BFDC962913499D00DF0180 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E5BFDC98291349A500DF0180 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		E5BFDC9A291349AF00DF0180 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
-		E5BFDC9C29134D2D00DF0180 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		E5BFDC9F29134DE500DF0180 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5BFDCA129134E1400DF0180 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E5BFDCA329134FD900DF0180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +151,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E521D730291CB252002EB6FF /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E521D731291CB252002EB6FF /* UserRepository.swift */,
+				E521D732291CB252002EB6FF /* PlaceRepository.swift */,
+				E521D733291CB252002EB6FF /* MemoryRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		E5BFDC392913433300DF0180 = {
 			isa = PBXGroup;
 			children = (
@@ -139,8 +181,9 @@
 			isa = PBXGroup;
 			children = (
 				E5BFDCA329134FD900DF0180 /* Info.plist */,
-				E5BFDC9E29134DD600DF0180 /* Controllers */,
 				E5BFDC452913433300DF0180 /* memoMapApp.swift */,
+				E521D730291CB252002EB6FF /* Repositories */,
+				E5BFDC9E29134DD600DF0180 /* Controllers */,
 				E5BFDC93291347A000DF0180 /* Models */,
 				E5BFDC922913474E00DF0180 /* Views */,
 				E5BFDC592913449400DF0180 /* GoogleService-Info.plist */,
@@ -163,16 +206,18 @@
 				E5BFDC492913433300DF0180 /* Assets.xcassets */,
 				E5BFDC472913433300DF0180 /* ContentView.swift */,
 				E5BFDC962913499D00DF0180 /* MapView.swift */,
+				E51B3B76291DFE5F00399450 /* SearchView.swift */,
 				E5BFDC98291349A500DF0180 /* CameraView.swift */,
 				E54B64EA29186494006BBD2F /* CameraControlsView.swift */,
 				E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */,
-				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
 				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
-				E5BFDC9C29134D2D00DF0180 /* ImagePickerView.swift */,
 				E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */,
 				E54B64F229188969006BBD2F /* CapturedImageView.swift */,
-				E54B64F429188FF5006BBD2F /* CameraView2.swift */,
-				E54909A2291AE0D5003AEF7C /* LocationSelectView.swift */,
+				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
+				E51B3B54291CD20D00399450 /* AddFriendsView.swift */,
+				E51B3B56291CD55E00399450 /* FriendsProfileView.swift */,
+				E51B3B78291E20C100399450 /* FriendsProfileView2.swift */,
+				E51B3B7A291E211D00399450 /* MemoryGridView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +226,12 @@
 			isa = PBXGroup;
 			children = (
 				E5BFDCA129134E1400DF0180 /* Location.swift */,
+				E55AD3A7291C9C0100F46D54 /* DailyPrompt.swift */,
+				E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */,
+				E55AD3A2291C9C0100F46D54 /* Memory.swift */,
+				E55AD3A5291C9C0100F46D54 /* Place.swift */,
+				E55AD3A4291C9C0100F46D54 /* Prompt.swift */,
+				E55AD3A6291C9C0100F46D54 /* User.swift */,
 				E54B64E829170F42006BBD2F /* Camera.swift */,
 			);
 			path = Models;
@@ -189,8 +240,13 @@
 		E5BFDC9E29134DD600DF0180 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */,
+				E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */,
 				E5BFDC9F29134DE500DF0180 /* ViewController.swift */,
 				E5BFDCA62913537900DF0180 /* CameraController.swift */,
+				E55AD3B4291C9D9400F46D54 /* UserController.swift */,
+				E51B3B72291DFDBB00399450 /* MapViewController.swift */,
+				E51B3B73291DFDBB00399450 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -298,23 +354,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E51B3B75291DFDBB00399450 /* SearchViewController.swift in Sources */,
+				E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */,
 				E54B64F1291875BB006BBD2F /* MiniPhotoView.swift in Sources */,
 				E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */,
-				E54B64F529188FF5006BBD2F /* CameraView2.swift in Sources */,
 				E5BFDC482913433300DF0180 /* ContentView.swift in Sources */,
+				E55AD3A8291C9C0100F46D54 /* Memory.swift in Sources */,
+				E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */,
 				E5BFDC972913499D00DF0180 /* MapView.swift in Sources */,
 				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
+				E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */,
 				E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */,
+				E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */,
+				E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
 				E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */,
+				E51B3B77291DFE5F00399450 /* SearchView.swift in Sources */,
 				E54B64E929170F42006BBD2F /* Camera.swift in Sources */,
-				E54909A3291AE0D5003AEF7C /* LocationSelectView.swift in Sources */,
 				E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */,
-				E5BFDC9D29134D2D00DF0180 /* ImagePickerView.swift in Sources */,
+				E521D734291CB252002EB6FF /* UserRepository.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
+				E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */,
 				E54B64F329188969006BBD2F /* CapturedImageView.swift in Sources */,
 				E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */,
+				E55AD3AB291C9C0100F46D54 /* Place.swift in Sources */,
+				E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */,
 				E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */,
+				E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */,
+				E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */,
+				E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */,
+				E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */,
+				E51B3B79291E20C100399450 /* FriendsProfileView2.swift in Sources */,
+				E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */,
+				E55AD3AC291C9C0100F46D54 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

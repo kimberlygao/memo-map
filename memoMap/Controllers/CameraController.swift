@@ -27,9 +27,6 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   @Published var photo1 = Data(count: 0)
   @Published var photo2 = Data(count: 0)
   
-  var image1 : UIImage = UIImage()
-  var image2 : UIImage = UIImage()
-  
   var image1Done = false
   
   var backCameraOn = true
@@ -170,30 +167,6 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
         withAnimation{self.isTaken.toggle()}
       }
     }
-          
-//    if !image1Done {
-//      print("processing image 1")
-//      self.photo1 = imageData
-//      self.image1 = UIImage(data: self.photo1)!
-//      print(image1)
-//
-//      DispatchQueue.main.async {
-//        withAnimation{self.image1Done.toggle()}
-//      }
-//      
-//      self.takePhoto()
-//    } else {
-//      print("processing image 2")
-//      self.photo2 = imageData
-//      self.image2 = UIImage(data: self.photo2)!
-//      print(image2)
-//      self.session.stopRunning()
-//
-//      DispatchQueue.main.async {
-//        withAnimation{self.isTaken.toggle()}
-//      }
-//    }
-    
   }
   
   func reTake() {
@@ -208,6 +181,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
         self.images = []
         self.isSaved = false
         self.image1Done = false
+        self.isTaken = false
       }
     }
   }

@@ -9,14 +9,15 @@ import SwiftUI
 import AVFoundation
 
 struct CameraView: View {
-  //  let cameraController = CameraController()
-  @StateObject var camera = CameraController()
+  @StateObject var camera : CameraController
+  @ObservedObject var memoryController : MemoryController
+  @Environment(\.presentationMode) var presentationMode
+  
   var body: some View {
     ZStack {
       
       CameraPreview(camera: camera)
         .ignoresSafeArea(.all, edges: .all)
-
       
       if camera.isTaken {
         GeometryReader { geo in
@@ -35,36 +36,32 @@ struct CameraView: View {
               .resizable()
               .scaledToFill()
               .frame(width: 150, height: 200)
+              .cornerRadius(20)
+            
             Spacer()
           }
           Spacer()
         }
         .padding(20)
       }
-        
-        
-      
-      
       
       VStack {
         // after photo is taken -> add controls
-        if camera.isTaken {
-          HStack {
-            Spacer()
-            Button(action: {if camera.isTaken{
-              camera.reTake()} else {}}, label: {
-                Image(systemName: "xmark")
-                  .foregroundColor(.white)
-                  .padding()
-                  .font(.system(size: 30))
-              })
-            .padding(.trailing, 10)
-          }
+        HStack {
+          Spacer()
+          Button(action: {if camera.isTaken{
+            camera.reTake()} else {presentationMode.wrappedValue.dismiss()}}, label: {
+              Image(systemName: "xmark")
+                .foregroundColor(.white)
+                .padding()
+                .font(.system(size: 30))
+            })
+          .padding(.trailing, 10)
         }
         Spacer()
         HStack {
           if camera.isTaken {
-            MemoryControlsView()
+            MemoryControlsView(camera: camera, memoryController: memoryController)
               .background(Color.white)
               .padding(.bottom)
               .cornerRadius(30)
@@ -75,9 +72,6 @@ struct CameraView: View {
         .frame(height: 75)
       }
     }
-    .onAppear(perform: {
-      camera.check()
-    })
   }
 }
 
