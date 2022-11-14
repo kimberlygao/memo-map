@@ -10,47 +10,58 @@ import SwiftUI
 struct AddFriendsView: View {
   let names = ["kwgao", "chloec"]
   @State private var searchText = ""
+  @ObservedObject var userController : UserController
   
   var body: some View {
-      List {
-        ForEach(searchResults, id: \.self) { name in
-          ZStack {
-            if name == "kwgao" {
-              NavigationLink(destination: FriendsProfileView())
-              {
-                EmptyView()
-              }
-              .opacity(0.0)
-            }
-            else {
-              NavigationLink(destination: FriendsProfileView2())
-              {
-                EmptyView()
-              }
-              .opacity(0.0)
-            }
-            
-
-            HStack {
-              Image(systemName: "person.circle")
-              Text(name)
-              Spacer()
-//              Button (action: {requestSent.toggle()}, label: {
-//                if !requestSent {
-//                  Image(systemName: "plus")
-//                    .foregroundColor(.black)
-//                } else {
-//                  Image(systemName: "checkmark")
-//                    .foregroundColor(.black)
-//                }
-//
-//              })
-            }
-          }
-        }
+    Text("Requests")
+      .fontWeight(.bold)
+    
+    ForEach (userController.getReceivedRequests(user: userController.currentUser), id: \.self) { person in
+      HStack {
+        Text(person.name)
       }
-      .searchable(text: $searchText)
-      .navigationTitle("Add Friends")
+      
+    }
+//    List {
+//      ForEach(searchResults, id: \.self) { name in
+//        ZStack {
+//          if name == "kwgao" {
+//            NavigationLink(destination: FriendsProfileView())
+//            {
+//              EmptyView()
+//            }
+//            .opacity(0.0)
+//          }
+//          else {
+//            NavigationLink(destination: FriendsProfileView2())
+//            {
+//              EmptyView()
+//            }
+//            .opacity(0.0)
+//          }
+//          
+//          
+//          HStack {
+//            Image(systemName: "person.circle")
+//            Text(name)
+//            Spacer()
+//            //              Button (action: {requestSent.toggle()}, label: {
+//            //                if !requestSent {
+//            //                  Image(systemName: "plus")
+//            //                    .foregroundColor(.black)
+//            //                } else {
+//            //                  Image(systemName: "checkmark")
+//            //                    .foregroundColor(.black)
+//            //                }
+//            //
+//            //              })
+//          }
+//        }
+//      }
+//    }
+//    .searchable(text: $searchText)
+//    .background(Color.white)
+//    .navigationTitle("Add Friends")
   }
   
   var searchResults: [String] {
@@ -62,8 +73,8 @@ struct AddFriendsView: View {
   }
 }
 
-struct AddFriendsView_Previews: PreviewProvider {
-  static var previews: some View {
-    AddFriendsView()
-  }
-}
+//struct AddFriendsView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    AddFriendsView()
+//  }
+//}

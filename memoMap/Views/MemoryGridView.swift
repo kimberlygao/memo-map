@@ -12,17 +12,6 @@ struct MemoryGridView: View {
   var threeColumnGrid = [GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5)]
   
   var body: some View {
-    //    ForEach(memoryController.images, id: \.self) { image in
-    //      if let uiImage = image {
-    //        GeometryReader { geo in
-    //          Image(uiImage: uiImage)
-    //            .resizable()
-    //            .scaledToFill()
-    //            .frame(width:  (geo.size.width - 10) / 3, height: (geo.size.width - 10) / 3)
-    //        }
-    //      }
-    //    }
-    
     GeometryReader { geo in
       ScrollView {
         LazyVGrid(columns: threeColumnGrid, spacing: 5) {
@@ -44,9 +33,3 @@ struct MemoryGridView: View {
     
   }
 }
-
-//struct MemoryGridView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    MemoryGridView(memoryController: memoryController)
-//  }
-//}

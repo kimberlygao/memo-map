@@ -25,7 +25,6 @@ class MapViewController: UIViewController, ObservableObject {
   //    var pointOfInterestCategory = MKPointOfInterestCategory? { get set }
   
   override func viewDidLoad() {
-    print("HERE")
     super.viewDidLoad()
     //        addMapAnnotations()
     
@@ -119,16 +118,13 @@ class MapViewController: UIViewController, ObservableObject {
   //        }
   
   func addMapAnnotations() {
-    print("HERE")
     let test_locations = [
       ["name": "Delainie Coffee", "latitude": 40.4288961, "longitude": -79.9807498,],
       ["name": "Bird on the Run South Side", "latitude": 40.4290, "longitude": -79.9809],
       ["name": "Insomnia Cookies", "latitude": 40.428620, "longitude": -79.980860],
       ["name": "Bruegger's Bagels", "latitude": 40.428951, "longitude": -79.980377],
     ]
-    print("HERE")
     for location in test_locations {
-      print("location: ", location)
       let annotation = MKPointAnnotation()
       annotation.title = location["name"] as? String
       
@@ -136,12 +132,10 @@ class MapViewController: UIViewController, ObservableObject {
       annotation.coordinate = loc
       //            self.annotations.append(annotation)
       self.mapView.addAnnotation(annotation)
-      print("added")
     }
   }
   
   func getNearbyLocations(using searchRequest: MKLocalSearch.Request) -> [String] {
-    print("get nearby location")
     self.searchRegion = MKCoordinateRegion(center: self.current.coordinate, latitudinalMeters: 5, longitudinalMeters: 5)
     searchRequest.region = self.searchRegion
     searchRequest.naturalLanguageQuery = "Restaurants"
@@ -155,8 +149,6 @@ class MapViewController: UIViewController, ObservableObject {
       }
       //success
       self.nearbyPlaces = resp?.mapItems ?? []
-      print("nearby places")
-      print(self.nearbyPlaces)
       if let updatedRegion = resp?.boundingRegion {
         self.searchRegion = updatedRegion
       }
@@ -173,7 +165,6 @@ class MapViewController: UIViewController, ObservableObject {
   //        }
   
   func performSearch(search: String) {
-    print("searching")
     self.mapView.removeAnnotations(mapView.annotations)
     let request = MKLocalSearch.Request()
     request.naturalLanguageQuery = search

@@ -58,14 +58,12 @@ class MemoryController: ObservableObject {
   
   func saveMemory(caption: String, front: UIImage, back: UIImage, location: String) {
     let id = UUID().uuidString
-    print(type(of: front))
+//    print(type(of: front))
     
     let newfront =  uploadPhoto(front)
     let newback =  uploadPhoto(back)
     let time = Date() // format is 2022-11-10 04:30:39 +0000
     let username = "chloec" // later on make this username of curr user
-    
-    print("STORING MEMORY")
     
     let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time)
     memoryRepository.add(mem)
@@ -74,24 +72,19 @@ class MemoryController: ObservableObject {
   func uploadPhoto(_ photo: UIImage) -> String {
     print(photo)
     let url = "\(UUID().uuidString).jpg"
-    print("ONE")
     let storageRef = Storage.storage().reference().child(url)
-    print("TWO")
     let data = photo.jpegData(compressionQuality: 0.2)
-    print("THREE")
     print(data)
     let metadata = StorageMetadata()
     metadata.contentType = "image/jpg"
     if let data = data {
-      print("PUTTING DATA")
       storageRef.putData(data, metadata: metadata) { (metadata, error) in
-        print("ERROR CHECKING")
         if let error = error {
           print("Error while uploading file: ", error)
         }
-        if let metadata = metadata {
-          print("Metadata: ", metadata)
-        }
+//        if let metadata = metadata {
+//          print("Metadata: ", metadata)
+//        }
       }
     }
     

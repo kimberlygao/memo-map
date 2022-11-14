@@ -123,18 +123,8 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   }
   
   func takePhoto() {
-    print("TAKEPHOTO")
     DispatchQueue.global(qos: .background).async {
       self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-//      if self.image1Done {
-//        print("TAKING IMaGE 2")
-//        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-//        print("finished taking image 2")
-//      } else {
-//        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-//        self.flipCamera()
-//      }
-    
     }
   }
   
@@ -170,7 +160,6 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   }
   
   func reTake() {
-    print("RETAKING")
     DispatchQueue.global(qos: .background).async {
       self.flipCamera()
       self.session.startRunning()

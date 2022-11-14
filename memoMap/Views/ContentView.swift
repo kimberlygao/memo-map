@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
   let viewController = ViewController()
   let memoryController = MemoryController()
+  @ObservedObject var userController = UserController()
   @StateObject var mapViewController = MapViewController()
   @StateObject var placeController = PlaceController()
   @StateObject var camera = CameraController()
@@ -23,7 +24,7 @@ struct ContentView: View {
         MapView(mapViewController: mapViewController, placeController: placeController).ignoresSafeArea()
         VStack {
           HStack {
-            NavigationLink(destination: AddFriendsView()) {
+            NavigationLink(destination: AddFriendsView(userController: userController)) {
               Image(systemName: "person.badge.plus")
                 .padding()
                 .font(.system(size: 24))
@@ -56,61 +57,6 @@ struct ContentView: View {
 //    .onAppear(perform: {
 //      camera.check()
 //    })
-//    
-    
-    
-    //    NavigationView {
-    //      TabView {
-    //        ZStack {
-    //          MapView(mapViewController: mapViewController, placeController: placeController).ignoresSafeArea()
-    //          VStack {
-    //            HStack {
-    //              NavigationLink(destination: AddFriendsView()) {
-    //                Image(systemName: "person.badge.plus")
-    //                  .padding()
-    //                  .font(.system(size: 24))
-    //                  .foregroundColor(.black)
-    //              }
-    //              Spacer()
-    //            }
-    //            SearchView(mapViewController: mapViewController)
-    //            Spacer()
-    //          }
-    //        }.tabItem {
-    //          Image(systemName: "map")
-    //        }
-    //        CameraView(camera: camera, memoryController: memoryController)
-    //          .tabItem {
-    //            Image(systemName: "camera")
-    //        }
-    //        MapView(mapViewController: mapViewController, placeController: placeController)
-    //          .tabItem {
-    //            Image(systemName: "mappin.circle")
-    //        }
-    //
-    //      }
-    //    }
-    //    .onAppear(perform: {
-    //      camera.check()
-    //    })
-    //
-    //    VStack {
-    //      MapView(viewController: viewController)
-    //
-    //      HStack {
-    ////        Spacer()
-    ////        Image(systemName: "map").padding()
-    ////        Spacer()
-    ////        Image(systemName: "mappin.circle")
-    ////        Spacer()
-    //        NavigationLink {
-    //            CameraView(camera: cameraController)
-    //        } label: {
-    //          Image(systemName: "camera")
-    //        }
-    //      }
-    //    }
-    
   }
 }
 

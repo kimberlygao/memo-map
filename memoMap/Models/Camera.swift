@@ -100,7 +100,6 @@ class Camera: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     guard let imageData = photo.fileDataRepresentation() else {return}
     
     self.photoData = imageData
-    print("picture taken")
   }
   
   func savePhoto () {
@@ -108,6 +107,5 @@ class Camera: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     self.isSaved = true
-    print("saved successfully")
   }
 }
