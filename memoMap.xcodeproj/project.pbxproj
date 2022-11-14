@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		410B39ED2921A9E30060FDD7 /* FriendRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410B39EC2921A9E30060FDD7 /* FriendRequestController.swift */; };
 		410B39EF2921AA540060FDD7 /* FriendRequestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410B39EE2921AA540060FDD7 /* FriendRequestRepository.swift */; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
@@ -70,7 +69,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		410B39EC2921A9E30060FDD7 /* FriendRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestController.swift; sourceTree = "<group>"; };
 		410B39EE2921AA540060FDD7 /* FriendRequestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestRepository.swift; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
 		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 				E5BFDC9F29134DE500DF0180 /* ViewController.swift */,
 				E5BFDCA62913537900DF0180 /* CameraController.swift */,
 				E55AD3B4291C9D9400F46D54 /* UserController.swift */,
-				410B39EC2921A9E30060FDD7 /* FriendRequestController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -353,7 +350,6 @@
 				E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */,
 				E5BFDC972913499D00DF0180 /* MapView.swift in Sources */,
 				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
-				410B39ED2921A9E30060FDD7 /* FriendRequestController.swift in Sources */,
 				E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */,
 				E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */,
 				E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */,

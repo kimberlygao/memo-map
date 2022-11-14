@@ -14,7 +14,6 @@ struct ContentView: View {
   @ObservedObject var userController = UserController()
 //  @StateObject var camera = CameraController()
   @State private var showingAlert = false
-//  var friends: [User] = []
   
   
   var body: some View {
@@ -22,11 +21,17 @@ struct ContentView: View {
       placeController.getPlaceData()
     }
     Text(placeController.newplace.name)
-    Text(userController.currentUser.name)
-    List {
-      ForEach(userController.getFriends(user: userController.currentUser), id: \.self) { friend in
-        Text(friend.name)
-      }
+    Text(userController.currentUser.password)
+    ForEach(userController.getFriends(user: userController.currentUser), id: \.self) { friend in
+      Text(friend.name)
+    }
+    Spacer()
+    ForEach(userController.getSentRequests(user: userController.currentUser), id: \.self) { person in
+      Text(person.name)
+    }
+    Spacer()
+    ForEach(userController.getReceivedRequests(user: userController.currentUser), id: \.self) { person in
+      Text(person.name)
     }
 //    NavigationView {
 //      TabView {
