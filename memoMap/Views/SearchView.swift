@@ -13,22 +13,33 @@ struct SearchView: View {
   @State var search: String = ""
   
   var body: some View {
-    TextField("Search", text: $search, onEditingChanged: { _ in})
-    {
-      print(self.search)
-      if self.search == "" {
-        mapViewController.addMapAnnotations()
-      } else {
-        mapViewController.performSearch(search: self.search)
+      HStack {
+
+        TextField("Search", text: $search, onEditingChanged: { _ in})
+        {
+          if self.search == "" {
+            mapViewController.addMapAnnotations()
+          } else {
+            mapViewController.performSearch(search: self.search)
+          }
+        }
+        .padding(8)
+        .padding(.leading, 12)
+  //      .textFieldStyle(RoundedBorderTextFieldStyle())
+        // Text alignment.
+  //      .multilineTextAlignment(.leading)
+        // Text/placeholder font.
+  //      .font(.title.weight(.thin))
+  //      .frame(width: 380, height: 60, alignment: .center)
+        //      .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
+        
+        Spacer()
+        Image(systemName: "magnifyingglass")
+          .padding()
       }
-    }
-    .textFieldStyle(RoundedBorderTextFieldStyle())
-    // Text alignment.
-    .multilineTextAlignment(.leading)
-    // Text/placeholder font.
-    .font(.title.weight(.thin))
-    .frame(width: 380, height: 60, alignment: .center)
-    .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+      .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
+      .padding(.leading)
+      .padding(.trailing)
   }
 }
 

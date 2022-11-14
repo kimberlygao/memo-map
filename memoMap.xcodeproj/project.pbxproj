@@ -156,10 +156,10 @@
 		E521D730291CB252002EB6FF /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				E51B3B7C292220C600399450 /* FriendRepository.swift */,
 				E521D731291CB252002EB6FF /* UserRepository.swift */,
 				E521D732291CB252002EB6FF /* PlaceRepository.swift */,
 				E521D733291CB252002EB6FF /* MemoryRepository.swift */,
-				E51B3B7C292220C600399450 /* FriendRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
