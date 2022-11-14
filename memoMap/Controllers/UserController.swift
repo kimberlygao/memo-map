@@ -74,7 +74,8 @@ class UserController: ObservableObject {
         received.append(person)
       }
     }
-    
+    print(self.currentUser.name)
+    print(received)
     return received
   }
 }

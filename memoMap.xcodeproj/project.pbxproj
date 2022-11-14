@@ -15,6 +15,8 @@
 		E51B3B79291E20C100399450 /* FriendsProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B78291E20C100399450 /* FriendsProfileView2.swift */; };
 		E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B7A291E211D00399450 /* MemoryGridView.swift */; };
 		E51B3B7D292220C600399450 /* FriendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B7C292220C600399450 /* FriendRepository.swift */; };
+		E51B3B7F2922E1D400399450 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B7E2922E1D400399450 /* ProfileView.swift */; };
+		E51B3B812922E3E400399450 /* FriendRequestBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B802922E3E400399450 /* FriendRequestBar.swift */; };
 		E521D734291CB252002EB6FF /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D731291CB252002EB6FF /* UserRepository.swift */; };
 		E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D732291CB252002EB6FF /* PlaceRepository.swift */; };
 		E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D733291CB252002EB6FF /* MemoryRepository.swift */; };
@@ -82,6 +84,8 @@
 		E51B3B78291E20C100399450 /* FriendsProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView2.swift; sourceTree = "<group>"; };
 		E51B3B7A291E211D00399450 /* MemoryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGridView.swift; sourceTree = "<group>"; };
 		E51B3B7C292220C600399450 /* FriendRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRepository.swift; sourceTree = "<group>"; };
+		E51B3B7E2922E1D400399450 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E51B3B802922E3E400399450 /* FriendRequestBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestBar.swift; sourceTree = "<group>"; };
 		E521D731291CB252002EB6FF /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		E521D732291CB252002EB6FF /* PlaceRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
 		E521D733291CB252002EB6FF /* MemoryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryRepository.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 				E51B3B56291CD55E00399450 /* FriendsProfileView.swift */,
 				E51B3B78291E20C100399450 /* FriendsProfileView2.swift */,
 				E51B3B7A291E211D00399450 /* MemoryGridView.swift */,
+				E51B3B7E2922E1D400399450 /* ProfileView.swift */,
+				E51B3B802922E3E400399450 /* FriendRequestBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -369,12 +375,14 @@
 				E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */,
 				E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */,
 				E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */,
+				E51B3B7F2922E1D400399450 /* ProfileView.swift in Sources */,
 				E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
 				E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */,
 				E51B3B77291DFE5F00399450 /* SearchView.swift in Sources */,
 				E54B64E929170F42006BBD2F /* Camera.swift in Sources */,
 				E51B3B7D292220C600399450 /* FriendRepository.swift in Sources */,
+				E51B3B812922E3E400399450 /* FriendRequestBar.swift in Sources */,
 				E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */,
 				E521D734291CB252002EB6FF /* UserRepository.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,

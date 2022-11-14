@@ -16,52 +16,52 @@ struct AddFriendsView: View {
     Text("Requests")
       .fontWeight(.bold)
     
-    ForEach (userController.getReceivedRequests(user: userController.currentUser), id: \.self) { person in
-      HStack {
-        Text(person.name)
-      }
-      
-    }
-//    List {
-//      ForEach(searchResults, id: \.self) { name in
-//        ZStack {
-//          if name == "kwgao" {
-//            NavigationLink(destination: FriendsProfileView())
-//            {
-//              EmptyView()
-//            }
-//            .opacity(0.0)
-//          }
-//          else {
-//            NavigationLink(destination: FriendsProfileView2())
-//            {
-//              EmptyView()
-//            }
-//            .opacity(0.0)
-//          }
-//          
-//          
-//          HStack {
-//            Image(systemName: "person.circle")
-//            Text(name)
-//            Spacer()
-//            //              Button (action: {requestSent.toggle()}, label: {
-//            //                if !requestSent {
-//            //                  Image(systemName: "plus")
-//            //                    .foregroundColor(.black)
-//            //                } else {
-//            //                  Image(systemName: "checkmark")
-//            //                    .foregroundColor(.black)
-//            //                }
-//            //
-//            //              })
-//          }
-//        }
+//    ForEach (userController.getReceivedRequests(user: userController.currentUser), id: \.self) { person in
+//      HStack {
+//        Text(person.name)
 //      }
+//
 //    }
-//    .searchable(text: $searchText)
-//    .background(Color.white)
-//    .navigationTitle("Add Friends")
+    List {
+      ForEach(searchResults, id: \.self) { name in
+        ZStack {
+          if name == "kwgao" {
+            NavigationLink(destination: FriendsProfileView())
+            {
+              EmptyView()
+            }
+            .opacity(0.0)
+          }
+          else {
+            NavigationLink(destination: FriendsProfileView2())
+            {
+              EmptyView()
+            }
+            .opacity(0.0)
+          }
+          
+          
+          HStack {
+            Image(systemName: "person.circle")
+            Text(name)
+            Spacer()
+            //              Button (action: {requestSent.toggle()}, label: {
+            //                if !requestSent {
+            //                  Image(systemName: "plus")
+            //                    .foregroundColor(.black)
+            //                } else {
+            //                  Image(systemName: "checkmark")
+            //                    .foregroundColor(.black)
+            //                }
+            //
+            //              })
+          }
+        }
+      }
+    }
+    .searchable(text: $searchText)
+    .background(Color.white)
+    .navigationTitle("Add Friends")
   }
   
   var searchResults: [String] {
