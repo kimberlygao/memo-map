@@ -13,8 +13,8 @@ struct AddFriendsView: View {
   @ObservedObject var userController : UserController
   
   var body: some View {
-    Text("Requests")
-      .fontWeight(.bold)
+//    Text("Requests")
+//      .fontWeight(.bold)
     
 //    ForEach (userController.getReceivedRequests(user: userController.currentUser), id: \.self) { person in
 //      HStack {
