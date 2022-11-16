@@ -11,6 +11,7 @@ struct ContentView: View {
   let viewController = ViewController()
   let memoryController = MemoryController()
   @StateObject var mapViewController = MapViewController()
+  @StateObject var searchViewController = SearchViewController()
   @StateObject var placeController = PlaceController()
   @StateObject var camera = CameraController()
   @State private var showingAlert = false
@@ -20,7 +21,7 @@ struct ContentView: View {
 //    SearchView()
     TabView {
         VStack {
-            SearchView(mapViewController: mapViewController)
+            SearchView(searchViewController: searchViewController)
             MapView(mapViewController: mapViewController, placeController: placeController)
             .ignoresSafeArea()
         }.tabItem {

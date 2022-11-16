@@ -5,18 +5,38 @@
 //  Created by Kimberly Gao on 11/2/22.
 //
 
+import Foundation
 import SwiftUI
 import MapKit
+
+/*
+  Coordinator for using UIKit inside SwiftUI.
+ */
+class MapViewCoordinator: NSObject, MKMapViewDelegate {
+    
+      var mapViewController: MapView
+        
+      init(_ control: MapView) {
+          self.mapViewController = control
+      }
+        
+      func mapView(_ mapView: MKMapView, viewFor
+           annotation: MKAnnotation) -> MKAnnotationView?{
+         //Custom View for Annotation
+          let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customView")
+          annotationView.canShowCallout = true
+          //Your custom image icon
+          annotationView.image = UIImage(named: "locationPin")
+          return annotationView
+       }
+}
+
 
 struct MapView: UIViewRepresentable {
     
   @ObservedObject var mapViewController: MapViewController
   @ObservedObject var placeController: PlaceController
   @State var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(40.444230, -79.945530), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-  @State private var places: [Place] = []
-  @State private var selectedPlace: Place?
-  
-    @State private var search: String = "Search"
 
 //    private func addMapAnnotations(from mapView: MKMapView) {
 //        let test_locations = [
@@ -36,30 +56,36 @@ struct MapView: UIViewRepresentable {
 //            print("added")
 //        }
 //    }
+    func makeCoordinator() -> MapViewCoordinator {
+        MapViewCoordinator(self)
+    }
 
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
         print("updating")
         uiView.showsUserLocation = true
 //        uiView.shows = true
-        mapViewController.current.loadLocation()
-        mapViewController.getNearbyLocations(using: MKLocalSearch.Request())
+//        mapViewController.current.loadLocation()
+//        mapViewController.getNearbyLocations(using: MKLocalSearch.Request())
+        uiView.delegate = context.coordinator
+        uiView.addAnnotations(mapViewController.locationAnnotations)
   }
 
 
   func makeUIView(context: Context) -> MKMapView {
-      let mapView = mapViewController.mapView
-      
-      
-      // TODO: figure out how to move to MapViewController
-//      userLocation.loadLocation()
-      mapViewController.current.getCurrentLocation()
-      let coordinate = CLLocationCoordinate2D(latitude: mapViewController.current.latitude, longitude: mapViewController.current.longitude
-      )
-      let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
-          let region = MKCoordinateRegion(center: coordinate, span: span)
-          mapView.setRegion(region, animated: true)
-      
-      mapViewController.addMapAnnotations()
+      let mapView = MKMapView(frame: .zero)
+//      let mapView = mapViewController.mapView
+//
+//
+//      // TODO: figure out how to move to MapViewController
+////      userLocation.loadLocation()
+//      mapViewController.current.getCurrentLocation()
+//      let coordinate = CLLocationCoordinate2D(latitude: mapViewController.current.latitude, longitude: mapViewController.current.longitude
+//      )
+//      let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
+//          let region = MKCoordinateRegion(center: coordinate, span: span)
+//          mapView.setRegion(region, animated: true)
+//
+//      mapViewController.addMapAnnotations()
     return mapView
   }
 }

@@ -9,14 +9,15 @@ import SwiftUI
 import MapKit
 
 struct SearchView: View {
-    @ObservedObject var mapViewController: MapViewController
+//    @ObservedObject var mapViewController: MapViewController
+    @ObservedObject var searchViewController: SearchViewController
     @State var search: String = ""
     
      var body: some View {
          TextField("Search", text: $search, onEditingChanged: { _ in})
                    {
                        print(self.search)
-                       mapViewController.performSearch(search: self.search)
+                       searchViewController.performSearch(search: self.search)
                    }
                  .textFieldStyle(RoundedBorderTextFieldStyle())
                  // Text alignment.
