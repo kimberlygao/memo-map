@@ -19,7 +19,7 @@ struct SearchView: View {
          ZStack(alignment: .top) {
              MapView(mapViewController: mapViewController, searchController: searchController, annotations: searchController.annotations).edgesIgnoringSafeArea(.all)
              HStack {
-                 TextField("Search", text: $searchController.searchQuery, onEditingChanged: { _ in})
+                 TextField("Search", text: $searchController.searchQuery)
                     {
                         print(self.search)
 //                        searchController.performSearch(search: self.search)

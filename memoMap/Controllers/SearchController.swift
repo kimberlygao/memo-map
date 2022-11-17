@@ -16,7 +16,7 @@ protocol SearchControllerDelegate: AnyObject {
 class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
     //    private let label = UILa
     
-    @Published var annotations = [MKPointAnnotation]()
+    @Published var annotations = [LocationAnnotation]()
     @Published var searchQuery = ""
     
     weak var delegate: SearchControllerDelegate?
@@ -31,15 +31,11 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
             })
     }
     
-    func getSearchResults() -> [MKPointAnnotation] {
-        return annotations
-    }
-    
     private func performSearch(search: String) {
         print("searching")
         //        self.mapView.removeAnnotations(mapView.annotations)
         // reset search annotations
-        var annotationsResult = [MKPointAnnotation]()
+        var annotationsResult = [LocationAnnotation]()
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = search
         request.region = delegate?.getSearchRegion(self) ?? MKCoordinateRegion()
@@ -54,7 +50,7 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
             //success
             resp?.mapItems.forEach({
                 (mapItem) in print(mapItem.name ?? "")
-                let annotation = MKPointAnnotation()
+                let annotation = LocationAnnotation()
                 annotation.coordinate = mapItem.placemark.coordinate
                 annotation.title = mapItem.name
                 annotationsResult.append(annotation)

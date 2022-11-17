@@ -20,8 +20,6 @@ struct ContentView: View {
   
   var body: some View {
     NavigationView {
-      ZStack {
-          MapView(mapViewController: mapViewController, searchController: searchController).ignoresSafeArea()
         VStack {
           HStack {
             NavigationLink(destination: AddFriendsView()) {
@@ -38,8 +36,8 @@ struct ContentView: View {
                 .foregroundColor(.black)
             }
           }
-            SearchView(mapViewController: mapViewController, searchController: searchController)
           Spacer()
+          SearchView(mapViewController: mapViewController, searchController: searchController)
         }
         VStack {
           Spacer()
@@ -50,7 +48,6 @@ struct ContentView: View {
             CameraView(camera: camera, memoryController: memoryController)
           })
         }
-      }
     }
 //    .onAppear(perform: {
 //      camera.check()

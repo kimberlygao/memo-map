@@ -137,7 +137,9 @@ class MapViewController: UIViewController, ObservableObject {
             let name = location["name"] as? String ?? ""
             
             let loc = CLLocationCoordinate2D(latitude: location["latitude"] as! Double, longitude: location["longitude"] as! Double)
-            let annotation = LocationAnnotation(title: name, subtitle: "TEST", coordinate: loc)
+            let annotation = LocationAnnotation()
+            annotation.title = name
+            annotation.coordinate = loc
             //            self.annotations.append(annotation)
             current.append(annotation)
             //            self.mapView.addAnnotation(annotation)

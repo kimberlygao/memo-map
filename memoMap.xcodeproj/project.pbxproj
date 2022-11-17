@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B3B4AD529259BE900639C99 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */; };
+		2B3B4AD72925EB5000639C99 /* LocationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD62925EB5000639C99 /* LocationAnnotationView.swift */; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
+		2B3B4AD62925EB5000639C99 /* LocationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotationView.swift; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
 		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
 		E51B3B72291DFDBB00399450 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = memoMap/Controllers/MapViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -215,6 +217,7 @@
 				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
 				E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */,
 				E54B64F229188969006BBD2F /* CapturedImageView.swift */,
+				2B3B4AD62925EB5000639C99 /* LocationAnnotationView.swift */,
 				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
 				E51B3B54291CD20D00399450 /* AddFriendsView.swift */,
 				E51B3B56291CD55E00399450 /* FriendsProfileView.swift */,
@@ -367,6 +370,7 @@
 				E5BFDC972913499D00DF0180 /* MapView.swift in Sources */,
 				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
 				E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */,
+				2B3B4AD72925EB5000639C99 /* LocationAnnotationView.swift in Sources */,
 				E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */,
 				E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */,
 				E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */,
