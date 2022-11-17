@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
   let viewController = ViewController()
   let memoryController = MemoryController()
+  let searchController = SearchController()
   @StateObject var mapViewController = MapViewController()
   @StateObject var placeController = PlaceController()
   @StateObject var camera = CameraController()
@@ -20,7 +21,7 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       ZStack {
-        MapView(mapViewController: mapViewController, placeController: placeController).ignoresSafeArea()
+          MapView(mapViewController: mapViewController, searchController: searchController).ignoresSafeArea()
         VStack {
           HStack {
             NavigationLink(destination: AddFriendsView()) {
@@ -37,7 +38,7 @@ struct ContentView: View {
                 .foregroundColor(.black)
             }
           }
-          SearchView(mapViewController: mapViewController)
+            SearchView(mapViewController: mapViewController, searchController: searchController)
           Spacer()
         }
         VStack {
@@ -51,9 +52,9 @@ struct ContentView: View {
         }
       }
     }
-    .onAppear(perform: {
-      camera.check()
-    })
+//    .onAppear(perform: {
+//      camera.check()
+//    })
     
     
     

@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B3B4AD529259BE900639C99 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
-		E51B3B75291DFDBB00399450 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B73291DFDBB00399450 /* SearchViewController.swift */; };
+		E51B3B75291DFDBB00399450 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B73291DFDBB00399450 /* SearchController.swift */; };
 		E51B3B77291DFE5F00399450 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B76291DFE5F00399450 /* SearchView.swift */; };
 		E51B3B79291E20C100399450 /* FriendsProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B78291E20C100399450 /* FriendsProfileView2.swift */; };
 		E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B7A291E211D00399450 /* MemoryGridView.swift */; };
@@ -73,10 +74,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
 		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
 		E51B3B72291DFDBB00399450 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = memoMap/Controllers/MapViewController.swift; sourceTree = SOURCE_ROOT; };
-		E51B3B73291DFDBB00399450 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = memoMap/Controllers/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		E51B3B73291DFDBB00399450 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchController.swift; path = memoMap/Controllers/SearchController.swift; sourceTree = SOURCE_ROOT; };
 		E51B3B76291DFE5F00399450 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E51B3B78291E20C100399450 /* FriendsProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView2.swift; sourceTree = "<group>"; };
 		E51B3B7A291E211D00399450 /* MemoryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGridView.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				E5BFDCA129134E1400DF0180 /* Location.swift */,
 				E55AD3A7291C9C0100F46D54 /* DailyPrompt.swift */,
 				E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */,
+				2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */,
 				E55AD3A2291C9C0100F46D54 /* Memory.swift */,
 				E55AD3A5291C9C0100F46D54 /* Place.swift */,
 				E55AD3A4291C9C0100F46D54 /* Prompt.swift */,
@@ -246,7 +249,7 @@
 				E5BFDCA62913537900DF0180 /* CameraController.swift */,
 				E55AD3B4291C9D9400F46D54 /* UserController.swift */,
 				E51B3B72291DFDBB00399450 /* MapViewController.swift */,
-				E51B3B73291DFDBB00399450 /* SearchViewController.swift */,
+				E51B3B73291DFDBB00399450 /* SearchController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -354,7 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E51B3B75291DFDBB00399450 /* SearchViewController.swift in Sources */,
+				E51B3B75291DFDBB00399450 /* SearchController.swift in Sources */,
 				E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */,
 				E54B64F1291875BB006BBD2F /* MiniPhotoView.swift in Sources */,
 				E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */,
@@ -383,6 +386,7 @@
 				E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */,
 				E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */,
 				E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */,
+				2B3B4AD529259BE900639C99 /* LocationAnnotation.swift in Sources */,
 				E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */,
 				E51B3B79291E20C100399450 /* FriendsProfileView2.swift in Sources */,
 				E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */,

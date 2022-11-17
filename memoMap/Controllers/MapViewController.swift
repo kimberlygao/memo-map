@@ -11,10 +11,6 @@ import Foundation
 //import FloatingPanel
 
 
-extension MapViewController: MKMapViewDelegate {
-    
-}
-
 class MapViewController: UIViewController, ObservableObject {
     let current : Location = Location()
     let locations: [Location] = []
@@ -22,10 +18,18 @@ class MapViewController: UIViewController, ObservableObject {
     var locationManager: CLLocationManager!
     var nearbyPlaces: [MKMapItem] = []
     var searchRegion: MKCoordinateRegion = MKCoordinateRegion()
+    @Published var mapRegion : MKCoordinateRegion = MKCoordinateRegion()
+    @Published var locationAnnotations : [LocationAnnotation] = []
 //    var pointOfInterestCategory = MKPointOfInterestCategory? { get set }
     
     override func viewDidLoad() {
         print("HERE")
+        self.setUpAnnotations()
+        self.current.getCurrentLocation()
+        let coordinate = CLLocationCoordinate2D(latitude: self.current.latitude, longitude: self.current.longitude
+          )
+        let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
+        self.mapRegion = MKCoordinateRegion(center: coordinate, span: span)
         super.viewDidLoad()
         //        addMapAnnotations()
         
@@ -118,7 +122,8 @@ class MapViewController: UIViewController, ObservableObject {
     //            dataTask.resume()
     //        }
     
-    func addMapAnnotations() {
+    func setUpAnnotations() {
+        var current = [LocationAnnotation]()
         print("HERE")
         let test_locations = [
             ["name": "Delainie Coffee", "latitude": 40.4288961, "longitude": -79.9807498,],
@@ -129,15 +134,16 @@ class MapViewController: UIViewController, ObservableObject {
         print("HERE")
         for location in test_locations {
             print("location: ", location)
-            let annotation = MKPointAnnotation()
-            annotation.title = location["name"] as? String
+            let name = location["name"] as? String ?? ""
             
             let loc = CLLocationCoordinate2D(latitude: location["latitude"] as! Double, longitude: location["longitude"] as! Double)
-            annotation.coordinate = loc
+            let annotation = LocationAnnotation(title: name, subtitle: "TEST", coordinate: loc)
             //            self.annotations.append(annotation)
-            self.mapView.addAnnotation(annotation)
+            current.append(annotation)
+            //            self.mapView.addAnnotation(annotation)
             print("added")
         }
+        self.locationAnnotations = current
     }
     
     func getNearbyLocations(using searchRequest: MKLocalSearch.Request) {
@@ -168,31 +174,6 @@ class MapViewController: UIViewController, ObservableObject {
         //            let annotations = mapViewController.locations.map(LocationAnnotation.init)
         //            mapView.addAnnotations(annotations)
         //        }
-        
-        func performSearch(search: String) {
-            print("searching")
-            self.mapView.removeAnnotations(mapView.annotations)
-            let request = MKLocalSearch.Request()
-            request.naturalLanguageQuery = search
-            request.region = self.mapView.region
-            let localSearch = MKLocalSearch(request: request)
-            localSearch.start{
-                (resp, err) in
-                if let err = err {
-                    print("Failed local search", err)
-                    return
-                }
-                //success
-                resp?.mapItems.forEach({
-                    (mapItem) in print(mapItem.name ?? "")
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = mapItem.placemark.coordinate
-                    annotation.title = mapItem.name
-                    self.mapView.addAnnotation(annotation)
-                })
-                self.mapView.showAnnotations(self.mapView.annotations, animated: true)
-            }
-        }
 }
 
         
