@@ -14,8 +14,8 @@ class LocationAnnotation: NSObject, MKAnnotation {
     var title: String?
     var subtitle: String?
     var coordinate: CLLocationCoordinate2D
-    var image: UIImage? = nil
-    var color: UIColor?
+//    var image: UIImage? = nil
+//    var color: UIColor?
     
     //    init (location: Location) {
     //        self.name = location.name
@@ -24,17 +24,17 @@ class LocationAnnotation: NSObject, MKAnnotation {
     ////        self.name = location.name
     ////        self.coordinate = location.coordinate
     ////    }
-    override init() {
-        self.title = nil
-        self.subtitle = nil
-        self.coordinate = CLLocationCoordinate2D()
-        self.image = nil
-        self.color = UIColor.white
-    }
-//    init (title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
-//        self.title = title
-//        self.subtitle = subtitle
-//        self.coordinate = coordinate
+//    override init() {
+//        self.title = nil
+//        self.subtitle = nil
+//        self.coordinate = CLLocationCoordinate2D()
+////        self.image = nil
+////        self.color = UIColor.white
 //    }
+    init (title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
+        self.title = title
+        self.subtitle = subtitle
+        self.coordinate = coordinate
+    }
 
 }

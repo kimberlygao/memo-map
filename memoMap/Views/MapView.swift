@@ -18,7 +18,7 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
 
       func mapView(_ mapView: MKMapView, viewFor
            annotation: MKAnnotation) -> MKAnnotationView? {
-            
+            print("annotation coordinator: ", annotation)
 //            //Custom View for Annotation
 //            let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "customView")
 //            annotationView.canShowCallout = true
@@ -30,27 +30,37 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
               print("user location here 1")
               return nil  //Default is to let the system handle it.
           }
+          
+//          if annotation.image == nil {
+//              var defaultAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "DefaultPinView")
+//              if defaultAnnotationView == nil {
+//                  print("2a here")
+//                  defaultAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "DefaultPinView")
+//                  defaultAnnotationView?.image = UIImage(named: "locationPin")
+//              }
+//              defaultAnnotationView?.canShowCallout = true
+//              return defaultAnnotationView
+//          }
 
-          if annotation.isKind(of: LocationAnnotation.self) {
+          if !annotation.isKind(of: ImageAnnotation.self) {
               print("original here 2")
               var defaultAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "DefaultPinView")
               if defaultAnnotationView == nil {
                   print("2a here")
                   defaultAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "DefaultPinView")
                   defaultAnnotationView?.image = UIImage(named: "locationPin")
-
               }
-//              defaultAnnotationView?.canShowCallout = true
+              defaultAnnotationView?.canShowCallout = true
               return defaultAnnotationView
           }
 
           //Custom View for Annotation
           print("image here 3")
-          var view: LocationAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: "customLocationAnnotation") as? LocationAnnotationView
+          var view: ImageAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: "customLocationAnnotation") as? ImageAnnotationView
           if view == nil {
-              view = LocationAnnotationView(annotation: annotation, reuseIdentifier: "customLocationAnnotation")
+              view = ImageAnnotationView(annotation: annotation, reuseIdentifier: "customLocationAnnotation")
           }
-          let annotation = annotation as! LocationAnnotation
+          let annotation = annotation as! ImageAnnotation
           view?.image = annotation.image
           view?.annotation = annotation
           return view
@@ -89,7 +99,7 @@ struct MapView: UIViewRepresentable {
   @ObservedObject var mapViewController: MapViewController
   @ObservedObject var searchController: SearchController
 //  @ObservedObject var placeController: PlaceController
-  @State var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(40.444230, -79.945530), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+//  @State var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(40.444230, -79.945530), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
 
 //    private func addMapAnnotations(from mapView: MKMapView) {
 //        let test_locations = [
@@ -109,21 +119,38 @@ struct MapView: UIViewRepresentable {
 //            print("added")
 //        }
 //    }
+//    @Binding var selectedPlace: ImageAnnotation?
     var annotations = [LocationAnnotation]()
+    var currMemories = [ImageAnnotation]()
     let mapView = MKMapView(frame: .zero)
+    @Binding var mapRegion : MKCoordinateRegion
 
     func makeCoordinator() -> MapViewCoordinator {
             MapViewCoordinator(self)
         }
+    
+//    private func updateMemories(from mapView: MKMapView) {
+//        mapView.removeAnnotations(mapView.annotations)
+//            let newAnnotations = currMemories.map { LandmarkAnnotation(landmark: $0) }
+//            mapView.addAnnotations(newAnnotations)
+//            if let selectedAnnotation = newAnnotations.first(where: { $0.id == selectedLandmark?.id }) {
+//                mapView.selectAnnotation(selectedAnnotation, animated: true)
+//            }
+//    }
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
         print("updating")
+//        addExistingMemories()
         uiView.showsUserLocation = true
-        uiView.annotations.forEach { uiView.removeAnnotation($0) }
+//        uiView.annotations.forEach { uiView.removeAnnotation($0) }
+        loadAnnotations()
 //        mapViewController.current.loadLocation()
 //        mapViewController.getNearbyLocations(using: MKLocalSearch.Request())
         uiView.delegate = context.coordinator
+        uiView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customLocationAnnotation")
         print("map annotations:", annotations)
+//        uiView.addAnnotations(annotations)
+//        loadSearchImage()
         uiView.addAnnotations(annotations)
         uiView.showAnnotations(annotations, animated: true)
 //        uiView.addAnnotations(searchViewController.searchAnnotations)
@@ -134,29 +161,73 @@ struct MapView: UIViewRepresentable {
 //        self.searchResults = searchViewController.getSearchResults()
 //    }
 
+//    func loadSearchImage() {
+//        for annotation in annotations {
+//            print("loaded url:", annotation.url)
+//            DispatchQueue.main.async {
+//                let request = NSMutableURLRequest(url: URL(string: annotation.url)!)
+//                request.httpMethod = "GET"
+//                let session = URLSession(configuration: URLSessionConfiguration.default)
+//                let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
+//                    if error == nil {
+//                        let loc = LocationAnnotation(title: annotation.title ?? "", subtitle: annotation.subtitle ?? "", coordinate: annotation.coordinate)
+//                        let annotation = ImageAnnotation(locAnnotation: loc)
+////                        annotation.coordinate = memory.coordinate
+//                        annotation.image = UIImage(data: data!, scale: UIScreen.main.scale)
+////                        annotation.title = memory.title
+////                        annotation.subtitle = memory.subtitle
+////                        let locAnnotation = LocationAnnotation(title: memory.title, subtitle: memory.subtitle, coordinate: )
+//
+////                        let imageAnnotation = ImageAnnotation()
+//                    }
+//                }
+//                dataTask.resume()
+//            }
+//        }
+//    }
+    
     func loadAnnotations() {
-        let request = NSMutableURLRequest(url: URL(string: "https://i.imgur.com/zIoAyCx.png")!)
-        request.httpMethod = "GET"
-
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
-            if error == nil {
-
-                let annotation = LocationAnnotation()
-                annotation.coordinate = CLLocationCoordinate2DMake(43.761539, -79.411079)
-                annotation.image = UIImage(data: data!, scale: UIScreen.main.scale)
-                annotation.title = "Toronto"
-                annotation.subtitle = "Yonge & Bloor"
-
-
-                DispatchQueue.main.async {
-                    self.mapView.addAnnotation(annotation)
+        print("CURR MEMORIES: ", currMemories)
+        for memory in currMemories {
+            DispatchQueue.main.async {
+                let request = NSMutableURLRequest(url: URL(string: memory.url)!)
+                request.httpMethod = "GET"
+                let session = URLSession(configuration: URLSessionConfiguration.default)
+                let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
+                    if error == nil {
+                        let loc = LocationAnnotation(title: memory.title ?? "", subtitle: memory.subtitle ?? "", coordinate: memory.coordinate)
+                        let annotation = ImageAnnotation(locAnnotation: loc)
+//                        annotation.coordinate = memory.coordinate
+                        annotation.image = UIImage(data: data!, scale: UIScreen.main.scale)
+//                        annotation.title = memory.title
+//                        annotation.subtitle = memory.subtitle
+//                        let locAnnotation = LocationAnnotation(title: memory.title, subtitle: memory.subtitle, coordinate: )
+                        
+//                        let imageAnnotation = ImageAnnotation()
+                        
+                        DispatchQueue.main.async {
+                            self.mapView.addAnnotation(annotation)
+                            print("added 1")
+                        }
+                    }
                 }
+                dataTask.resume()
             }
         }
-
-        dataTask.resume()
     }
+    
+//    func loadImageFromURL (_ url: String) -> UIImage {
+//        let request = NSMutableURLRequest(url: URL(string: url)!)
+//        request.httpMethod = "GET"
+//        var image = UIImage()
+//        let session = URLSession(configuration: URLSessionConfiguration.default)
+//        let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
+//            if error == nil {
+//                image = UIImage(data: data!, scale: UIScreen.main.scale) ?? UIImage()
+//            }
+//        }
+//        return image
+//    }
 
     private func setUpMapRegion() {
         mapViewController.current.getCurrentLocation()
@@ -169,7 +240,6 @@ struct MapView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MKMapView {
       setUpMapRegion()
-      loadAnnotations()
 //      getSearchResults()
 //        mapView.addAnnotations(searchViewController.searchAnnotations)
 //

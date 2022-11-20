@@ -13,26 +13,30 @@ struct SearchView: View {
 //    @ObservedObject var mapViewController: MapViewController
 //    @ObservedObject var mapViewController: MapViewController
     @ObservedObject var searchController: SearchController
-    @State var search: String = ""
+//    @State var search: String = ""
+//    @State private var selectedMemory: ImageAnnotation?
     
      var body: some View {
-         ZStack(alignment: .top) {
-             MapView(mapViewController: mapViewController, searchController: searchController, annotations: searchController.annotations).edgesIgnoringSafeArea(.all)
-             HStack {
-                 TextField("Search", text: $searchController.searchQuery)
-                    {
-                        print(self.search)
-//                        searchController.performSearch(search: self.search)
-                    }
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    // Text alignment.
-                    .multilineTextAlignment(.leading)
-                    // Text/placeholder font.
-                    .font(.title.weight(.thin))
-                    .frame(width: 380, height: 60, alignment: .center)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-             }
-         }
+//         ZStack (alignment: .top) {
+//             MapView(mapViewController: mapViewController, searchController: searchController, annotations: searchController.annotations, currMemories: mapViewController.currMemories).edgesIgnoringSafeArea(.all)
+              HStack {
+                  TextField("Search", text: $searchController.searchQuery)
+                     {
+                         print($searchController.searchQuery)
+ //                        searchController.performSearch(search: self.search)
+                     }
+                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                     // Text alignment.
+                     .multilineTextAlignment(.leading)
+                     // Text/placeholder font.
+                     .font(.title.weight(.thin))
+                     .frame(width: 380, height: 60, alignment: .center)
+                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+              }
+//         }
+//         .sheet(item: $selectedMemory) { place in
+//             Text(place.name)
+//         }
 //         TextField("Search", text: $search, onEditingChanged: { _ in})
 //                   {
 //                       print(self.search)

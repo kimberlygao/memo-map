@@ -8,7 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2B3B4AD529259BE900639C99 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */; };
-		2B3B4AD72925EB5000639C99 /* LocationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD62925EB5000639C99 /* LocationAnnotationView.swift */; };
+		2B3B4AD72925EB5000639C99 /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD62925EB5000639C99 /* ImageAnnotationView.swift */; };
+		2B3B4AD92925FFF500639C99 /* ImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD82925FFF500639C99 /* ImageAnnotation.swift */; };
+		2B3B4B042926C49800639C99 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4B032926C49800639C99 /* LocationDetailView.swift */; };
+		2B3B4B062926C5BD00639C99 /* MapViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4B052926C5BD00639C99 /* MapViewWrapper.swift */; };
+		2B3B4B0A292AA9DB00639C99 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */; };
+		2B3B4B0C292AA9DB00639C99 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B0B292AA9DB00639C99 /* Dependencies */; };
+		2B3B4B0E292AAF7900639C99 /* SearchCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
@@ -76,7 +82,11 @@
 
 /* Begin PBXFileReference section */
 		2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
-		2B3B4AD62925EB5000639C99 /* LocationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotationView.swift; sourceTree = "<group>"; };
+		2B3B4AD62925EB5000639C99 /* ImageAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
+		2B3B4AD82925FFF500639C99 /* ImageAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotation.swift; sourceTree = "<group>"; };
+		2B3B4B032926C49800639C99 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		2B3B4B052926C5BD00639C99 /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
+		2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleter.swift; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
 		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
 		E51B3B72291DFDBB00399450 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = memoMap/Controllers/MapViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -124,6 +134,7 @@
 			files = (
 				E5BFDC6F2913456100DF0180 /* FirebaseDatabase in Frameworks */,
 				E5BFDC7D2913456100DF0180 /* FirebaseFunctionsCombine-Community in Frameworks */,
+				2B3B4B0A292AA9DB00639C99 /* ComposableArchitecture in Frameworks */,
 				E5BFDC752913456100DF0180 /* FirebaseFirestore in Frameworks */,
 				E5BFDC612913456100DF0180 /* FirebaseAnalyticsSwift in Frameworks */,
 				E5BFDC5D2913456100DF0180 /* FirebaseAnalytics in Frameworks */,
@@ -137,6 +148,7 @@
 				E5BFDC8D2913456200DF0180 /* FirebaseRemoteConfigSwift in Frameworks */,
 				E5BFDC7F2913456100DF0180 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				E5BFDC712913456100DF0180 /* FirebaseDatabaseSwift in Frameworks */,
+				2B3B4B0C292AA9DB00639C99 /* Dependencies in Frameworks */,
 				E5BFDC7B2913456100DF0180 /* FirebaseFunctions in Frameworks */,
 				E5BFDC912913456200DF0180 /* FirebaseStorageCombine-Community in Frameworks */,
 				E5BFDC8B2913456200DF0180 /* FirebaseRemoteConfig in Frameworks */,
@@ -211,13 +223,15 @@
 				E5BFDC472913433300DF0180 /* ContentView.swift */,
 				E5BFDC962913499D00DF0180 /* MapView.swift */,
 				E51B3B76291DFE5F00399450 /* SearchView.swift */,
+				2B3B4B052926C5BD00639C99 /* MapViewWrapper.swift */,
 				E5BFDC98291349A500DF0180 /* CameraView.swift */,
+				2B3B4B032926C49800639C99 /* LocationDetailView.swift */,
 				E54B64EA29186494006BBD2F /* CameraControlsView.swift */,
 				E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */,
 				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
 				E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */,
 				E54B64F229188969006BBD2F /* CapturedImageView.swift */,
-				2B3B4AD62925EB5000639C99 /* LocationAnnotationView.swift */,
+				2B3B4AD62925EB5000639C99 /* ImageAnnotationView.swift */,
 				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
 				E51B3B54291CD20D00399450 /* AddFriendsView.swift */,
 				E51B3B56291CD55E00399450 /* FriendsProfileView.swift */,
@@ -234,6 +248,8 @@
 				E55AD3A7291C9C0100F46D54 /* DailyPrompt.swift */,
 				E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */,
 				2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */,
+				2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */,
+				2B3B4AD82925FFF500639C99 /* ImageAnnotation.swift */,
 				E55AD3A2291C9C0100F46D54 /* Memory.swift */,
 				E55AD3A5291C9C0100F46D54 /* Place.swift */,
 				E55AD3A4291C9C0100F46D54 /* Prompt.swift */,
@@ -301,6 +317,8 @@
 				E5BFDC8C2913456200DF0180 /* FirebaseRemoteConfigSwift */,
 				E5BFDC8E2913456200DF0180 /* FirebaseStorage */,
 				E5BFDC902913456200DF0180 /* FirebaseStorageCombine-Community */,
+				2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */,
+				2B3B4B0B292AA9DB00639C99 /* Dependencies */,
 			);
 			productName = memoMap;
 			productReference = E5BFDC422913433300DF0180 /* memoMap.app */;
@@ -332,6 +350,7 @@
 			mainGroup = E5BFDC392913433300DF0180;
 			packageReferences = (
 				E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = E5BFDC432913433300DF0180 /* Products */;
 			projectDirPath = "";
@@ -362,6 +381,7 @@
 			files = (
 				E51B3B75291DFDBB00399450 /* SearchController.swift in Sources */,
 				E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */,
+				2B3B4B042926C49800639C99 /* LocationDetailView.swift in Sources */,
 				E54B64F1291875BB006BBD2F /* MiniPhotoView.swift in Sources */,
 				E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */,
 				E5BFDC482913433300DF0180 /* ContentView.swift in Sources */,
@@ -370,10 +390,11 @@
 				E5BFDC972913499D00DF0180 /* MapView.swift in Sources */,
 				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
 				E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */,
-				2B3B4AD72925EB5000639C99 /* LocationAnnotationView.swift in Sources */,
+				2B3B4AD72925EB5000639C99 /* ImageAnnotationView.swift in Sources */,
 				E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */,
 				E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */,
 				E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */,
+				2B3B4AD92925FFF500639C99 /* ImageAnnotation.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
 				E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */,
 				E51B3B77291DFE5F00399450 /* SearchView.swift in Sources */,
@@ -385,8 +406,10 @@
 				E54B64F329188969006BBD2F /* CapturedImageView.swift in Sources */,
 				E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */,
 				E55AD3AB291C9C0100F46D54 /* Place.swift in Sources */,
+				2B3B4B0E292AAF7900639C99 /* SearchCompleter.swift in Sources */,
 				E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */,
 				E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */,
+				2B3B4B062926C5BD00639C99 /* MapViewWrapper.swift in Sources */,
 				E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */,
 				E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */,
 				E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */,
@@ -605,6 +628,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.46.0;
+			};
+		};
 		E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -616,6 +647,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		2B3B4B0B292AA9DB00639C99 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = Dependencies;
+		};
 		E5BFDC5C2913456100DF0180 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
