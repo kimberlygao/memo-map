@@ -162,7 +162,7 @@ struct MapView: UIViewRepresentable {
 //        mapViewController.current.loadLocation()
 //        mapViewController.getNearbyLocations(using: MKLocalSearch.Request())
         uiView.delegate = context.coordinator
-        uiView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customLocationAnnotation")
+//        uiView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customLocationAnnotation")
         print("map annotations:", annotations)
 //        uiView.addAnnotations(annotations)
 //        loadSearchImage()
@@ -214,6 +214,7 @@ struct MapView: UIViewRepresentable {
                         let annotation = ImageAnnotation(locAnnotation: loc)
 //                        annotation.coordinate = memory.coordinate
                         annotation.image = UIImage(data: data!, scale: UIScreen.main.scale)
+                        annotation.image!.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: annotation.image!.size.height/2, right: 0))
 //                        annotation.title = memory.title
 //                        annotation.subtitle = memory.subtitle
 //                        let locAnnotation = LocationAnnotation(title: memory.title, subtitle: memory.subtitle, coordinate: )
@@ -255,6 +256,7 @@ struct MapView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MKMapView {
       mapView.delegate = context.coordinator
+      mapView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customLocationAnnotation")
       setUpMapRegion()
 //      getSearchResults()
 //        mapView.addAnnotations(searchViewController.searchAnnotations)

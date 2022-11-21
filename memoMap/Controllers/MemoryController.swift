@@ -20,7 +20,6 @@ class MemoryController: ObservableObject {
   let imageURLs = ["20136952-80D0-48FE-A7BE-0841D4B32A35.jpg", "783116E7-5B55-4A4F-9A07-685F60515215.jpg", "84848C61-BA7D-47F2-8FBE-7729D1B68703.jpg", "913B5781-DFE3-4F2F-8C38-8267894E4246.jpg", "BFB1B30E-02E0-42C8-A614-6D661E0B839C.jpg"]
   
   init() {
-      getMemoryData(id: "1")
       self.memories = self.memoryRepository.memories
       for url in imageURLs {
         let _ = ImageURLtoUIImage(url)
@@ -33,28 +32,11 @@ class MemoryController: ObservableObject {
       let _ = self.retrievePhoto({ (image) -> Void in self.images.append(image) }, url)
     }
   
-  func getMemoryData(id: String) {
-    let docRef = Firestore.firestore().collection("memories").document(id)
-    docRef.getDocument { (document, error) in
-      if let document = document, document.exists {
-        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-        
-        let data = document.data()
-        
-        let caption = data!["caption"]! as? String ?? ""
-        let front = data!["front"]! as? String ?? ""
-        let back = data!["back"]! as? String ?? ""
-        let location = data!["location"]! as? String ?? ""
-        let username = data!["username"]! as? String ?? ""
-        let timestamp = data!["timestamp"]! as? Date ?? Date()
-        
-        self.memory = Memory(id: id, caption: caption, front: front, back: back, location: location, username: username, timestamp: timestamp)
-        
-      } else {
-        print("Document does not exist")
-      }
-    }
-  }
+    func getMemories(user: User) -> [Memory] {
+        let memories: [Memory] = self.memories.filter { $0.username == user.id }
+        print("memories:", memories)
+        return memories
+      }
   
   func saveMemory(caption: String, front: UIImage, back: UIImage, location: String) {
     let id = UUID().uuidString
