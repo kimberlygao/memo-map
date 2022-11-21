@@ -10,10 +10,23 @@ import MapKit
 
 class MapViewCoordinator: NSObject, MKMapViewDelegate {
 
-      var mapViewController: MapView
+    var parent: MapView
 
-      init(_ control: MapView) {
-          self.mapViewController = control
+      init(_ parent: MapView) {
+          self.parent = parent
+      }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("annotation selected!!!")
+        guard let pin = view.annotation as? ImageAnnotation else {
+            return
+        }
+        mapView.setCenter(pin.coordinate, animated: true)
+    
+        DispatchQueue.main.async {
+            self.parent.selectedPin = pin
+            self.parent.isBottomSheetOpen = true
+        }
       }
 
       func mapView(_ mapView: MKMapView, viewFor
@@ -99,7 +112,7 @@ struct MapView: UIViewRepresentable {
   @ObservedObject var mapViewController: MapViewController
   @ObservedObject var searchController: SearchController
 //  @ObservedObject var placeController: PlaceController
-//  @State var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(40.444230, -79.945530), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+  @State var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(40.444230, -79.945530), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
 
 //    private func addMapAnnotations(from mapView: MKMapView) {
 //        let test_locations = [
@@ -120,10 +133,12 @@ struct MapView: UIViewRepresentable {
 //        }
 //    }
 //    @Binding var selectedPlace: ImageAnnotation?
-    var annotations = [LocationAnnotation]()
+    var annotations = [ImageAnnotation]()
     var currMemories = [ImageAnnotation]()
     let mapView = MKMapView(frame: .zero)
-    @Binding var mapRegion : MKCoordinateRegion
+    @Binding var selectedPin: ImageAnnotation?
+    @Binding var isBottomSheetOpen: Bool
+//    @Binding var mapRegion : MKCoordinateRegion
 
     func makeCoordinator() -> MapViewCoordinator {
             MapViewCoordinator(self)
@@ -239,6 +254,7 @@ struct MapView: UIViewRepresentable {
     }
     
     func makeUIView(context: Context) -> MKMapView {
+      mapView.delegate = context.coordinator
       setUpMapRegion()
 //      getSearchResults()
 //        mapView.addAnnotations(searchViewController.searchAnnotations)

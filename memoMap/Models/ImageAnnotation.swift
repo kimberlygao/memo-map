@@ -10,7 +10,8 @@ import MapKit
 import UIKit
 import SwiftUI
 
-class ImageAnnotation: NSObject, MKAnnotation {
+class ImageAnnotation: NSObject, MKAnnotation, Identifiable {
+    var id: UUID
     var title: String?
     var subtitle: String?
     var coordinate: CLLocationCoordinate2D
@@ -27,6 +28,7 @@ class ImageAnnotation: NSObject, MKAnnotation {
     ////        self.coordinate = location.coordinate
     ////    }
     init(locAnnotation: LocationAnnotation) {
+        self.id = UUID()
         self.title = locAnnotation.title
         self.subtitle = locAnnotation.subtitle
         self.coordinate = locAnnotation.coordinate

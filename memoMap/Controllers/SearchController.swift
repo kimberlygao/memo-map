@@ -16,7 +16,7 @@ protocol SearchControllerDelegate: AnyObject {
 class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
     //    private let label = UILa
     
-    @Published var annotations = [LocationAnnotation]()
+    @Published var annotations = [ImageAnnotation]()
     @Published var searchQuery = ""
     
     weak var delegate: SearchControllerDelegate?
@@ -38,7 +38,7 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
 //        if search == "" {
 //            self.annotations = [LocationAnnotation]()
 //        }
-        var annotationsResult = [LocationAnnotation]()
+        var annotationsResult = [ImageAnnotation]()
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = search
         request.region = delegate?.getSearchRegion(self) ?? MKCoordinateRegion()
@@ -53,7 +53,9 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
             //success
             resp?.mapItems.forEach({
                 (mapItem) in print(mapItem.name ?? "")
-                let annotation = LocationAnnotation(title: mapItem.name ?? "", subtitle: "", coordinate: mapItem.placemark.coordinate)
+                let LA = LocationAnnotation(title: mapItem.name ?? "", subtitle: "", coordinate: mapItem.placemark.coordinate)
+                let annotation = ImageAnnotation(locAnnotation: LA)
+                annotation.image = UIImage(named: "blank")
 //                let annotation = ImageAnnotation(locAnnotation: loc)
 //                annotation.url = "https://lh3.googleusercontent.com/p/AF1QipP5UAJ9UxBIImLai1GyUC-pqgojujTOA3wbG8zy=s1360-w1360-h1020"
 //                let annotation = LocationAnnotation(title: mapItem.name ?? "", subtitle: "", coordinate: mapItem.placemark.coordinate)

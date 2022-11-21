@@ -22,13 +22,9 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 // map view used to be here
-                MapViewWrapper(mapViewController: mapViewController, searchController: searchController,
-                               store: .init(
-                                           initialState: .init(),
-                                           reducer: mapReducer.debugActions(),
-                                           environment: .init(
-                                            searchCompleter: .live
-                                           )))
+                NavigationView {
+                    MapViewWrapper(mapViewController: mapViewController, searchController: searchController)
+                }
                 VStack {
 //                    HStack {
 //                        NavigationLink(destination: AddFriendsView()) {
