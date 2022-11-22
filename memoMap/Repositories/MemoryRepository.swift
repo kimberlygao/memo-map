@@ -18,20 +18,23 @@ class MemoryRepository: ObservableObject {
   private var cancellables: Set<AnyCancellable> = []
 
   init() {
-    self.get()
+    self.get({ (memories) -> Void in
+      self.memories = memories
+    })
   }
-
-  func get() {
+  
+  func get(_ completionHandler: @escaping (_ memories: [Memory]) -> Void) {
     store.collection(path)
       .addSnapshotListener { querySnapshot, error in
         if let error = error {
-          print("Error getting memory: \(error.localizedDescription)")
+          print("Error getting memories: \(error.localizedDescription)")
           return
         }
 
-        self.memories = querySnapshot?.documents.compactMap { document in
+        let memories = querySnapshot?.documents.compactMap { document in
           try? document.data(as: Memory.self)
         } ?? []
+        completionHandler(memories)
       }
   }
 

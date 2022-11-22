@@ -17,72 +17,20 @@ struct ContentView: View {
   
   
   var body: some View {
-    Text("hi").onAppear {
-      placeController.getPlaceData()
-    }
-    Text(placeController.newplace.name)
     Text(userController.currentUser.password)
-    ForEach(userController.getFriends(user: userController.currentUser), id: \.self) { friend in
-      Text(friend.name)
-    }
     Spacer()
-    ForEach(userController.getSentRequests(user: userController.currentUser), id: \.self) { person in
-      Text(person.name)
+    ForEach(memoryController.getMemoryPinsFromUser(user: userController.currentUser), id: \.self) { mem in
+      Text(mem.url)
+      if let uiImage = mem.image {
+        Image(uiImage: uiImage)
+          .resizable()
+          .scaledToFit()
+          .frame(width: 250, height: 250)
+      } else {
+        Text("no image")
+      }
     }
-    Spacer()
-    ForEach(userController.getReceivedRequests(user: userController.currentUser), id: \.self) { person in
-      Text(person.name)
-    }
-//    NavigationView {
-//      TabView {
-//        ZStack {
-//          MapView(viewController: viewController).ignoresSafeArea()
-//          VStack {
-//            HStack {
-//              NavigationLink(destination: AddFriendsView()) {
-//                Image(systemName: "person.badge.plus")
-//                  .padding()
-//                  .font(.system(size: 24))
-//                  .foregroundColor(.black)
-//              }
-//              Spacer()
-//            }
-//            Spacer()
-//          }
-//        }.tabItem {
-//          Image(systemName: "map")
-//        }
-//        CameraView(camera: camera, memoryController: memoryController)
-//          .tabItem {
-//            Image(systemName: "camera")
-//        }
-//        MapView(viewController: viewController)
-//          .tabItem {
-//            Image(systemName: "mappin.circle")
-//        }
-//
-//      }
-//    }
-//    .onAppear(perform: {
-//      camera.check()
-//    })
-//
-//    VStack {
-//      MapView(viewController: viewController)
-//
-//      HStack {
-////        Spacer()
-////        Image(systemName: "map").padding()
-////        Spacer()
-////        Image(systemName: "mappin.circle")
-////        Spacer()
-//        NavigationLink {
-//            CameraView(camera: cameraController)
-//        } label: {
-//          Image(systemName: "camera")
-//        }
-//      }
-//    }
+    Text(placeController.getPlaceFromID(id: "1").name)
     
   }
 }

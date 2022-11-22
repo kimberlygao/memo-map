@@ -37,7 +37,7 @@ class PlaceRepository: ObservableObject {
         completionHandler(places)
         print("repo: \(self.places)")
       }
-    print("outside: \(self.places)")
+//    print("outside: \(self.places)")
   }
 
   // MARK: CRUD methods

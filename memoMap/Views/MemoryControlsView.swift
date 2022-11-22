@@ -34,7 +34,7 @@ struct MemoryControlsView: View {
       HStack {
         Spacer()
         Button(action: {
-          memoryController.saveMemory(caption: caption, front: camera.photo1, back: camera.photo2, location: "1")
+//          memoryController.saveMemory(caption: caption, front: camera.photo1, back: camera.photo2, location: "1")
         },
                label: {
           Image(systemName: "paperplane")

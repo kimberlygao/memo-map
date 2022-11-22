@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		410B39EF2921AA540060FDD7 /* FriendRequestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410B39EE2921AA540060FDD7 /* FriendRequestRepository.swift */; };
+		41A065A9292C03F4007178E0 /* ImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A065A8292C03F4007178E0 /* ImageAnnotation.swift */; };
+		41A065AB292C041B007178E0 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A065AA292C041B007178E0 /* LocationAnnotation.swift */; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E521D734291CB252002EB6FF /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D731291CB252002EB6FF /* UserRepository.swift */; };
@@ -70,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		410B39EE2921AA540060FDD7 /* FriendRequestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestRepository.swift; sourceTree = "<group>"; };
+		41A065A8292C03F4007178E0 /* ImageAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotation.swift; sourceTree = "<group>"; };
+		41A065AA292C041B007178E0 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
 		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
 		E521D731291CB252002EB6FF /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				E55AD3A4291C9C0100F46D54 /* Prompt.swift */,
 				E55AD3A6291C9C0100F46D54 /* User.swift */,
 				E54B64E829170F42006BBD2F /* Camera.swift */,
+				41A065A8292C03F4007178E0 /* ImageAnnotation.swift */,
+				41A065AA292C041B007178E0 /* LocationAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -368,6 +374,8 @@
 				E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */,
 				E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */,
 				E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */,
+				41A065AB292C041B007178E0 /* LocationAnnotation.swift in Sources */,
+				41A065A9292C03F4007178E0 /* ImageAnnotation.swift in Sources */,
 				E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */,
 				E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */,
 				E55AD3AC291C9C0100F46D54 /* User.swift in Sources */,

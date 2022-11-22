@@ -8,67 +8,101 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import UIKit
+import FirebaseStorage
+import MapKit
 
 class MemoryController: ObservableObject {
   var memoryRepository : MemoryRepository = MemoryRepository()
+  @Published var placeController : PlaceController = PlaceController()
   @Published var memories: [Memory] = []
-  @Published var memory: Memory = Memory(id: "", caption: "", front: "", back: "", location: "", username: "", timestamp: Date())
+  //  @Published var memory: Memory = Memory(id: "", caption: "", front: "", back: "", location: "", username: "", timestamp: Date())
+  @Published var currImage: UIImage = UIImage()
   
   init() {
-    getMemoryData(id: "1")
-    self.memories = self.memoryRepository.memories
+    // get all memories
+    self.memoryRepository.get({(memories) -> Void in
+      self.memories = memories
+    })
+    self.retrievePhoto({(image) -> Void in
+      self.currImage = image
+      print("self.currimage init", self.currImage)
+    }, "default.jpeg")
   }
   
-  func getMemoryData(id: String) {
-    let docRef = Firestore.firestore().collection("memories").document(id)
-    docRef.getDocument { (document, error) in
-      if let document = document, document.exists {
-        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-        
-        let data = document.data()
-        
-        let caption = data!["caption"]! as? String ?? ""
-        let front = data!["front"]! as? String ?? ""
-        let back = data!["back"]! as? String ?? ""
-        let location = data!["location"]! as? String ?? ""
-        let username = data!["username"]! as? String ?? ""
-        let timestamp = data!["timestamp"]! as? Date ?? Date()
-        
-        self.memory = Memory(id: id, caption: caption, front: front, back: back, location: location, username: username, timestamp: timestamp)
-        
-      } else {
-        print("Document does not exist")
-      }
+  
+  func getMemoryPinsFromUser(user: User) -> [ImageAnnotation] {
+    let memories: [Memory] = self.memories.filter { $0.username == user.id }
+    var pins: [ImageAnnotation] = []
+    
+    for mem in memories {
+      let place = placeController.getPlaceFromID(id: mem.location)
+      let coords = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+      let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
+      
+      print("self.currimage  before pins", self.currImage)
+      self.retrievePhoto({ (image) in
+        self.currImage = image
+        print("self.currimage  after pins", self.currImage)
+        let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: self.currImage)
+        pins.append(pin)
+      }, mem.back)
+      
+      
+//      let pin = ImageAnnotation(id: mem.id!, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
+      
+    
+      
     }
+    return pins
   }
   
-  func saveMemory(caption: String, front: Data, back: Data, location: String) {
+  func saveMemory(caption: String, front: UIImage, back: UIImage, location: String) {
     let id = UUID().uuidString
-    print(type(of: front))
-    let newfront = String(data: front, encoding: .utf8)!
-    let newback = String(data: back, encoding: .utf8)!
+    let newfront =  uploadPhoto(front)
+    let newback =  uploadPhoto(back)
     let time = Date() // format is 2022-11-10 04:30:39 +0000
-    let username = "chloec" // later on make this username of curr user
+    let username = "kwgao" // later on make this username of curr user
     
     let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time)
-//    self.uploadImagePic(field: "back", image: back)
-//    self.uploadImagePic(field: "front", image: front)
     memoryRepository.add(mem)
   }
   
-  func uploadImagePic(field: String, image: Data) {
-      let filePath = "memories/1" // path where you wanted to store img in storage
-      
-      Firestore.firestore().collection("memories").document("1").setData([field : image as Data]){(error) in
+  func uploadPhoto(_ photo: UIImage) -> String {
+    print(photo)
+    let url = "\(UUID().uuidString).jpg"
+    let storageRef = Storage.storage().reference().child(url)
+    let data = photo.jpegData(compressionQuality: 0.2)
+    let metadata = StorageMetadata()
+    metadata.contentType = "image/jpg"
+    if let data = data {
+      storageRef.putData(data, metadata: metadata) { (metadata, error) in
         if let error = error {
-          print(error.localizedDescription)
-          return
-        }else{
-          //store downloadURL
-          print("works")
+          print("Error while uploading file: ", error)
+        }
+        if let metadata = metadata {
+          print("Metadata: ", metadata)
         }
       }
-  //    Firestore.firestore().collection("memories").document("1").updateData({"front": downloadURL})
     }
+    
+    return url
+  }
+  
+  func retrievePhoto(_ completionHandler: @escaping (_ image: UIImage) -> Void, _ url: String) -> Void {
+    let storage = Storage.storage()
+    let ref = storage.reference().child(url)
+    // look into having callbacks update a published var
+    // and then have the viewmodel pick up when the published var has updated
+    // to then send back to the view
+    ref.getData(maxSize: 1 * 1024 * 1024) { data, error in
+      if let error = error {
+        print("Error retrieving photo: \(error)")
+      } else {
+        let image = UIImage(data: data!)
+        completionHandler(image!)
+      }
+    }
+  }
   
 }

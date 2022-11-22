@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-struct Memory: Identifiable, Codable {
+struct Memory: Identifiable, Codable, Hashable {
   
   // MARK: Fields
   @DocumentID var id: String?

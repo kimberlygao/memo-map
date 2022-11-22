@@ -34,14 +34,37 @@ class UserController: ObservableObject {
   }
   
   func getFriends(user: User) -> [User] {
-    var friends: [User] = []
-    for person in self.users {
-      if user.friends.contains(person.id!) {
-        friends.append(person)
-      }
-    }
+    print("lksjdfslk", user.name)
+    let friends: [User] = self.users.filter { user.friends.contains($0.id!) }
+    print("slkdjfl:", friends)
     return friends
   }
+  
+//  func getFriendsWrapper(user: User) -> [User] {
+//    print("user name wraopper", user.name)
+//    var res: [User] = []
+//    self.getFriends(for: user) {(friends) -> Void in
+//      print("inside: \(friends)")
+//      res = friends
+//    }
+//    print("outside: \(res)")
+//    return res
+//  }
+
+  
+//  func getFriends(for user: User, completion: @escaping ([User]) -> Void) {
+//    print("user friends:", user.name)
+//
+//    DispatchQueue.global().async {
+////      let friends: [User] = self.users.filter { (person) -> Bool in
+////        return user.friends.contains(person.id!)
+////      }
+//
+//      let friends: [User] = self.users.filter { user.friends.contains($0.id!) }
+//      print("getFriends:", friends)
+//      completion(friends)
+//    }
+//  }
   
   func getSentRequests(user: User) -> [User] {
     var temp: [String] = []
@@ -75,7 +98,7 @@ class UserController: ObservableObject {
         received.append(person)
       }
     }
-    
+    print("skdfjlsdj", received)
     return received
   }
 }
