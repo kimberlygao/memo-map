@@ -1,18 +1,19 @@
 //
-//  FriendsProfileView.swift
+//  FriendsProfileView2.swift
 //  memoMap
 //
-//  Created by Kimberly Gao on 11/10/22.
+//  Created by Chloe Chan on 11/11/22.
 //
 
 import SwiftUI
 
-struct FriendsProfileView: View {
-  var friend : User
-  let places = "30"
-  let memories = "100"
-  let friends = "12"
-  @State var requestSent = false
+struct FriendsProfileView2: View {
+  let username = "chloec"
+  let name = "Chloe Chan"
+  let places = "40"
+  let memories = "180"
+  let friends = "13"
+  @State var requestPending = true
   
   var body: some View {
     VStack {
@@ -29,9 +30,9 @@ struct FriendsProfileView: View {
       Spacer()
         .frame(height: 30)
       VStack {
-        Text(friend.id ?? "")
+        Text(username)
           .font(.headline)
-        Text(friend.name)
+        Text(name)
           .foregroundColor(.gray)
       }
       
@@ -62,20 +63,27 @@ struct FriendsProfileView: View {
         Spacer()
       }.background(Color.blue)
         .padding()
-      Text("Joined September 2022")
+      Text("Joined October 2022")
         .foregroundColor(.gray)
       
       
-      
       Spacer()
-      Button(action: {requestSent.toggle()}) {
-        if !requestSent {
-          Text("Send Friend Request")
+      
+      if requestPending {
+        HStack {
+          Text("Accept Friend Request?")
+          Button(action: {requestPending.toggle()}) {
+            Image(systemName: "checkmark")
+          }
+          Button(action: {requestPending.toggle()}) {
+            Image(systemName: "xmark")
+          }
         }
-        else {
-          Text("Friend Request Sent")
-            .foregroundColor(.gray)
-        }
+        
+      }
+      else {
+        Text("Friend Request Accepted")
+          .foregroundColor(.gray)
       }
     }
     

@@ -25,14 +25,6 @@ struct SearchView: View {
         }
         .padding(8)
         .padding(.leading, 12)
-  //      .textFieldStyle(RoundedBorderTextFieldStyle())
-        // Text alignment.
-  //      .multilineTextAlignment(.leading)
-        // Text/placeholder font.
-  //      .font(.title.weight(.thin))
-  //      .frame(width: 380, height: 60, alignment: .center)
-        //      .background(RoundedRectangle(cornerRadius: 50).fill(Color.white))
-        
         Spacer()
         Image(systemName: "magnifyingglass")
           .padding()

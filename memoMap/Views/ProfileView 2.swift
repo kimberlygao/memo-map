@@ -1,22 +1,22 @@
 //
-//  FriendsProfileView.swift
+//  ProfileView.swift
 //  memoMap
 //
-//  Created by Kimberly Gao on 11/10/22.
+//  Created by Kimberly Gao on 11/14/22.
 //
 
 import SwiftUI
 
-struct FriendsProfileView: View {
-  var friend : User
-  let places = "30"
-  let memories = "100"
-  let friends = "12"
-  @State var requestSent = false
+struct ProfileView: View {
+  var user : User
+  var isFriendProfile : Bool
   
   var body: some View {
     VStack {
-      Text("Profile")
+      if !isFriendProfile {
+        Text("Profile")
+      }
+      
       
       Spacer()
         .frame(height: 50)
@@ -29,9 +29,9 @@ struct FriendsProfileView: View {
       Spacer()
         .frame(height: 30)
       VStack {
-        Text(friend.id ?? "")
+        Text(user.id ?? "no username")
           .font(.headline)
-        Text(friend.name)
+        Text(user.name)
           .foregroundColor(.gray)
       }
       
@@ -42,21 +42,21 @@ struct FriendsProfileView: View {
         Spacer()
         VStack {
           Text("places")
-          Text(places)
+          Text("30")
         }.padding()
         
         Spacer()
         
         VStack {
           Text("memories")
-          Text(memories)
+          Text("40")
         }.padding()
         
         Spacer()
         
         VStack {
           Text("friends")
-          Text(friends)
+          Text("2")
         }.padding()
         
         Spacer()
@@ -65,25 +65,14 @@ struct FriendsProfileView: View {
       Text("Joined September 2022")
         .foregroundColor(.gray)
       
-      
-      
       Spacer()
-      Button(action: {requestSent.toggle()}) {
-        if !requestSent {
-          Text("Send Friend Request")
-        }
-        else {
-          Text("Friend Request Sent")
-            .foregroundColor(.gray)
-        }
-      }
     }
     
   }
 }
-//
-//struct FriendsProfileView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    FriendsProfileView(requestSent: requestSent)
-//  }
+
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView()
+//    }
 //}

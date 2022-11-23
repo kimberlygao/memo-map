@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct FriendsProfileView: View {
-  var friend : User
+  let username = "kwgao"
+  let name = "Kimberly Gao"
   let places = "30"
   let memories = "100"
   let friends = "12"
@@ -29,9 +30,9 @@ struct FriendsProfileView: View {
       Spacer()
         .frame(height: 30)
       VStack {
-        Text(friend.id ?? "")
+        Text(username)
           .font(.headline)
-        Text(friend.name)
+        Text(name)
           .foregroundColor(.gray)
       }
       
