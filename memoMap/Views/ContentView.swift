@@ -17,6 +17,7 @@ struct ContentView: View {
   
   
   var body: some View {
+    AddFriendsView(userController: userController)
     Text(userController.currentUser.password)
     Spacer()
     ForEach(memoryController.getMemoryPinsFromUser(user: userController.currentUser), id: \.self) { mem in

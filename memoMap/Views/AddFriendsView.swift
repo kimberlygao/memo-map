@@ -15,9 +15,16 @@ struct AddFriendsView: View {
   
   var body: some View {
       List {
-        ForEach(userController.getReceivedRequests(user: userController.currentUser), id: \.self) { person in
+        ForEach(userController.getSentRequests(user: userController.currentUser), id: \.self) { person in
           Text(person.name)
         }
+//        Text("add firneds view")
+//        ForEach (userController.getReceivedRequests(user: userController.currentUser), id: \.self) { person in
+//              HStack {
+//                Text(person.name)
+//              }
+//
+//            }
 //        ForEach(searchResults, id: \.self) { name in
 //          ZStack {
 //            NavigationLink(destination: Text(name)) {
@@ -37,7 +44,7 @@ struct AddFriendsView: View {
 //                  Image(systemName: "checkmark")
 //                    .foregroundColor(.black)
 //                }
-//                    
+//
 //              })
 //            }
 //          }
