@@ -58,7 +58,7 @@ class FriendRequestRepository: ObservableObject {
     }
   }
 
-  func remove(_ request: Place) {
+  func remove(_ request: FriendRequest) {
     guard let requestID = request.id else { return }
     
     store.collection(path).document(requestID).delete { error in

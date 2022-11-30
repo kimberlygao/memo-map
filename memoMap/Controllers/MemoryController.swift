@@ -30,9 +30,13 @@ class MemoryController: ObservableObject {
     }, "default.jpeg")
   }
   
+  func getMemoriesForUser(user: User) -> [Memory] {
+    return self.memories.filter { $0.username == user.id }
+  }
+  
   
   func getMemoryPinsFromUser(user: User) -> [ImageAnnotation] {
-    let memories: [Memory] = self.memories.filter { $0.username == user.id }
+    let memories: [Memory] = getMemoriesForUser(user: user)
     var pins: [ImageAnnotation] = []
     
     for mem in memories {

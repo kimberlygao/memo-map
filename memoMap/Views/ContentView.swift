@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
   let viewController = ViewController()
-  let memoryController = MemoryController()
+  @ObservedObject var memoryController = MemoryController()
   @ObservedObject var placeController = PlaceController()
   @ObservedObject var userController = UserController()
 //  @StateObject var camera = CameraController()
@@ -19,6 +19,10 @@ struct ContentView: View {
   var body: some View {
     AddFriendsView(userController: userController)
     Text(userController.currentUser.password)
+    ForEach(userController.getStats(user: userController.currentUser), id: \.self) { stat in
+      Text(stat)
+    }
+    Text(userController.getFriendStatus(currUser: userController.currentUser, otherUser: "chloec"))
     Spacer()
     ForEach(memoryController.getMemoryPinsFromUser(user: userController.currentUser), id: \.self) { mem in
       Text(mem.url)
