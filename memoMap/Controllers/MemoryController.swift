@@ -18,20 +18,17 @@ class MemoryController: ObservableObject {
   @Published var memories: [Memory] = []
   //  @Published var memory: Memory = Memory(id: "", caption: "", front: "", back: "", location: "", username: "", timestamp: Date())
   @Published var currImage: UIImage = UIImage()
+  var image : UIImage = UIImage()
   
   init() {
     // get all memories
     self.memoryRepository.get({(memories) -> Void in
       self.memories = memories
     })
-    self.retrievePhoto({(image) -> Void in
-      self.currImage = image
-      print("self.currimage init", self.currImage)
-    }, "default.jpeg")
   }
   
   
-  func getMemoryPinsFromUser(user: User) -> [ImageAnnotation] {
+  func getMemoryPinsFromUser(user: User) async -> [ImageAnnotation] {
     let memories: [Memory] = self.memories.filter { $0.username == user.id }
     var pins: [ImageAnnotation] = []
     
@@ -39,14 +36,10 @@ class MemoryController: ObservableObject {
       let place = placeController.getPlaceFromID(id: mem.location)
       let coords = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
+      let img = await self.retrievePhoto(mem.back)
       
-      print("self.currimage  before pins", self.currImage)
-      self.retrievePhoto({ (image) in
-        self.currImage = image
-        print("self.currimage  after pins", self.currImage)
-        let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: self.currImage)
-        pins.append(pin)
-      }, mem.back)
+      let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
+      pins.append(pin)
       
       
 //      let pin = ImageAnnotation(id: mem.id!, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
@@ -89,20 +82,41 @@ class MemoryController: ObservableObject {
     return url
   }
   
-  func retrievePhoto(_ completionHandler: @escaping (_ image: UIImage) -> Void, _ url: String) -> Void {
+  func retrievePhoto(_ url: String) async -> UIImage {
     let storage = Storage.storage()
     let ref = storage.reference().child(url)
-    // look into having callbacks update a published var
-    // and then have the viewmodel pick up when the published var has updated
-    // to then send back to the view
+    var image : UIImage = UIImage()
+    
     ref.getData(maxSize: 1 * 1024 * 1024) { data, error in
       if let error = error {
         print("Error retrieving photo: \(error)")
       } else {
-        let image = UIImage(data: data!)
-        completionHandler(image!)
+        print("HII: \(data!)")
+        image = UIImage(data: data!) ?? UIImage(named: "default")!
+        self.setImage(image)
       }
     }
+    image = self.image
+    return image
   }
   
+  func setImage(_ image: UIImage) {
+    self.image = image
+  }
+  
+//  func retrievePhoto(_ completionHandler: @escaping (_ image: UIImage) -> Void, _ url: String) -> Void {
+//    let storage = Storage.storage()
+//    let ref = storage.reference().child(url)
+//    // look into having callbacks update a published var
+//    // and then have the viewmodel pick up when the published var has updated
+//    // to then send back to the view
+//    ref.getData(maxSize: 1 * 1024 * 1024) { data, error in
+//      if let error = error {
+//        print("Error retrieving photo: \(error)")
+//      } else {
+//        let image = UIImage(data: data!)
+//        completionHandler(image!)
+//      }
+//    }
+//  }
 }
