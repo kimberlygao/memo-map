@@ -34,7 +34,7 @@ class MemoryController: ObservableObject {
   }
   
   
-  func getMemoryPinsFromUser(user: User) -> [ImageAnnotation] {
+  func getMemoryPinsForUser(user: User) -> [ImageAnnotation] {
     let memories: [Memory] = getMemoriesForUser(user: user)
     var pins: [ImageAnnotation] = []
     
@@ -49,11 +49,24 @@ class MemoryController: ObservableObject {
       pins.append(pin)
 //      let pin = ImageAnnotation(id: mem.id!, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
       
-    
-      
     }
     return pins
   }
+  
+  func getFriendsMemoryPins(users: [User]) -> [ImageAnnotation] {
+      let allPins = users.map { self.getMemoryPinsForUser(user: $0) }
+      return allPins.flatMap { $0 }
+    }
+
+    func getFriendsMemories(users: [User]) -> [Memory] {
+      let allMems = users.map { self.getMemoriesForUser(user: $0) }
+      return allMems.flatMap { $0 }
+    }
+
+    func getFriendsMemoriesForLocation(users: [User], loc: Place) -> [Memory] {
+      let allMems = self.getFriendsMemories(users: users)
+      return allMems.filter { $0.location == loc.id }
+    }
   
   func saveMemory(caption: String, front: UIImage, back: UIImage, location: String) {
     let id = UUID().uuidString

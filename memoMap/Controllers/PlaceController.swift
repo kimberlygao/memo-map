@@ -21,8 +21,10 @@ class PlaceController: ObservableObject {
   func getPlaceFromID(id: String) -> Place {
     if let place: Place = (self.places.filter { $0.id == id }).first {
       return place
+    } else {
+      print("no place found")
+      return Place(id: "0", address: "nil", city: "nil", latitude: 0.00, longitude: 0.00, name: "nil")
     }
-    print("no place found")
-    return Place(id: "0", address: "nil", city: "nil", latitude: 0.00, longitude: 0.00, name: "nil")
+    
   }
 }

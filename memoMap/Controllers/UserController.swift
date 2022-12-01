@@ -120,6 +120,7 @@ class UserController: ObservableObject {
   
   func getStats(user: User) -> [String] {
     let userMems = memoryController.getMemoriesForUser(user: user)
+    //    assert(userMems.count == user.memories.count)
     let userPlaces = userMems.map { $0.location }
     
     let numPlaces = Set(userPlaces).count
