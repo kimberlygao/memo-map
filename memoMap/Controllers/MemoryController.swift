@@ -44,7 +44,7 @@ class MemoryController: ObservableObject {
   
   
   func getMemoryPinsForUser(user: User) -> [ImageAnnotation] {
-    let memories: [Memory] = getMemoriesForUser(user: user)
+    let memories: [Memory] = self.getMemoriesForUser(user: user)
     var pins: [ImageAnnotation] = []
     
     for mem in memories {
@@ -56,10 +56,10 @@ class MemoryController: ObservableObject {
       let imgIdx = self.imageURLs.firstIndex { $0 == imgUrl }
       let img = self.images[imgIdx!]
       
-      let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, isMemory: true, url: imgUrl, image: img)
-      pins.append(pin)
-//      let pin = ImageAnnotation(id: mem.id!, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
+//      let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, isMemory: true, url: imgUrl, image: img)
       
+      let pin = ImageAnnotation(id: mem.id!, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
+      pins.append(pin)
     }
     return pins
   }
@@ -85,8 +85,6 @@ class MemoryController: ObservableObject {
     let newback =  uploadPhoto(back)
     let time = Date() // format is 2022-11-10 04:30:39 +0000
     let username = "kwgao" // later on make this username of curr user
-    
-    print("STORING MEMORY")
     
     let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time)
     memoryRepository.add(mem)
