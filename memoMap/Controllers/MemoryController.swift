@@ -27,6 +27,7 @@ class MemoryController: ObservableObject {
 //    })
     
     self.images = memoryRepository.images
+    print("IMAGESSSS: ", memoryRepository.images)
   }
   
   func getMemoriesForUser(user: User) -> [Memory] {

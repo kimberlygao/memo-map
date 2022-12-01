@@ -11,7 +11,6 @@ import FirebaseFirestoreSwift
 class UserController: ObservableObject {
   @Published var friendRequestRepository: FriendRequestRepository = FriendRequestRepository()
   @Published var userRepository: UserRepository = UserRepository()
-  @Published var memoryController: MemoryController = MemoryController()
   @Published var users: [User] = []
   @Published var currentUser: User = User(email: "", friends: [], memories: [], name: "", password: "", requests: [], pfp: "default.jpeg")
   @Published var requests: [FriendRequest] = []
@@ -118,7 +117,7 @@ class UserController: ObservableObject {
     }
   }
   
-  func getStats(user: User) -> [String] {
+  func getStats(user: User, memoryController: MemoryController) -> [String] {
     let userMems = memoryController.getMemoriesForUser(user: user)
     //    assert(userMems.count == user.memories.count)
     let userPlaces = userMems.map { $0.location }
