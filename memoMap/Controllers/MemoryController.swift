@@ -13,6 +13,7 @@ import FirebaseStorage
 import MapKit
 
 class MemoryController: ObservableObject {
+  let storage = Storage.storage()
   var memoryRepository : MemoryRepository = MemoryRepository()
   @Published var placeController : PlaceController = PlaceController()
   @Published var memories: [Memory] = []
@@ -60,6 +61,8 @@ class MemoryController: ObservableObject {
     let newback =  uploadPhoto(back)
     let time = Date() // format is 2022-11-10 04:30:39 +0000
     let username = "kwgao" // later on make this username of curr user
+    
+    print("STORING MEMORY")
     
     let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time)
     memoryRepository.add(mem)

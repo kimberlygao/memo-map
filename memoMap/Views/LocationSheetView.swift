@@ -2,7 +2,7 @@
 //  LocationSheetView.swift
 //  memoMap
 //
-//  Created by Kimberly Gao on 11/29/22.
+//  Created by Fiona Chiu on 2022/11/30.
 //
 
 import SwiftUI
@@ -28,5 +28,4 @@ struct LocationSheetView: View {
     }
     .padding(20)
   }
-    
 }
