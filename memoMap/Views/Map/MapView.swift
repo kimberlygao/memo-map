@@ -7,7 +7,7 @@
 
 import SwiftUI
 import MapKit
-import Cluster
+//import Cluster
 
 class MapViewCoordinator: NSObject, MKMapViewDelegate {
   
@@ -32,9 +32,9 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
   }
   
   func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-    self.parent.clusterManager.reload(mapView: mapView) { finished in
-      // handle completion
-    }
+//    self.parent.clusterManager.reload(mapView: mapView) { finished in
+//      // handle completion
+//    }
   }
   
   func mapView(_ mapView: MKMapView, viewFor
@@ -52,10 +52,10 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
       return nil  //Default is to let the system handle it.
     }
     
-    if let annotation = annotation as? ClusterAnnotation {
-      print("entered cluster!!")
-      return CountClusterAnnotationView(annotation: annotation, reuseIdentifier: "cluster")
-    }
+//    if let annotation = annotation as? ClusterAnnotation {
+//      print("entered cluster!!")
+//      return CountClusterAnnotationView(annotation: annotation, reuseIdentifier: "cluster")
+//    }
     
     //          if annotation.image == nil {
     //              var defaultAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "DefaultPinView")
@@ -136,7 +136,7 @@ struct MapView: UIViewRepresentable {
   
   @ObservedObject var mapViewController: MapViewController
   @ObservedObject var searchController: SearchController
-  let clusterManager = ClusterManager()
+//  let clusterManager = ClusterManager()
   //  let annotationClusterManager = ClusterManager()
   //  @ObservedObject var placeController: PlaceController
   @State var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(40.444230, -79.945530), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
@@ -200,7 +200,7 @@ struct MapView: UIViewRepresentable {
     //        addExistingMemories()
     
     //        uiView.annotations.forEach { uiView.removeAnnotation($0) }
-    addSearchCluster()
+//    addSearchCluster()
     //        mapViewController.current.loadLocation()
     //        mapViewController.getNearbyLocations(using: MKLocalSearch.Request())
     //        uiView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customLocationAnnotation")
@@ -240,11 +240,11 @@ struct MapView: UIViewRepresentable {
   //        }
   //    }
   
-  func addSearchCluster() {
-    for annotation in annotations {
-      clusterManager.add(annotation)
-    }
-  }
+//  func addSearchCluster() {
+//    for annotation in annotations {
+//      clusterManager.add(annotation)
+//    }
+//  }
   
   func loadAnnotations() {
     print("CURR MEMORIES: ", currMemories)
@@ -268,7 +268,7 @@ struct MapView: UIViewRepresentable {
             //                        let imageAnnotation = ImageAnnotation()
             
             DispatchQueue.main.async {
-              clusterManager.add(annotation)
+//              clusterManager.add(annotation)
               self.mapView.addAnnotation(annotation)
               print("added 1")
             }

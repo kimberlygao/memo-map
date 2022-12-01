@@ -30,6 +30,7 @@ class MemoryController: ObservableObject {
   }
   
   func getMemoriesForUser(user: User) -> [Memory] {
+    print("alksdjalksjd", self.memories.filter { $0.username == user.id })
     return self.memories.filter { $0.username == user.id }
   }
   

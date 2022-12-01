@@ -13,7 +13,6 @@
 		2B3B4B0A292AA9DB00639C99 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */; };
 		2B3B4B0C292AA9DB00639C99 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B0B292AA9DB00639C99 /* Dependencies */; };
 		2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */; };
-		D5AED16340C5BEBBD3C5754A /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
@@ -88,6 +87,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01DE4D071DFEB4989B7C7BB5 /* Pods-memoMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.debug.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.debug.xcconfig"; sourceTree = "<group>"; };
 		2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
 		2B3B4AD62925EB5000639C99 /* ImageAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
 		2B3B4AD82925FFF500639C99 /* ImageAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotation.swift; sourceTree = "<group>"; };
@@ -96,8 +96,6 @@
 		2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleter.swift; sourceTree = "<group>"; };
 		2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
 		2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSheetView.swift; sourceTree = "<group>"; };
-		6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.release.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.release.xcconfig"; sourceTree = "<group>"; };
-		8FAA65C3D591395054E49171 /* Pods-memoMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.debug.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.debug.xcconfig"; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
 		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
 		E51B3B72291DFDBB00399450 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = memoMap/Controllers/MapViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -143,6 +141,8 @@
 		E5BFDCA62913537900DF0180 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMemoryView.swift; sourceTree = "<group>"; };
 		E5EDE267293701AD0045402C /* MemoryScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryScrollView.swift; sourceTree = "<group>"; };
+		EC917226F90C18DB4A761596 /* Pods-memoMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.release.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.release.xcconfig"; sourceTree = "<group>"; };
+		F59C5A9FA0D7EC86A2C8F456 /* Pods_memoMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memoMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,25 +179,17 @@
 				E5BFDC772913456100DF0180 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				E5BFDC872913456100DF0180 /* FirebaseMessaging in Frameworks */,
 				E5BFDC832913456100DF0180 /* FirebaseInstallations in Frameworks */,
-				D5AED16340C5BEBBD3C5754A /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8FAFD48423445AB465AE07C5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C9D7D516444C69217E9ADE63 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8FAA65C3D591395054E49171 /* Pods-memoMap.debug.xcconfig */,
-				6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */,
+				01DE4D071DFEB4989B7C7BB5 /* Pods-memoMap.debug.xcconfig */,
+				EC917226F90C18DB4A761596 /* Pods-memoMap.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -242,8 +234,8 @@
 				E5BFDC442913433300DF0180 /* memoMap */,
 				E5BFDC432913433300DF0180 /* Products */,
 				C9D7D516444C69217E9ADE63 /* Pods */,
-				8FAFD48423445AB465AE07C5 /* Frameworks */,
 				E51FA2342938549700C79CC6 /* Recovered References */,
+				F7C2982676284EC89B10D30D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -335,6 +327,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		F7C2982676284EC89B10D30D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F59C5A9FA0D7EC86A2C8F456 /* Pods_memoMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -342,11 +342,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5BFDC502913433300DF0180 /* Build configuration list for PBXNativeTarget "memoMap" */;
 			buildPhases = (
-				51ED382E9063DA1AF691A9A9 /* [CP] Check Pods Manifest.lock */,
+				BC747FED30FF63A2AC71AD6E /* [CP] Check Pods Manifest.lock */,
 				E5BFDC3E2913433300DF0180 /* Sources */,
 				E5BFDC3F2913433300DF0180 /* Frameworks */,
 				E5BFDC402913433300DF0180 /* Resources */,
-				98955CC2916BCA9730FAB7EE /* [CP] Embed Pods Frameworks */,
+				7D04366D56FE63BFEF6C1DBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -439,7 +439,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		51ED382E9063DA1AF691A9A9 /* [CP] Check Pods Manifest.lock */ = {
+		7D04366D56FE63BFEF6C1DBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC747FED30FF63A2AC71AD6E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -459,23 +476,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		98955CC2916BCA9730FAB7EE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -652,7 +652,7 @@
 		};
 		E5BFDC512913433300DF0180 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FAA65C3D591395054E49171 /* Pods-memoMap.debug.xcconfig */;
+			baseConfigurationReference = 01DE4D071DFEB4989B7C7BB5 /* Pods-memoMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -688,7 +688,7 @@
 		};
 		E5BFDC522913433300DF0180 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */;
+			baseConfigurationReference = EC917226F90C18DB4A761596 /* Pods-memoMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

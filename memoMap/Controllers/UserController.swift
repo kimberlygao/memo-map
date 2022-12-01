@@ -13,7 +13,7 @@ class UserController: ObservableObject {
   @Published var userRepository: UserRepository = UserRepository()
   @Published var memoryController: MemoryController = MemoryController()
   @Published var users: [User] = []
-  @Published var currentUser: User = User(email: "", friends: [], memories: [], name: "", password: "", requests: nil, pfp: "default.jpeg")
+  @Published var currentUser: User = User(email: "", friends: [], memories: [], name: "", password: "", requests: [], pfp: "default.jpeg")
   @Published var requests: [FriendRequest] = []
   
   init() {
@@ -37,16 +37,17 @@ class UserController: ObservableObject {
     return self.users.filter { user.friends.contains($0.id!) }
   }
   
-  func getFriendStatus(currUser: User, otherUser: String) -> String {
-    let other : [User] = (self.users.filter { $0.id == otherUser })
-    
-    if self.getFriends(user: currUser).contains(other) {
+  func getFriendStatus(currUser: User, otherUser: User) -> String {
+    if currUser.id == otherUser.id {
+      return "yourself"
+    }
+    if self.getFriends(user: currUser).contains(otherUser) {
       return "friends"
     }
-    if self.getSentRequests(user: currUser).contains(other) {
+    if self.getSentRequests(user: currUser).contains(otherUser) {
       return "requestSent"
     }
-    if self.getReceivedRequests(user: currUser).contains(other) {
+    if self.getReceivedRequests(user: currUser).contains(otherUser) {
       return "requestReceived"
     }
     return "noStatus"
@@ -91,6 +92,13 @@ class UserController: ObservableObject {
   func sendFriendRequest(currUser: User, receiver: User) {
     let request = FriendRequest(id: UUID().uuidString, receiver: receiver.id!, requester: currUser.id!)
     friendRequestRepository.add(request)
+    
+    var curr = currUser
+    curr.requests.append(request.id!)
+    userRepository.update(curr)
+    var rec = receiver
+    rec.requests.append(request.id!)
+    userRepository.update(rec)
   }
   
   func processFriendRequest(currUser: User, requester: User, clicked: String) {
@@ -99,10 +107,10 @@ class UserController: ObservableObject {
     if clicked == "accept" {
       var curr = currUser
       curr.friends.append(requester.id!)
+      userRepository.update(curr)
       var reqer = requester
       reqer.friends.append(currUser.id!)
-      userRepository.update(currUser)
-      userRepository.update(requester)
+      userRepository.update(reqer)
     }
     
     for req in request {
