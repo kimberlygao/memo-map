@@ -22,20 +22,18 @@ class MemoryController: ObservableObject {
   init() {
     // get all memories
     self.memories = memoryRepository.memories
-//    self.memoryRepository.get({(memories) -> Void in
-//      self.memories = memories
-//    })
+    //    self.memoryRepository.get({(memories) -> Void in
+    //      self.memories = memories
+    //    })
     
     self.images = memoryRepository.images
   }
   
   func getMemoriesForUser(user: User) -> [Memory] {
-    print("alksdjalksjd", self.memories.filter { $0.username == user.id })
     return self.memories.filter { $0.username == user.id }
   }
   
-  
-  func getMemoryPinsFromUser(user: User) -> [ImageAnnotation] {
+  func getMemoryPinsForUser(user: User) -> [ImageAnnotation] {
     let memories: [Memory] = getMemoriesForUser(user: user)
     var pins: [ImageAnnotation] = []
     
@@ -48,12 +46,24 @@ class MemoryController: ObservableObject {
       
       let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, isMemory: true, url: imgUrl, image: img)
       pins.append(pin)
-//      let pin = ImageAnnotation(id: mem.id!, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
-      
-    
-      
+      //      let pin = ImageAnnotation(id: mem.id!, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
     }
     return pins
+  }
+  
+  func getMemoryPinsForFriends(users: [User]) -> [ImageAnnotation] {
+    let allPins = users.map { self.getMemoryPinsForUser(user: $0) }
+    return allPins.flatMap { $0 }
+  }
+  
+  func getFriendsMemories(users: [User]) -> [Memory] {
+    let allMems = users.map { self.getMemoriesForUser(user: $0) }
+    return allMems.flatMap { $0 }
+  }
+  
+  func getFriendsMemoriesForLocation(users: [User], loc: Place) -> [Memory] {
+    let allMems = self.getFriendsMemories(users: users)
+    return allMems.filter { $0.location == loc.id }
   }
   
   func saveMemory(caption: String, front: UIImage, back: UIImage, location: String) {
@@ -62,8 +72,6 @@ class MemoryController: ObservableObject {
     let newback =  uploadPhoto(back)
     let time = Date() // format is 2022-11-10 04:30:39 +0000
     let username = "kwgao" // later on make this username of curr user
-    
-    print("STORING MEMORY")
     
     let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time)
     memoryRepository.add(mem)
