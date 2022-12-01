@@ -1,0 +1,48 @@
+{
+  "_buildCommand2" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : false,
+    "targets" : null
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98836f5998d7c2ae6de3d3641ffd7727bb"
+    },
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e982d7bd0428ca4d4ec33ebc2c5a5536ba6"
+    }
+  ],
+  "containerPath" : "/Users/chloechan/Downloads/443/memo-map/Pods/Pods.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/chloechan/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/chloechan/Library/Developer/Xcode/DerivedData/Pods-ajrdhluvhmrtaxgkwedkfrgcnkhl/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/chloechan/Library/Developer/Xcode/DerivedData/Pods-ajrdhluvhmrtaxgkwedkfrgcnkhl/Index.noindex/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Release",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : false,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : false
+}

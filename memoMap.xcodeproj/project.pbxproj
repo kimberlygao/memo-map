@@ -17,7 +17,7 @@
 		41FF2B6229392F5800ECD049 /* PromptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FF2B6129392F5800ECD049 /* PromptController.swift */; };
 		41FF2B64293930CC00ECD049 /* DailyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FF2B63293930CC00ECD049 /* DailyRepository.swift */; };
 		41FF2B66293932C100ECD049 /* DailyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FF2B65293932C100ECD049 /* DailyController.swift */; };
-		C9B13C2C6ED7D700BA50E1AE /* Pods_memoMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59C5A9FA0D7EC86A2C8F456 /* Pods_memoMap.framework */; };
+		C03162985439A7414AC686B6 /* Pods_memoMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF3205362D7AB3B9C6E0C20 /* Pods_memoMap.framework */; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
@@ -105,6 +105,7 @@
 		41FF2B6129392F5800ECD049 /* PromptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptController.swift; sourceTree = "<group>"; };
 		41FF2B63293930CC00ECD049 /* DailyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRepository.swift; sourceTree = "<group>"; };
 		41FF2B65293932C100ECD049 /* DailyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyController.swift; sourceTree = "<group>"; };
+		7AF3205362D7AB3B9C6E0C20 /* Pods_memoMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memoMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
 		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
 		E51B3B72291DFDBB00399450 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = memoMap/Controllers/MapViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -151,7 +152,6 @@
 		E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMemoryView.swift; sourceTree = "<group>"; };
 		E5EDE267293701AD0045402C /* MemoryScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryScrollView.swift; sourceTree = "<group>"; };
 		EC917226F90C18DB4A761596 /* Pods-memoMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.release.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.release.xcconfig"; sourceTree = "<group>"; };
-		F59C5A9FA0D7EC86A2C8F456 /* Pods_memoMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memoMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,13 +188,21 @@
 				E5BFDC772913456100DF0180 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				E5BFDC872913456100DF0180 /* FirebaseMessaging in Frameworks */,
 				E5BFDC832913456100DF0180 /* FirebaseInstallations in Frameworks */,
-				C9B13C2C6ED7D700BA50E1AE /* Pods_memoMap.framework in Frameworks */,
+				C03162985439A7414AC686B6 /* Pods_memoMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59BCC0EC87E54892C9067D5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AF3205362D7AB3B9C6E0C20 /* Pods_memoMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C9D7D516444C69217E9ADE63 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,7 +255,7 @@
 				E5BFDC432913433300DF0180 /* Products */,
 				C9D7D516444C69217E9ADE63 /* Pods */,
 				E51FA2342938549700C79CC6 /* Recovered References */,
-				F7C2982676284EC89B10D30D /* Frameworks */,
+				59BCC0EC87E54892C9067D5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -341,14 +349,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		F7C2982676284EC89B10D30D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F59C5A9FA0D7EC86A2C8F456 /* Pods_memoMap.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -360,6 +360,7 @@
 				E5BFDC3E2913433300DF0180 /* Sources */,
 				E5BFDC3F2913433300DF0180 /* Frameworks */,
 				E5BFDC402913433300DF0180 /* Resources */,
+				0240A0F9E3A06DFE4DD7F444 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -452,6 +453,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0240A0F9E3A06DFE4DD7F444 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BC747FED30FF63A2AC71AD6E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
