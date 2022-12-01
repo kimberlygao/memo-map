@@ -11,8 +11,9 @@ import FirebaseFirestoreSwift
 class UserController: ObservableObject {
   @Published var friendRequestRepository: FriendRequestRepository = FriendRequestRepository()
   @Published var userRepository: UserRepository = UserRepository()
+  @Published var memoryController: MemoryController = MemoryController()
   @Published var users: [User] = []
-  @Published var currentUser: User = User(email: "", friends: [], memories: [], name: "", password: "", requests: nil)
+  @Published var currentUser: User = User(email: "", friends: [], memories: [], name: "", password: "", requests: nil, pfp: "default.jpeg")
   @Published var requests: [FriendRequest] = []
   
   init() {
@@ -33,13 +34,23 @@ class UserController: ObservableObject {
   }
   
   func getFriends(user: User) -> [User] {
-    var friends: [User] = []
-    for person in self.users {
-      if user.friends.contains(person.id!) {
-        friends.append(person)
-      }
+    return self.users.filter { user.friends.contains($0.id!) }
+  }
+  
+  func getFriendStatus(currUser: User, otherUser: String) -> String {
+    let other : [User] = (self.users.filter { $0.id == otherUser })
+    
+    if self.getFriends(user: currUser).contains(other) {
+      return "friends"
     }
-    return friends
+    if self.getSentRequests(user: currUser).contains(other) {
+      return "requestSent"
+    }
+    if self.getReceivedRequests(user: currUser).contains(other) {
+      return "requestReceived"
+    }
+    return "noStatus"
+    
   }
   
   func getSentRequests(user: User) -> [User] {
@@ -74,8 +85,41 @@ class UserController: ObservableObject {
         received.append(person)
       }
     }
-    print(self.currentUser.name)
-    print(received)
     return received
+  }
+  
+  func sendFriendRequest(currUser: User, receiver: User) {
+    let request = FriendRequest(id: UUID().uuidString, receiver: receiver.id!, requester: currUser.id!)
+    friendRequestRepository.add(request)
+  }
+  
+  func processFriendRequest(currUser: User, requester: User, clicked: String) {
+    let request = self.requests.filter { $0.requester == requester.id && $0.receiver == currUser.id }
+    
+    if clicked == "accept" {
+      var curr = currUser
+      curr.friends.append(requester.id!)
+      var reqer = requester
+      reqer.friends.append(currUser.id!)
+      userRepository.update(currUser)
+      userRepository.update(requester)
+    }
+    
+    for req in request {
+      friendRequestRepository.remove(req)
+    }
+  }
+  
+  func getStats(user: User) -> [String] {
+    let userMems = memoryController.getMemoriesForUser(user: user)
+    let userPlaces = userMems.map { $0.location }
+    
+    let numPlaces = Set(userPlaces).count
+    let numMemories = user.memories.count
+    let numFriends = user.friends.count
+    
+    let stats = [numPlaces, numMemories, numFriends].map { String($0) }
+    
+    return stats
   }
 }

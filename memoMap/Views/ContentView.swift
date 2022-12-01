@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var showingSheet = false
   let viewController = ViewController()
-  let memoryController = MemoryController()
+  @ObservedObject var memoryController = MemoryController()
+  @ObservedObject var placeController = PlaceController()
   @ObservedObject var userController = UserController()
-  @StateObject var mapViewController = MapViewController()
-  @StateObject var placeController = PlaceController()
-  @StateObject var camera = CameraController()
+//  @StateObject var camera = CameraController()
   @State private var showingAlert = false
   @State private var showingCamera = false
   //  @State var showingAddFriends = false
+  
   
   
   var body: some View {
