@@ -13,7 +13,7 @@ struct MemoryScrollView: View {
   var body: some View {
     GeometryReader { geo in
 
-            SingleMemoryView(memoryController: memoryController, bigImage: memoryController.images[0], smallImage: memoryController.images[1])
+//            SingleMemoryView(memoryController: memoryController, bigImage: memoryController.images[0], smallImage: memoryController.images[1])
           }
     
 //    GeometryReader { geo in

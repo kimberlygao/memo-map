@@ -24,7 +24,7 @@ struct ContentView: View {
             ZStack {
                 // map view used to be here
                 NavigationView {
-                    MapViewWrapper(mapViewController: mapViewController, searchController: searchController)
+                  MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
                 }
                 VStack {
 //                    HStack {
@@ -51,13 +51,13 @@ struct ContentView: View {
                         Image(systemName: "camera")
                     }
                     .fullScreenCover(isPresented: $showingCamera, content: {
-                        CameraView(camera: camera, memoryController: memoryController)
+                        CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
                     })
                 }
             }
-            //    .onAppear(perform: {
-            //      camera.check()
-            //    })
+                .onAppear(perform: {
+                  camera.check()
+                })
             
             
             
@@ -115,10 +115,4 @@ struct ContentView: View {
             
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
 }

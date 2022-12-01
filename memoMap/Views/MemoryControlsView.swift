@@ -24,10 +24,10 @@ struct MemoryControlsView: View {
           .foregroundColor(.black)
           .font(.system(size: 30))
         Menu("Location") {
-          ForEach (mapViewController.getNearbyLocations(using: MKLocalSearch.Request()), id: \.self) { name in
-              Button(name, action: {})
-   
-          }
+//          ForEach (mapViewController.getNearbyLocations(using: MKLocalSearch.Request()), id: \.self) { name in
+//              Button(name, action: {})
+//
+//          }
         }.underline()
           .foregroundColor(.black)
       }

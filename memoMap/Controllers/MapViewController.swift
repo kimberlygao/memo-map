@@ -51,7 +51,7 @@ class MapViewController: NSObject, ObservableObject {
             let loc = CLLocationCoordinate2D(latitude: location["latitude"] as! Double, longitude: location["longitude"] as! Double)
             let url = location["url"] as? String ?? ""
             let locAnnotation = LocationAnnotation(title: name, subtitle: "", coordinate: loc)
-            let annotation = ImageAnnotation(locAnnotation: locAnnotation)
+          let annotation = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, image: UIImage())
 //            annotation.title = name
 //            annotation.coordinate = loc
             annotation.url = url

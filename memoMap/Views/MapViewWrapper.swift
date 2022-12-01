@@ -12,7 +12,7 @@ import ComposableArchitecture
 
 
 struct MapViewWrapper: View {
-//    @ObservedObject var memoryController: MemoryController
+    @ObservedObject var memoryController: MemoryController
     @ObservedObject var mapViewController: MapViewController
     @ObservedObject var searchController: SearchController
     @State private var selectedPlace: ImageAnnotation?
@@ -25,10 +25,10 @@ struct MapViewWrapper: View {
             ZStack(alignment: .top) {
                 VStack {
                     Spacer()
-//                    LocationSheetView(memoryController: memoryController)
-                    LocationDetailView(isOpen: self.$isBottomSheetOpen, maxHeight: geometry.size.height * 0.3) {
-                        Text(String(self.selectedPin?.title ?? "no title")).foregroundColor(Color.black)
-                    }
+                    LocationSheetView(memoryController: memoryController)
+//                    LocationDetailView(isOpen: self.$isBottomSheetOpen, maxHeight: geometry.size.height * 0.3) {
+//                        Text(String(self.selectedPin?.title ?? "no title")).foregroundColor(Color.black)
+//                    }
                 }
                 .edgesIgnoringSafeArea(.all)
                 .zIndex(1)
