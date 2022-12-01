@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 import Foundation
-//import FloatingPanel
+import Cluster
 
 
 class MapViewController: NSObject, ObservableObject {
@@ -20,6 +20,7 @@ class MapViewController: NSObject, ObservableObject {
     @Published var mapRegion : MKCoordinateRegion = MKCoordinateRegion()
     @Published var locationAnnotations : [LocationAnnotation] = []
     @Published var currMemories = [ImageAnnotation]()
+//    let clusterManager = ClusterManager()
     //    var pointOfInterestCategory = MKPointOfInterestCategory? { get set }
     
 //    override func viewDidLoad() {
@@ -57,6 +58,7 @@ class MapViewController: NSObject, ObservableObject {
 //                annotation.image = loadImageFromURL(url)
             //            self.annotations.append(annotation)
             current.append(annotation)
+//            clusterManager.add(annotation)
             //            self.mapView.addAnnotation(annotation)
         }
         self.currMemories = current

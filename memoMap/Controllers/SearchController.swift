@@ -27,20 +27,20 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
         super.init()
         cancellable = $searchQuery.debounce(for: .milliseconds(500), scheduler: RunLoop.main)
             .sink(receiveValue: {[weak self] (query) in
-                self?.performSearch(search: query)
+                self?.performSearch()
             })
     }
     
-    private func performSearch(search: String) {
+    func performSearch() {
         print("searching")
         //        self.mapView.removeAnnotations(mapView.annotations)
         // reset search annotations
-//        if search == "" {
-//            self.annotations = [LocationAnnotation]()
-//        }
+        if self.searchQuery == "" {
+            self.annotations = []
+        }
         var annotationsResult = [ImageAnnotation]()
         let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = search
+        request.naturalLanguageQuery = self.searchQuery
         request.region = delegate?.getSearchRegion(self) ?? MKCoordinateRegion()
         let localSearch = MKLocalSearch(request: request)
         
@@ -61,6 +61,7 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
 //                let annotation = LocationAnnotation(title: mapItem.name ?? "", subtitle: "", coordinate: mapItem.placemark.coordinate)
 //                annotation.coordinate = mapItem.placemark.coordinate
 //                annotation.title = mapItem.name
+                
                 annotationsResult.append(annotation)
             })
             self.annotations = annotationsResult

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Cluster
 
 struct ContentView: View {
     let viewController = ViewController()

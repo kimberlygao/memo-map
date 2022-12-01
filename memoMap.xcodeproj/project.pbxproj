@@ -15,6 +15,9 @@
 		2B3B4B0A292AA9DB00639C99 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */; };
 		2B3B4B0C292AA9DB00639C99 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B0B292AA9DB00639C99 /* Dependencies */; };
 		2B3B4B0E292AAF7900639C99 /* SearchCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */; };
+		2B3B4B10292C146D00639C99 /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */; };
+		2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */; };
+		D5AED16340C5BEBBD3C5754A /* Pods_memoMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F92AFA696265581E25AA0781 /* Pods_memoMap.framework */; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
@@ -87,6 +90,10 @@
 		2B3B4B032926C49800639C99 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		2B3B4B052926C5BD00639C99 /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
 		2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleter.swift; sourceTree = "<group>"; };
+		2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
+		2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSheetView.swift; sourceTree = "<group>"; };
+		6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.release.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.release.xcconfig"; sourceTree = "<group>"; };
+		8FAA65C3D591395054E49171 /* Pods-memoMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.debug.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.debug.xcconfig"; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
 		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
 		E51B3B72291DFDBB00399450 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = memoMap/Controllers/MapViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -125,6 +132,7 @@
 		E5BFDCA129134E1400DF0180 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E5BFDCA329134FD900DF0180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E5BFDCA62913537900DF0180 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		F92AFA696265581E25AA0781 /* Pods_memoMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memoMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,12 +169,30 @@
 				E5BFDC772913456100DF0180 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				E5BFDC872913456100DF0180 /* FirebaseMessaging in Frameworks */,
 				E5BFDC832913456100DF0180 /* FirebaseInstallations in Frameworks */,
+				D5AED16340C5BEBBD3C5754A /* Pods_memoMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8FAFD48423445AB465AE07C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F92AFA696265581E25AA0781 /* Pods_memoMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9D7D516444C69217E9ADE63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FAA65C3D591395054E49171 /* Pods-memoMap.debug.xcconfig */,
+				6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E521D730291CB252002EB6FF /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +208,8 @@
 			children = (
 				E5BFDC442913433300DF0180 /* memoMap */,
 				E5BFDC432913433300DF0180 /* Products */,
+				C9D7D516444C69217E9ADE63 /* Pods */,
+				8FAFD48423445AB465AE07C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,8 +252,10 @@
 				E5BFDC962913499D00DF0180 /* MapView.swift */,
 				E51B3B76291DFE5F00399450 /* SearchView.swift */,
 				2B3B4B052926C5BD00639C99 /* MapViewWrapper.swift */,
+				2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */,
 				E5BFDC98291349A500DF0180 /* CameraView.swift */,
 				2B3B4B032926C49800639C99 /* LocationDetailView.swift */,
+				2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */,
 				E54B64EA29186494006BBD2F /* CameraControlsView.swift */,
 				E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */,
 				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
@@ -280,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5BFDC502913433300DF0180 /* Build configuration list for PBXNativeTarget "memoMap" */;
 			buildPhases = (
+				51ED382E9063DA1AF691A9A9 /* [CP] Check Pods Manifest.lock */,
 				E5BFDC3E2913433300DF0180 /* Sources */,
 				E5BFDC3F2913433300DF0180 /* Frameworks */,
 				E5BFDC402913433300DF0180 /* Resources */,
+				98955CC2916BCA9730FAB7EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,6 +406,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		51ED382E9063DA1AF691A9A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-memoMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98955CC2916BCA9730FAB7EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E5BFDC3E2913433300DF0180 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -388,6 +462,7 @@
 				E55AD3A8291C9C0100F46D54 /* Memory.swift in Sources */,
 				E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */,
 				E5BFDC972913499D00DF0180 /* MapView.swift in Sources */,
+				2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */,
 				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
 				E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */,
 				2B3B4AD72925EB5000639C99 /* ImageAnnotationView.swift in Sources */,
@@ -395,6 +470,7 @@
 				E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */,
 				E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */,
 				2B3B4AD92925FFF500639C99 /* ImageAnnotation.swift in Sources */,
+				2B3B4B10292C146D00639C99 /* CountClusterAnnotationView.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
 				E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */,
 				E51B3B77291DFE5F00399450 /* SearchView.swift in Sources */,
@@ -540,9 +616,11 @@
 		};
 		E5BFDC512913433300DF0180 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FAA65C3D591395054E49171 /* Pods-memoMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"memoMap/Preview Content\"";
@@ -563,8 +641,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kwgao.memoMap;
+				PRODUCT_BUNDLE_IDENTIFIER = kwgao2.memoMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -573,9 +652,11 @@
 		};
 		E5BFDC522913433300DF0180 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"memoMap/Preview Content\"";
@@ -596,8 +677,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kwgao.memoMap;
+				PRODUCT_BUNDLE_IDENTIFIER = kwgao2.memoMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

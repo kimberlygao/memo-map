@@ -12,6 +12,7 @@ import ComposableArchitecture
 
 
 struct MapViewWrapper: View {
+//    @ObservedObject var memoryController: MemoryController
     @ObservedObject var mapViewController: MapViewController
     @ObservedObject var searchController: SearchController
     @State private var selectedPlace: ImageAnnotation?
@@ -24,6 +25,7 @@ struct MapViewWrapper: View {
             ZStack(alignment: .top) {
                 VStack {
                     Spacer()
+//                    LocationSheetView(memoryController: memoryController)
                     LocationDetailView(isOpen: self.$isBottomSheetOpen, maxHeight: geometry.size.height * 0.3) {
                         Text(String(self.selectedPin?.title ?? "no title")).foregroundColor(Color.black)
                     }
@@ -35,13 +37,16 @@ struct MapViewWrapper: View {
                 MapView(mapViewController: mapViewController, searchController: searchController, annotations: searchController.annotations, currMemories: mapViewController.currMemories, selectedPin: self.$selectedPin,
                         isBottomSheetOpen: self.$isBottomSheetOpen
                         )
-                        .searchable(
-                          text: $searchController.searchQuery)
-                                    //                                placement: <#T##SearchFieldPlacement#>)
-                                    //                            prompt: <#T##Text?#>,
-                                    //                            suggestions:
-                        .navigationBarTitleDisplayMode(.inline)
-                        .edgesIgnoringSafeArea(.all)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .edgesIgnoringSafeArea(.all)
+                SearchView(mapViewController: mapViewController, searchController: searchController)
+//                        .searchable(
+//                          text: $searchController.searchQuery)
+//                                    //                                placement: <#T##SearchFieldPlacement#>)
+//                                    //                            prompt: <#T##Text?#>,
+//                                    //                            suggestions:
+//                        .navigationBarTitleDisplayMode(.inline)
+//                        .edgesIgnoringSafeArea(.all)
                     //            SearchView(mapViewController: mapViewController, searchController: searchController)
                     //            if searchController.searchQuery != "" {
                     ////                print("search query empty true")

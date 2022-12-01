@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import Cluster
 
 class MapViewCoordinator: NSObject, MKMapViewDelegate {
 
@@ -26,8 +27,15 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
         DispatchQueue.main.async {
             self.parent.selectedPin = pin
             self.parent.isBottomSheetOpen = true
+            print("selected pin: ", self.parent.selectedPin)
         }
       }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        self.parent.clusterManager.reload(mapView: mapView) { finished in
+            // handle completion
+        }
+    }
 
       func mapView(_ mapView: MKMapView, viewFor
            annotation: MKAnnotation) -> MKAnnotationView? {
@@ -42,6 +50,11 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
           if annotation.isKind(of: MKUserLocation.self) {  //Handle user location annotation..
               print("user location here 1")
               return nil  //Default is to let the system handle it.
+          }
+          
+          if let annotation = annotation as? ClusterAnnotation {
+              print("entered cluster!!")
+              return CountClusterAnnotationView(annotation: annotation, reuseIdentifier: "cluster")
           }
           
 //          if annotation.image == nil {
@@ -72,6 +85,18 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
           var view: ImageAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: "customLocationAnnotation") as? ImageAnnotationView
           if view == nil {
               view = ImageAnnotationView(annotation: annotation, reuseIdentifier: "customLocationAnnotation")
+//              let base = UIView(frame: CGRect(x: 0, y: 0, width: 67, height: 26))
+//              let imageView = UIImageView(frame: CGRect(x: 2, y: 2, width: 22, height: 22))
+//              imageView.image = UIImage(named: "test")
+//
+//              base.layer.cornerRadius = 3.0
+//              base.clipsToBounds = true
+//              base.backgroundColor = .white
+//              base.addSubview(imageView)
+//
+//              view?.addSubview(base)
+//              view?.canShowCallout = true
+//              view.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
           }
           let annotation = annotation as! ImageAnnotation
           view?.image = annotation.image
@@ -111,6 +136,8 @@ struct MapView: UIViewRepresentable {
     
   @ObservedObject var mapViewController: MapViewController
   @ObservedObject var searchController: SearchController
+  let clusterManager = ClusterManager()
+//  let annotationClusterManager = ClusterManager()
 //  @ObservedObject var placeController: PlaceController
   @State var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(40.444230, -79.945530), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
 
@@ -155,19 +182,31 @@ struct MapView: UIViewRepresentable {
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
         print("updating")
-//        addExistingMemories()
+        let remove = uiView.annotations.filter({ !($0 is MKUserLocation) })
+//        uiView.removeAnnotations(remove)
+        uiView.delegate = context.coordinator
         uiView.showsUserLocation = true
+        print("before enter casing:", annotations, currMemories)
+        if searchController.searchQuery == "" {
+//            uiView.removeAnnotations(remove)
+            loadAnnotations()
+            print("case 1: loaded curr memories")
+        } else {
+            uiView.removeAnnotations(remove)
+            uiView.addAnnotations(annotations)
+            uiView.showAnnotations(annotations, animated: true)
+            print("case 2: loaded search")
+        }
+//        addExistingMemories()
+    
 //        uiView.annotations.forEach { uiView.removeAnnotation($0) }
-        loadAnnotations()
+        addSearchCluster()
 //        mapViewController.current.loadLocation()
 //        mapViewController.getNearbyLocations(using: MKLocalSearch.Request())
-        uiView.delegate = context.coordinator
 //        uiView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customLocationAnnotation")
-        print("map annotations:", annotations)
+//        print("map annotations:", annotations)
 //        uiView.addAnnotations(annotations)
 //        loadSearchImage()
-        uiView.addAnnotations(annotations)
-        uiView.showAnnotations(annotations, animated: true)
 //        uiView.addAnnotations(searchViewController.searchAnnotations)
   }
     typealias UIViewType = MKMapView
@@ -201,6 +240,12 @@ struct MapView: UIViewRepresentable {
 //        }
 //    }
     
+    func addSearchCluster() {
+        for annotation in annotations {
+            clusterManager.add(annotation)
+        }
+    }
+    
     func loadAnnotations() {
         print("CURR MEMORIES: ", currMemories)
         for memory in currMemories {
@@ -222,6 +267,7 @@ struct MapView: UIViewRepresentable {
 //                        let imageAnnotation = ImageAnnotation()
                         
                         DispatchQueue.main.async {
+                            clusterManager.add(annotation)
                             self.mapView.addAnnotation(annotation)
                             print("added 1")
                         }
