@@ -60,7 +60,7 @@
 /* Begin PBXFileReference section */
 		00D19A4A87B283614FC29C34F9E1122E /* Pods-memoMap-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-memoMap-acknowledgements.plist"; sourceTree = "<group>"; };
 		11C686C9AAAB529C9D44A155B8B5A1BB /* Cluster-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cluster-dummy.m"; sourceTree = "<group>"; };
-		23859D940BDF39F32D67AE3BE8EBC44A /* Cluster */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cluster; path = Cluster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23859D940BDF39F32D67AE3BE8EBC44A /* Cluster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cluster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C78D72FBF01AD74D2ABB4ECF7143C20 /* QuadTree.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuadTree.swift; path = Sources/QuadTree.swift; sourceTree = "<group>"; };
 		2F54DEF8D0D77075C9AF3B2187CE1B9A /* Pods-memoMap.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-memoMap.modulemap"; sourceTree = "<group>"; };
 		595C11CB54DB94E71599ABC9BB5698F8 /* Cluster-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cluster-prefix.pch"; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		39075DB964DFD52D4B81197CE7EB6696 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23859D940BDF39F32D67AE3BE8EBC44A /* Cluster */,
+				23859D940BDF39F32D67AE3BE8EBC44A /* Cluster.framework */,
 				DE4E582E56CFB8B7FBB6F593D7C72EFC /* Pods-memoMap */,
 			);
 			name = Products;
@@ -314,7 +314,7 @@
 			);
 			name = Cluster;
 			productName = Cluster;
-			productReference = 23859D940BDF39F32D67AE3BE8EBC44A /* Cluster */;
+			productReference = 23859D940BDF39F32D67AE3BE8EBC44A /* Cluster.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -452,7 +452,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Cluster/Cluster-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Cluster/Cluster-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -585,7 +585,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Cluster/Cluster-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Cluster/Cluster-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

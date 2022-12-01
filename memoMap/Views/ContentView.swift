@@ -15,7 +15,7 @@ struct ContentView: View {
   let userController = UserController()
   @StateObject var mapViewController = MapViewController()
   @StateObject var placeController = PlaceController()
-  @StateObject var camera = CameraController()
+//  @StateObject var camera = CameraController()
   @State private var showingAlert = false
   @State private var showingCamera = false
   //  @State var showingAddFriends = false
@@ -43,19 +43,19 @@ struct ContentView: View {
           }
           Spacer()
         }
-        VStack {
-          Spacer()
-          Button(action: {showingCamera.toggle()}) {
-            Image(systemName: "camera")
-          }
-          .fullScreenCover(isPresented: $showingCamera, content: {
-            CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
-          })
-        }
+//        VStack {
+//          Spacer()
+//          Button(action: {showingCamera.toggle()}) {
+//            Image(systemName: "camera")
+//          }
+//          .fullScreenCover(isPresented: $showingCamera, content: {
+//            CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
+//          })
+//        }
       }
-      .onAppear(perform: {
-        camera.check()
-      })
+//      .onAppear(perform: {
+//        camera.check()
+//      })
       
       
     }
