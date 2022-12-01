@@ -1,8 +1,8 @@
 //
-//  ImageAnnotation.swift
-//  memoMap
+//  MemoryAnnotation.swift
+//  memoMap
 //
-//  Created by Fiona Chiu on 11/21/22.
+//  Created by Fiona Chiu on 2022/12/1.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import MapKit
 import UIKit
 import SwiftUI
 
-class ImageAnnotation: NSObject, MKAnnotation, Identifiable {
+class MemoryAnnotation: NSObject, MKAnnotation, Identifiable {
         var id: String
         var title: String?
         var subtitle: String?

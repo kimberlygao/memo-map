@@ -9,6 +9,11 @@ import SwiftUI
 import MapKit
 import Cluster
 
+//class MKOverlayRenderer {
+//    var blendMode: CGBlendMode =
+//}
+
+
 class MapViewCoordinator: NSObject, MKMapViewDelegate {
   
   var parent: MapView
@@ -159,10 +164,12 @@ struct MapView: UIViewRepresentable {
   //            print("added")
   //        }
   //    }
+    
   //    @Binding var selectedPlace: ImageAnnotation?
   var annotations = [ImageAnnotation]()
   var currMemories = [ImageAnnotation]()
-  let mapView = MKMapView(frame: .zero)
+    let mapView = MKMapView(frame: .zero)
+
   @Binding var selectedPin: ImageAnnotation?
   @Binding var isBottomSheetOpen: Bool
   //    @Binding var mapRegion : MKCoordinateRegion
@@ -179,20 +186,28 @@ struct MapView: UIViewRepresentable {
   //                mapView.selectAnnotation(selectedAnnotation, animated: true)
   //            }
   //    }
+    
+    private func isMemory (imgAnnotation: ImageAnnotation) -> Bool {
+        return imgAnnotation.isMemory
+    }
   
   func updateUIView(_ uiView: MKMapView, context: Context) {
     print("updating")
-    let remove = uiView.annotations.filter({ !($0 is MKUserLocation) })
     //        uiView.removeAnnotations(remove)
     uiView.delegate = context.coordinator
     uiView.showsUserLocation = true
     print("before enter casing:", annotations, currMemories)
+    print("query is: ")
     if searchController.searchQuery == "" {
       //            uiView.removeAnnotations(remove)
+        
+        let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && ($0 is ImageAnnotation && !(isMemory(imgAnnotation: $0 as! ImageAnnotation) )) })
+        
       loadAnnotations()
       print("case 1: loaded curr memories")
     } else {
-      uiView.removeAnnotations(remove)
+//      let remove = uiView.annotations.filter({ !($0 is MKUserLocation) })
+      uiView.removeAnnotations(uiView.annotations)
       uiView.addAnnotations(annotations)
       uiView.showAnnotations(annotations, animated: true)
       print("case 2: loaded search")
@@ -260,6 +275,7 @@ struct MapView: UIViewRepresentable {
             //                        annotation.coordinate = memory.coordinate
             let image = UIImage(data: data!, scale: UIScreen.main.scale)
             let annotation = ImageAnnotation(id: UUID().uuidString, locAnnotation: loc, image: image ?? UIImage())
+            annotation.isMemory = true
             annotation.image!.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: annotation.image!.size.height/2, right: 0))
             //                        annotation.title = memory.title
             //                        annotation.subtitle = memory.subtitle
@@ -304,7 +320,19 @@ struct MapView: UIViewRepresentable {
   func makeUIView(context: Context) -> MKMapView {
     mapView.delegate = context.coordinator
     mapView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customLocationAnnotation")
+//      mapView.overrideUserInterfaceStyle = .dark
+      let config = MKStandardMapConfiguration(emphasisStyle: .muted)
+      config.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: []))
+      mapView.preferredConfiguration = config
+//
+//      let overlay = MKOverlay(blendMode(<#T##blendMode: BlendMode##BlendMode#>))
+//
+//      mapView.insertOverlay(<#T##overlay: MKOverlay##MKOverlay#>, at: <#T##Int#>)
+      
+      
+//      colorMap(from: mapView)
     setUpMapRegion()
+//    colorMap(from: mapView)
     //      getSearchResults()
     //        mapView.addAnnotations(searchViewController.searchAnnotations)
     //

@@ -14,13 +14,9 @@ struct LocationSheetView: View {
   
   var body: some View {
     VStack(alignment: .leading){
-      Text("Delanie's Coffee")
+      Text("Recents")
         .font(.system(size: 20))
         .fontWeight(.bold)
-      Text("2002 Smallman St, Pittsburgh, PA 15122")
-        .foregroundColor(.gray)
-        .font(.system(size: 16))
-      
       Spacer()
              .frame(height: 20)
       

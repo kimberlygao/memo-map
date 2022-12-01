@@ -51,7 +51,7 @@ struct LocationDetailView<Content: View>: View {
             .cornerRadius(Constants.RADIUS)
             .frame(height: geometry.size.height + 10, alignment: .bottom)
             .offset(y: max(self.offset + self.translation, 0))
-//            .animation(.interactiveSpring())
+            .animation(.spring(blendDuration: 0.80))
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
                     state = value.translation.height

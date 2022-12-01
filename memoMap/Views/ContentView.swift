@@ -18,47 +18,63 @@ struct ContentView: View {
   @StateObject var camera = CameraController()
   @State private var showingAlert = false
   @State private var showingCamera = false
+//    @State private
+    @State private var blurredPrompt : Bool = false
   //  @State var showingAddFriends = false
   
   var body: some View {
-    NavigationView {
-      ZStack {
-        // map view used to be here
-        MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
-        VStack {
-          HStack {
-            NavigationLink(destination: AddFriendsView(userController: userController)) {
-              Image(systemName: "person.badge.plus")
-                .padding()
-                .font(.system(size: 24))
-                .foregroundColor(.black)
+      TabView {
+          NavigationView {
+            ZStack {
+              // map view used to be here
+                MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
+              VStack {
+                HStack {
+                  NavigationLink(destination: AddFriendsView(userController: userController)) {
+                    Image(systemName: "person.badge.plus")
+                      .padding()
+                      .font(.system(size: 24))
+                      .foregroundColor(.black)
+                  }
+                  Spacer()
+                  NavigationLink(destination: MemoryGridView(memoryController: memoryController)) {
+                    Image(systemName: "checkmark")
+                      .padding()
+                      .font(.system(size: 24))
+                      .foregroundColor(.black)
+                  }
+                }
+                SearchView(mapViewController: mapViewController, searchController: searchController)
+                Spacer()
+              }
+//              VStack {
+//                Spacer()
+//                Button(action: {showingCamera.toggle()}) {
+//                  Image(systemName: "camera")
+//                }
+//                .fullScreenCover(isPresented: $showingCamera, content: {
+//                  CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
+//                })
+//              }
             }
-            Spacer()
-            NavigationLink(destination: MemoryGridView(memoryController: memoryController)) {
-              Image(systemName: "checkmark")
-                .padding()
-                .font(.system(size: 24))
-                .foregroundColor(.black)
-            }
+      //      .onAppear(perform: {
+      //        camera.check()
+      //      })
+            
+            
+          }.tabItem {
+              Label("Order", systemImage: "square.and.pencil")
           }
-          SearchView(mapViewController: mapViewController, searchController: searchController)
-          Spacer()
-        }
-        VStack {
-          Spacer()
-          Button(action: {showingCamera.toggle()}) {
-            Image(systemName: "camera")
-          }
-          .fullScreenCover(isPresented: $showingCamera, content: {
-            CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
-          })
-        }
+          
+          CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
+              .tabItem {
+                  Label("Menu", systemImage: "camera")
+              }
+          
+          PromptView()
+              .tabItem {
+                  Label("Menu", systemImage: "list.dash")
+              }
       }
-      .onAppear(perform: {
-        camera.check()
-      })
-      
-      
-    }
   }
 }
