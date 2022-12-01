@@ -10,20 +10,18 @@
 		2B3B4AD529259BE900639C99 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */; };
 		2B3B4AD72925EB5000639C99 /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD62925EB5000639C99 /* ImageAnnotationView.swift */; };
 		2B3B4AD92925FFF500639C99 /* ImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD82925FFF500639C99 /* ImageAnnotation.swift */; };
-		2B3B4B042926C49800639C99 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4B032926C49800639C99 /* LocationDetailView.swift */; };
 		2B3B4B062926C5BD00639C99 /* MapViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4B052926C5BD00639C99 /* MapViewWrapper.swift */; };
 		2B3B4B0A292AA9DB00639C99 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */; };
 		2B3B4B0C292AA9DB00639C99 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B0B292AA9DB00639C99 /* Dependencies */; };
-		2B3B4B0E292AAF7900639C99 /* SearchCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */; };
 		2B3B4B10292C146D00639C99 /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */; };
 		2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */; };
-		D5AED16340C5BEBBD3C5754A /* Pods_memoMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F92AFA696265581E25AA0781 /* Pods_memoMap.framework */; };
+		2F667F6A0F7D40B06C82C84C /* Pods_memoMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADDA7C98D44978D942A4B7D /* Pods_memoMap.framework */; };
+		D5AED16340C5BEBBD3C5754A /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
 		E51B3B75291DFDBB00399450 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B73291DFDBB00399450 /* SearchViewController.swift */; };
 		E51B3B77291DFE5F00399450 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B76291DFE5F00399450 /* SearchView.swift */; };
-		E51B3B79291E20C100399450 /* FriendsProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B78291E20C100399450 /* FriendsProfileView2.swift */; };
 		E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B7A291E211D00399450 /* MemoryGridView.swift */; };
 		E51B3B7D292220C600399450 /* FriendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B7C292220C600399450 /* FriendRepository.swift */; };
 		E51B3B7F2922E1D400399450 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B7E2922E1D400399450 /* ProfileView.swift */; };
@@ -98,6 +96,7 @@
 		2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleter.swift; sourceTree = "<group>"; };
 		2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
 		2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSheetView.swift; sourceTree = "<group>"; };
+		5ADDA7C98D44978D942A4B7D /* Pods_memoMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memoMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.release.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.release.xcconfig"; sourceTree = "<group>"; };
 		8FAA65C3D591395054E49171 /* Pods-memoMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.debug.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.debug.xcconfig"; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
@@ -105,7 +104,6 @@
 		E51B3B72291DFDBB00399450 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = memoMap/Controllers/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		E51B3B73291DFDBB00399450 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = memoMap/Controllers/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
 		E51B3B76291DFE5F00399450 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		E51B3B78291E20C100399450 /* FriendsProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView2.swift; sourceTree = "<group>"; };
 		E51B3B7A291E211D00399450 /* MemoryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGridView.swift; sourceTree = "<group>"; };
 		E51B3B7C292220C600399450 /* FriendRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRepository.swift; sourceTree = "<group>"; };
 		E51B3B7E2922E1D400399450 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -180,7 +178,8 @@
 				E5BFDC772913456100DF0180 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				E5BFDC872913456100DF0180 /* FirebaseMessaging in Frameworks */,
 				E5BFDC832913456100DF0180 /* FirebaseInstallations in Frameworks */,
-				D5AED16340C5BEBBD3C5754A /* Pods_memoMap.framework in Frameworks */,
+				D5AED16340C5BEBBD3C5754A /* BuildFile in Frameworks */,
+				2F667F6A0F7D40B06C82C84C /* Pods_memoMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +189,7 @@
 		8FAFD48423445AB465AE07C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F92AFA696265581E25AA0781 /* Pods_memoMap.framework */,
+				5ADDA7C98D44978D942A4B7D /* Pods_memoMap.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -202,6 +201,15 @@
 				6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E51FA2332938531E00C79CC6 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */,
+				2B3B4B052926C5BD00639C99 /* MapViewWrapper.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		E521D730291CB252002EB6FF /* Repositories */ = {
@@ -222,6 +230,7 @@
 				E5BFDC432913433300DF0180 /* Products */,
 				C9D7D516444C69217E9ADE63 /* Pods */,
 				8FAFD48423445AB465AE07C5 /* Frameworks */,
+				E51FA2332938531E00C79CC6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,7 +284,6 @@
 				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
 				E51B3B54291CD20D00399450 /* AddFriendsView.swift */,
 				E51B3B56291CD55E00399450 /* FriendsProfileView.swift */,
-				E51B3B78291E20C100399450 /* FriendsProfileView2.swift */,
 				E51B3B7E2922E1D400399450 /* ProfileView.swift */,
 				E51B3B802922E3E400399450 /* FriendRequestBar.swift */,
 				E5EDE2632936CA600045402C /* LocationSheetView.swift */,
@@ -300,8 +308,6 @@
 				E55AD3A4291C9C0100F46D54 /* Prompt.swift */,
 				E55AD3A6291C9C0100F46D54 /* User.swift */,
 				E54B64E829170F42006BBD2F /* Camera.swift */,
-				41A065A8292C03F4007178E0 /* ImageAnnotation.swift */,
-				41A065AA292C041B007178E0 /* LocationAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -399,7 +405,7 @@
 			mainGroup = E5BFDC392913433300DF0180;
 			packageReferences = (
 				E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture.git" */,
 			);
 			productRefGroup = E5BFDC432913433300DF0180 /* Products */;
 			projectDirPath = "";
@@ -512,7 +518,6 @@
 				E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */,
 				2B3B4AD529259BE900639C99 /* LocationAnnotation.swift in Sources */,
 				E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */,
-				E51B3B79291E20C100399450 /* FriendsProfileView2.swift in Sources */,
 				E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */,
 				E55AD3AC291C9C0100F46D54 /* User.swift in Sources */,
 			);
@@ -731,7 +736,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
@@ -752,12 +757,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture.git" */;
 			productName = ComposableArchitecture;
 		};
 		2B3B4B0B292AA9DB00639C99 /* Dependencies */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture.git" */;
 			productName = Dependencies;
 		};
 		E5BFDC5C2913456100DF0180 /* FirebaseAnalytics */ = {
