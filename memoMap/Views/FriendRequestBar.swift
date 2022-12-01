@@ -20,7 +20,7 @@ struct FriendRequestBar: View {
   @State var status : FriendStatus
   
   var body: some View {
-    NavigationLink(destination: FriendsProfileView(friend: friend)) {
+    NavigationLink(destination: Text("hello")) {
       Image("kwgao")
         .resizable()
         .scaledToFill()

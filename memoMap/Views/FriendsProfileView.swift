@@ -9,9 +9,7 @@ import SwiftUI
 
 struct FriendsProfileView: View {
   var friend : User
-  let places = "30"
-  let memories = "100"
-  let friends = "12"
+  var stats : [String]
   @State var requestSent = false
   
   var body: some View {
@@ -42,21 +40,21 @@ struct FriendsProfileView: View {
         Spacer()
         VStack {
           Text("places")
-          Text(places)
+          Text(stats[0])
         }.padding()
         
         Spacer()
         
         VStack {
           Text("memories")
-          Text(memories)
+          Text(stats[1])
         }.padding()
         
         Spacer()
         
         VStack {
           Text("friends")
-          Text(friends)
+          Text(stats[2])
         }.padding()
         
         Spacer()
@@ -68,15 +66,15 @@ struct FriendsProfileView: View {
       
       
       Spacer()
-      Button(action: {requestSent.toggle()}) {
-        if !requestSent {
-          Text("Send Friend Request")
-        }
-        else {
-          Text("Friend Request Sent")
-            .foregroundColor(.gray)
-        }
-      }
+//      Button(action: {requestSent.toggle()}) {
+//        if !requestSent {
+//          Text("Send Friend Request")
+//        }
+//        else {
+//          Text("Friend Request Sent")
+//            .foregroundColor(.gray)
+//        }
+//      }
     }
     
   }

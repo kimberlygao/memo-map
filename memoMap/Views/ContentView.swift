@@ -47,15 +47,17 @@ struct ContentView: View {
           Spacer()
           Button(action: {showingCamera.toggle()}) {
             Image(systemName: "camera")
+              .font(.system(size: 24))
+              .foregroundColor(.black)
           }
           .fullScreenCover(isPresented: $showingCamera, content: {
-            CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
+            //            CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
           })
         }
       }
-      .onAppear(perform: {
-        camera.check()
-      })
+      //      .onAppear(perform: {
+      //        camera.check()
+      //      })
       
       
     }

@@ -70,9 +70,8 @@ struct AddFriendsView: View {
           .fontWeight(.bold)
           .frame(maxWidth: .infinity, alignment: .topLeading)
           ForEach(userController.users.filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { item in
-            ZStack {
               HStack {
-                NavigationLink(destination: FriendsProfileView(friend: item)) {
+                NavigationLink(destination: FriendsProfileView(friend: item, stats: userController.getStats(user: item))) {
                   Image("kwgao")
                     .resizable()
                     .scaledToFill()
@@ -91,19 +90,38 @@ struct AddFriendsView: View {
                 }
                 
                 Spacer()
-                Button (action: {}, label: {
-                  Image(systemName: "plus")
-                    .foregroundColor(.black)
-                    .font(.system(size: 18))
-                    .padding(.trailing, 6)
+                Button (action: {
+                  userController.sendFriendRequest(currUser: userController.currentUser, receiver: item)
+                }, label: {
+                  let status = userController.getFriendStatus(currUser: userController.currentUser, otherUser: item)
+                  if status == "noStatus" {
+                    Image(systemName: "plus")
+                      .foregroundColor(.black)
+                      .font(.system(size: 18))
+                      .padding(.trailing, 6)
+                  } else if status == "requestSent" {
+                    Image(systemName: "person.fill.checkmark")
+                      .foregroundColor(.black)
+                      .font(.system(size: 18))
+                      .padding(.trailing, 6)
+                  } else if status == "requestReceived" {
+                    Button (action: {userController.processFriendRequest(currUser: userController.currentUser, requester: item, clicked: "deny")}, label: {
+                      Image(systemName: "xmark")
+                        .foregroundColor(.black)
+                        .font(.system(size: 16))
+                    })
+                    Button (action: {userController.processFriendRequest(currUser: userController.currentUser, requester: item, clicked: "accept")}, label: {
+                      Image(systemName: "checkmark")
+                        .foregroundColor(.black)
+                        .font(.system(size: 16))
+                    })
+                  }
+                  
                 })
               }
               .padding(8)
               .background(.blue)
               .cornerRadius(10)
-            }
-            Spacer()
-              .frame(height: 8)
         }
       } else {
         VStack {
@@ -111,7 +129,7 @@ struct AddFriendsView: View {
             .fontWeight(.bold)
             .frame(maxWidth: .infinity, alignment: .topLeading)
           
-          ForEach (userController.getFriends(user: userController.currentUser), id: \.self) { person in
+          ForEach (userController.getReceivedRequests(user: userController.currentUser), id: \.self) { person in
             HStack {
               Image("kwgao")
                 .resizable()
@@ -128,15 +146,15 @@ struct AddFriendsView: View {
               }
               
               Spacer()
-              Button (action: {}, label: {
+              Button (action: {userController.processFriendRequest(currUser: userController.currentUser, requester: person, clicked: "deny")}, label: {
                 Image(systemName: "xmark")
                   .foregroundColor(.black)
-                  .font(.system(size: 20))
+                  .font(.system(size: 16))
               })
-              Button (action: {}, label: {
+              Button (action: {userController.processFriendRequest(currUser: userController.currentUser, requester: person, clicked: "accept")}, label: {
                 Image(systemName: "checkmark")
                   .foregroundColor(.black)
-                  .font(.system(size: 20))
+                  .font(.system(size: 16))
               })
             }
             .padding(8)

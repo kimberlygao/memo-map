@@ -20,7 +20,7 @@ struct User: Identifiable, Codable, Hashable {
   var memories: [String]
   var name: String
   var password: String
-  var requests: [String]?
+  var requests: [String]
   var pfp: String
   
   // MARK: Codable
@@ -31,11 +31,11 @@ struct User: Identifiable, Codable, Hashable {
     case memories
     case name
     case password
-    case requests = "friend_requests"
+    case requests
     case pfp
   }
   
-  init(email: String, friends: [String], memories: [String], name: String, password: String, requests: [String]?, pfp: String) {
+  init(email: String, friends: [String], memories: [String], name: String, password: String, requests: [String], pfp: String) {
     self.email = email
     self.friends = friends
     self.memories = memories
