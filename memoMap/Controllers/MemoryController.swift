@@ -11,23 +11,31 @@ import FirebaseFirestoreSwift
 import UIKit
 import FirebaseStorage
 import MapKit
+import OrderedCollections
 
 class MemoryController: ObservableObject {
   let storage = Storage.storage()
   var memoryRepository : MemoryRepository = MemoryRepository()
   @Published var placeController : PlaceController = PlaceController()
   @Published var memories: [Memory] = []
-  @Published var images: [String : UIImage] = [:]
+  @Published var imageURLs: [String] = []
+  @Published var images: [UIImage] = []
   
   init() {
     // get all memories
-    self.memories = memoryRepository.memories
-//    self.memoryRepository.get({(memories) -> Void in
-//      self.memories = memories
-//    })
-    
-    self.images = memoryRepository.images
-    print("IMAGESSSS: ", memoryRepository.images)
+    self.memoryRepository.get({ [self](memories) -> Void in
+      self.memories = memories
+      
+      let urls = memories.map { $0.front } + memories.map { $0.back }
+      self.imageURLs = urls
+      
+      // get all photos
+      for url in urls {
+        let _ = self.memoryRepository.getPhoto({ (image) -> Void in self.images.append(image) }, url)
+      }
+      
+    })
+
   }
   
   func getMemoriesForUser(user: User) -> [Memory] {
@@ -44,7 +52,9 @@ class MemoryController: ObservableObject {
       let coords = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
       let imgUrl = mem.back
-      let img = self.images[imgUrl] ?? UIImage()
+      
+      let imgIdx = self.imageURLs.firstIndex { $0 == imgUrl }
+      let img = self.images[imgIdx!]
       
       let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, isMemory: true, url: imgUrl, image: img)
       pins.append(pin)

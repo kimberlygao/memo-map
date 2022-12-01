@@ -17,6 +17,8 @@
 		4174CC3B29394D4F00A05077 /* PromptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4174CC3A29394D4F00A05077 /* PromptController.swift */; };
 		4174CC3D29394D7300A05077 /* DailyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4174CC3C29394D7300A05077 /* DailyRepository.swift */; };
 		4174CC3F29394D8A00A05077 /* PromptRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4174CC3E29394D8A00A05077 /* PromptRepository.swift */; };
+		4174CC422939518F00A05077 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 4174CC412939518F00A05077 /* Collections */; };
+		4174CC442939518F00A05077 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 4174CC432939518F00A05077 /* DequeModule */; };
 		D5AED16340C5BEBBD3C5754A /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
@@ -162,6 +164,8 @@
 				E5BFDC7D2913456100DF0180 /* FirebaseFunctionsCombine-Community in Frameworks */,
 				2B3B4B0A292AA9DB00639C99 /* ComposableArchitecture in Frameworks */,
 				E5BFDC752913456100DF0180 /* FirebaseFirestore in Frameworks */,
+				4174CC422939518F00A05077 /* Collections in Frameworks */,
+				4174CC442939518F00A05077 /* DequeModule in Frameworks */,
 				E5BFDC612913456100DF0180 /* FirebaseAnalyticsSwift in Frameworks */,
 				E5BFDC5D2913456100DF0180 /* FirebaseAnalytics in Frameworks */,
 				E5BFDC5F2913456100DF0180 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
@@ -395,6 +399,8 @@
 				E5BFDC902913456200DF0180 /* FirebaseStorageCombine-Community */,
 				2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */,
 				2B3B4B0B292AA9DB00639C99 /* Dependencies */,
+				4174CC412939518F00A05077 /* Collections */,
+				4174CC432939518F00A05077 /* DequeModule */,
 			);
 			productName = memoMap;
 			productReference = E5BFDC422913433300DF0180 /* memoMap.app */;
@@ -427,6 +433,7 @@
 			packageReferences = (
 				E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				4174CC402939518F00A05077 /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = E5BFDC432913433300DF0180 /* Products */;
 			projectDirPath = "";
@@ -770,6 +777,14 @@
 				minimumVersion = 0.46.0;
 			};
 		};
+		4174CC402939518F00A05077 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -790,6 +805,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = Dependencies;
+		};
+		4174CC412939518F00A05077 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4174CC402939518F00A05077 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		4174CC432939518F00A05077 /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4174CC402939518F00A05077 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
 		};
 		E5BFDC5C2913456100DF0180 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
