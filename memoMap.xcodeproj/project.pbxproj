@@ -13,6 +13,11 @@
 		2B3B4B0A292AA9DB00639C99 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */; };
 		2B3B4B0C292AA9DB00639C99 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B0B292AA9DB00639C99 /* Dependencies */; };
 		2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */; };
+		41FF2B6029392BF700ECD049 /* PromptRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FF2B5F29392BF700ECD049 /* PromptRepository.swift */; };
+		41FF2B6229392F5800ECD049 /* PromptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FF2B6129392F5800ECD049 /* PromptController.swift */; };
+		41FF2B64293930CC00ECD049 /* DailyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FF2B63293930CC00ECD049 /* DailyRepository.swift */; };
+		41FF2B66293932C100ECD049 /* DailyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FF2B65293932C100ECD049 /* DailyController.swift */; };
+		C9B13C2C6ED7D700BA50E1AE /* Pods_memoMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59C5A9FA0D7EC86A2C8F456 /* Pods_memoMap.framework */; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
@@ -96,6 +101,10 @@
 		2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleter.swift; sourceTree = "<group>"; };
 		2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
 		2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSheetView.swift; sourceTree = "<group>"; };
+		41FF2B5F29392BF700ECD049 /* PromptRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptRepository.swift; sourceTree = "<group>"; };
+		41FF2B6129392F5800ECD049 /* PromptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptController.swift; sourceTree = "<group>"; };
+		41FF2B63293930CC00ECD049 /* DailyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRepository.swift; sourceTree = "<group>"; };
+		41FF2B65293932C100ECD049 /* DailyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyController.swift; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
 		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
 		E51B3B72291DFDBB00399450 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = memoMap/Controllers/MapViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -179,6 +188,7 @@
 				E5BFDC772913456100DF0180 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				E5BFDC872913456100DF0180 /* FirebaseMessaging in Frameworks */,
 				E5BFDC832913456100DF0180 /* FirebaseInstallations in Frameworks */,
+				C9B13C2C6ED7D700BA50E1AE /* Pods_memoMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +234,8 @@
 				E521D731291CB252002EB6FF /* UserRepository.swift */,
 				E521D732291CB252002EB6FF /* PlaceRepository.swift */,
 				E521D733291CB252002EB6FF /* MemoryRepository.swift */,
+				41FF2B5F29392BF700ECD049 /* PromptRepository.swift */,
+				41FF2B63293930CC00ECD049 /* DailyRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -323,6 +335,8 @@
 				E55AD3B4291C9D9400F46D54 /* UserController.swift */,
 				E51B3B72291DFDBB00399450 /* MapViewController.swift */,
 				E51B3B73291DFDBB00399450 /* SearchViewController.swift */,
+				41FF2B6129392F5800ECD049 /* PromptController.swift */,
+				41FF2B65293932C100ECD049 /* DailyController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -346,7 +360,6 @@
 				E5BFDC3E2913433300DF0180 /* Sources */,
 				E5BFDC3F2913433300DF0180 /* Frameworks */,
 				E5BFDC402913433300DF0180 /* Resources */,
-				7D04366D56FE63BFEF6C1DBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -414,7 +427,7 @@
 			mainGroup = E5BFDC392913433300DF0180;
 			packageReferences = (
 				E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture.git" */,
 			);
 			productRefGroup = E5BFDC432913433300DF0180 /* Products */;
 			projectDirPath = "";
@@ -439,23 +452,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7D04366D56FE63BFEF6C1DBC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BC747FED30FF63A2AC71AD6E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -488,6 +484,7 @@
 				E51B3B75291DFDBB00399450 /* SearchViewController.swift in Sources */,
 				E51FA26F293859EF00C79CC6 /* MapViewWrapper.swift in Sources */,
 				E5EDE2662936CFFE0045402C /* SingleMemoryView.swift in Sources */,
+				41FF2B64293930CC00ECD049 /* DailyRepository.swift in Sources */,
 				E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */,
 				E5EDE268293701AD0045402C /* MemoryScrollView.swift in Sources */,
 				E54B64F1291875BB006BBD2F /* MiniPhotoView.swift in Sources */,
@@ -495,6 +492,7 @@
 				E5BFDC482913433300DF0180 /* ContentView.swift in Sources */,
 				E55AD3A8291C9C0100F46D54 /* Memory.swift in Sources */,
 				E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */,
+				41FF2B6229392F5800ECD049 /* PromptController.swift in Sources */,
 				E5BFDC972913499D00DF0180 /* MapView.swift in Sources */,
 				2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */,
 				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
@@ -526,10 +524,12 @@
 				E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */,
 				E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */,
 				E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */,
+				41FF2B66293932C100ECD049 /* DailyController.swift in Sources */,
 				2B3B4AD529259BE900639C99 /* LocationAnnotation.swift in Sources */,
 				E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */,
 				E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */,
 				E55AD3AC291C9C0100F46D54 /* User.swift in Sources */,
+				41FF2B6029392BF700ECD049 /* PromptRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,7 +746,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
@@ -767,12 +767,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture.git" */;
 			productName = ComposableArchitecture;
 		};
 		2B3B4B0B292AA9DB00639C99 /* Dependencies */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture.git" */;
 			productName = Dependencies;
 		};
 		E5BFDC5C2913456100DF0180 /* FirebaseAnalytics */ = {
