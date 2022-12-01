@@ -26,6 +26,7 @@
 		E51FA26D293859D100C79CC6 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FA26C293859D100C79CC6 /* SearchController.swift */; };
 		E51FA26F293859EF00C79CC6 /* MapViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FA26E293859EF00C79CC6 /* MapViewWrapper.swift */; };
 		E51FA27129385A1D00C79CC6 /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FA27029385A1D00C79CC6 /* CountClusterAnnotationView.swift */; };
+		E51FA273293861AF00C79CC6 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4B032926C49800639C99 /* LocationDetailView.swift */; };
 		E521D734291CB252002EB6FF /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D731291CB252002EB6FF /* UserRepository.swift */; };
 		E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D732291CB252002EB6FF /* PlaceRepository.swift */; };
 		E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D733291CB252002EB6FF /* MemoryRepository.swift */; };
@@ -82,7 +83,6 @@
 		E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC9F29134DE500DF0180 /* ViewController.swift */; };
 		E5BFDCA229134E1400DF0180 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDCA129134E1400DF0180 /* Location.swift */; };
 		E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDCA62913537900DF0180 /* CameraController.swift */; };
-		E5EDE2642936CA600045402C /* LocationSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDE2632936CA600045402C /* LocationSheetView.swift */; };
 		E5EDE2662936CFFE0045402C /* SingleMemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */; };
 		E5EDE268293701AD0045402C /* MemoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDE267293701AD0045402C /* MemoryScrollView.swift */; };
 /* End PBXBuildFile section */
@@ -108,7 +108,7 @@
 		E51B3B7E2922E1D400399450 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E51B3B802922E3E400399450 /* FriendRequestBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestBar.swift; sourceTree = "<group>"; };
 		E51FA26C293859D100C79CC6 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		E51FA26E293859EF00C79CC6 /* MapViewWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewWrapper.swift; path = memoMap/Views/MapViewWrapper.swift; sourceTree = SOURCE_ROOT; };
+		E51FA26E293859EF00C79CC6 /* MapViewWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewWrapper.swift; path = memoMap/Views/Map/MapViewWrapper.swift; sourceTree = SOURCE_ROOT; };
 		E51FA27029385A1D00C79CC6 /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
 		E521D731291CB252002EB6FF /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		E521D732291CB252002EB6FF /* PlaceRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
@@ -141,7 +141,6 @@
 		E5BFDCA129134E1400DF0180 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E5BFDCA329134FD900DF0180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E5BFDCA62913537900DF0180 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
-		E5EDE2632936CA600045402C /* LocationSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSheetView.swift; sourceTree = "<group>"; };
 		E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMemoryView.swift; sourceTree = "<group>"; };
 		E5EDE267293701AD0045402C /* MemoryScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +211,20 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		E51FA2722938619900C79CC6 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E51FA26E293859EF00C79CC6 /* MapViewWrapper.swift */,
+				E5BFDC962913499D00DF0180 /* MapView.swift */,
+				E51FA27029385A1D00C79CC6 /* CountClusterAnnotationView.swift */,
+				E51B3B76291DFE5F00399450 /* SearchView.swift */,
+				2B3B4B032926C49800639C99 /* LocationDetailView.swift */,
+				2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */,
+				2B3B4AD62925EB5000639C99 /* ImageAnnotationView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		E521D730291CB252002EB6FF /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,26 +281,20 @@
 		E5BFDC922913474E00DF0180 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E51FA2722938619900C79CC6 /* Map */,
 				E5BFDC492913433300DF0180 /* Assets.xcassets */,
-				E5BFDC472913433300DF0180 /* ContentView.swift */,
-				E51FA27029385A1D00C79CC6 /* CountClusterAnnotationView.swift */,
-				E5BFDC962913499D00DF0180 /* MapView.swift */,
-				E51B3B76291DFE5F00399450 /* SearchView.swift */,
 				E5BFDC98291349A500DF0180 /* CameraView.swift */,
-				2B3B4B032926C49800639C99 /* LocationDetailView.swift */,
-				2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */,
+				E5BFDC472913433300DF0180 /* ContentView.swift */,
 				E54B64EA29186494006BBD2F /* CameraControlsView.swift */,
 				E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */,
 				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
 				E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */,
 				E54B64F229188969006BBD2F /* CapturedImageView.swift */,
-				2B3B4AD62925EB5000639C99 /* ImageAnnotationView.swift */,
 				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
 				E51B3B54291CD20D00399450 /* AddFriendsView.swift */,
 				E51B3B56291CD55E00399450 /* FriendsProfileView.swift */,
 				E51B3B7E2922E1D400399450 /* ProfileView.swift */,
 				E51B3B802922E3E400399450 /* FriendRequestBar.swift */,
-				E5EDE2632936CA600045402C /* LocationSheetView.swift */,
 				E51B3B7A291E211D00399450 /* MemoryGridView.swift */,
 				E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */,
 				E5EDE267293701AD0045402C /* MemoryScrollView.swift */,
@@ -316,7 +323,6 @@
 		E5BFDC9E29134DD600DF0180 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E51FA26E293859EF00C79CC6 /* MapViewWrapper.swift */,
 				E51FA26C293859D100C79CC6 /* SearchController.swift */,
 				E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */,
 				E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */,
@@ -510,13 +516,13 @@
 				E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */,
 				E521D734291CB252002EB6FF /* UserRepository.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
-				E5EDE2642936CA600045402C /* LocationSheetView.swift in Sources */,
 				E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */,
 				E54B64F329188969006BBD2F /* CapturedImageView.swift in Sources */,
 				E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */,
 				E55AD3AB291C9C0100F46D54 /* Place.swift in Sources */,
 				E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */,
 				E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */,
+				E51FA273293861AF00C79CC6 /* LocationDetailView.swift in Sources */,
 				E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */,
 				E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */,
 				E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */,
@@ -658,7 +664,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = memoMap/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to access your camera.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app would like to use your location.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app would like to access your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -694,7 +700,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = memoMap/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to access your camera.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app would like to use your location.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app would like to access your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

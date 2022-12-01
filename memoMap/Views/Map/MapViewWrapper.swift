@@ -25,10 +25,10 @@ struct MapViewWrapper: View {
             ZStack(alignment: .top) {
                 VStack {
                     Spacer()
-                    LocationSheetView(memoryController: memoryController)
-//                    LocationDetailView(isOpen: self.$isBottomSheetOpen, maxHeight: geometry.size.height * 0.3) {
-//                        Text(String(self.selectedPin?.title ?? "no title")).foregroundColor(Color.black)
-//                    }
+//                    LocationSheetView(memoryController: memoryController)
+                    LocationDetailView(isOpen: self.$isBottomSheetOpen, maxHeight: geometry.size.height * 0.3) {
+                        Text(String(self.selectedPin?.title ?? "no title")).foregroundColor(Color.black)
+                    }
                 }
                 .edgesIgnoringSafeArea(.all)
                 .zIndex(1)
@@ -52,9 +52,10 @@ struct MapViewWrapper: View {
                     ////                print("search query empty true")
                     //                SearchView(mapViewController: mapViewController, searchController: searchController)
                     //            }
-                }.sheet(item: $selectedPlace) { place in
-                    Text(place.title!)
                 }
+//            .sheet(item: $selectedPlace) { place in
+//                    Text(place.title!)
+//                }
         }
     }
 }
