@@ -49,9 +49,9 @@ struct LocationDetailView<Content: View>: View {
             .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
             .background(Color.white)
             .cornerRadius(Constants.RADIUS)
-            .frame(height: geometry.size.height, alignment: .bottom)
+            .frame(height: geometry.size.height + 10, alignment: .bottom)
             .offset(y: max(self.offset + self.translation, 0))
-            .animation(.interactiveSpring())
+//            .animation(.interactiveSpring())
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
                     state = value.translation.height
