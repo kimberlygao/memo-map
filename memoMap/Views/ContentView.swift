@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State private var showingSheet = false
   let viewController = ViewController()
   let memoryController = MemoryController()
   @ObservedObject var userController = UserController()
@@ -17,6 +18,7 @@ struct ContentView: View {
   @State private var showingAlert = false
   @State private var showingCamera = false
   //  @State var showingAddFriends = false
+  
   
   var body: some View {
     NavigationView {
@@ -31,8 +33,14 @@ struct ContentView: View {
                 .foregroundColor(.black)
             }
             Spacer()
-            NavigationLink(destination: MemoryGridView(memoryController: memoryController)) {
+            Button(action: {showingSheet.toggle()}){
               Image(systemName: "checkmark")
+                .padding()
+                .font(.system(size: 24))
+                .foregroundColor(.black)
+            }
+            NavigationLink(destination: MemoryScrollView(memoryController: memoryController)) {
+              Image(systemName: "person.badge.plus")
                 .padding()
                 .font(.system(size: 24))
                 .foregroundColor(.black)
@@ -50,14 +58,22 @@ struct ContentView: View {
               .foregroundColor(.black)
           }
           .fullScreenCover(isPresented: $showingCamera, content: {
-//            CameraView(camera: camera, memoryController: memoryController, mapViewController: mapViewController)
+            //            CameraView(camera: camera, memoryController: memoryController, mapViewController: mapViewController)
           })
         }
       }
     }
-//    .onAppear(perform: {
-//      camera.check()
-//    })
+    //    .onAppear(perform: {
+    //      camera.check()
+    //    })
+    .sheet(isPresented: $showingSheet) {
+      NavigationView {
+        LocationSheetView(memoryController: memoryController)
+          
+        
+      }.presentationDetents([.medium, .large])
+    }
+    
   }
 }
 

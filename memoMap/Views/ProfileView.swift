@@ -16,8 +16,7 @@ struct ProfileView: View {
       if !isFriendProfile {
         Text("Profile")
       }
-      
-      
+
       Spacer()
         .frame(height: 50)
       

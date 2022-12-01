@@ -17,16 +17,19 @@ struct MemoryGridView: View {
         LazyVGrid(columns: threeColumnGrid, spacing: 5) {
           ForEach(memoryController.images, id: \.self) { image in
             if let uiImage = image {
-              Image(uiImage: uiImage)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: (geo.size.width - 10) / 3, height: (geo.size.width - 10) / 3)
-                .clipped()
+              NavigationLink (destination: MemoryScrollView(memoryController: memoryController)){
+                Image("kwgao")
+                  .resizable()
+                  .aspectRatio(contentMode: .fill)
+                  .frame(width: (geo.size.width - 10) / 3, height: (geo.size.width - 10) / 3)
+                  .clipped()
+              }
+              
             }
           }
         }
       }
-    }.padding()
+    }
     
     
     

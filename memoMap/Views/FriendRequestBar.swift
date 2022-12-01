@@ -8,43 +8,69 @@
 import SwiftUI
 
 struct FriendRequestBar: View {
-  @State var pendingRequest : Bool
-  @State var requestSent : Bool = false
-  @State var isFriend : Bool
+  
+  enum FriendStatus {
+    case notFriends
+    case requestReceived
+    case requestSent
+    case friends
+  }
+
+  @State var friend : User
+  @State var status : FriendStatus
+  
   var body: some View {
-    if pendingRequest {
-      HStack {
-        Text("Accept Friend Request?")
-        Button(action: {pendingRequest.toggle()}) {
-          Image(systemName: "checkmark")
-        }
-        Button(action: {pendingRequest.toggle()}) {
-          Image(systemName: "xmark")
-        }
+    NavigationLink(destination: FriendsProfileView(friend: friend)) {
+      Image("kwgao")
+        .resizable()
+        .scaledToFill()
+        .frame(width: 40, height: 40)
+        .clipShape(Circle())
+        .padding(.trailing, 4)
+      VStack {
+        Text(friend.id ?? "   ")
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .foregroundColor(.black)
+        Text(friend.name)
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .foregroundColor(.gray)
+          .font(.system(size: 14))
       }
+      
+      Spacer()
+      
+      switch status {
+      case .notFriends:
+        Button (action: {}, label: {
+          Image(systemName: "plus")
+            .foregroundColor(.black)
+            .font(.system(size: 18))
+            .padding(.trailing, 6)
+        })
+      case .requestSent:
+        Button (action: {}, label: {
+          Image(systemName: "plus")
+            .foregroundColor(.black)
+            .font(.system(size: 18))
+            .padding(.trailing, 6)
+        })
+      case .requestReceived:
+        Button (action: {}, label: {
+          Image(systemName: "plus")
+            .foregroundColor(.black)
+            .font(.system(size: 18))
+            .padding(.trailing, 6)
+        })
+      case .friends:
+        Button (action: {}, label: {
+          Image(systemName: "plus")
+            .foregroundColor(.black)
+            .font(.system(size: 18))
+            .padding(.trailing, 6)
+        })
+      }
+      
+      
     }
-    
-    if isFriend {
-      HStack {
-        Text("Friends")
-      }
-    } else {
-      Button(action: {requestSent.toggle()}) {
-        if !requestSent {
-          Text("Send Friend Request")
-        }
-        else {
-          Text("Friend Request Sent")
-            .foregroundColor(.gray)
-        }
-      }
-    }
-        
   }
 }
-//
-//struct FriendRequestBar_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FriendRequestBar()
-//    }
-//}

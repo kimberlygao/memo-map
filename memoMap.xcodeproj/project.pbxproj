@@ -73,6 +73,9 @@
 		E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC9F29134DE500DF0180 /* ViewController.swift */; };
 		E5BFDCA229134E1400DF0180 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDCA129134E1400DF0180 /* Location.swift */; };
 		E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDCA62913537900DF0180 /* CameraController.swift */; };
+		E5EDE2642936CA600045402C /* LocationSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDE2632936CA600045402C /* LocationSheetView.swift */; };
+		E5EDE2662936CFFE0045402C /* SingleMemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */; };
+		E5EDE268293701AD0045402C /* MemoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDE267293701AD0045402C /* MemoryScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +120,9 @@
 		E5BFDCA129134E1400DF0180 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E5BFDCA329134FD900DF0180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E5BFDCA62913537900DF0180 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		E5EDE2632936CA600045402C /* LocationSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSheetView.swift; sourceTree = "<group>"; };
+		E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMemoryView.swift; sourceTree = "<group>"; };
+		E5EDE267293701AD0045402C /* MemoryScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,9 +230,12 @@
 				E51B3B54291CD20D00399450 /* AddFriendsView.swift */,
 				E51B3B56291CD55E00399450 /* FriendsProfileView.swift */,
 				E51B3B78291E20C100399450 /* FriendsProfileView2.swift */,
-				E51B3B7A291E211D00399450 /* MemoryGridView.swift */,
 				E51B3B7E2922E1D400399450 /* ProfileView.swift */,
 				E51B3B802922E3E400399450 /* FriendRequestBar.swift */,
+				E5EDE2632936CA600045402C /* LocationSheetView.swift */,
+				E51B3B7A291E211D00399450 /* MemoryGridView.swift */,
+				E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */,
+				E5EDE267293701AD0045402C /* MemoryScrollView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -364,7 +373,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E51B3B75291DFDBB00399450 /* SearchViewController.swift in Sources */,
+				E5EDE2662936CFFE0045402C /* SingleMemoryView.swift in Sources */,
 				E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */,
+				E5EDE268293701AD0045402C /* MemoryScrollView.swift in Sources */,
 				E54B64F1291875BB006BBD2F /* MiniPhotoView.swift in Sources */,
 				E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */,
 				E5BFDC482913433300DF0180 /* ContentView.swift in Sources */,
@@ -386,6 +397,7 @@
 				E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */,
 				E521D734291CB252002EB6FF /* UserRepository.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
+				E5EDE2642936CA600045402C /* LocationSheetView.swift in Sources */,
 				E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */,
 				E54B64F329188969006BBD2F /* CapturedImageView.swift in Sources */,
 				E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */,

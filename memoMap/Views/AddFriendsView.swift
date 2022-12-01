@@ -11,6 +11,13 @@ struct AddFriendsView: View {
   private enum Field: Int, CaseIterable {
           case search
   }
+  
+  enum FriendStatus {
+    case notFriends
+    case requestReceived
+    case requestSent
+    case friends
+  }
 
   @State var searchText = ""
   @State private var isEditing = false
