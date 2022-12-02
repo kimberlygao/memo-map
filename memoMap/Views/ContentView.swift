@@ -34,7 +34,7 @@ struct ContentView: View {
                 .foregroundColor(.black)
             }
             Spacer()
-            NavigationLink(destination: MemoryGridView(memoryController: memoryController)) {
+            NavigationLink(destination: MemoryGridView(memoryController: memoryController, userController: userController)) {
               Image(systemName: "checkmark")
                 .padding()
                 .font(.system(size: 24))

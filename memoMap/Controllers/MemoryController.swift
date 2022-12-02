@@ -17,6 +17,7 @@ class MemoryController: ObservableObject {
   let storage = Storage.storage()
   var memoryRepository : MemoryRepository = MemoryRepository()
   @Published var placeController : PlaceController = PlaceController()
+  @Published var userController : UserController = UserController()
   @Published var memories: [Memory] = []
   @Published var imageURLs: [String] = []
   @Published var images: [UIImage] = []
@@ -61,18 +62,20 @@ class MemoryController: ObservableObject {
     return pins
   }
   
-  func getFriendsMemories(users: [User]) -> [Memory] {
+  func getFriendsMemories(user: User) -> [Memory] {
+    let users = userController.getFriends(user: user)
     let allMems = users.map { self.getMemoriesForUser(user: $0) }
     return allMems.flatMap { $0 }
   }
   
-  func getFriendsMemoryPins(users: [User]) -> [ImageAnnotation] {
+  func getFriendsMemoryPins(user: User) -> [ImageAnnotation] {
+    let users = userController.getFriends(user: user)
     let allPins = users.map { self.getMemoryPinsForUser(user: $0) }
     return allPins.flatMap { $0 }
   }
   
-  func getFriendsMemoriesForLocation(users: [User], loc: Place) -> [Memory] {
-    let allMems = self.getFriendsMemories(users: users)
+  func getFriendsMemoriesForLocation(user: User, loc: Place) -> [Memory] {
+    let allMems = self.getFriendsMemories(user: user)
     return allMems.filter { $0.location == loc.id }
   }
   

@@ -9,10 +9,11 @@ import SwiftUI
 
 struct MemoryGridView: View {
   @ObservedObject var memoryController: MemoryController
+  @ObservedObject var userController: UserController
   var threeColumnGrid = [GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5)]
   
   var body: some View {
-    ForEach(memoryController.images, id: \.self) { image in
+    ForEach(memoryController.getFriendsMemories(users: user), id: \.self) { image in
       if let uiImage = image {
         Image(uiImage: uiImage)
           .resizable()
