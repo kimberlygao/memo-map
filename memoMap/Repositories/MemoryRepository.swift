@@ -17,8 +17,6 @@ class MemoryRepository: ObservableObject {
   private let store = Firestore.firestore()
 
   @Published var memories: [Memory] = []
-//  @Published var imageURLs: [String] = []
-//  @Published var images: [UIImage] = []
   private var cancellables: Set<AnyCancellable> = []
 
   init() {

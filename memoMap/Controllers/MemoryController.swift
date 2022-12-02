@@ -35,13 +35,12 @@ class MemoryController: ObservableObject {
       }
       
     })
-
+    
   }
   
   func getMemoriesForUser(user: User) -> [Memory] {
     return self.memories.filter { $0.username == user.id }
   }
-  
   
   func getMemoryPinsForUser(user: User) -> [ImageAnnotation] {
     let memories: [Memory] = self.getMemoriesForUser(user: user)
@@ -52,11 +51,9 @@ class MemoryController: ObservableObject {
       let coords = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
       let imgUrl = mem.back
+      let img = self.getImageFromURL(url: imgUrl)
       
-      let imgIdx = self.imageURLs.firstIndex { $0 == imgUrl }
-      let img = self.images[imgIdx!]
-      
-//      let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, isMemory: true, url: imgUrl, image: img)
+      //      let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, isMemory: true, url: imgUrl, image: img)
       
       let pin = ImageAnnotation(id: mem.id!, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
       pins.append(pin)
@@ -64,20 +61,25 @@ class MemoryController: ObservableObject {
     return pins
   }
   
+  func getFriendsMemories(users: [User]) -> [Memory] {
+    let allMems = users.map { self.getMemoriesForUser(user: $0) }
+    return allMems.flatMap { $0 }
+  }
+  
   func getFriendsMemoryPins(users: [User]) -> [ImageAnnotation] {
-      let allPins = users.map { self.getMemoryPinsForUser(user: $0) }
-      return allPins.flatMap { $0 }
-    }
-
-    func getFriendsMemories(users: [User]) -> [Memory] {
-      let allMems = users.map { self.getMemoriesForUser(user: $0) }
-      return allMems.flatMap { $0 }
-    }
-
-    func getFriendsMemoriesForLocation(users: [User], loc: Place) -> [Memory] {
-      let allMems = self.getFriendsMemories(users: users)
-      return allMems.filter { $0.location == loc.id }
-    }
+    let allPins = users.map { self.getMemoryPinsForUser(user: $0) }
+    return allPins.flatMap { $0 }
+  }
+  
+  func getFriendsMemoriesForLocation(users: [User], loc: Place) -> [Memory] {
+    let allMems = self.getFriendsMemories(users: users)
+    return allMems.filter { $0.location == loc.id }
+  }
+  
+  func getImageFromURL(url: String) -> UIImage {
+    let imgIdx = self.imageURLs.firstIndex { $0 == url }
+    return self.images[imgIdx!]
+  }
   
   func saveMemory(caption: String, front: UIImage, back: UIImage, location: String) {
     let id = UUID().uuidString
