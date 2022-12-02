@@ -25,7 +25,7 @@ class ImageAnnotation: NSObject, MKAnnotation, Identifiable {
                 self.title = locAnnotation.title
                 self.subtitle = locAnnotation.subtitle
                 self.coordinate = locAnnotation.coordinate
-                self.isMemory = isMemory
+                self.isMemory = false
                 self.url = url
                 self.image = image
                 self.color = color

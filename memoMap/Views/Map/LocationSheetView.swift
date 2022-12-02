@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LocationSheetView: View {
   @Environment(\.dismiss) var dismiss
-  @Binding var isOpen: Bool
   @ObservedObject var memoryController: MemoryController
   
   var body: some View {

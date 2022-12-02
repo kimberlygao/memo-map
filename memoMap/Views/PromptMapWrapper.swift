@@ -35,8 +35,8 @@ struct PromptMapWrapper: View {
         }.sheet(isPresented: Binding<Bool>(get: { !blurredSheet },
                                            set: { blurredSheet = !$0 })) {
             NavigationView {
-                MemoryGridView(memoryController: memoryController)
-//                LocationSheetView(isOpen: self.$showingSheet, memoryController: memoryController)
+//                MemoryGridView(memoryController: memoryController)
+                LocationSheetView(memoryController: memoryController)
                 
                 
             }.presentationDetents([.medium, .large])

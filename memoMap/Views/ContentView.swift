@@ -13,6 +13,7 @@ struct ContentView: View {
   let memoryController = MemoryController()
   let searchController = SearchController()
   let userController = UserController()
+    
   @StateObject var mapViewController = MapViewController()
   @StateObject var placeController = PlaceController()
   @StateObject var camera = CameraController()
@@ -28,6 +29,8 @@ struct ContentView: View {
             ZStack {
               // map view used to be here
                 MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .edgesIgnoringSafeArea(.all)
               VStack {
                 HStack {
                   NavigationLink(destination: AddFriendsView(userController: userController)) {
@@ -63,17 +66,17 @@ struct ContentView: View {
             
             
           }.tabItem {
-              Label("Order", systemImage: "square.and.pencil")
+              Label("World", systemImage: "map")
           }
           
           CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
               .tabItem {
-                  Label("Menu", systemImage: "camera")
+                  Label("Camera", systemImage: "camera")
               }
           
           PromptView()
               .tabItem {
-                  Label("Menu", systemImage: "list.dash")
+                  Label("Friends", systemImage: "map")
               }
       }
   }
