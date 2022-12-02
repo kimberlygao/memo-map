@@ -40,7 +40,8 @@ class MemoryController: ObservableObject {
   }
   
   func getMemoriesForUser(user: User) -> [Memory] {
-    return self.memories.filter { $0.username == user.id }
+    let mems = self.memories.filter { String($0.username) == String(user.id!) }
+    return mems
   }
   
   func getMemoryPinsForUser(user: User) -> [ImageAnnotation] {
@@ -63,8 +64,9 @@ class MemoryController: ObservableObject {
   }
   
   func getFriendsMemories(user: User) -> [Memory] {
-    let users = userController.getFriends(user: user)
-    let allMems = users.map { self.getMemoriesForUser(user: $0) }
+    var users: [User] = userController.getFriends(user: user)
+    users.append(userController.currentUser) // delete this if u dont want to append urself, idk what is better LOL
+    let allMems: [[Memory]] = users.map { self.getMemoriesForUser(user: $0) }
     return allMems.flatMap { $0 }
   }
   
@@ -80,8 +82,12 @@ class MemoryController: ObservableObject {
   }
   
   func getImageFromURL(url: String) -> UIImage {
-    let imgIdx = self.imageURLs.firstIndex { $0 == url }
-    return self.images[imgIdx!]
+    if let imgIdx = (self.imageURLs.firstIndex { $0 == url }) {
+      return self.images[imgIdx]
+    }
+    return UIImage()
+    
+    
   }
   
   func saveMemory(caption: String, front: UIImage, back: UIImage, location: String) {

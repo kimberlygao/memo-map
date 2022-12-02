@@ -36,6 +36,7 @@ class MapViewController: NSObject, ObservableObject {
   }
   
   func addExistingMemories() {
+    var current = [ImageAnnotation]()
     print("ADD EXISTING MEMORIES")
     let test_locations = [
       ["name": "Delainie Coffee", "latitude": 40.4288961, "longitude": -79.9807498, "url": "https://lh3.googleusercontent.com/p/AF1QipP5UAJ9UxBIImLai1GyUC-pqgojujTOA3wbG8zy=s1360-w1360-h1020"],

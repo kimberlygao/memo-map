@@ -11,6 +11,7 @@ struct LocationSheetView: View {
   @Environment(\.dismiss) var dismiss
   
   @ObservedObject var memoryController: MemoryController
+  @ObservedObject var userController: UserController
   
   var body: some View {
     VStack(alignment: .leading){
@@ -24,7 +25,7 @@ struct LocationSheetView: View {
       Spacer()
              .frame(height: 20)
       
-      MemoryGridView(memoryController: memoryController)
+      MemoryGridView(memoryController: memoryController, userController: userController)
     }
     .padding(20)
   }
