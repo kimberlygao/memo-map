@@ -24,19 +24,19 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       ZStack {
-//        MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
+        MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
         VStack {
           HStack {
             NavigationLink(destination: AddFriendsView(userController: userController, memoryController: memoryController)) {
               Image(systemName: "person.badge.plus")
-                .padding(28)
+                .padding(20)
                 .font(.system(size: 24))
                 .foregroundColor(.black)
             }
             Spacer()
             NavigationLink(destination: ProfileView(user: userController.currentUser, userController: userController, memoryController: memoryController)) {
               Image(systemName: "person.circle")
-                .padding(28)
+                .padding(20)
                 .font(.system(size: 24))
                 .foregroundColor(.black)
             }
@@ -61,7 +61,7 @@ struct ContentView: View {
               .foregroundColor(.black)
           }
           .fullScreenCover(isPresented: $showingCamera, content: {
-            //            CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
+                        CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
           })
         }
       }

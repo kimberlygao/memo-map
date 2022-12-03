@@ -39,7 +39,9 @@ struct MapViewWrapper: View {
                         )
                     .navigationBarTitleDisplayMode(.inline)
                     .edgesIgnoringSafeArea(.all)
+              
                 SearchView(mapViewController: mapViewController, searchController: searchController)
+                .padding(.top, 60)
 //                        .searchable(
 //                          text: $searchController.searchQuery)
 //                                    //                                placement: <#T##SearchFieldPlacement#>)
