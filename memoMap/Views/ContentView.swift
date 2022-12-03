@@ -82,6 +82,13 @@ struct ContentView: View {
           }
           .padding(20)
           HStack {
+            Spacer()
+            Button (action : {}) {
+              Image(systemName: "map")
+                .font(.system(size: 28))
+                .foregroundColor(.black)
+            }
+            Spacer()
             Button(action: {
               showingCamera.toggle()
             }) {
@@ -92,10 +99,20 @@ struct ContentView: View {
             .fullScreenCover(isPresented: $showingCamera, content: {
               //              CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
             })
+            Spacer()
+            Button (action : {}) {
+              Image(systemName: "questionmark.circle")
+                .font(.system(size: 28))
+                .foregroundColor(.black)
+            }
+            Spacer()
           }
+//          .padding(6)
+          .padding(.top, 12)
           .background(.white)
           .opacity(0.8)
         }
+        .background(.pink)
       }
       //      .sheet(isPresented: $showingSheet) {
       //        NavigationView {
