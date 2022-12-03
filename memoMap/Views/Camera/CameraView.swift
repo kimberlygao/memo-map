@@ -35,12 +35,21 @@ struct CameraView: View {
       if camera.image1Done {
         VStack{
           HStack {
-            Image(uiImage: camera.images[0])
-              .resizable()
-              .scaledToFill()
-              .frame(width: 150, height: 200)
-              .cornerRadius(20)
-            
+            Button(action: {
+              let temp = camera.images[0]
+              camera.images[0] = camera.images[1]
+              camera.images[1] = temp
+            }) {
+              Image(uiImage: camera.images[0])
+                .resizable()
+                .scaledToFill()
+                .frame(width: 150, height: 200)
+                .cornerRadius(10)
+                .overlay(
+                  RoundedRectangle(cornerRadius: 10)
+                    .stroke(.white, lineWidth: 1.5)
+                )
+            }
             Spacer()
           }
           Spacer()
@@ -68,7 +77,7 @@ struct CameraView: View {
               .background(Color.white)
               .padding(.bottom)
               .cornerRadius(20)
-          } else if cameraControls {
+          } else if camera.showControls {
             
             CameraControlsView(camera: camera)
             

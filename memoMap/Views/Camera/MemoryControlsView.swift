@@ -22,7 +22,7 @@ struct MemoryControlsView: View {
       HStack {
         Image(systemName: "mappin.and.ellipse")
           .foregroundColor(.black)
-          .font(.system(size: 30))
+          .font(.system(size: 24))
         Menu(selectedLocation) {
           ForEach (mapViewController.getNearbyLocations(using: MKLocalSearch.Request()), id: \.self) { name in
             Button(name, action: {
@@ -32,9 +32,12 @@ struct MemoryControlsView: View {
           }
         }.underline()
           .foregroundColor(.black)
+          .font(.system(size: 20, weight: .medium))
       }
       
       TextField("Add a caption...", text: $caption)
+        .font(.system(size: 18))
+        .padding(.top, 4)
       
       Spacer()
       
@@ -42,13 +45,13 @@ struct MemoryControlsView: View {
         Spacer()
         Button(action: {
           memoryController.saveMemory(caption: caption, front: camera.images[0], back: camera.images[1], location: "1")
-          camera.reset()
+          camera.reTake()
           presentationMode.wrappedValue.dismiss()
         },
                label: {
           Image(systemName: "paperplane")
             .foregroundColor(.black)
-            .font(.system(size: 30))
+            .font(.system(size: 24))
             .rotationEffect(Angle(degrees: 45))
             .padding(.leading)
         })
@@ -60,6 +63,7 @@ struct MemoryControlsView: View {
     }
     .padding()
     .padding(.bottom, 20)
+    .padding(.top, 10)
     .frame(height: 350)
   }
 }

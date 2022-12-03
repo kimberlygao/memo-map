@@ -17,7 +17,8 @@ struct SingleMemoryView: View {
   var body: some View {
     ZStack {
       GeometryReader { geo in
-        VStack {
+        VStack(spacing: 0) {
+          
           Spacer()
           HStack { //user info
             Image(uiImage: memoryController.getPfpFromMemory(mem: memory))
@@ -37,9 +38,8 @@ struct SingleMemoryView: View {
                 .font(.system(size: 14))
             }
           }
-//          .padding(10)
+          .padding(0)
           .frame(width: geo.size.width - 40)
-          .multilineTextAlignment(.leading)
           
           HStack { // memory pictures
             ZStack {
@@ -61,7 +61,7 @@ struct SingleMemoryView: View {
                       .frame(width: 150, height: 200)
                       .overlay(
                                   RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.white, lineWidth: 2)
+                                    .stroke(.white, lineWidth: 3)
                               )
                       .cornerRadius(10)
                   }
@@ -74,14 +74,15 @@ struct SingleMemoryView: View {
             }
             
           }
+          
           HStack { // caption
             VStack (alignment: .leading) {
               Text(memory.caption)
             }
-            .padding(10)
+            .padding(6)
             Spacer()
           }
-          .padding(10)
+          .padding(8)
           .frame(width: geo.size.width - 40)
           .background(Color("light"))
           .cornerRadius(10)
@@ -89,6 +90,8 @@ struct SingleMemoryView: View {
           
           Spacer()
         }
+        
+        Spacer()
       }
     }
   }

@@ -27,16 +27,19 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   @Published var photo1 = Data(count: 0)
   @Published var photo2 = Data(count: 0)
   
-  var image1Done = false
+  @Published var image1Done = false
   
+  @Published var showControls = true
   var backCameraOn = true
-  var flashMode : AVCaptureDevice.FlashMode = .off
+  @Published var flashMode : AVCaptureDevice.FlashMode = .off
   
   var backCamera : AVCaptureDevice!
   var frontCamera : AVCaptureDevice!
   
   var backInput : AVCaptureInput!
   var frontInput : AVCaptureInput!
+  
+  
   
   // check camera usage permissions
   func check() {
@@ -134,6 +137,8 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     DispatchQueue.global(qos: .background).async {
       self.output.capturePhoto(with: self.getSettings(), delegate: self)
     }
+    
+    self.showControls = false
   }
   
   func photoOutput(_ _output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -182,6 +187,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
         self.photos = []
         self.images = []
         self.isSaved = false
+        self.showControls = true
       }
       
       
@@ -197,6 +203,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
       self.photos = []
       self.images = []
       self.isSaved = false
+      self.showControls = true
 
     }
     

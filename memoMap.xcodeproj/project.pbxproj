@@ -33,7 +33,6 @@
 		E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EA29186494006BBD2F /* CameraControlsView.swift */; };
 		E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */; };
 		E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EE29187345006BBD2F /* LocationRowView.swift */; };
-		E54B64F329188969006BBD2F /* CapturedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64F229188969006BBD2F /* CapturedImageView.swift */; };
 		E55AD3A8291C9C0100F46D54 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A2291C9C0100F46D54 /* Memory.swift */; };
 		E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */; };
 		E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A4291C9C0100F46D54 /* Prompt.swift */; };
@@ -114,7 +113,6 @@
 		E54B64EA29186494006BBD2F /* CameraControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControlsView.swift; sourceTree = "<group>"; };
 		E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryControlsView.swift; sourceTree = "<group>"; };
 		E54B64EE29187345006BBD2F /* LocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRowView.swift; sourceTree = "<group>"; };
-		E54B64F229188969006BBD2F /* CapturedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturedImageView.swift; sourceTree = "<group>"; };
 		E55AD3A2291C9C0100F46D54 /* Memory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequest.swift; sourceTree = "<group>"; };
 		E55AD3A4291C9C0100F46D54 /* Prompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
@@ -303,7 +301,6 @@
 				E5BFDC492913433300DF0180 /* Assets.xcassets */,
 				E5BFDC472913433300DF0180 /* ContentView.swift */,
 				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
-				E54B64F229188969006BBD2F /* CapturedImageView.swift */,
 				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
 				E51B3B7A291E211D00399450 /* MemoryGridView.swift */,
 				E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */,
@@ -525,7 +522,6 @@
 				E521D734291CB252002EB6FF /* UserRepository.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
 				E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */,
-				E54B64F329188969006BBD2F /* CapturedImageView.swift in Sources */,
 				E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */,
 				E55AD3AB291C9C0100F46D54 /* Place.swift in Sources */,
 				E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */,
@@ -685,7 +681,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kwgao.memoMap;
+				PRODUCT_BUNDLE_IDENTIFIER = kwgao.memoMap1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -721,7 +717,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kwgao.memoMap;
+				PRODUCT_BUNDLE_IDENTIFIER = kwgao.memoMap1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

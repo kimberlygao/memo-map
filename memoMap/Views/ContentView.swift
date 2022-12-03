@@ -61,7 +61,7 @@ struct ContentView: View {
               .foregroundColor(.black)
           }
           .fullScreenCover(isPresented: $showingCamera, content: {
-                        CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
+            CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
           })
         }
       }
@@ -72,9 +72,9 @@ struct ContentView: View {
           
         }.presentationDetents([.medium, .large])
       }
-      //      .onAppear(perform: {
-      //        camera.check()
-      //      })
+      .onAppear(perform: {
+        camera.check()
+      })
       
       
     }

@@ -21,7 +21,7 @@ struct MemoryGridView: View {
         LazyVGrid(columns: threeColumnGrid, spacing: 5) {
           ForEach(memories, id: \.self) { mem in
 //            if let uiImage = image {
-            NavigationLink (destination: MemoryScrollView(memoryController: memoryController, memories: memories)){
+            NavigationLink (destination: MemoryScrollView(memoryController: memoryController, memories: memories, scrollId: mem, placeName: place.name)){
                 Image(uiImage: memoryController.getImageFromURL(url: mem.back))
                   .resizable()
                   .aspectRatio(contentMode: .fill)

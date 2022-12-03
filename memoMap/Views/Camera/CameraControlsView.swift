@@ -10,14 +10,11 @@ import SwiftUI
 struct CameraControlsView: View {
   @StateObject var camera : CameraController
     var body: some View {
-//      GeometryReader { geometry in
         HStack {
-          var flash = camera.flashMode
           Button (action: {
             camera.toggleFlash()
-            flash = camera.flashMode
           }, label: {
-            if flash == .on {
+            if camera.flashMode == .on {
               Image(systemName: "bolt.fill")
                 .foregroundColor(.white)
                 .padding()
