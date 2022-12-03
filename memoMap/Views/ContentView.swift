@@ -24,7 +24,7 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       ZStack {
-        MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
+        //        MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
         VStack {
           HStack {
             NavigationLink(destination: AddFriendsView(userController: userController, memoryController: memoryController)) {
@@ -67,14 +67,12 @@ struct ContentView: View {
       }
       .sheet(isPresented: $showingSheet) {
         NavigationView {
-          LocationSheetView(memoryController: memoryController, place: placeController.getPlaceFromID(id: "1"), userController: userController)
-          
-          
+          RecentsSheetView(memoryController: memoryController, userController: userController)
         }.presentationDetents([.medium, .large])
       }
-      .onAppear(perform: {
-        camera.check()
-      })
+      //      .onAppear(perform: {
+      //        camera.check()
+      //      })
       
       
     }

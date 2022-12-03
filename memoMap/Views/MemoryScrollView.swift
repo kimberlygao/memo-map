@@ -20,9 +20,9 @@ struct MemoryScrollView: View {
             ForEach(memories, id: \.self) { mem in
   //            if let uiImage = image {
               VStack {
-                SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: mem.back), smallImage: memoryController.getImageFromURL(url: mem.front), memory: mem)
+                SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: mem.back), smallImage: memoryController.getImageFromURL(url: mem.front), memory: mem, friendMemory: true, showLocation: false)
             }
-              .frame(height: (geo.size.height - 40))
+//              .frame(height: (geo.size.height - 40))
               .padding(.top, 20)
               .padding(.bottom, 30)
           }

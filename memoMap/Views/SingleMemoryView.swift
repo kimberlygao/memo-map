@@ -13,6 +13,8 @@ struct SingleMemoryView: View {
   @State var smallImage : UIImage
   var memory : Memory
   let dateFormatter = DateFormatter()
+  var friendMemory : Bool
+  var showLocation : Bool
   
   var body: some View {
     ZStack {
@@ -21,20 +23,32 @@ struct SingleMemoryView: View {
           
           Spacer()
           HStack { //user info
-            Image(uiImage: memoryController.getPfpFromMemory(mem: memory))
-              .resizable()
-              .scaledToFill()
-              .frame(width: 35, height: 35)
-              .clipShape(Circle())
-              .padding(.trailing, 4)
-            VStack {
-              Text(memory.username)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.black)
-//              Text(dateFormatter.string(from: memory.timestamp))
+            if friendMemory {
+              Image(uiImage: memoryController.getPfpFromMemory(mem: memory))
+                .resizable()
+                .scaledToFill()
+                .frame(width: 35, height: 35)
+                .clipShape(Circle())
+                .padding(.trailing, 4)
+              VStack {
+                Text(memory.username)
+                  .frame(maxWidth: .infinity, alignment: .leading)
+                  .foregroundColor(.black)
+                if showLocation {
+                  Text(memory.location)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.gray)
+                    .font(.system(size: 14))
+                }
+                //              Text(dateFormatter.string(from: memory.timestamp))
+                Text("September 28")
+                  .frame(maxWidth: .infinity, alignment: .leading)
+                  .foregroundColor(.gray)
+                  .font(.system(size: 14))
+              }
+            } else {
               Text("September 28")
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.gray)
                 .font(.system(size: 14))
             }
           }
@@ -93,6 +107,7 @@ struct SingleMemoryView: View {
         
         Spacer()
       }
+      
     }
   }
 }
