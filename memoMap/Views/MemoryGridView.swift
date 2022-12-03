@@ -13,22 +13,26 @@ struct MemoryGridView: View {
   var threeColumnGrid = [GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5)]
   
   var body: some View {
-    ForEach(memoryController.getFriendsMemories(user: userController.currentUser), id: \.self) { memory in
-      if let uiImage = memoryController.getImageFromURL(url: memory.front) {
-        Image(uiImage: uiImage)
-          .resizable()
-          .scaledToFit()
-          .frame(width: 250, height: 250)
-          .border(.red)
-      }
-      if let uiImage = memoryController.getImageFromURL(url: memory.back) {
-        Image(uiImage: uiImage)
-          .resizable()
-          .scaledToFit()
-          .frame(width: 250, height: 250)
-          .border(.red)
+    ScrollView {
+      ForEach(memoryController.getFriendsMemories(user: userController.currentUser), id: \.self) { memory in
+        if let uiImage = memoryController.getImageFromURL(url: memory.front) {
+          Image(uiImage: uiImage)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 100, height: 100)
+            .border(.red)
+        }
+        if let uiImage = memoryController.getImageFromURL(url: memory.back) {
+          Image(uiImage: uiImage)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 100, height: 100)
+            .border(.red)
+        }
+        Text("hi")
       }
     }
+    
     
     //    GeometryReader { geo in
     //      ScrollView {

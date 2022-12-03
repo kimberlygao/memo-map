@@ -19,24 +19,31 @@ class MemoryController: ObservableObject {
   @Published var placeController : PlaceController = PlaceController()
   @Published var userController : UserController = UserController()
   @Published var memories: [Memory] = []
-  @Published var imageURLs: [String] = []
-  @Published var images: [UIImage] = []
+  @Published var images: [(String, UIImage)] = []
   
   init() {
-    // get all memories
     self.memoryRepository.get({ [self](memories) -> Void in
+      // get all memories
       self.memories = memories
       
-      let urls = memories.map { $0.front } + memories.map { $0.back }
-      self.imageURLs = urls
-      
-      // get all photos
+      // get all images
+      let urls = memories.map { $0.front } + memories.map { $0.back } + userController.pfpURLs
       for url in urls {
-        let _ = self.memoryRepository.getPhoto({ (image) -> Void in self.images.append(image) }, url)
+        let _ = self.memoryRepository.getPhoto({ (image) -> Void in self.images.append((url, image)) }, url)
       }
-      
     })
-    
+  }
+  
+  func getPfpUser(user: User) -> UIImage {
+    return getImageFromURL(url: user.pfp)
+  }
+  
+  func getPfpFromMemory(mem: Memory) -> UIImage {
+    let user = userController.getUserFromMemory(mem: mem)
+    if let user = user {
+      return getImageFromURL(url: user.pfp)
+    }
+    return UIImage()
   }
   
   func getMemoriesForUser(user: User) -> [Memory] {
@@ -82,12 +89,10 @@ class MemoryController: ObservableObject {
   }
   
   func getImageFromURL(url: String) -> UIImage {
-    if let imgIdx = (self.imageURLs.firstIndex { $0 == url }) {
-      return self.images[imgIdx]
+    if let (_, image): (String, UIImage) = (self.images.first { $0.0 == url }) {
+      return image
     }
     return UIImage()
-    
-    
   }
   
   func saveMemory(caption: String, front: UIImage, back: UIImage, location: String) {

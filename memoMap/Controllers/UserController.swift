@@ -14,6 +14,7 @@ class UserController: ObservableObject {
   @Published var users: [User] = []
   @Published var currentUser: User = User(email: "", friends: [], memories: [], name: "", password: "", requests: [], pfp: "default.jpeg")
   @Published var requests: [FriendRequest] = []
+  @Published var pfpURLs: [String] = []
   
   init() {
     // get users
@@ -24,6 +25,7 @@ class UserController: ObservableObject {
         }
       }
       self.users = users
+      self.pfpURLs = users.map { $0.pfp }
     })
     
     // get friend requests
@@ -129,5 +131,10 @@ class UserController: ObservableObject {
     let stats = [numPlaces, numMemories, numFriends].map { String($0) }
     
     return stats
+  }
+  
+  func getUserFromMemory(mem: Memory) -> User? {
+    let users = self.users.filter { $0.id! == mem.username }
+    return users.first ?? nil
   }
 }
