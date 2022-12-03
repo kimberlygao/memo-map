@@ -49,7 +49,7 @@ struct ContentView: View {
             showingCamera.toggle()
           }) {
             Image(systemName: "camera")
-              .font(.system(size: 24))
+              .font(.system(size: 32))
               .foregroundColor(.black)
           }
           .fullScreenCover(isPresented: $showingCamera, content: {

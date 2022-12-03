@@ -96,10 +96,10 @@ struct CameraPreview: UIViewRepresentable {
   }
   
   private func setupCapturePreview() -> AVCaptureVideoPreviewLayer {
-    camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
-    camera.preview.frame = camera.view.frame
-    camera.preview.videoGravity = .resizeAspectFill
+    let preview = AVCaptureVideoPreviewLayer(session: camera.session)
+    preview.frame = camera.view.frame
+    preview.videoGravity = .resizeAspectFill
     
-    return camera.preview
+    return preview
     }
 }
