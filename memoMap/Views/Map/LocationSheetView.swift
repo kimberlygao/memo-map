@@ -11,21 +11,24 @@ struct LocationSheetView: View {
   @Environment(\.dismiss) var dismiss
   
   @ObservedObject var memoryController: MemoryController
+  var place : Place
+  @ObservedObject var userController : UserController
   
   var body: some View {
     VStack(alignment: .leading){
-      Text("Delanie's Coffee")
+      Text(place.name)
         .font(.system(size: 20))
         .fontWeight(.bold)
-      Text("2002 Smallman St, Pittsburgh, PA 15122")
+      Text(place.address)
         .foregroundColor(.gray)
         .font(.system(size: 16))
       
       Spacer()
              .frame(height: 20)
       
-      MemoryGridView(memoryController: memoryController)
+      MemoryGridView(memoryController: memoryController, place: place, userController: userController)
     }
     .padding(20)
+    .padding(.top, 10)
   }
 }

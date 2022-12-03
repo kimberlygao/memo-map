@@ -47,4 +47,3 @@ struct User: Identifiable, Codable, Hashable {
 
 }
 
-

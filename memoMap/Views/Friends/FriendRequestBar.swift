@@ -11,11 +11,12 @@ struct FriendRequestBar: View {
   
   @State var friend : User
   @ObservedObject var userController : UserController
+  @ObservedObject var memoryController : MemoryController
   
   var body: some View {
     HStack {
-      NavigationLink(destination: ProfileView(user: friend, userController: userController)) {
-        Image("kwgao")
+      NavigationLink(destination: ProfileView(user: friend, userController: userController, memoryController: memoryController)) {
+        Image(uiImage: memoryController.getPfpUser(user: friend))
           .resizable()
           .scaledToFill()
           .frame(width: 35, height: 35)

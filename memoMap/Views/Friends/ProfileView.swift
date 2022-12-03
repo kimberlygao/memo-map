@@ -10,13 +10,14 @@ import SwiftUI
 struct ProfileView: View {
   var user : User
   @ObservedObject var userController : UserController
+  @ObservedObject var memoryController : MemoryController
   
   var body: some View {
     VStack {
       Spacer()
         .frame(height: 30)
       
-      Image("kwgao")
+      Image(uiImage: memoryController.getPfpUser(user: user))
         .resizable()
         .scaledToFill()
         .frame(width: 150, height: 150)
@@ -33,7 +34,7 @@ struct ProfileView: View {
       Spacer()
         .frame(height: 30)
       
-      let stats = userController.getStats(user: user)
+      let stats = userController.getStats(user: user, memoryController: memoryController)
       
 
         HStack {

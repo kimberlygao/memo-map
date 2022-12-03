@@ -19,22 +19,30 @@ struct ContentView: View {
   @State private var showingAlert = false
   @State private var showingCamera = false
   //  @State var showingAddFriends = false
+  @State private var showingSheet = false
   
   var body: some View {
     NavigationView {
       ZStack {
-        // map view used to be here
-//                MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
+//        MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
         VStack {
           HStack {
-            NavigationLink(destination: AddFriendsView(userController: userController)) {
+            NavigationLink(destination: AddFriendsView(userController: userController, memoryController: memoryController)) {
               Image(systemName: "person.badge.plus")
                 .padding(28)
                 .font(.system(size: 24))
                 .foregroundColor(.black)
             }
             Spacer()
-            NavigationLink(destination: ProfileView(user: userController.currentUser, userController: userController)) {
+            NavigationLink(destination: ProfileView(user: userController.currentUser, userController: userController, memoryController: memoryController)) {
+              Image(systemName: "person.circle")
+                .padding(28)
+                .font(.system(size: 24))
+                .foregroundColor(.black)
+            }
+          }
+          HStack {
+            Button (action: {showingSheet.toggle()}) {
               Image(systemName: "person.circle")
                 .padding(28)
                 .font(.system(size: 24))
@@ -53,13 +61,20 @@ struct ContentView: View {
               .foregroundColor(.black)
           }
           .fullScreenCover(isPresented: $showingCamera, content: {
-            CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
+            //            CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
           })
         }
       }
-      .onAppear(perform: {
-        camera.check()
-      })
+      .sheet(isPresented: $showingSheet) {
+        NavigationView {
+          LocationSheetView(memoryController: memoryController, place: placeController.getPlaceFromID(id: "1"), userController: userController)
+          
+          
+        }.presentationDetents([.medium, .large])
+      }
+      //      .onAppear(perform: {
+      //        camera.check()
+      //      })
       
       
     }

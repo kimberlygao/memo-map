@@ -17,7 +17,6 @@ class MemoryRepository: ObservableObject {
   private let store = Firestore.firestore()
 
   @Published var memories: [Memory] = []
-  @Published var images: [String : UIImage] = [:]
   private var cancellables: Set<AnyCancellable> = []
 
   init() {
@@ -25,9 +24,6 @@ class MemoryRepository: ObservableObject {
     self.get({ (memories) -> Void in
       self.memories = memories
     })
-    
-    // get all photos
-    self.getPhotos()
   }
   
   func get(_ completionHandler: @escaping (_ memories: [Memory]) -> Void) {
@@ -45,7 +41,7 @@ class MemoryRepository: ObservableObject {
       }
   }
   
-  func getPhoto(_ completionHandler: @escaping (_ image: UIImage?) -> Void, _ url: String) -> Void {
+  func getPhoto(_ completionHandler: @escaping (_ image: UIImage) -> Void, _ url: String) -> Void {
     let storage = Storage.storage()
     let ref = storage.reference().child(url)
     ref.getData(maxSize: 1 * 1024 * 1024) { data, error in
@@ -53,18 +49,8 @@ class MemoryRepository: ObservableObject {
         print("Error getting photo \(url): \(error)")
       } else {
         let image = UIImage(data: data!)
-        completionHandler(image)
+        completionHandler(image!)
       }
-    }
-  }
-  
-  func getPhotos() -> Void {
-    let frontUrls: [String] = self.memories.map { $0.front}
-    let backUrls: [String] = self.memories.map { $0.back}
-    let urls = frontUrls + backUrls
-    
-    for url in urls {
-      self.getPhoto({ (image) -> Void in (self.images[url] = image)}, url)
     }
   }
 

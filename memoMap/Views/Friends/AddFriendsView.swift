@@ -16,6 +16,7 @@ struct AddFriendsView: View {
   @State private var isEditing = false
   @FocusState private var focusedField: Field?
   @ObservedObject var userController : UserController
+  @ObservedObject var memoryController : MemoryController
   
   var body: some View {
     
@@ -62,7 +63,7 @@ struct AddFriendsView: View {
           .frame(maxWidth: .infinity, alignment: .topLeading)
         
         ForEach (userController.getReceivedRequests(user: userController.currentUser).filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { person in
-          FriendRequestBar(friend: person, userController: userController)
+          FriendRequestBar(friend: person, userController: userController, memoryController: memoryController)
         }
         
         Spacer()
@@ -73,7 +74,7 @@ struct AddFriendsView: View {
           .frame(maxWidth: .infinity, alignment: .topLeading)
         
         ForEach(userController.getFriends(user: userController.currentUser).filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { person in
-          FriendRequestBar(friend: person, userController: userController)
+          FriendRequestBar(friend: person, userController: userController, memoryController: memoryController)
         }
       }
       
@@ -87,7 +88,7 @@ struct AddFriendsView: View {
         ForEach(userController.users.filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { person in
           if !["friends", "requestReceived"].contains(userController.getFriendStatus(currUser: userController.currentUser, otherUser: person)) {
             if person.name != userController.currentUser.name {
-              FriendRequestBar(friend: person, userController: userController)
+              FriendRequestBar(friend: person, userController: userController, memoryController: memoryController)
             }
            
           }
