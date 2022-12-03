@@ -14,10 +14,10 @@
             filePath = "memoMap/Controllers/CameraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "toggleFlash()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,8 +78,8 @@
             filePath = "memoMap/Views/AddFriendsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

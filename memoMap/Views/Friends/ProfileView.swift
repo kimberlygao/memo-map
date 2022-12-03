@@ -9,16 +9,12 @@ import SwiftUI
 
 struct ProfileView: View {
   var user : User
-  var isFriendProfile : Bool
+  @ObservedObject var userController : UserController
   
   var body: some View {
     VStack {
-      if !isFriendProfile {
-        Text("Profile")
-      }
-
       Spacer()
-        .frame(height: 50)
+        .frame(height: 30)
       
       Image("kwgao")
         .resizable()
@@ -37,35 +33,47 @@ struct ProfileView: View {
       Spacer()
         .frame(height: 30)
       
-      HStack {
-        Spacer()
-        VStack {
-          Text("places")
-          Text("30")
-        }.padding()
-        
-        Spacer()
-        
-        VStack {
-          Text("memories")
-          Text("40")
-        }.padding()
-        
-        Spacer()
-        
-        VStack {
-          Text("friends")
-          Text("2")
-        }.padding()
-        
-        Spacer()
-      }.background(Color.blue)
-        .padding()
+      let stats = userController.getStats(user: user)
+      
+
+        HStack {
+          Spacer()
+          
+          VStack {
+            Text("places")
+            Text(stats[0])
+          }.padding()
+
+          Spacer()
+          
+          VStack {
+            Text("memories")
+            Text(stats[1])
+          }.padding()
+          
+          Spacer()
+
+          VStack {
+            Text("friends")
+            Text(stats[2])
+          }.padding()
+          
+          Spacer()
+        }
+        .padding(8)
+        .background(Color("light"))
+        .cornerRadius(10)
+
+      
+      
+      
       Text("Joined September 2022")
         .foregroundColor(.gray)
+        .padding(8)
       
       Spacer()
     }
+    .padding(20)
     
   }
 }

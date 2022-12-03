@@ -77,14 +77,30 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   }
   
   func setUpInputs() {
-    if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
+    if let device = AVCaptureDevice.default(.builtInTripleCamera, for: .video, position: .back) {
       backCamera = device
+      do {
+        try backCamera.lockForConfiguration()
+        let zoomFactor:CGFloat = 8
+        backCamera.videoZoomFactor = zoomFactor
+        backCamera.unlockForConfiguration()
+      } catch {
+        print("ZOOM ERROR")
+      }
     } else {
       fatalError("no back camera")
     }
     
     if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
       frontCamera = device
+      do {
+        try frontCamera.lockForConfiguration()
+        let zoomFactor:CGFloat = 16
+        frontCamera.videoZoomFactor = zoomFactor
+        frontCamera.unlockForConfiguration()
+      } catch {
+        print("ZOOM ERROR")
+      }
     } else {
       fatalError("no back camera")
     }
@@ -145,7 +161,8 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     print(photos)
     
     if photos.count == 1 {
-      DispatchQueue.main.async {
+      let secondsToDelay = 5.0
+      DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay) {
         withAnimation{self.image1Done.toggle()}
       }
       self.flipCamera()

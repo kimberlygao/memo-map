@@ -24,19 +24,19 @@ struct ContentView: View {
     NavigationView {
       ZStack {
         // map view used to be here
-        MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
+//                MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
         VStack {
           HStack {
             NavigationLink(destination: AddFriendsView(userController: userController)) {
               Image(systemName: "person.badge.plus")
-                .padding()
+                .padding(28)
                 .font(.system(size: 24))
                 .foregroundColor(.black)
             }
             Spacer()
-            NavigationLink(destination: MemoryGridView(memoryController: memoryController)) {
-              Image(systemName: "checkmark")
-                .padding()
+            NavigationLink(destination: ProfileView(user: userController.currentUser, userController: userController)) {
+              Image(systemName: "person.circle")
+                .padding(28)
                 .font(.system(size: 24))
                 .foregroundColor(.black)
             }
@@ -51,13 +51,13 @@ struct ContentView: View {
               .foregroundColor(.black)
           }
           .fullScreenCover(isPresented: $showingCamera, content: {
-            //            CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
+            CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
           })
         }
       }
-      //      .onAppear(perform: {
-      //        camera.check()
-      //      })
+      .onAppear(perform: {
+        camera.check()
+      })
       
       
     }

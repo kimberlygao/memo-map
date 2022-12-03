@@ -9,13 +9,13 @@ import SwiftUI
 import MapKit
 
 struct MemoryControlsView: View {
-  @State private var selectedLocation = "one"
+  @State private var selectedLocation = "Select Location"
   @State private var caption: String = ""
   @StateObject var camera : CameraController
   @ObservedObject var memoryController : MemoryController
   @StateObject var mapViewController : MapViewController
   @Environment(\.presentationMode) var presentationMode
-
+  
   
   var body: some View {
     VStack (alignment: .leading) {
@@ -23,11 +23,13 @@ struct MemoryControlsView: View {
         Image(systemName: "mappin.and.ellipse")
           .foregroundColor(.black)
           .font(.system(size: 30))
-        Menu("Location") {
-//          ForEach (mapViewController.getNearbyLocations(using: MKLocalSearch.Request()), id: \.self) { name in
-//              Button(name, action: {})
-//
-//          }
+        Menu(selectedLocation) {
+          ForEach (mapViewController.getNearbyLocations(using: MKLocalSearch.Request()), id: \.self) { name in
+            Button(name, action: {
+              selectedLocation = name
+            })
+            
+          }
         }.underline()
           .foregroundColor(.black)
       }
