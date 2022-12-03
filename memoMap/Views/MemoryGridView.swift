@@ -14,8 +14,8 @@ struct MemoryGridView: View {
   
   var body: some View {
     ScrollView {
-      ForEach(memoryController.getFriendsMemories(user: userController.currentUser), id: \.self) { memory in
-        Text(memoryController.timeToStr(timestamp: memory.timestamp))
+      ForEach(memoryController.getFriendsMemoryPins(user: userController.currentUser), id: \.self) { pin in
+        Text(pin.url)
       }
     }
     
