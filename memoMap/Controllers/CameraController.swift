@@ -39,10 +39,16 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   var backInput : AVCaptureInput!
   var frontInput : AVCaptureInput!
   
+  var hasChecked = false
+  
   
   
   // check camera usage permissions
   func check() {
+    if hasChecked {
+      return
+    }
+        
     switch AVCaptureDevice.authorizationStatus(for: .video) {
     case .authorized:
       setUp()
@@ -59,6 +65,8 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     default:
       return
     }
+    
+    hasChecked = true
     
   }
   
@@ -91,7 +99,11 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
         print("ZOOM ERROR")
       }
     } else {
-      fatalError("no back camera")
+      if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
+        backCamera = device
+      } else {
+        fatalError("no back camera")
+      }
     }
     
     if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
