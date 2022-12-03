@@ -14,18 +14,12 @@ struct CameraControlsView: View {
           Button (action: {
             camera.toggleFlash()
           }, label: {
-            if camera.flashMode == .on {
-              Image(systemName: "bolt.fill")
+            let symbolName = camera.flashMode == .on ? "bolt.fill" : "bolt"
+              Image(systemName: symbolName)
                 .foregroundColor(.white)
                 .padding()
                 .font(.system(size: 36))
-            } else {
-              Image(systemName: "bolt")
-                .foregroundColor(.white)
-                .padding()
-                .font(.system(size:36))
-            }
-          })
+            })
           .padding(.leading, 15)
           Spacer()
           .frame(width: 30)
