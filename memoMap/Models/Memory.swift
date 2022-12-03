@@ -17,7 +17,7 @@ struct Memory: Identifiable, Codable, Hashable {
   var back: String
   var location: String
   var username: String
-  var timestamp: Date
+  var timestamp: Date // format is 2022-11-10 04:30:39 +0000
   
   // MARK: Codable
   enum CodingKeys: String, CodingKey {

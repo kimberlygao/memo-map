@@ -15,21 +15,7 @@ struct MemoryGridView: View {
   var body: some View {
     ScrollView {
       ForEach(memoryController.getFriendsMemories(user: userController.currentUser), id: \.self) { memory in
-        if let uiImage = memoryController.getImageFromURL(url: memory.front) {
-          Image(uiImage: uiImage)
-            .resizable()
-            .scaledToFit()
-            .frame(width: 100, height: 100)
-            .border(.red)
-        }
-        if let uiImage = memoryController.getImageFromURL(url: memory.back) {
-          Image(uiImage: uiImage)
-            .resizable()
-            .scaledToFit()
-            .frame(width: 100, height: 100)
-            .border(.red)
-        }
-        Text("hi")
+        Text(memoryController.timeToStr(timestamp: memory.timestamp))
       }
     }
     

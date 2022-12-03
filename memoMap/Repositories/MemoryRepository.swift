@@ -22,7 +22,8 @@ class MemoryRepository: ObservableObject {
   init() {
     // get all memories
     self.get({ (memories) -> Void in
-      self.memories = memories
+      let sorted = memories.sorted { $0.timestamp >= $1.timestamp }
+      self.memories = sorted
     })
   }
   
@@ -48,8 +49,12 @@ class MemoryRepository: ObservableObject {
       if let error = error {
         print("Error getting photo \(url): \(error)")
       } else {
-        let image = UIImage(data: data!)
-        completionHandler(image!)
+        if let image = UIImage(data: data!) {
+          completionHandler(image)
+        } else {
+          print("Error getting photo 2 \(url): \(error)")
+        }
+        
       }
     }
   }

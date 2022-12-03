@@ -48,7 +48,7 @@ class MemoryController: ObservableObject {
   
   func getMemoriesForUser(user: User) -> [Memory] {
     let mems = self.memories.filter { String($0.username) == String(user.id!) }
-    return mems
+    return mems.sorted { $0.timestamp >= $1.timestamp }
   }
   
   func getMemoryPinsForUser(user: User) -> [ImageAnnotation] {
@@ -74,7 +74,8 @@ class MemoryController: ObservableObject {
     var users: [User] = userController.getFriends(user: user)
     users.append(userController.currentUser) // delete this if u dont want to append urself, idk what is better LOL
     let allMems: [[Memory]] = users.map { self.getMemoriesForUser(user: $0) }
-    return allMems.flatMap { $0 }
+    let flattened = allMems.flatMap { $0 }
+    return flattened.sorted { $0.timestamp >= $1.timestamp }
   }
   
   func getFriendsMemoryPins(user: User) -> [ImageAnnotation] {
@@ -85,7 +86,8 @@ class MemoryController: ObservableObject {
   
   func getFriendsMemoriesForLocation(user: User, loc: Place) -> [Memory] {
     let allMems = self.getFriendsMemories(user: user)
-    return allMems.filter { $0.location == loc.id }
+    let filtered = allMems.filter { $0.location == loc.id }
+    return filtered.sorted { $0.timestamp >= $1.timestamp }
   }
   
   func getImageFromURL(url: String) -> UIImage {
@@ -125,6 +127,22 @@ class MemoryController: ObservableObject {
     }
     
     return url
+  }
+  
+  func timeToStr(timestamp: Date) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .long
+    dateFormatter.timeStyle = .none
+    dateFormatter.locale = Locale(identifier: "en_US")
+    
+    let timeFormatter = DateFormatter()
+    timeFormatter.dateStyle = .none
+    timeFormatter.timeStyle = .short
+    timeFormatter.locale = Locale(identifier: "en_US")
+    
+    let date = dateFormatter.string(from: timestamp)
+    let time = timeFormatter.string(from: timestamp).lowercased()
+    return date + " | " + time
   }
   
 }
