@@ -153,7 +153,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     print(photos)
     
     if photos.count == 1 {
-      let secondsToDelay = 2.0
+      let secondsToDelay = 1.5
       DispatchQueue.main.async() {
         withAnimation{self.image1Done.toggle()}
       }
@@ -234,20 +234,6 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
 
   
   func toggleFlash() {
-//    let photoSetting = AVCapturePhotoSettings()
-    
-//    if flashOn
-//    switch photoSetting.flashMode {
-//      case .on:
-//        print("on")
-//      case .off:
-//        print("off")
-//      case .auto:
-//        print("auto")
-//    @unknown default:
-//      <#fatalError()#>
-//    }
-    
     if self.flashMode == .off {
       self.flashMode = .on
     } else {

@@ -13,6 +13,8 @@ struct CameraView: View {
   @ObservedObject var memoryController : MemoryController
   @StateObject var mapViewController : MapViewController
   @Environment(\.presentationMode) var presentationMode
+
+  var cameraControls = true
   
   var body: some View {
     ZStack {
@@ -66,8 +68,10 @@ struct CameraView: View {
               .background(Color.white)
               .padding(.bottom)
               .cornerRadius(30)
-          } else {
+          } else if cameraControls {
+            
             CameraControlsView(camera: camera)
+            
           }
         }
         .frame(height: 75)
