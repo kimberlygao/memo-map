@@ -30,7 +30,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   var image1Done = false
   
   var backCameraOn = true
-  var flashOn = false
+  var flashMode : AVCaptureDevice.FlashMode = .off
   
   var backCamera : AVCaptureDevice!
   var frontCamera : AVCaptureDevice!
@@ -93,16 +93,8 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     
     if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
       frontCamera = device
-      do {
-        try frontCamera.lockForConfiguration()
-        let zoomFactor:CGFloat = 16
-        frontCamera.videoZoomFactor = zoomFactor
-        frontCamera.unlockForConfiguration()
-      } catch {
-        print("ZOOM ERROR")
-      }
     } else {
-      fatalError("no back camera")
+      fatalError("no front camera")
     }
     
     guard let bInput = try? AVCaptureDeviceInput(device: backCamera) else {
@@ -133,14 +125,14 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   }
   
   func setUpPreviewLayer() {
-    self.preview = AVCaptureVideoPreviewLayer(session: self.session)
-    self.preview.frame = view.frame
-    self.preview.videoGravity = .resizeAspectFill
+//    self.preview = AVCaptureVideoPreviewLayer(session: self.session)
+//    self.preview.frame = view.frame
+//    self.preview.videoGravity = .resizeAspectFill
   }
   
   func takePhoto() {
     DispatchQueue.global(qos: .background).async {
-      self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+      self.output.capturePhoto(with: self.getSettings(), delegate: self)
     }
   }
   
@@ -161,14 +153,16 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     print(photos)
     
     if photos.count == 1 {
-      let secondsToDelay = 5.0
-      DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay) {
+      let secondsToDelay = 2.0
+      DispatchQueue.main.async() {
         withAnimation{self.image1Done.toggle()}
       }
       self.flipCamera()
-      self.takePhoto()
+      DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay)  {
+        self.takePhoto()
+      }
     } else {
-      self.session.stopRunning()
+//      self.session.stopRunning()
       
       DispatchQueue.main.async {
         withAnimation{self.isTaken.toggle()}
@@ -179,17 +173,34 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   func reTake() {
     DispatchQueue.global(qos: .background).async {
       self.flipCamera()
-      self.session.startRunning()
+//      self.session.startRunning()
       
       DispatchQueue.main.async {
-        withAnimation{self.isTaken.toggle()}
+//        withAnimation{self.isTaken.toggle()}
+        self.image1Done = false
+        self.isTaken = false
         self.photos = []
         self.images = []
         self.isSaved = false
-        self.image1Done = false
-        self.isTaken = false
       }
+      
+      
     }
+  }
+  
+  func reset() {
+    DispatchQueue.main.async {
+//      withAnimation{self.isTaken.toggle()}
+      
+      self.image1Done = false
+      self.isTaken = false
+      self.photos = []
+      self.images = []
+      self.isSaved = false
+
+    }
+    
+    
   }
   
   
@@ -208,10 +219,22 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     session.commitConfiguration()
 
   }
+  
+  func getSettings() -> AVCapturePhotoSettings {
+    let settings = AVCapturePhotoSettings()
+
+        if backCameraOn && backCamera.hasFlash {
+            settings.flashMode = flashMode
+        } else if frontCamera.hasFlash {
+            settings.flashMode = flashMode
+        }
+    
+        return settings
+  }
 
   
   func toggleFlash() {
-    let photoSetting = AVCapturePhotoSettings()
+//    let photoSetting = AVCapturePhotoSettings()
     
 //    if flashOn
 //    switch photoSetting.flashMode {
@@ -224,6 +247,12 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
 //    @unknown default:
 //      <#fatalError()#>
 //    }
+    
+    if self.flashMode == .off {
+      self.flashMode = .on
+    } else {
+      self.flashMode = .off
+    }
   }
   
   func savePhoto () {

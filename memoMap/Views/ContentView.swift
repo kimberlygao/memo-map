@@ -45,7 +45,9 @@ struct ContentView: View {
         }
         VStack {
           Spacer()
-          Button(action: {showingCamera.toggle()}) {
+          Button(action: {
+            showingCamera.toggle()
+          }) {
             Image(systemName: "camera")
               .font(.system(size: 24))
               .foregroundColor(.black)
