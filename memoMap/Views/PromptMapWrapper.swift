@@ -11,7 +11,7 @@ struct PromptMapWrapper: View {
     @State private var blurredSheet = true
     @State private var showingSheet = true
     @ObservedObject var memoryController: MemoryController
-    @ObservedObject var mapViewController: MapViewController
+    let mapViewController: MapViewController
     @ObservedObject var searchController: SearchController
     @State private var selectedPlace: ImageAnnotation?
     @State var isBottomSheetOpen: Bool = false
@@ -26,7 +26,7 @@ struct PromptMapWrapper: View {
             //            .zIndex(1)
             
             
-            MapView(mapViewController: mapViewController, searchController: searchController, annotations: searchController.annotations, currMemories: mapViewController.currMemories, selectedPin: self.$selectedPin,
+            MapView(mapViewController: mapViewController, searchController: searchController, memoryController: memoryController, annotations: searchController.annotations, currMemories: mapViewController.currMemories, selectedPin: self.$selectedPin,
                     isBottomSheetOpen: self.$isBottomSheetOpen
             )
             .navigationBarTitleDisplayMode(.inline)

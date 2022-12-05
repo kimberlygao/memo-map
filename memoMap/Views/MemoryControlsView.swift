@@ -13,7 +13,7 @@ struct MemoryControlsView: View {
   @State private var caption: String = ""
   @StateObject var camera : CameraController
   @ObservedObject var memoryController : MemoryController
-  @StateObject var mapViewController : MapViewController
+  let mapViewController : MapViewController
   @Environment(\.presentationMode) var presentationMode
 
   

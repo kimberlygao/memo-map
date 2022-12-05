@@ -11,7 +11,7 @@ import AVFoundation
 struct CameraView: View {
   @StateObject var camera : CameraController
   @ObservedObject var memoryController : MemoryController
-  @StateObject var mapViewController : MapViewController
+  let mapViewController : MapViewController
   @Environment(\.presentationMode) var presentationMode
   
   var body: some View {

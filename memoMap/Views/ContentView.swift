@@ -10,11 +10,11 @@ import Cluster
 
 struct ContentView: View {
   let viewController = ViewController()
-  let memoryController = MemoryController()
+  @StateObject var memoryController = MemoryController()
   let searchController = SearchController()
   let userController = UserController()
     
-  @StateObject var mapViewController = MapViewController()
+  let mapViewController = MapViewController()
   @StateObject var placeController = PlaceController()
   @StateObject var camera = CameraController()
   @State private var showingAlert = false

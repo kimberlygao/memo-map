@@ -18,6 +18,7 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var annotations = [ImageAnnotation]()
     @Published var searchQuery = ""
+    @Published var isSearching = false
     
     weak var delegate: SearchControllerDelegate?
 

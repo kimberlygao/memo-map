@@ -13,7 +13,7 @@ import ComposableArchitecture
 
 struct MapViewWrapper: View {
     @ObservedObject var memoryController: MemoryController
-    @ObservedObject var mapViewController: MapViewController
+    let mapViewController: MapViewController
     @ObservedObject var searchController: SearchController
     @State private var selectedPlace: ImageAnnotation?
     
@@ -50,7 +50,7 @@ struct MapViewWrapper: View {
                 .zIndex(1)
                 
                 
-                MapView(mapViewController: mapViewController, searchController: searchController, annotations: searchController.annotations, currMemories: mapViewController.currMemories, selectedPin: self.$selectedPin,
+                MapView(mapViewController: mapViewController, searchController: searchController, memoryController: memoryController, annotations: searchController.annotations, currMemories: mapViewController.currMemories, selectedPin: self.$selectedPin,
                         isBottomSheetOpen: self.$isBottomSheetOpen
                 )
                 .navigationBarTitleDisplayMode(.inline)

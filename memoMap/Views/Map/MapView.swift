@@ -13,9 +13,8 @@ import Cluster
 //    var blendMode: CGBlendMode =
 //}
 
-
 class MapViewCoordinator: NSObject, MKMapViewDelegate {
-    
+
     var parent: MapView
     
     init(_ parent: MapView) {
@@ -139,8 +138,9 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
 
 struct MapView: UIViewRepresentable {
     
-    @ObservedObject var mapViewController: MapViewController
+    let mapViewController: MapViewController
     @ObservedObject var searchController: SearchController
+    @ObservedObject var memoryController: MemoryController
     let clusterManager = ClusterManager()
     //  let annotationClusterManager = ClusterManager()
     //  @ObservedObject var placeController: PlaceController
@@ -197,27 +197,39 @@ struct MapView: UIViewRepresentable {
         uiView.delegate = context.coordinator
         uiView.showsUserLocation = true
         print("before enter casing:", annotations, currMemories)
-        print("query is: ")
-        if searchController.searchQuery == "" {
+        print("issearching?", searchController.isSearching)
+
+        let test_user = memoryController.getCurrentUser()
+        print("current user in load annotations: ", test_user)
+        let test_mems = memoryController.getMemoryPinsForUser(user: test_user)
+        print("curr mems: ", test_mems)
+        uiView.addAnnotations(test_mems)
+        uiView.showAnnotations(test_mems, animated: true)
+        
+        if !(searchController.isSearching) || (searchController.searchQuery == "") {
             //            uiView.removeAnnotations(remove)
-            
-            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && ($0 is ImageAnnotation && !(isMemory(imgAnnotation: $0 as! ImageAnnotation) )) })
-            uiView.removeAnnotations(remove)
-            loadAnnotations()
+//            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && ($0 is ImageAnnotation && !(isMemory(imgAnnotation: $0 as! ImageAnnotation) )) })
+//            uiView.removeAnnotations(remove)
+
             print("case 1: loaded curr memories")
+//            uiView.showAnnotations(currMemories, animated: true)
         }
         // memories disappear
         else {
-            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && ($0 is ImageAnnotation && (isMemory(imgAnnotation: $0 as! ImageAnnotation) ))  })
+            let remove = uiView.annotations.filter({!($0 is MKUserLocation) && ($0 is ImageAnnotation) })
             uiView.removeAnnotations(remove)
+
             uiView.addAnnotations(annotations)
             uiView.showAnnotations(annotations, animated: true)
+//            loadAnnotations()
+//            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && ($0 is ImageAnnotation && (isMemory(imgAnnotation: $0 as! ImageAnnotation) ))  })
+//            uiView.removeAnnotations(remove)
             print("case 2: loaded search")
         }
         //        addExistingMemories()
         
         //        uiView.annotations.forEach { uiView.removeAnnotation($0) }
-        addSearchCluster()
+//        addSearchCluster()
         //        mapViewController.current.loadLocation()
         //        mapViewController.getNearbyLocations(using: MKLocalSearch.Request())
         //        uiView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customLocationAnnotation")
@@ -226,7 +238,6 @@ struct MapView: UIViewRepresentable {
         //        loadSearchImage()
         //        uiView.addAnnotations(searchViewController.searchAnnotations)
     }
-    typealias UIViewType = MKMapView
     
     //    mutating func getSearchResults () {
     //        self.searchResults = searchViewController.getSearchResults()
@@ -263,39 +274,71 @@ struct MapView: UIViewRepresentable {
         }
     }
     
-    func loadAnnotations() {
-        print("CURR MEMORIES: ", currMemories)
-        for memory in currMemories {
-            DispatchQueue.main.async {
-                let request = NSMutableURLRequest(url: URL(string: memory.url)!)
-                request.httpMethod = "GET"
-                let session = URLSession(configuration: URLSessionConfiguration.default)
-                let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
-                    if error == nil {
-                        let loc = LocationAnnotation(title: memory.title ?? "", subtitle: memory.subtitle ?? "", coordinate: memory.coordinate)
-                        
-                        //                        annotation.coordinate = memory.coordinate
-                        let image = UIImage(data: data!, scale: UIScreen.main.scale)
-                        let annotation = ImageAnnotation(id: UUID().uuidString, locAnnotation: loc, image: image ?? UIImage())
-                        annotation.isMemory = true
-                        annotation.image!.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: annotation.image!.size.height/2, right: 0))
-                        //                        annotation.title = memory.title
-                        //                        annotation.subtitle = memory.subtitle
-                        //                        let locAnnotation = LocationAnnotation(title: memory.title, subtitle: memory.subtitle, coordinate: )
-                        
-                        //                        let imageAnnotation = ImageAnnotation()
-                        
-                        DispatchQueue.main.async {
-                            clusterManager.add(annotation)
-                            self.mapView.addAnnotation(annotation)
-                            print("added 1")
-                        }
-                    }
-                }
-                dataTask.resume()
-            }
-        }
-    }
+//    func loadAnnotations() {
+//        let test_user = memoryController.getCurrentUser()
+//        print("current user in load annotations: ", test_user)
+//        let test_mems = memoryController.getMemoryPinsForUser(user: test_user)
+//        print("test mems in load anootations: ", test_mems)
+////        print("CURR MEMORIES: ", currMemories)
+//        for memory in test_mems {
+//            DispatchQueue.main.async {
+//                let request = NSMutableURLRequest(url: URL(string: memory.url)!)
+//                request.httpMethod = "GET"
+//                let session = URLSession(configuration: URLSessionConfiguration.default)
+//                let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
+//                    if error == nil {
+//                        //                        annotation.coordinate = memory.coordinate
+//                        let image = UIImage(data: data!, scale: UIScreen.main.scale)
+//                        memory.image = image
+//                        memory.image!.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: memory.image!.size.height/2, right: 0))
+//                        //                        annotation.title = memory.title
+//                        //                        annotation.subtitle = memory.subtitle
+//                        //                        let locAnnotation = LocationAnnotation(title: memory.title, subtitle: memory.subtitle, coordinate: )
+//
+//                        //                        let imageAnnotation = ImageAnnotation()
+//
+//                        DispatchQueue.main.async {
+////                            clusterManager.add(annotation)
+//                            self.mapView.addAnnotation(memory)
+//                            print("added 1")
+//                        }
+//                    }
+//                }
+//                dataTask.resume()
+//            }
+//        }
+////        for memory in currMemories {
+////            DispatchQueue.main.async {
+////                let request = NSMutableURLRequest(url: URL(string: memory.url)!)
+////                request.httpMethod = "GET"
+////                let session = URLSession(configuration: URLSessionConfiguration.default)
+////                let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
+////                    if error == nil {
+////                        let loc = LocationAnnotation(title: memory.title ?? "", subtitle: memory.subtitle ?? "", coordinate: memory.coordinate)
+////
+////                        //                        annotation.coordinate = memory.coordinate
+////                        let image = UIImage(data: data!, scale: UIScreen.main.scale)
+////                        let annotation = ImageAnnotation(id: UUID().uuidString, locAnnotation: loc, image: image ?? UIImage())
+////                        annotation.isMemory = true
+////                        annotation.image!.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: annotation.image!.size.height/2, right: 0))
+////                        //                        annotation.title = memory.title
+////                        //                        annotation.subtitle = memory.subtitle
+////                        //                        let locAnnotation = LocationAnnotation(title: memory.title, subtitle: memory.subtitle, coordinate: )
+////
+////                        //                        let imageAnnotation = ImageAnnotation()
+////
+////                        DispatchQueue.main.async {
+//////                            clusterManager.add(annotation)
+////                            self.mapView.addAnnotation(annotation)
+////                            print("added 1")
+////                        }
+////                    }
+////                }
+////                dataTask.resume()
+////            }
+////        }
+////        self.mapView.addAnnotations(test_mems)
+//    }
     
     //    func loadImageFromURL (_ url: String) -> UIImage {
     //        let request = NSMutableURLRequest(url: URL(string: url)!)
@@ -320,20 +363,13 @@ struct MapView: UIViewRepresentable {
     }
     
     func makeUIView(context: Context) -> MKMapView {
+        
         mapView.delegate = context.coordinator
         mapView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customLocationAnnotation")
         //      mapView.overrideUserInterfaceStyle = .dark
         let config = MKStandardMapConfiguration(emphasisStyle: .muted)
         config.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: []))
         mapView.preferredConfiguration = config
-        //
-        //      let overlay = MKOverlay(blendMode(<#T##blendMode: BlendMode##BlendMode#>))
-        //
-        //      mapView.insertOverlay(<#T##overlay: MKOverlay##MKOverlay#>, at: <#T##Int#>)
-        
-        
-        //      colorMap(from: mapView)
-        setUpMapRegion()
         //    colorMap(from: mapView)
         //      getSearchResults()
         //        mapView.addAnnotations(searchViewController.searchAnnotations)

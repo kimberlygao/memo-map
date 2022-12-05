@@ -60,7 +60,7 @@ struct PromptView: View {
     let searchController = SearchController()
     let userController = UserController()
     @State private var showingSheet = true
-    @StateObject var mapViewController = MapViewController()
+    let mapViewController = MapViewController()
     @State private var blurredPrompt = true
     //    @State private var blurredPrompt = false
     
