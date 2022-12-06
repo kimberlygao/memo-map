@@ -20,6 +20,7 @@ struct MapViewWrapper: View {
     @State var selectedPin: ImageAnnotation? = nil
     
     @State var isBottomSheetOpen: Bool = false
+    @Binding var ownView: Bool
     
     var body: some View {
         GeometryReader { geometry in
@@ -51,7 +52,7 @@ struct MapViewWrapper: View {
                 
                 
                 MapView(mapViewController: mapViewController, searchController: searchController, memoryController: memoryController, annotations: searchController.annotations, currMemories: mapViewController.currMemories, selectedPin: self.$selectedPin,
-                        isBottomSheetOpen: self.$isBottomSheetOpen
+                        isBottomSheetOpen: self.$isBottomSheetOpen, ownView: self.$ownView
                 )
                 .navigationBarTitleDisplayMode(.inline)
                 .edgesIgnoringSafeArea(.all)

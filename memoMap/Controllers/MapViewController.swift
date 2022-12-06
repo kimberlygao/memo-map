@@ -29,6 +29,7 @@ class MapViewController: NSObject, ObservableObject {
     @Published var mapRegion : MKCoordinateRegion = MKCoordinateRegion()
     @Published var locationAnnotations : [LocationAnnotation] = []
     @Published var currMemories = [ImageAnnotation]()
+    @Published var ownView : Bool = true 
     //    let clusterManager = ClusterManager()
     //    var pointOfInterestCategory = MKPointOfInterestCategory? { get set }
     
@@ -39,6 +40,10 @@ class MapViewController: NSObject, ObservableObject {
     
     override init() {
         super.init()
+    }
+    
+    func toggleView() {
+        self.ownView.toggle()
     }
     
 //    override func viewDidLoad() {

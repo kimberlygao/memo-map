@@ -26,11 +26,11 @@ struct PromptMapWrapper: View {
             //            .zIndex(1)
             
             
-            MapView(mapViewController: mapViewController, searchController: searchController, memoryController: memoryController, annotations: searchController.annotations, currMemories: mapViewController.currMemories, selectedPin: self.$selectedPin,
-                    isBottomSheetOpen: self.$isBottomSheetOpen
-            )
-            .navigationBarTitleDisplayMode(.inline)
-            .edgesIgnoringSafeArea(.all)
+//            MapView(mapViewController: mapViewController, searchController: searchController, memoryController: memoryController, annotations: searchController.annotations, currMemories: mapViewController.currMemories, selectedPin: self.$selectedPin,
+//                    isBottomSheetOpen: self.$isBottomSheetOpen, ownView: <#T##Binding<Bool>#>
+//            )
+//            .navigationBarTitleDisplayMode(.inline)
+//            .edgesIgnoringSafeArea(.all)
             Spacer()
         }.sheet(isPresented: Binding<Bool>(get: { !blurredSheet },
                                            set: { blurredSheet = !$0 })) {

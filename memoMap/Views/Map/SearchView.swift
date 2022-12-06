@@ -29,9 +29,9 @@ struct SearchView: View {
             
             TextField("Search", text: $searchController.searchQuery, onEditingChanged: { _ in})
             {
-                if searchController.searchQuery != "" {
-                    searchController.isSearching = true
-                }
+//                if searchController.searchQuery != "" {
+//                    searchController.isSearching = true
+//                }
                 searchController.performSearch()
             }
             .onTapGesture {

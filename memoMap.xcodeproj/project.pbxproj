@@ -12,6 +12,8 @@
 		2B3B4AD92925FFF500639C99 /* ImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD82925FFF500639C99 /* ImageAnnotation.swift */; };
 		2B3B4B0A292AA9DB00639C99 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */; };
 		2B3B4B0C292AA9DB00639C99 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B0B292AA9DB00639C99 /* Dependencies */; };
+		2B9036EE293EE22B00593D1F /* RecentsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9036ED293EE22B00593D1F /* RecentsSheetView.swift */; };
+		2B9036F0293EE24F00593D1F /* RecentsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9036EF293EE24F00593D1F /* RecentsGridView.swift */; };
 		2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */; };
 		2BD6D11E29387C7A006C83AF /* MemoryAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6D11D29387C7A006C83AF /* MemoryAnnotation.swift */; };
 		2BD6D12229389AC3006C83AF /* PromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6D12129389AC3006C83AF /* PromptViewController.swift */; };
@@ -98,6 +100,8 @@
 		2B3B4B052926C5BD00639C99 /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
 		2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleter.swift; sourceTree = "<group>"; };
 		2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
+		2B9036ED293EE22B00593D1F /* RecentsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsSheetView.swift; sourceTree = "<group>"; };
+		2B9036EF293EE24F00593D1F /* RecentsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsGridView.swift; sourceTree = "<group>"; };
 		2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSheetView.swift; sourceTree = "<group>"; };
 		2BD6D11D29387C7A006C83AF /* MemoryAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAnnotation.swift; sourceTree = "<group>"; };
 		2BD6D12129389AC3006C83AF /* PromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 				E5BFDC492913433300DF0180 /* Assets.xcassets */,
 				E5BFDC98291349A500DF0180 /* CameraView.swift */,
 				E5BFDC472913433300DF0180 /* ContentView.swift */,
+				2B9036ED293EE22B00593D1F /* RecentsSheetView.swift */,
+				2B9036EF293EE24F00593D1F /* RecentsGridView.swift */,
 				E54B64EA29186494006BBD2F /* CameraControlsView.swift */,
 				E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */,
 				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
@@ -495,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E51B3B75291DFDBB00399450 /* SearchViewController.swift in Sources */,
+				2B9036F0293EE24F00593D1F /* RecentsGridView.swift in Sources */,
 				E51FA26F293859EF00C79CC6 /* MapViewWrapper.swift in Sources */,
 				2BD6D12429391C13006C83AF /* PromptMapWrapper.swift in Sources */,
 				E5EDE2662936CFFE0045402C /* SingleMemoryView.swift in Sources */,
@@ -509,6 +516,7 @@
 				E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */,
 				E5BFDC972913499D00DF0180 /* MapView.swift in Sources */,
 				2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */,
+				2B9036EE293EE22B00593D1F /* RecentsSheetView.swift in Sources */,
 				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
 				E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */,
 				2B3B4AD72925EB5000639C99 /* ImageAnnotationView.swift in Sources */,

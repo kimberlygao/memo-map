@@ -15,17 +15,16 @@ class ImageAnnotation: NSObject, MKAnnotation, Identifiable {
         var title: String?
         var subtitle: String?
         var coordinate: CLLocationCoordinate2D
-        var isMemory: Bool
+        var isMemory: Bool?
         var url: String
         var image: UIImage? = nil
         var color: UIColor?
-        
-      init(id: String, locAnnotation: LocationAnnotation, isMemory: Bool = false, url: String = "default.jpeg", image: UIImage, color: UIColor = UIColor.white) {
+    
+      init(id: String, locAnnotation: LocationAnnotation, url: String = "default.jpeg", image: UIImage, color: UIColor = UIColor.white) {
                 self.id = id
                 self.title = locAnnotation.title
                 self.subtitle = locAnnotation.subtitle
                 self.coordinate = locAnnotation.coordinate
-                self.isMemory = false
                 self.url = url
                 self.image = image
                 self.color = color

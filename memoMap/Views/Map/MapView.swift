@@ -172,6 +172,7 @@ struct MapView: UIViewRepresentable {
     
     @Binding var selectedPin: ImageAnnotation?
     @Binding var isBottomSheetOpen: Bool
+    @Binding var ownView: Bool
     //    @Binding var mapRegion : MKCoordinateRegion
     
     func makeCoordinator() -> MapViewCoordinator {
@@ -188,7 +189,7 @@ struct MapView: UIViewRepresentable {
     //    }
     
     private func isMemory (imgAnnotation: ImageAnnotation) -> Bool {
-        return imgAnnotation.isMemory
+        return (imgAnnotation.isMemory == true)
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
@@ -198,24 +199,36 @@ struct MapView: UIViewRepresentable {
         uiView.showsUserLocation = true
         print("before enter casing:", annotations, currMemories)
         print("issearching?", searchController.isSearching)
-
-        let test_user = memoryController.getCurrentUser()
-        print("current user in load annotations: ", test_user)
-        let test_mems = memoryController.getMemoryPinsForUser(user: test_user)
-        print("curr mems: ", test_mems)
-        uiView.addAnnotations(test_mems)
-        uiView.showAnnotations(test_mems, animated: true)
         
-        if !(searchController.isSearching) || (searchController.searchQuery == "") {
+    
+        if !(searchController.isSearching) {
             //            uiView.removeAnnotations(remove)
-//            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && ($0 is ImageAnnotation && !(isMemory(imgAnnotation: $0 as! ImageAnnotation) )) })
-//            uiView.removeAnnotations(remove)
-
-            print("case 1: loaded curr memories")
-//            uiView.showAnnotations(currMemories, animated: true)
+            print("case 1: not searching")
+            
+            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && !(isMemory(imgAnnotation: $0 as! ImageAnnotation )) })
+            uiView.removeAnnotations(remove)
+            
+            let curr_user = memoryController.getCurrentUser()
+            print("own view?", self.ownView)
+            if (self.ownView) {
+                print("case 1a: your own memories")
+                let my_mems = memoryController.getMemoryPinsForUser(user: curr_user)
+                uiView.addAnnotations(my_mems)
+                uiView.showAnnotations(my_mems, animated: true)
+            } else {
+                print("case 1b: friends + your memories")
+                let world_mems = memoryController.getFriendsMemoryPins(user: curr_user)
+                uiView.addAnnotations(world_mems)
+                uiView.showAnnotations(world_mems, animated: true)
+            }
+            
+//            print("current user in load annotations: ", test_user)
+            
+//            print("curr mems: ", test_mems)
         }
         // memories disappear
         else {
+            print("case 2: searching")
             let remove = uiView.annotations.filter({!($0 is MKUserLocation) && ($0 is ImageAnnotation) })
             uiView.removeAnnotations(remove)
 
@@ -224,7 +237,6 @@ struct MapView: UIViewRepresentable {
 //            loadAnnotations()
 //            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && ($0 is ImageAnnotation && (isMemory(imgAnnotation: $0 as! ImageAnnotation) ))  })
 //            uiView.removeAnnotations(remove)
-            print("case 2: loaded search")
         }
         //        addExistingMemories()
         
