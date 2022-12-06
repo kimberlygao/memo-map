@@ -10,12 +10,14 @@ import SwiftUI
 struct MemoryGridView: View {
   @ObservedObject var memoryController: MemoryController
   @ObservedObject var userController: UserController
+  @ObservedObject var promptController: PromptController = PromptController()
   var threeColumnGrid = [GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5)]
   
   var body: some View {
+    Text(promptController.currPrompt)
     ScrollView {
-      ForEach(memoryController.getFriendsMemoryPins(user: userController.currentUser), id: \.self) { pin in
-        Text(pin.url)
+      ForEach(promptController.prompts, id: \.self) { p in
+        Text(p.description)
       }
     }
     

@@ -11,10 +11,14 @@ import FirebaseFirestoreSwift
 class PromptController: ObservableObject {
   @Published var promptRepository: PromptRepository = PromptRepository()
   @Published var prompts: [Prompt] = []
+  @Published var currPrompt: String = ""
 
   init() {
     // get all prompts
-    self.prompts = promptRepository.prompts
+    promptRepository.get({ (prompts) -> Void in
+      self.prompts = prompts
+      self.currPrompt = self.getRandomPrompt()
+    })
   }
 
   func getRandomPrompt() -> String {
