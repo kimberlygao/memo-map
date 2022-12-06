@@ -42,8 +42,6 @@
 		E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B4291C9D9400F46D54 /* UserController.swift */; };
 		E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */; };
 		E56F5F7A293FDBD60012AB41 /* PromptMapWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F5F79293FDBD60012AB41 /* PromptMapWrapper.swift */; };
-		E56F5F7C293FE2D00012AB41 /* MapButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F5F7B293FE2D00012AB41 /* MapButtonsView.swift */; };
-		E56F5F7E293FE5310012AB41 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F5F7D293FE5310012AB41 /* TabBarView.swift */; };
 		E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC452913433300DF0180 /* memoMapApp.swift */; };
 		E5BFDC482913433300DF0180 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC472913433300DF0180 /* ContentView.swift */; };
 		E5BFDC4A2913433300DF0180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BFDC492913433300DF0180 /* Assets.xcassets */; };
@@ -128,8 +126,6 @@
 		E55AD3B4291C9D9400F46D54 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceController.swift; sourceTree = "<group>"; };
 		E56F5F79293FDBD60012AB41 /* PromptMapWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptMapWrapper.swift; sourceTree = "<group>"; };
-		E56F5F7B293FE2D00012AB41 /* MapButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonsView.swift; sourceTree = "<group>"; };
-		E56F5F7D293FE5310012AB41 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		E5BFDC422913433300DF0180 /* memoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BFDC452913433300DF0180 /* memoMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoMapApp.swift; sourceTree = "<group>"; };
 		E5BFDC472913433300DF0180 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -314,8 +310,6 @@
 				E51FA274293955A400C79CC6 /* Friends */,
 				E5BFDC492913433300DF0180 /* Assets.xcassets */,
 				E5BFDC472913433300DF0180 /* ContentView.swift */,
-				E56F5F7D293FE5310012AB41 /* TabBarView.swift */,
-				E56F5F7B293FE2D00012AB41 /* MapButtonsView.swift */,
 				E51B3B7A291E211D00399450 /* MemoryGridView.swift */,
 				E5EDE267293701AD0045402C /* MemoryScrollView.swift */,
 				E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */,
@@ -552,10 +546,8 @@
 				E521D734291CB252002EB6FF /* UserRepository.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
 				E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */,
-				E56F5F7E293FE5310012AB41 /* TabBarView.swift in Sources */,
 				E55AD3AB291C9C0100F46D54 /* Place.swift in Sources */,
 				E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */,
-				E56F5F7C293FE2D00012AB41 /* MapButtonsView.swift in Sources */,
 				E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */,
 				E51FA273293861AF00C79CC6 /* LocationDetailView.swift in Sources */,
 				E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */,
