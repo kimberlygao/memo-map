@@ -133,4 +133,20 @@ class MemoryController: ObservableObject {
     return url
   }
   
+  func timeToStr(timestamp: Date) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .long
+    dateFormatter.timeStyle = .none
+    dateFormatter.locale = Locale(identifier: "en_US")
+    
+    let timeFormatter = DateFormatter()
+    timeFormatter.dateStyle = .none
+    timeFormatter.timeStyle = .short
+    timeFormatter.locale = Locale(identifier: "en_US")
+    
+    let date = dateFormatter.string(from: timestamp)
+    let time = timeFormatter.string(from: timestamp).lowercased()
+    return date + " | " + time
+  }
+  
 }

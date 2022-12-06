@@ -22,7 +22,7 @@ struct MemoryScrollView: View {
               VStack {
                 SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: mem.back), smallImage: memoryController.getImageFromURL(url: mem.front), memory: mem, friendMemory: true, showLocation: false)
             }
-//              .frame(height: (geo.size.height - 40))
+              .frame(height: (geo.size.height - 40))
               .padding(.top, 20)
               .padding(.bottom, 30)
           }

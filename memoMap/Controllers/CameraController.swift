@@ -167,7 +167,6 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     
     self.photos.append(photo)
     
-    print(photos)
     
     if photos.count == 1 {
       let secondsToDelay = 1.5

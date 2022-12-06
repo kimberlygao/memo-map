@@ -32,7 +32,6 @@
 		E54B64E929170F42006BBD2F /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64E829170F42006BBD2F /* Camera.swift */; };
 		E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EA29186494006BBD2F /* CameraControlsView.swift */; };
 		E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */; };
-		E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EE29187345006BBD2F /* LocationRowView.swift */; };
 		E55AD3A8291C9C0100F46D54 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A2291C9C0100F46D54 /* Memory.swift */; };
 		E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */; };
 		E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A4291C9C0100F46D54 /* Prompt.swift */; };
@@ -42,6 +41,9 @@
 		E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */; };
 		E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B4291C9D9400F46D54 /* UserController.swift */; };
 		E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */; };
+		E56F5F7A293FDBD60012AB41 /* PromptMapWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F5F79293FDBD60012AB41 /* PromptMapWrapper.swift */; };
+		E56F5F7C293FE2D00012AB41 /* MapButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F5F7B293FE2D00012AB41 /* MapButtonsView.swift */; };
+		E56F5F7E293FE5310012AB41 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F5F7D293FE5310012AB41 /* TabBarView.swift */; };
 		E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC452913433300DF0180 /* memoMapApp.swift */; };
 		E5BFDC482913433300DF0180 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC472913433300DF0180 /* ContentView.swift */; };
 		E5BFDC4A2913433300DF0180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BFDC492913433300DF0180 /* Assets.xcassets */; };
@@ -116,7 +118,6 @@
 		E54B64E829170F42006BBD2F /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		E54B64EA29186494006BBD2F /* CameraControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControlsView.swift; sourceTree = "<group>"; };
 		E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryControlsView.swift; sourceTree = "<group>"; };
-		E54B64EE29187345006BBD2F /* LocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRowView.swift; sourceTree = "<group>"; };
 		E55AD3A2291C9C0100F46D54 /* Memory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequest.swift; sourceTree = "<group>"; };
 		E55AD3A4291C9C0100F46D54 /* Prompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
@@ -126,6 +127,9 @@
 		E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryController.swift; sourceTree = "<group>"; };
 		E55AD3B4291C9D9400F46D54 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceController.swift; sourceTree = "<group>"; };
+		E56F5F79293FDBD60012AB41 /* PromptMapWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptMapWrapper.swift; sourceTree = "<group>"; };
+		E56F5F7B293FE2D00012AB41 /* MapButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonsView.swift; sourceTree = "<group>"; };
+		E56F5F7D293FE5310012AB41 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		E5BFDC422913433300DF0180 /* memoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BFDC452913433300DF0180 /* memoMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoMapApp.swift; sourceTree = "<group>"; };
 		E5BFDC472913433300DF0180 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 		E51FA2722938619900C79CC6 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
 				E51FA26E293859EF00C79CC6 /* MapViewWrapper.swift */,
 				E5BFDC962913499D00DF0180 /* MapView.swift */,
 				E51FA27029385A1D00C79CC6 /* CountClusterAnnotationView.swift */,
@@ -303,17 +308,14 @@
 		E5BFDC922913474E00DF0180 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5CF74B9293BBC140039287E /* Prompt */,
 				E51FA2722938619900C79CC6 /* Map */,
 				E51FA2752939567500C79CC6 /* Camera */,
 				E51FA274293955A400C79CC6 /* Friends */,
 				E5BFDC492913433300DF0180 /* Assets.xcassets */,
 				E5BFDC472913433300DF0180 /* ContentView.swift */,
-				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
-				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
-				E5CF74B1293BA4910039287E /* RecentsSheetView.swift */,
-				E5CF74B3293BA49F0039287E /* RecentsGridView.swift */,
-				E5CF74B7293BA5770039287E /* PromptSelectView.swift */,
-				E5CF74B5293BA4AE0039287E /* PromptScrollView.swift */,
+				E56F5F7D293FE5310012AB41 /* TabBarView.swift */,
+				E56F5F7B293FE2D00012AB41 /* MapButtonsView.swift */,
 				E51B3B7A291E211D00399450 /* MemoryGridView.swift */,
 				E5EDE267293701AD0045402C /* MemoryScrollView.swift */,
 				E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */,
@@ -352,6 +354,18 @@
 				E51B3B73291DFDBB00399450 /* SearchViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E5CF74B9293BBC140039287E /* Prompt */ = {
+			isa = PBXGroup;
+			children = (
+				E5CF74B7293BA5770039287E /* PromptSelectView.swift */,
+				E5CF74B3293BA49F0039287E /* RecentsGridView.swift */,
+				E5CF74B1293BA4910039287E /* RecentsSheetView.swift */,
+				E5CF74B5293BA4AE0039287E /* PromptScrollView.swift */,
+				E56F5F79293FDBD60012AB41 /* PromptMapWrapper.swift */,
+			);
+			path = Prompt;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -520,6 +534,7 @@
 				2B3B4AD72925EB5000639C99 /* ImageAnnotationView.swift in Sources */,
 				E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */,
 				E51FA26D293859D100C79CC6 /* SearchController.swift in Sources */,
+				E56F5F7A293FDBD60012AB41 /* PromptMapWrapper.swift in Sources */,
 				E51FA27129385A1D00C79CC6 /* CountClusterAnnotationView.swift in Sources */,
 				E51B3B7F2922E1D400399450 /* ProfileView.swift in Sources */,
 				E5CF74B6293BA4AE0039287E /* PromptScrollView.swift in Sources */,
@@ -537,9 +552,10 @@
 				E521D734291CB252002EB6FF /* UserRepository.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
 				E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */,
-				E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */,
+				E56F5F7E293FE5310012AB41 /* TabBarView.swift in Sources */,
 				E55AD3AB291C9C0100F46D54 /* Place.swift in Sources */,
 				E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */,
+				E56F5F7C293FE2D00012AB41 /* MapButtonsView.swift in Sources */,
 				E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */,
 				E51FA273293861AF00C79CC6 /* LocationDetailView.swift in Sources */,
 				E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */,
