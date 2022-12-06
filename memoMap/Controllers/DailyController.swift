@@ -23,5 +23,4 @@ class DailyPromptController: ObservableObject {
     dailyRepository.update(ans)
   }
 
-
 }

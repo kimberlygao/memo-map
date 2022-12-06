@@ -18,6 +18,7 @@ class MemoryController: ObservableObject {
   var memoryRepository : MemoryRepository = MemoryRepository()
   @Published var placeController : PlaceController = PlaceController()
   @Published var userController : UserController = UserController()
+  @Published var dailyController : DailyPromptController = DailyPromptController()
   @Published var memories: [Memory] = []
   @Published var images: [(String, UIImage)] = []
   
@@ -51,7 +52,7 @@ class MemoryController: ObservableObject {
     return mems.sorted { $0.timestamp >= $1.timestamp }
   }
   
-  func getMemoryPinsForUser(user: User) -> [ImageAnnotation] {
+  func getMemoryPinsForUser(user: User, prompt: Bool) -> [ImageAnnotation] {
     let memories: [Memory] = self.getMemoriesForUser(user: user)
     var pins: [ImageAnnotation] = []
     
@@ -60,7 +61,7 @@ class MemoryController: ObservableObject {
       let coords = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
       let imgUrl = mem.back
-      let img = self.getImageFromURL(url: imgUrl)
+      let img = prompt ? self.getPfpUser(user: user) : self.getImageFromURL(url: imgUrl)
       
       let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, isMemory: true, url: imgUrl, image: img)
       
@@ -70,16 +71,22 @@ class MemoryController: ObservableObject {
     return pins
   }
   
+  func getUserMemoriesForLocation(user: User, loc: Place) -> [Memory] {
+    let allMems = self.getMemoriesForUser(user: user)
+    let filtered = allMems.filter { $0.location == loc.id }
+    return filtered.sorted { $0.timestamp >= $1.timestamp }
+  }
+  
   func getFriendsMemories(user: User) -> [Memory] {
-    var users: [User] = userController.getFriends(user: user) + [userController.currentUser]
+    let users: [User] = userController.getFriends(user: user) + [userController.currentUser]
     let allMems: [[Memory]] = users.map { self.getMemoriesForUser(user: $0) }
     let flattened = allMems.flatMap { $0 }
     return flattened.sorted { $0.timestamp >= $1.timestamp }
   }
   
-  func getFriendsMemoryPins(user: User) -> [ImageAnnotation] {
+  func getFriendsMemoryPins(user: User, prompt: Bool) -> [ImageAnnotation] {
     let users = userController.getFriends(user: user) + [userController.currentUser]
-    let allPins = users.map { self.getMemoryPinsForUser(user: $0) }
+    let allPins = users.map { self.getMemoryPinsForUser(user: $0, prompt: prompt) }
     return allPins.flatMap { $0 }
   }
   
@@ -87,6 +94,14 @@ class MemoryController: ObservableObject {
     let allMems = self.getFriendsMemories(user: user)
     let filtered = allMems.filter { $0.location == loc.id }
     return filtered.sorted { $0.timestamp >= $1.timestamp }
+  }
+  
+  func getFriendsDailys(user: User) -> [Memory] {
+    let users = userController.getFriends(user: user) + [userController.currentUser]
+    let usernames = users.map { $0.id! }
+    let answers = dailyController.dailys.filter { usernames.contains($0.id!) }
+    let memoryIDs = answers.map { $0.memory }
+    return self.memories.filter { memoryIDs.contains($0.id!) }
   }
   
   func getImageFromURL(url: String) -> UIImage {
@@ -103,8 +118,14 @@ class MemoryController: ObservableObject {
     let time = Date() // format is 2022-11-10 04:30:39 +0000
     let username = "kwgao" // later on make this username of curr user
     
+    // save to memory collection
     let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time)
     memoryRepository.add(mem)
+    
+    // update user collection
+    var curr = userController.currentUser
+    curr.memories.append(id)
+    userController.userRepository.update(curr)
   }
   
   func uploadPhoto(_ photo: UIImage) -> String {

@@ -14,10 +14,9 @@ struct MemoryGridView: View {
   var threeColumnGrid = [GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5)]
   
   var body: some View {
-    Text(promptController.currPrompt)
     ScrollView {
-      ForEach(promptController.prompts, id: \.self) { p in
-        Text(p.description)
+      ForEach(memoryController.getFriendsDailys(user: userController.currentUser), id: \.self) { mem in
+        Text(mem.id!)
       }
     }
     
