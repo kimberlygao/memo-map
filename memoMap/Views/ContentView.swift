@@ -113,7 +113,7 @@ struct ContentView: View {
                 .foregroundColor(.black)
             }
             .fullScreenCover(isPresented: $showingCamera, content: {
-//              CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
+              CameraView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
             })
             Spacer()
             Button (action : {
@@ -138,10 +138,10 @@ struct ContentView: View {
           LocationSheetView(memoryController: memoryController, place: placeController.places[0], userController: userController)
         }.presentationDetents([.medium, .large])
       }
-//      .onAppear(perform: {
-//        camera.check()
-//      })
-//
+      .onAppear(perform: {
+          camera.check()
+      })
+
       
     }
   }

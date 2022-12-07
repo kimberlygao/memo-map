@@ -10,7 +10,6 @@ import FirebaseFirestoreSwift
 
 class DailyPromptController: ObservableObject {
   @Published var dailyRepository: DailyPromptRepository = DailyPromptRepository()
-  @Published var memoryController: MemoryController = MemoryController()
   @Published var dailys: [DailyPrompt] = []
 
   init() {

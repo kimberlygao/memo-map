@@ -15,14 +15,15 @@ import FirebaseStorage
 class MemoryRepository: ObservableObject {
   private let path: String = "memories"
   private let store = Firestore.firestore()
-
+  
   @Published var memories: [Memory] = []
   private var cancellables: Set<AnyCancellable> = []
-
+  
   init() {
     // get all memories
     self.get({ (memories) -> Void in
-      self.memories = memories
+      let sorted = memories.sorted { $0.timestamp >= $1.timestamp }
+      self.memories = sorted
     })
   }
   
@@ -33,7 +34,7 @@ class MemoryRepository: ObservableObject {
           print("Error getting memories: \(error.localizedDescription)")
           return
         }
-
+        
         let memories = querySnapshot?.documents.compactMap { document in
           try? document.data(as: Memory.self)
         } ?? []
@@ -53,7 +54,7 @@ class MemoryRepository: ObservableObject {
       }
     }
   }
-
+  
   // MARK: CRUD methods
   func add(_ memory: Memory) {
     do {
@@ -63,7 +64,7 @@ class MemoryRepository: ObservableObject {
       fatalError("Unable to add memory: \(error.localizedDescription).")
     }
   }
-
+  
   func update(_ memory: Memory) {
     guard let memoryID = memory.id else { return }
     
@@ -73,7 +74,7 @@ class MemoryRepository: ObservableObject {
       fatalError("Unable to update memory: \(error.localizedDescription).")
     }
   }
-
+  
   func remove(_ memory: Memory) {
     guard let memoryID = memory.id else { return }
     
@@ -84,5 +85,5 @@ class MemoryRepository: ObservableObject {
     }
   }
   
-
+  
 }

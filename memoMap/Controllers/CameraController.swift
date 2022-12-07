@@ -39,7 +39,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   var backInput : AVCaptureInput!
   var frontInput : AVCaptureInput!
   
-  var hasChecked = false
+  @Published var hasChecked = false
   
   
   
