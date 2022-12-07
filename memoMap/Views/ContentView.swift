@@ -29,7 +29,7 @@ struct ContentView: View {
             ZStack {
                 
                 if showingPrompt {
-                    PromptMapWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController, userController: userController)
+                    PromptMapWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController, userController: userController, findUser: self.$findUser)
                 } else {
                     MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController, ownView: self.$ownView, findUser: self.$findUser)
                     VStack { // vstack for components on top of map view

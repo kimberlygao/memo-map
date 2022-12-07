@@ -14,6 +14,7 @@
 		2B3B4B0C292AA9DB00639C99 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B0B292AA9DB00639C99 /* Dependencies */; };
 		2B9036EE293EE22B00593D1F /* RecentsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9036ED293EE22B00593D1F /* RecentsSheetView.swift */; };
 		2B9036F0293EE24F00593D1F /* RecentsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9036EF293EE24F00593D1F /* RecentsGridView.swift */; };
+		2B9036F229402A9000593D1F /* PromptMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9036F129402A9000593D1F /* PromptMapView.swift */; };
 		2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */; };
 		2BD6D11E29387C7A006C83AF /* MemoryAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6D11D29387C7A006C83AF /* MemoryAnnotation.swift */; };
 		2BD6D12229389AC3006C83AF /* PromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6D12129389AC3006C83AF /* PromptViewController.swift */; };
@@ -102,6 +103,7 @@
 		2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
 		2B9036ED293EE22B00593D1F /* RecentsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsSheetView.swift; sourceTree = "<group>"; };
 		2B9036EF293EE24F00593D1F /* RecentsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsGridView.swift; sourceTree = "<group>"; };
+		2B9036F129402A9000593D1F /* PromptMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptMapView.swift; sourceTree = "<group>"; };
 		2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSheetView.swift; sourceTree = "<group>"; };
 		2BD6D11D29387C7A006C83AF /* MemoryAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAnnotation.swift; sourceTree = "<group>"; };
 		2BD6D12129389AC3006C83AF /* PromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			children = (
 				E51FA26E293859EF00C79CC6 /* MapViewWrapper.swift */,
 				E5BFDC962913499D00DF0180 /* MapView.swift */,
+				2B9036F129402A9000593D1F /* PromptMapView.swift */,
 				E51FA27029385A1D00C79CC6 /* CountClusterAnnotationView.swift */,
 				E51B3B76291DFE5F00399450 /* SearchView.swift */,
 				2B3B4B032926C49800639C99 /* LocationDetailView.swift */,
@@ -534,6 +537,7 @@
 				E51B3B7D292220C600399450 /* FriendRepository.swift in Sources */,
 				E51B3B812922E3E400399450 /* FriendRequestBar.swift in Sources */,
 				E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */,
+				2B9036F229402A9000593D1F /* PromptMapView.swift in Sources */,
 				E521D734291CB252002EB6FF /* UserRepository.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
 				E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */,
