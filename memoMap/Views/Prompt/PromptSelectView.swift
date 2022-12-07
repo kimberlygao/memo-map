@@ -10,6 +10,7 @@ import SwiftUI
 struct PromptSelectView: View {
   var memoryController : MemoryController
   var memory : Memory
+    @Binding var answered : Bool
   @ObservedObject var dailyController : DailyPromptController
   var user : User
   
@@ -21,7 +22,9 @@ struct PromptSelectView: View {
         }
         Button (action: {
           dailyController.selectAnswer(user: user, memory: memory)
-          // add next action here
+            answered.toggle()
+          print("MEMORIES")
+          print(memoryController.memories)
         }) {
           Text("Select Memory")
         }
