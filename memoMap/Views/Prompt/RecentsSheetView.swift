@@ -12,6 +12,7 @@ struct RecentsSheetView: View {
   
   @ObservedObject var memoryController: MemoryController
   @ObservedObject var userController : UserController
+  @ObservedObject var dailyController : DailyPromptController
   
   var body: some View {
     VStack(alignment: .leading){
@@ -22,7 +23,7 @@ struct RecentsSheetView: View {
       Spacer()
              .frame(height: 20)
       
-      RecentsGridView(memoryController: memoryController, userController: userController)
+      RecentsGridView(memoryController: memoryController, userController: userController, dailyController: dailyController)
     }
     .padding(20)
     .padding(.top, 10)

@@ -18,6 +18,7 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var annotations = [ImageAnnotation]()
     @Published var searchQuery = ""
+    @Published var isSearching = false
     
     weak var delegate: SearchControllerDelegate?
 
@@ -54,7 +55,8 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
             resp?.mapItems.forEach({
                 (mapItem) in print(mapItem.name ?? "")
                 let LA = LocationAnnotation(title: mapItem.name ?? "", subtitle: "", coordinate: mapItem.placemark.coordinate)
-              let annotation = ImageAnnotation(id: UUID().uuidString, locAnnotation: LA, image: UIImage(named: "blank") ?? UIImage())
+                let annotation = ImageAnnotation(id: UUID().uuidString, locAnnotation: LA, image: UIImage(named: "blank") ?? UIImage())
+                annotation.isMemory = false
                 annotation.image = UIImage(named: "blank")
 //                let annotation = ImageAnnotation(locAnnotation: loc)
 //                annotation.url = "https://lh3.googleusercontent.com/p/AF1QipP5UAJ9UxBIImLai1GyUC-pqgojujTOA3wbG8zy=s1360-w1360-h1020"
@@ -65,6 +67,7 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
                 annotationsResult.append(annotation)
             })
             self.annotations = annotationsResult
+            self.isSearching = true
             //            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
         }
         
@@ -83,7 +86,7 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
 ////                        annotation.title = memory.title
 ////                        annotation.subtitle = memory.subtitle
 ////                        let locAnnotation = LocationAnnotation(title: memory.title, subtitle: memory.subtitle, coordinate: )
-//                        
+//
 ////                        let imageAnnotation = ImageAnnotation()
 //                    }
 //                }

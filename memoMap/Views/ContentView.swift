@@ -4,7 +4,6 @@
 //
 //  Created by Kimberly Gao on 11/2/22.
 //
-
 import SwiftUI
 import Cluster
 
@@ -16,9 +15,12 @@ struct ContentView: View {
   @StateObject var mapViewController = MapViewController()
   @StateObject var placeController = PlaceController()
   @StateObject var camera = CameraController()
+  let promptController = PromptController()
+  let dailyController = DailyPromptController()
   @State private var showingPrompt = false
   @State private var showingCamera = false
-  @State var ownView = false
+  @State var ownView = true
+  @State var findUser = false
   @State private var showingSheet = false
   @State private var mapButtonColor  = Color.blue
   @State private var promptButtonColor  = Color.black
@@ -29,9 +31,9 @@ struct ContentView: View {
       ZStack {
         
         if showingPrompt {
-          PromptMapWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
+          PromptMapWrapper(viewController: viewController, memoryController: memoryController, searchController: searchController, userController: userController, mapViewController: mapViewController, promptController: promptController, dailyController: dailyController, findUser: self.$findUser)
         } else {
-          MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
+            MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController, ownView: self.$ownView, findUser: self.$findUser)
           VStack { // vstack for components on top of map view
             HStack {
               NavigationLink(destination: AddFriendsView(userController: userController, memoryController: memoryController)) {
@@ -47,6 +49,11 @@ struct ContentView: View {
                   .font(.system(size: 24))
                   .foregroundColor(.black)
               }
+              
+              
+            }
+            if !showingPrompt {
+              SearchView(mapViewController: mapViewController, searchController: searchController)
             }
             Spacer()
             HStack (alignment: .bottom) {
@@ -70,7 +77,7 @@ struct ContentView: View {
               .cornerRadius(50)
               
               Spacer()
-              Button(action: {}) {
+                Button(action: {findUser.toggle()}) {
                 Image(systemName: "location")
                   .font(.system(size: 24))
                   .foregroundColor(.blue)

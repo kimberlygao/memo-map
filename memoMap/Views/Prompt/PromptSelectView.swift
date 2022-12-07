@@ -10,6 +10,8 @@ import SwiftUI
 struct PromptSelectView: View {
   var memoryController : MemoryController
   var memory : Memory
+  @ObservedObject var dailyController : DailyPromptController
+  var user : User
   
     var body: some View {
       VStack {
@@ -17,7 +19,11 @@ struct PromptSelectView: View {
           SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: memory.back), smallImage: memoryController.getImageFromURL(url: memory.front), memory: memory, friendMemory: false, showLocation: false)
             .frame(height: (geo.size.height - 30))
         }
-        Button (action: {}) {
+        Button (action: {
+          dailyController.selectAnswer(user: user, memory: memory)
+          print("MEMORIES")
+          print(memoryController.memories)
+        }) {
           Text("Select Memory")
         }
         Spacer()

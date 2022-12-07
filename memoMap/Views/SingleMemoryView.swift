@@ -46,7 +46,7 @@ struct SingleMemoryView: View {
                   .font(.system(size: 14))
               }
             } else {
-              Text("September 28")
+              Text(memoryController.timeToStr(timestamp: memory.timestamp))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.system(size: 14))
             }
