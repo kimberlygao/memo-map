@@ -21,8 +21,7 @@ struct PromptSelectView: View {
         }
         Button (action: {
           dailyController.selectAnswer(user: user, memory: memory)
-          print("MEMORIES")
-          print(memoryController.memories)
+          // add next action here
         }) {
           Text("Select Memory")
         }

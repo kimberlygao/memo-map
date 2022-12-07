@@ -65,10 +65,9 @@ class MemoryController: ObservableObject {
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
       let imgUrl = mem.back
       let img = self.getImageFromURL(url: imgUrl)
-      let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, url: imgUrl, image: img)
+      let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img)
       pin.isMemory = true
       
-      //      let pin = ImageAnnotation(id: mem.id!, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
       pins.append(pin)
     }
     return pins
@@ -104,7 +103,7 @@ class MemoryController: ObservableObject {
     let usernames = users.map { $0.id! }
     let answers = dailyController.dailys.filter { usernames.contains($0.id!) }
     let memoryIDs = answers.map { $0.memory }
-    return self.memories.filter { memoryIDs.contains($0.id!) }
+    return self.memories.filter { memoryIDs.contains($0.memid) }
   }
   
   func getDailyPins(user: User) -> [ImageAnnotation] {
@@ -117,10 +116,9 @@ class MemoryController: ObservableObject {
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
       let imgUrl = mem.back
       let img = self.getPfpUser(user: user)
-      let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, url: imgUrl, image: img)
+      let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img)
       pin.isMemory = true
-      
-      //      let pin = ImageAnnotation(id: mem.id!, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
+
       pins.append(pin)
     }
     return pins
@@ -143,7 +141,7 @@ class MemoryController: ObservableObject {
     let username = "kwgao" // later on make this username of curr user
     
     // save to memory collection
-    let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time)
+    let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time, memid: id)
     memoryRepository.add(mem)
     
     // update user collection
