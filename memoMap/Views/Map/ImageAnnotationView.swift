@@ -4,7 +4,6 @@
 //
 //  Created by Fiona Chiu on 2022/11/16.
 //
-
 import UIKit
 import MapKit
 import Foundation
@@ -97,13 +96,12 @@ import Foundation
 //}
 
 
-
 class ImageAnnotationView: MKAnnotationView {
     
     private lazy var containerView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         view.backgroundColor = .white
-        view.layer.cornerRadius = 16.0
+        view.layer.cornerRadius = 8.0
         return view
     }()
 
@@ -141,7 +139,6 @@ class ImageAnnotationView: MKAnnotationView {
 //        self.imageView.layer.masksToBounds = true
 //        configure(for: annotation)
 //    }
-
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
 //        self.imageView = imageView
@@ -157,13 +154,13 @@ class ImageAnnotationView: MKAnnotationView {
         self.bottomCornerView.transform = transform
 
         containerView.addSubview(imageView)
-        containerView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        containerView.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
         imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8.0).isActive = true
         imageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8.0).isActive = true
         imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8.0).isActive = true
         imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8.0).isActive = true
         
-        self.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
         
         self.addSubview(containerView)
         

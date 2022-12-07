@@ -4,12 +4,11 @@
 //
 //  Created by Fiona Chiu on 2022/11/10.
 //
-
 import SwiftUI
 import MapKit
 
 struct SearchView: View {
-    @ObservedObject var mapViewController: MapViewController
+    let mapViewController: MapViewController
     //    @ObservedObject var mapViewController: MapViewController
     //    @ObservedObject var mapViewController: MapViewController
     @ObservedObject var searchController: SearchController
@@ -29,6 +28,9 @@ struct SearchView: View {
             
             TextField("Search", text: $searchController.searchQuery, onEditingChanged: { _ in})
             {
+//                if searchController.searchQuery != "" {
+//                    searchController.isSearching = true
+//                }
                 searchController.performSearch()
             }
             .onTapGesture {
@@ -49,6 +51,7 @@ struct SearchView: View {
                 Button(action: {
                     self.isEditing.toggle()
                     searchController.searchQuery = ""
+                    searchController.isSearching = false
                     self.focusedField = nil
                 }, label: {
                     Image(systemName: "xmark")
