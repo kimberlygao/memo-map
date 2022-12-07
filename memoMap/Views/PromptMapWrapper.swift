@@ -13,6 +13,7 @@ struct PromptMapWrapper: View {
     @ObservedObject var memoryController: MemoryController
     let mapViewController: MapViewController
     @ObservedObject var searchController: SearchController
+    @ObservedObject var userController: UserController
     @State private var selectedPlace: ImageAnnotation?
     @State var isBottomSheetOpen: Bool = false
     @State var selectedPin: ImageAnnotation? = nil
@@ -36,7 +37,7 @@ struct PromptMapWrapper: View {
                                            set: { blurredSheet = !$0 })) {
             NavigationView {
 //                MemoryGridView(memoryController: memoryController)
-                LocationSheetView(memoryController: memoryController)
+//                LocationSheetView(memoryController: memoryController, place: self.selectedPin, userController: userController)
                 
                 
             }.presentationDetents([.medium, .large])

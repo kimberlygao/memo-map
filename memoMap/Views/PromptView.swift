@@ -67,14 +67,14 @@ struct PromptView: View {
     var body: some View {
         
         if blurredPrompt {
-            PromptMapWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
+            PromptMapWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController, userController: userController)
                 .blur(radius: 8, opaque: false)
                 .overlay(Overlay(blurredPrompt: $blurredPrompt))
         } else {
             NavigationView {
                 ZStack {
                     // map view used to be here
-                    PromptMapWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController)
+                    PromptMapWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController, userController: userController)
                     VStack {
                         HStack {
                             NavigationLink(destination: AddFriendsView(userController: userController)) {
@@ -84,19 +84,19 @@ struct PromptView: View {
                                     .foregroundColor(.black)
                             }
                             Spacer()
-                            NavigationLink(destination: MemoryGridView(memoryController: memoryController)) {
-                                Image(systemName: "checkmark")
-                                    .padding()
-                                    .font(.system(size: 24))
-                                    .foregroundColor(.black)
-                            }
+//                            NavigationLink(destination: MemoryGridView(memoryController: memoryController)) {
+//                                Image(systemName: "checkmark")
+//                                    .padding()
+//                                    .font(.system(size: 24))
+//                                    .foregroundColor(.black)
+//                            }
                         }
                         SearchView(mapViewController: mapViewController, searchController: searchController)
                         Spacer()
                     }
                 }.sheet(isPresented: $showingSheet) {
                     NavigationView {
-                        MemoryGridView(memoryController: memoryController)
+//                        MemoryGridView(memoryController: memoryController)
                         
                         
                     }.presentationDetents([.medium, .large])

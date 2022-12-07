@@ -21,6 +21,7 @@ struct MapViewWrapper: View {
     
     @State var isBottomSheetOpen: Bool = false
     @Binding var ownView: Bool
+    @Binding var findUser: Bool
     
     var body: some View {
         GeometryReader { geometry in
@@ -42,7 +43,7 @@ struct MapViewWrapper: View {
 //                            Spacer()
 //                                .frame(height: 20)
                             
-                            MemoryGridView(memoryController: memoryController)
+//                            MemoryGridView(memoryController: memoryController)
                         }
                         .padding(20)
                     }
@@ -52,7 +53,7 @@ struct MapViewWrapper: View {
                 
                 
                 MapView(mapViewController: mapViewController, searchController: searchController, memoryController: memoryController, annotations: searchController.annotations, currMemories: mapViewController.currMemories, selectedPin: self.$selectedPin,
-                        isBottomSheetOpen: self.$isBottomSheetOpen, ownView: self.$ownView
+                        isBottomSheetOpen: self.$isBottomSheetOpen, ownView: self.$ownView, findUser: self.$findUser
                 )
                 .navigationBarTitleDisplayMode(.inline)
                 .edgesIgnoringSafeArea(.all)

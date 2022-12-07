@@ -26,7 +26,7 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
         guard let pin = view.annotation as? ImageAnnotation else {
             return
         }
-        mapView.setCenter(pin.coordinate, animated: true)
+//        mapView.setCenter(pin.coordinate, animated: true)
         
         DispatchQueue.main.async {
             self.parent.selectedPin = pin
@@ -35,11 +35,11 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
         }
     }
     
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        self.parent.clusterManager.reload(mapView: mapView) { finished in
-            // handle completion
-        }
-    }
+//    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+//        self.parent.clusterManager.reload(mapView: mapView) { finished in
+//            // handle completion
+//        }
+//    }
     
     func mapView(_ mapView: MKMapView, viewFor
                  annotation: MKAnnotation) -> MKAnnotationView? {
@@ -144,7 +144,6 @@ struct MapView: UIViewRepresentable {
     let clusterManager = ClusterManager()
     //  let annotationClusterManager = ClusterManager()
     //  @ObservedObject var placeController: PlaceController
-    @State var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(40.444230, -79.945530), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     
     //    private func addMapAnnotations(from mapView: MKMapView) {
     //        let test_locations = [
@@ -173,6 +172,7 @@ struct MapView: UIViewRepresentable {
     @Binding var selectedPin: ImageAnnotation?
     @Binding var isBottomSheetOpen: Bool
     @Binding var ownView: Bool
+    @Binding var findUser: Bool
     //    @Binding var mapRegion : MKCoordinateRegion
     
     func makeCoordinator() -> MapViewCoordinator {
@@ -200,6 +200,17 @@ struct MapView: UIViewRepresentable {
         print("before enter casing:", annotations, currMemories)
         print("issearching?", searchController.isSearching)
         
+        if (self.findUser) {
+            mapViewController.current.getCurrentLocation()
+            print("user location: ", mapViewController.current.longitude,  mapViewController.current.latitude)
+            let coordinate = CLLocationCoordinate2D(latitude: mapViewController.current.latitude, longitude: mapViewController.current.longitude
+            )
+            let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            uiView.setRegion(region, animated: true)
+            self.findUser = false
+        }
+        
     
         if !(searchController.isSearching) {
             //            uiView.removeAnnotations(remove)
@@ -208,19 +219,21 @@ struct MapView: UIViewRepresentable {
             let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && !(isMemory(imgAnnotation: $0 as! ImageAnnotation )) })
             uiView.removeAnnotations(remove)
             
-            let curr_user = memoryController.getCurrentUser()
+//            let curr_user = memoryController.getCurrentUser()
             print("own view?", self.ownView)
-            if (self.ownView) {
-                print("case 1a: your own memories")
-                let my_mems = memoryController.getMemoryPinsForUser(user: curr_user)
-                uiView.addAnnotations(my_mems)
-                uiView.showAnnotations(my_mems, animated: true)
-            } else {
-                print("case 1b: friends + your memories")
-                let world_mems = memoryController.getFriendsMemoryPins(user: curr_user)
-                uiView.addAnnotations(world_mems)
-                uiView.showAnnotations(world_mems, animated: true)
-            }
+            setUpMemories(from: uiView)
+            setUpMapRegion(from: uiView)
+//            if (self.ownView) {
+//                print("case jdsjdalks1a: your own memories")
+////                let my_mems = memoryController.getMemoryPinsForUser(user: curr_user)
+////                uiView.addAnnotations(my_mems)
+////                uiView.showAnnotations(my_mems, animated: true)
+//            } else {
+//                print("case dsajkda1b: friends + your memories")
+////                let world_mems = memoryController.getFriendsMemoryPins(user: curr_user)
+////                uiView.addAnnotations(world_mems)
+////                uiView.showAnnotations(world_mems, animated: true)
+//            }
             
 //            print("current user in load annotations: ", test_user)
             
@@ -233,7 +246,7 @@ struct MapView: UIViewRepresentable {
             uiView.removeAnnotations(remove)
 
             uiView.addAnnotations(annotations)
-            uiView.showAnnotations(annotations, animated: true)
+//            uiView.showAnnotations(annotations, animated: false)
 //            loadAnnotations()
 //            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && ($0 is ImageAnnotation && (isMemory(imgAnnotation: $0 as! ImageAnnotation) ))  })
 //            uiView.removeAnnotations(remove)
@@ -365,19 +378,48 @@ struct MapView: UIViewRepresentable {
     //        return image
     //    }
     
-    private func setUpMapRegion() {
+    private func setUpMapRegion(from mapView: MKMapView) {
         mapViewController.current.getCurrentLocation()
         let coordinate = CLLocationCoordinate2D(latitude: mapViewController.current.latitude, longitude: mapViewController.current.longitude
         )
-        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: true)
     }
     
+    private func setUpMemories(from mapView: MKMapView) {
+        let curr_user = memoryController.getCurrentUser()
+        if (self.ownView) {
+            print("updating: your own memories")
+                let my_mems = memoryController.getMemoryPinsForUser(user: curr_user)
+                mapView.addAnnotations(my_mems)
+//            mapView.showAnnotations(my_mems, animated: false)
+        } else {
+            print("updating: friends + your memories")
+                let world_mems = memoryController.getFriendsMemoryPins(user: curr_user)
+                mapView.addAnnotations(world_mems)
+//                mapView.showAnnotations(world_mems, animated: false)
+        }
+    }
+    
     func makeUIView(context: Context) -> MKMapView {
-        
+        print("map set up!!")
         mapView.delegate = context.coordinator
         mapView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customLocationAnnotation")
+        setUpMapRegion(from: mapView)
+        let curr_user = memoryController.getCurrentUser()
+        if (self.ownView) {
+            print("case 1a: your own memories")
+                let my_mems = memoryController.getMemoryPinsForUser(user: curr_user)
+                print("my mems are: ", my_mems)
+                mapView.addAnnotations(my_mems)
+//                mapView.showAnnotations(my_mems, animated: false)
+        } else {
+            print("case 1b: friends + your memories")
+                let world_mems = memoryController.getFriendsMemoryPins(user: curr_user)
+                mapView.addAnnotations(world_mems)
+//                mapView.showAnnotations(world_mems, animated: false)
+        }
         //      mapView.overrideUserInterfaceStyle = .dark
         let config = MKStandardMapConfiguration(emphasisStyle: .muted)
         config.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: []))

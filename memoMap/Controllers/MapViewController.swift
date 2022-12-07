@@ -21,15 +21,15 @@ class MapViewController: NSObject, ObservableObject {
     
 //    var delegate: MemoryDelegate!
     
-    let current : Location = Location()
+    @Published var current : Location = Location()
     let locations: [Location] = []
-    var mapView : MKMapView = MKMapView(frame: .zero)
+//    var mapView : MKMapView = MKMapView(frame: .zero)
     var nearbyPlaces: [MKMapItem] = []
-    var searchRegion: MKCoordinateRegion = MKCoordinateRegion()
-    @Published var mapRegion : MKCoordinateRegion = MKCoordinateRegion()
+    @Published var searchRegion: MKCoordinateRegion = MKCoordinateRegion()
     @Published var locationAnnotations : [LocationAnnotation] = []
     @Published var currMemories = [ImageAnnotation]()
-    @Published var ownView : Bool = true 
+    @Published var ownView : Bool = true
+    let interestPoints: [String] = ["restaurant", "cafe", "university", "park", "museum", "nightlife"]
     //    let clusterManager = ClusterManager()
     //    var pointOfInterestCategory = MKPointOfInterestCategory? { get set }
     
@@ -178,26 +178,26 @@ class MapViewController: NSObject, ObservableObject {
 //        self.currMemories = test_locations
     }
     
-    func getNearbyLocations(using searchRequest: MKLocalSearch.Request) {
-        print("get nearby location")
-        self.searchRegion = MKCoordinateRegion(center: self.current.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
-        searchRequest.region = self.searchRegion
-        
-        let localSearch = MKLocalSearch(request: searchRequest)
-        localSearch.start{
-            (resp, err) in
-            if let err = err {
-                print("Failed local search", err)
-                return
-            }
-            //success
-            self.nearbyPlaces = resp?.mapItems ?? []
-            print("nearby places")
-            print(self.nearbyPlaces)
-            if let updatedRegion = resp?.boundingRegion {
-                self.searchRegion = updatedRegion
-            }
+    func getNearbyLocations(using searchRequest: MKLocalSearch.Request) -> [String] {
+      self.searchRegion = MKCoordinateRegion(center: self.current.coordinate, latitudinalMeters: 5, longitudinalMeters: 5)
+      searchRequest.region = self.searchRegion
+      searchRequest.naturalLanguageQuery = "Restaurants"
+      
+      let localSearch = MKLocalSearch(request: searchRequest)
+      localSearch.start{
+        (resp, err) in
+        if let err = err {
+          print("Failed local search", err)
+          return
         }
+        //success
+        self.nearbyPlaces = resp?.mapItems ?? []
+        if let updatedRegion = resp?.boundingRegion {
+          self.searchRegion = updatedRegion
+        }
+      }
+      
+      return self.nearbyPlaces.map{$0.name ?? "no name"}
     }
     
     //    private func updateMapAnnotations(from mapView: MKMapView) {

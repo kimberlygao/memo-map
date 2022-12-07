@@ -4,7 +4,6 @@
 //
 //  Created by Kimberly Gao on 11/6/22.
 //
-
 import UIKit
 
 class CapturedImageView : UIView {

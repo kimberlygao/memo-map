@@ -4,7 +4,6 @@
 //
 //  Created by Kimberly Gao on 11/6/22.
 //
-
 import SwiftUI
 import MapKit
 
@@ -13,7 +12,7 @@ struct MemoryControlsView: View {
   @State private var caption: String = ""
   @StateObject var camera : CameraController
   @ObservedObject var memoryController : MemoryController
-  let mapViewController : MapViewController
+  @StateObject var mapViewController : MapViewController
   @Environment(\.presentationMode) var presentationMode
 
   
@@ -24,10 +23,10 @@ struct MemoryControlsView: View {
           .foregroundColor(.black)
           .font(.system(size: 30))
         Menu("Location") {
-//          ForEach (mapViewController.getNearbyLocations(using: MKLocalSearch.Request()), id: \.self) { name in
-//              Button(name, action: {})
-//
-//          }
+          ForEach (mapViewController.getNearbyLocations(using: MKLocalSearch.Request()), id: \.self) { name in
+              Button(name, action: {})
+   
+          }
         }.underline()
           .foregroundColor(.black)
       }
