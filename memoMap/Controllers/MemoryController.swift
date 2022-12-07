@@ -55,7 +55,7 @@ class MemoryController: ObservableObject {
     return mems.sorted { $0.timestamp >= $1.timestamp }
   }
   
-  func getMemoryPinsForUser(user: User, prompt: Bool) -> [ImageAnnotation] {
+  func getMemoryPinsForUser(user: User) -> [ImageAnnotation] {
     let memories: [Memory] = self.getMemoriesForUser(user: user)
     var pins: [ImageAnnotation] = []
     
@@ -64,12 +64,10 @@ class MemoryController: ObservableObject {
       let coords = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
       let imgUrl = mem.back
-      let img = prompt ? self.getPfpUser(user: user) : self.getImageFromURL(url: imgUrl)
-      print("getMemoryPinsForUser curr image:", img)
-      let pin = ImageAnnotation(id: UUID().uuidString, locAnnotation: locAnnotation, url: imgUrl, image: img)
+      let img = self.getImageFromURL(url: imgUrl)
+      let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img)
       pin.isMemory = true
       
-      //      let pin = ImageAnnotation(id: mem.id!, locAnnotation: locAnnotation, isMemory: true, url: mem.back, image: img)
       pins.append(pin)
     }
     return pins
@@ -82,17 +80,15 @@ class MemoryController: ObservableObject {
   }
   
   func getFriendsMemories(user: User) -> [Memory] {
-    var users: [User] = userController.getFriends(user: user)
-    users.append(userController.currentUser) // delete this if u dont want to append urself, idk what is better LOL
+    var users: [User] = userController.getFriends(user: user) + [userController.currentUser]
     let allMems: [[Memory]] = users.map { self.getMemoriesForUser(user: $0) }
     let flattened = allMems.flatMap { $0 }
     return flattened.sorted { $0.timestamp >= $1.timestamp }
   }
   
-  func getFriendsMemoryPins(user: User, prompt: Bool) -> [ImageAnnotation] {
-    var users = userController.getFriends(user: user)
-    users.append(userController.currentUser)
-    let allPins = users.map { self.getMemoryPinsForUser(user: $0, prompt: prompt) }
+  func getFriendsMemoryPins(user: User) -> [ImageAnnotation] {
+    var users = userController.getFriends(user: user) + [userController.currentUser]
+    let allPins = users.map { self.getMemoryPinsForUser(user: $0) }
     return allPins.flatMap { $0 }
   }
   
@@ -107,8 +103,28 @@ class MemoryController: ObservableObject {
     let usernames = users.map { $0.id! }
     let answers = dailyController.dailys.filter { usernames.contains($0.id!) }
     let memoryIDs = answers.map { $0.memory }
-    return self.memories.filter { memoryIDs.contains($0.id!) }
+    return self.memories.filter { memoryIDs.contains($0.memid) }
   }
+  
+  func getDailyPins(user: User) -> [ImageAnnotation] {
+    let memories: [Memory] = self.getFriendsDailys(user: user)
+    var pins: [ImageAnnotation] = []
+    
+    for mem in memories {
+      let place = placeController.getPlaceFromID(id: mem.location)
+      let coords = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+      let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
+      let imgUrl = mem.back
+      let img = self.getPfpUser(user: user)
+      let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img)
+      pin.isMemory = true
+
+      pins.append(pin)
+    }
+    return pins
+  }
+  
+  
   
   func getImageFromURL(url: String) -> UIImage {
     if let (_, image): (String, UIImage) = (self.images.first { $0.0 == url }) {
@@ -125,7 +141,7 @@ class MemoryController: ObservableObject {
     let username = "kwgao" // later on make this username of curr user
     
     // save to memory collection
-    let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time)
+    let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time, memid: id)
     memoryRepository.add(mem)
     
     // update user collection

@@ -18,6 +18,7 @@ struct Memory: Identifiable, Codable, Hashable {
   var location: String
   var username: String
   var timestamp: Date
+  var memid: String
   
   // MARK: Codable
   enum CodingKeys: String, CodingKey {
@@ -27,9 +28,10 @@ struct Memory: Identifiable, Codable, Hashable {
     case location
     case username
     case timestamp
+    case memid
   }
   
-  init(id: String, caption: String, front: String, back: String, location: String, username: String, timestamp: Date) {
+  init(id: String, caption: String, front: String, back: String, location: String, username: String, timestamp: Date, memid: String) {
     self.id = id
     self.caption = caption
     self.front = front
@@ -37,5 +39,6 @@ struct Memory: Identifiable, Codable, Hashable {
     self.location = location
     self.username = username
     self.timestamp = timestamp
+    self.memid = memid
   }
 }
