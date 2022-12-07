@@ -14,7 +14,9 @@ class DailyPromptController: ObservableObject {
 
   init() {
     // get all daily prompt answers
-    self.dailys = dailyRepository.dailys
+    dailyRepository.get({ (dailys) -> Void in
+      self.dailys = dailys
+    })
   }
 
   func selectAnswer(user: User, memory: Memory) {
