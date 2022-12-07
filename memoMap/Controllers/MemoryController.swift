@@ -80,14 +80,14 @@ class MemoryController: ObservableObject {
   }
   
   func getFriendsMemories(user: User) -> [Memory] {
-    var users: [User] = userController.getFriends(user: user) + [userController.currentUser]
+    let users: [User] = userController.getFriends(user: user) + [userController.currentUser]
     let allMems: [[Memory]] = users.map { self.getMemoriesForUser(user: $0) }
     let flattened = allMems.flatMap { $0 }
     return flattened.sorted { $0.timestamp >= $1.timestamp }
   }
   
   func getFriendsMemoryPins(user: User) -> [ImageAnnotation] {
-    var users = userController.getFriends(user: user) + [userController.currentUser]
+    let users = userController.getFriends(user: user) + [userController.currentUser]
     let allPins = users.map { self.getMemoryPinsForUser(user: $0) }
     return allPins.flatMap { $0 }
   }
