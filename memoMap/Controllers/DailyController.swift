@@ -18,13 +18,9 @@ class DailyPromptController: ObservableObject {
   }
 
   func selectAnswer(user: User, memory: Memory) {
-    if let id = memory.id {
-      let ans = DailyPrompt(id: user.id!, memory: id)
-      dailyRepository.update(ans)
-    } else {
-      print("memoryy tho", memory)
-      print("memory id is nil. nothing selected")
-    }
+    let ans = DailyPrompt(id: user.id!, memory: memory.memid)
+    dailyRepository.update(ans)
+  
     
   }
 

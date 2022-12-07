@@ -223,12 +223,12 @@ struct MapView: UIViewRepresentable {
         let curr_user = memoryController.getCurrentUser()
         if (self.ownView) {
             print("updating: your own memories")
-            let my_mems = memoryController.getMemoryPinsForUser(user: curr_user, prompt: false)
+            let my_mems = memoryController.getMemoryPinsForUser(user: curr_user)
                 mapView.addAnnotations(my_mems)
 //            mapView.showAnnotations(my_mems, animated: false)
         } else {
             print("updating: friends + your memories")
-            let world_mems = memoryController.getFriendsMemoryPins(user: curr_user, prompt: false)
+            let world_mems = memoryController.getFriendsMemoryPins(user: curr_user)
                 mapView.addAnnotations(world_mems)
 //                mapView.showAnnotations(world_mems, animated: false)
         }
