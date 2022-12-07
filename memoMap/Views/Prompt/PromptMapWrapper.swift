@@ -10,6 +10,7 @@ import SwiftUI
 struct Overlay: View {
   let promptController : PromptController
   @Binding var blurredPrompt : Bool
+    
   var body: some View {
     
     //        Text("13")
@@ -34,7 +35,9 @@ struct Overlay: View {
         .clipShape(Circle())
         .foregroundColor(.white)
       Spacer()
-      Button(action: {blurredPrompt.toggle()}) {
+      Button(action: {
+          blurredPrompt.toggle()
+      }) {
         Text("Pick a Memory")
           .font(.callout)
           .multilineTextAlignment(.center)
@@ -66,21 +69,22 @@ struct PromptMapWrapper: View {
   @State var selectedPin: ImageAnnotation? = nil
   @Binding var findUser: Bool
   @State var blurredPrompt = true
+    @State var answered = false
   
   var body: some View {
     
     if blurredPrompt {
-      PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, findUser: self.$findUser)
+        PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered)
         .blur(radius: 8, opaque: false)
         .overlay(Overlay(promptController: promptController, blurredPrompt: $blurredPrompt))
     } else {
       NavigationView {
         ZStack {
           // map view used to be here
-          PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, findUser: self.$findUser)
+            PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered)
         }.sheet(isPresented: $showingSheet) {
           NavigationView {
-            RecentsSheetView(memoryController: memoryController, userController: userController, dailyController: dailyController)
+              RecentsSheetView(memoryController: memoryController, userController: userController, dailyController: dailyController, answered: self.$answered)
             
           }.presentationDetents([.medium, .large])
         }

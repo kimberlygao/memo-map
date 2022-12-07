@@ -91,8 +91,10 @@ struct PromptMapView: UIViewRepresentable {
     @Binding var selectedPin: ImageAnnotation?
     @Binding var isBottomSheetOpen: Bool
     let mapViewController: MapViewController
+    @ObservedObject var memoryController: MemoryController
     let mapView = MKMapView(frame: .zero)
     @Binding var findUser: Bool
+    @Binding var answered: Bool
     
     func makeCoordinator() -> PromptMapViewCoordinator {
         PromptMapViewCoordinator(self)
@@ -121,6 +123,13 @@ struct PromptMapView: UIViewRepresentable {
             let region = MKCoordinateRegion(center: coordinate, span: span)
             uiView.setRegion(region, animated: true)
             self.findUser = false
+        }
+        print("answered?: ", self.answered)
+        if (self.answered) {
+            let curr_user = memoryController.getCurrentUser()
+            let prompt_mems = memoryController.getDailyPins(user: curr_user)
+            print("prompt mems: ", prompt_mems)
+            uiView.addAnnotations(prompt_mems)
         }
 
     }
