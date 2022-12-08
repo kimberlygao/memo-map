@@ -46,6 +46,7 @@ struct MemoryControlsView: View {
         Button(action: {
           memoryController.saveMemory(caption: caption, front: camera.images[0], back: camera.images[1], location: "1")
           camera.reTake()
+          camera.session.stopRunning()
           presentationMode.wrappedValue.dismiss()
         },
                label: {
