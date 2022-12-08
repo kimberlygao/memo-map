@@ -64,6 +64,10 @@ struct LocationDetailView<Content: View>: View {
                 }
             )
         }
+//        Spacer()
+//               .frame(height: 20)
+//        
+//        MemoryGridView(memoryController: memoryController, place: place, userController: userController)
     }
 }
 

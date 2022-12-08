@@ -65,7 +65,7 @@ class MemoryController: ObservableObject {
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
       let imgUrl = mem.back
       let img = self.getImageFromURL(url: imgUrl)
-      let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img)
+        let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img, address: place.address)
       pin.isMemory = true
       
       pins.append(pin)
@@ -116,7 +116,7 @@ class MemoryController: ObservableObject {
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
       let imgUrl = mem.back
       let img = self.getPfpUser(user: user)
-      let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img)
+        let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img, address: place.address)
       pin.isMemory = true
 
       pins.append(pin)

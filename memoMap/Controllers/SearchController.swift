@@ -55,7 +55,7 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
             resp?.mapItems.forEach({
                 (mapItem) in print(mapItem.name ?? "")
                 let LA = LocationAnnotation(title: mapItem.name ?? "", subtitle: "", coordinate: mapItem.placemark.coordinate)
-                let annotation = ImageAnnotation(id: UUID().uuidString, locAnnotation: LA, image: UIImage(named: "blank") ?? UIImage())
+                let annotation = ImageAnnotation(id: UUID().uuidString, locAnnotation: LA, image: UIImage(named: "blank") ?? UIImage(), address: "")
                 annotation.isMemory = false
                 annotation.image = UIImage(named: "blank")
 //                let annotation = ImageAnnotation(locAnnotation: loc)

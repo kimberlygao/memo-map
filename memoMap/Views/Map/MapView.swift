@@ -12,7 +12,7 @@ import Cluster
 //    var blendMode: CGBlendMode =
 //}
 class MapViewCoordinator: NSObject, MKMapViewDelegate {
-
+    
     var parent: MapView
     
     init(_ parent: MapView) {
@@ -24,7 +24,7 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
         guard let pin = view.annotation as? ImageAnnotation else {
             return
         }
-//        mapView.setCenter(pin.coordinate, animated: true)
+        //        mapView.setCenter(pin.coordinate, animated: true)
         
         DispatchQueue.main.async {
             self.parent.selectedPin = pin
@@ -34,6 +34,8 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        print("region changed handling clustering")
+        print("handling: ", self.parent.clusterManager.annotations)
         self.parent.clusterManager.reload(mapView: mapView) { finished in
             // handle completion
         }
@@ -41,13 +43,6 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor
                  annotation: MKAnnotation) -> MKAnnotationView? {
-        print("annotation coordinator: ", annotation)
-        //            //Custom View for Annotation
-        //            let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "customView")
-        //            annotationView.canShowCallout = true
-        //            //Your custom image icon
-        //            annotationView.image = UIImage(named: "locationPin")
-        //            return annotationView
         
         if annotation.isKind(of: MKUserLocation.self) {  //Handle user location annotation..
             print("user location here 1")
@@ -58,17 +53,7 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
             print("entered cluster!!")
             return CountClusterAnnotationView(annotation: annotation, reuseIdentifier: "cluster")
         }
-        
-        //          if annotation.image == nil {
-        //              var defaultAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "DefaultPinView")
-        //              if defaultAnnotationView == nil {
-        //                  print("2a here")
-        //                  defaultAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "DefaultPinView")
-        //                  defaultAnnotationView?.image = UIImage(named: "locationPin")
-        //              }
-        //              defaultAnnotationView?.canShowCallout = true
-        //              return defaultAnnotationView
-        //          }
+    
         
         if !annotation.isKind(of: ImageAnnotation.self) {
             print("original here 2")
@@ -83,54 +68,16 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
         }
         
         //Custom View for Annotation
-        print("image here 3")
+//        print("image here 3")
         var view: ImageAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: "customLocationAnnotation") as? ImageAnnotationView
         if view == nil {
             view = ImageAnnotationView(annotation: annotation, reuseIdentifier: "customLocationAnnotation")
-            //              let base = UIView(frame: CGRect(x: 0, y: 0, width: 67, height: 26))
-            //              let imageView = UIImageView(frame: CGRect(x: 2, y: 2, width: 22, height: 22))
-            //              imageView.image = UIImage(named: "test")
-            //
-            //              base.layer.cornerRadius = 3.0
-            //              base.clipsToBounds = true
-            //              base.backgroundColor = .white
-            //              base.addSubview(imageView)
-            //
-            //              view?.addSubview(base)
-            //              view?.canShowCallout = true
-            //              view.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         }
         let annotation = annotation as! ImageAnnotation
         view?.image = annotation.image
         view?.annotation = annotation
         return view
     }
-    //        @objc func loadAnnotations() {
-    //
-    //            for item in locations{
-    //                DispatchQueue.main.async {
-    //                    let request = NSMutableURLRequest(url: URL(string: "<YourPictureUrl>")!)
-    //                    request.httpMethod = "GET"
-    //                    let session = URLSession(configuration: URLSessionConfiguration.default)
-    //                    let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
-    //                        if error == nil {
-    //
-    //                            let annotation = ImageAnnotation()
-    //                            annotation.coordinate = CLLocationCoordinate2DMake(Double(item["pl_lat"] as! String)!,
-    //                                                                               Double(item["pl_long"] as! String)!)
-    //                            annotation.image = UIImage(data: data!, scale: UIScreen.main.scale)
-    //                            annotation.title = "T"
-    //                            annotation.subtitle = ""
-    //                            DispatchQueue.main.async {
-    //                                self.mapView.addAnnotation(annotation)
-    //                            }
-    //                        }
-    //                    }
-    //
-    //                    dataTask.resume()
-    //                }
-    //            }
-    //        }
     
 }
 
@@ -177,12 +124,14 @@ struct MapView: UIViewRepresentable {
             self.findUser = false
         }
         
-    
+        
         if (searchController.searchQuery == "") {
             //            uiView.removeAnnotations(remove)
             print("case 1: empty query")
             
-            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && !(isMemory(imgAnnotation: $0 as! ImageAnnotation )) })
+            
+            // TODO: spearate
+            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && (($0 is ImageAnnotation) && !(isMemory(imgAnnotation: $0 as! ImageAnnotation ))) })
             uiView.removeAnnotations(remove)
             print("own view?", self.ownView)
             if !(searchController.isSearching) {
@@ -195,12 +144,12 @@ struct MapView: UIViewRepresentable {
             print("case 2: searching")
             let remove = uiView.annotations.filter({!($0 is MKUserLocation) && ($0 is ImageAnnotation) })
             uiView.removeAnnotations(remove)
-
+            
             uiView.addAnnotations(annotations)
             uiView.showAnnotations(annotations, animated: true)
-//            loadAnnotations()
-//            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && ($0 is ImageAnnotation && (isMemory(imgAnnotation: $0 as! ImageAnnotation) ))  })
-//            uiView.removeAnnotations(remove)
+            //            loadAnnotations()
+            //            let remove = uiView.annotations.filter({ !($0 is MKUserLocation) && ($0 is ImageAnnotation && (isMemory(imgAnnotation: $0 as! ImageAnnotation) ))  })
+            //            uiView.removeAnnotations(remove)
         }
     }
     
@@ -220,17 +169,24 @@ struct MapView: UIViewRepresentable {
     }
     
     private func setUpMemories(from mapView: MKMapView) {
+        print("cluster before removal", clusterManager.annotations)
         let curr_user = memoryController.getCurrentUser()
         if (self.ownView) {
             print("updating: your own memories")
+//            clusterManager.removeAll()
             let my_mems = memoryController.getMemoryPinsForUser(user: curr_user)
-                mapView.addAnnotations(my_mems)
-//            mapView.showAnnotations(my_mems, animated: false)
+            mapView.addAnnotations(my_mems)
+            clusterManager.add(my_mems)
+            print("cluster after add 1", clusterManager.annotations)
+            //            mapView.showAnnotations(my_mems, animated: false)
         } else {
             print("updating: friends + your memories")
+//            clusterManager.removeAll()
             let world_mems = memoryController.getFriendsMemoryPins(user: curr_user)
-                mapView.addAnnotations(world_mems)
-//                mapView.showAnnotations(world_mems, animated: false)
+            mapView.addAnnotations(world_mems)
+            clusterManager.add(world_mems)
+            print("cluster after add 2", clusterManager.annotations)
+            //                mapView.showAnnotations(world_mems, animated: false)
         }
     }
     
