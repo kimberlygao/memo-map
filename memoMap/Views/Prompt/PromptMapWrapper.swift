@@ -73,7 +73,7 @@ struct PromptMapWrapper: View {
     var body: some View {
         
         if (dailyController.blurredPrompt) {
-            PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered)
+            PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered, feedView: self.$feedView)
                 .navigationBarTitleDisplayMode(.inline)
                 .edgesIgnoringSafeArea(.all)
                 .blur(radius: 8, opaque: false)
@@ -82,41 +82,43 @@ struct PromptMapWrapper: View {
             NavigationView {
                 ZStack {
                     // map view used to be here
-                    if (selectedPin != nil) || (feedView) {
+                    if (feedView) && ((selectedPin != nil) || (answered)) {
                         PromptScrollView(memoryController: memoryController, promptController: promptController, dailyController: dailyController, userController: userController)
                     }
                     else {
                         
-                        PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered)
+                        PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered, feedView: self.$feedView)
                             .navigationBarTitleDisplayMode(.inline)
                             .edgesIgnoringSafeArea(.all)
                     }
-                    VStack {
-                                HStack {
-                                  Button(action: {feedView.toggle()}) {
-                                    let color1 : Color =  feedView ? .blue : .white
-                                    let color2 : Color =  feedView ? .white : .blue
-                                    Text("Map")
-                                      .font(.system(size: 12))
-                                      .foregroundColor(color1)
-                                      .padding(8)
-                                      .padding(.leading, 8)
-                                      .padding(.trailing, 8)
-                                      .background(color2)
-                                    
-                                    Text("Feed")
-                                      .font(.system(size: 12))
-                                      .foregroundColor(color2)
-                                      .padding(8)
-                                      .padding(.leading, 8)
-                                      .padding(.trailing, 8)
-                                      .background(color1)
-                                    
+                    if (answered) {
+                        VStack {
+                                    HStack {
+                                        Button(action: {feedView.toggle()}) {
+                                        let color1 : Color =  feedView ? .blue : .white
+                                        let color2 : Color =  feedView ? .white : .blue
+                                        Text("Map")
+                                          .font(.system(size: 12))
+                                          .foregroundColor(color1)
+                                          .padding(8)
+                                          .padding(.leading, 8)
+                                          .padding(.trailing, 8)
+                                          .background(color2)
+                                        
+                                        Text("Feed")
+                                          .font(.system(size: 12))
+                                          .foregroundColor(color2)
+                                          .padding(8)
+                                          .padding(.leading, 8)
+                                          .padding(.trailing, 8)
+                                          .background(color1)
+                                        
+                                      }
+                                      .cornerRadius(10)
+                                    }
+                                    Spacer()
                                   }
-                                  .cornerRadius(10)
-                                }
-                                Spacer()
-                              }
+                    }
                 }.sheet(isPresented: $promptController.showingRecents) {
                     NavigationView {
                         RecentsSheetView(memoryController: memoryController, userController: userController, dailyController: dailyController, promptController: promptController, answered: self.$answered)

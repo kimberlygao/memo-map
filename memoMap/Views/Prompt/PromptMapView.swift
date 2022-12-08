@@ -25,6 +25,7 @@ class PromptMapViewCoordinator: NSObject, MKMapViewDelegate {
         
         DispatchQueue.main.async {
             self.parent.selectedPin = pin
+            self.parent.feedView = true
             self.parent.isBottomSheetOpen = true
             print("selected pin: ", self.parent.selectedPin)
         }
@@ -95,6 +96,7 @@ struct PromptMapView: UIViewRepresentable {
     let mapView = MKMapView(frame: .zero)
     @Binding var findUser: Bool
     @Binding var answered: Bool
+    @Binding var feedView : Bool
     
     func makeCoordinator() -> PromptMapViewCoordinator {
         PromptMapViewCoordinator(self)

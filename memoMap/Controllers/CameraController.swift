@@ -52,6 +52,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     switch AVCaptureDevice.authorizationStatus(for: .video) {
     case .authorized:
       setUp()
+        hasChecked = true
       return
     case .notDetermined:
       AVCaptureDevice.requestAccess(for: .video) { (status) in
@@ -66,7 +67,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
       return
     }
     
-    hasChecked = true
+    
     
   }
   
