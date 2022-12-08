@@ -136,7 +136,7 @@ class UserController: ObservableObject {
   }
   
   func getUserFromMemory(mem: Memory) -> User? {
-      let users = self.users.filter { $0.id! == mem.username }
-      return users.first ?? nil
-    }
+    let users = self.users.filter { $0.id! == mem.username }
+    return users.first ?? nil
+  }
 }
