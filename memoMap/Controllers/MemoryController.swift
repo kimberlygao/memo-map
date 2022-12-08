@@ -74,9 +74,10 @@ class MemoryController: ObservableObject {
     return pins
   }
   
-  func getUserMemoriesForLocation(user: User, loc: Place) -> [Memory] {
+  func getUserMemoriesForLocation(user: User, pin: ImageAnnotation) -> [Memory] {
+    let loc: Place? = placeController.places.first { $0.address == pin.address }
     let allMems = self.getMemoriesForUser(user: user)
-    let filtered = allMems.filter { $0.location == loc.id }
+    let filtered = allMems.filter { $0.location == loc!.id! }
     return filtered.sorted { $0.timestamp >= $1.timestamp }
   }
   
@@ -93,9 +94,10 @@ class MemoryController: ObservableObject {
     return allPins.flatMap { $0 }
   }
   
-  func getFriendsMemoriesForLocation(user: User, loc: Place) -> [Memory] {
+  func getFriendsMemoriesForLocation(user: User, pin: ImageAnnotation) -> [Memory] {
+    let loc: Place? = placeController.places.first { $0.address == pin.address }
     let allMems = self.getFriendsMemories(user: user)
-    let filtered = allMems.filter { $0.location == loc.id }
+    let filtered = allMems.filter { $0.location == loc!.id! }
     return filtered.sorted { $0.timestamp >= $1.timestamp }
   }
   
