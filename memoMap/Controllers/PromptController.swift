@@ -12,6 +12,7 @@ class PromptController: ObservableObject {
   @Published var promptRepository: PromptRepository = PromptRepository()
   @Published var prompts: [Prompt] = []
   @Published var currPrompt: String = ""
+    @Published var showingRecents: Bool = true
 
   init() {
     // get all prompts

@@ -13,6 +13,7 @@ struct RecentsSheetView: View {
   @ObservedObject var memoryController: MemoryController
   @ObservedObject var userController : UserController
   @ObservedObject var dailyController : DailyPromptController
+    @ObservedObject var promptController: PromptController
     @Binding var answered : Bool
   
   var body: some View {
@@ -24,7 +25,7 @@ struct RecentsSheetView: View {
       Spacer()
              .frame(height: 20)
       
-        RecentsGridView(memoryController: memoryController, userController: userController, dailyController: dailyController, answered: self.$answered)
+        RecentsGridView(memoryController: memoryController, userController: userController, dailyController: dailyController, promptController: promptController, answered: self.$answered)
     }
     .padding(20)
     .padding(.top, 10)

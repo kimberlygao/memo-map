@@ -24,6 +24,7 @@ struct ContentView: View {
   @State private var showingSheet = false
   @State private var mapButtonColor  = Color.blue
   @State private var promptButtonColor  = Color.black
+  @State var answered = false
   
   
   var body: some View {
@@ -31,9 +32,9 @@ struct ContentView: View {
       ZStack {
         
         if showingPrompt {
-            PromptMapWrapper(viewController: viewController, memoryController: memoryController, searchController: searchController, userController: userController, mapViewController: mapViewController, promptController: promptController, dailyController: dailyController, findUser: self.$findUser)
+            PromptMapWrapper(viewController: viewController, memoryController: memoryController, searchController: searchController, userController: userController, mapViewController: mapViewController, promptController: promptController, dailyController: dailyController, findUser: self.$findUser, answered: self.$answered)
         } else {
-            MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController, ownView: self.$ownView, findUser: self.$findUser)
+            MapViewWrapper(memoryController: memoryController, mapViewController: mapViewController, searchController: searchController, userController: userController, placeController: placeController, ownView: self.$ownView, findUser: self.$findUser)
           VStack { // vstack for components on top of map view
             HStack {
               NavigationLink(destination: AddFriendsView(userController: userController, memoryController: memoryController)) {
@@ -135,7 +136,7 @@ struct ContentView: View {
       }
       .sheet(isPresented: $showingSheet) {
         NavigationView {
-          LocationSheetView(memoryController: memoryController, place: placeController.places[0], userController: userController)
+//          LocationSheetView(memoryController: memoryController, place: placeController.places[0], userController: userController)
         }.presentationDetents([.medium, .large])
       }
 //      .onAppear(perform: {

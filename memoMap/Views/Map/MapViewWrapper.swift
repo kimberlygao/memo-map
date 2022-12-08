@@ -15,6 +15,8 @@ struct MapViewWrapper: View {
     @ObservedObject var memoryController: MemoryController
     let mapViewController: MapViewController
     @ObservedObject var searchController: SearchController
+    @ObservedObject var userController: UserController
+    @ObservedObject var placeController: PlaceController
     @State private var selectedPlace: ImageAnnotation?
     
     @State var selectedPin: ImageAnnotation? = nil
@@ -32,13 +34,33 @@ struct MapViewWrapper: View {
                         //                        Text(String(self.selectedPin?.title ?? "no title")).foregroundColor(Color.black)
                         VStack(alignment: .leading){
                             Group {
-                                Text(String(self.selectedPin?.title ?? "no title"))
+                                Text(String(self.selectedPin?.title ?? "Unknown"))
                                     .font(.system(size: 20))
                                     .fontWeight(.bold)
-                                Text("2002 Smallman St, Pittsburgh, PA 15122")
+                                Text(String(self.selectedPin?.address ?? "Unknown"))
                                     .foregroundColor(.gray)
                                     .font(.system(size: 16))
                             }
+                            Spacer()
+                                   .frame(height: 20)
+                            
+                            
+//                            Button ("hello", action: {
+//                                let loc: Place? = placeController.places.first { $0.address == self.selectedPin?.address }
+//                                MemoryGridView(memoryController: memoryController, place: loc!, userController: userController)
+//                              print("in mapview wrapper")
+//                                print("address is", loc!)
+////                              print("")
+//
+//                            })
+                            let loc: Place? = placeController.places.first { $0.address == self.selectedPin?.address }
+                            if let loc = loc {
+                                MemoryGridView(memoryController: memoryController, place: loc, userController: userController)
+                            }
+                            
+                            
+                            
+//                            MemoryGridView(memoryController: memoryController, place: loc!, userController: userController)
                             
 //                            Spacer()
 //                                .frame(height: 20)

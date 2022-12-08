@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Overlay: View {
     let promptController : PromptController
-    @Binding var blurredPrompt : Bool
+    @ObservedObject var dailyController : DailyPromptController
     
     var body: some View {
         
@@ -36,7 +36,7 @@ struct Overlay: View {
                 .foregroundColor(.white)
             Spacer()
             Button(action: {
-                blurredPrompt.toggle()
+                dailyController.blurredPrompt.toggle()
             }) {
                 Text("Pick a Memory")
                     .font(.callout)
@@ -62,33 +62,64 @@ struct PromptMapWrapper: View {
     let searchController : SearchController
     let userController : UserController
     let mapViewController : MapViewController
-    let promptController : PromptController
-    let dailyController : DailyPromptController
-    @State private var showingSheet = true
+    @ObservedObject var promptController : PromptController
+    @ObservedObject var dailyController : DailyPromptController
     @State var isBottomSheetOpen: Bool = false
     @State var selectedPin: ImageAnnotation? = nil
     @Binding var findUser: Bool
-    @State var blurredPrompt = true
-    @State var answered = false
+    @Binding var answered : Bool
+    @State var feedView = false
     
     var body: some View {
         
-        if !answered {
+        if (dailyController.blurredPrompt) {
             PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered)
                 .navigationBarTitleDisplayMode(.inline)
                 .edgesIgnoringSafeArea(.all)
                 .blur(radius: 8, opaque: false)
-                .overlay(Overlay(promptController: promptController, blurredPrompt: $blurredPrompt))
+                .overlay(Overlay(promptController: promptController, dailyController: dailyController))
         } else {
             NavigationView {
                 ZStack {
                     // map view used to be here
-                    PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered)
-                        .navigationBarTitleDisplayMode(.inline)
-                        .edgesIgnoringSafeArea(.all)
-                }.sheet(isPresented: $showingSheet) {
+                    if (selectedPin != nil) || (feedView) {
+                        PromptScrollView(memoryController: memoryController, promptController: promptController, dailyController: dailyController, userController: userController)
+                    }
+                    else {
+                        
+                        PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered)
+                            .navigationBarTitleDisplayMode(.inline)
+                            .edgesIgnoringSafeArea(.all)
+                    }
+                    VStack {
+                                HStack {
+                                  Button(action: {feedView.toggle()}) {
+                                    let color1 : Color =  feedView ? .blue : .white
+                                    let color2 : Color =  feedView ? .white : .blue
+                                    Text("Map")
+                                      .font(.system(size: 12))
+                                      .foregroundColor(color1)
+                                      .padding(8)
+                                      .padding(.leading, 8)
+                                      .padding(.trailing, 8)
+                                      .background(color2)
+                                    
+                                    Text("Feed")
+                                      .font(.system(size: 12))
+                                      .foregroundColor(color2)
+                                      .padding(8)
+                                      .padding(.leading, 8)
+                                      .padding(.trailing, 8)
+                                      .background(color1)
+                                    
+                                  }
+                                  .cornerRadius(10)
+                                }
+                                Spacer()
+                              }
+                }.sheet(isPresented: $promptController.showingRecents) {
                     NavigationView {
-                        RecentsSheetView(memoryController: memoryController, userController: userController, dailyController: dailyController, answered: self.$answered)
+                        RecentsSheetView(memoryController: memoryController, userController: userController, dailyController: dailyController, promptController: promptController, answered: self.$answered)
                         
                     }.presentationDetents([.medium, .large])
                 }

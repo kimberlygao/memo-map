@@ -12,6 +12,7 @@ struct PromptSelectView: View {
   var memory : Memory
     @Binding var answered : Bool
   @ObservedObject var dailyController : DailyPromptController
+    @ObservedObject var promptController: PromptController
   var user : User
   
     var body: some View {
@@ -23,6 +24,7 @@ struct PromptSelectView: View {
         Button (action: {
           dailyController.selectAnswer(user: user, memory: memory)
             answered.toggle()
+            promptController.showingRecents.toggle()
           print("MEMORIES")
           print(memoryController.memories)
         }) {

@@ -11,6 +11,7 @@ struct RecentsGridView: View {
   @ObservedObject var memoryController: MemoryController
   @ObservedObject var userController : UserController
   @ObservedObject var dailyController : DailyPromptController
+    @ObservedObject var promptController: PromptController
     @Binding var answered : Bool
   
   var threeColumnGrid = [GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5)]
@@ -22,7 +23,7 @@ struct RecentsGridView: View {
         LazyVGrid(columns: threeColumnGrid, spacing: 5) {
           ForEach(memories, id: \.self) { mem in
 //            if let uiImage = image {
-              NavigationLink (destination: PromptSelectView(memoryController: memoryController, memory: mem, answered: self.$answered, dailyController: dailyController, user: userController.currentUser)){
+              NavigationLink (destination: PromptSelectView(memoryController: memoryController, memory: mem, answered: self.$answered, dailyController: dailyController, promptController: promptController, user: userController.currentUser)){
                 Image(uiImage: memoryController.getImageFromURL(url: mem.back))
                   .resizable()
                   .aspectRatio(contentMode: .fill)

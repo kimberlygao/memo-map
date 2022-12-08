@@ -11,6 +11,7 @@ import FirebaseFirestoreSwift
 class DailyPromptController: ObservableObject {
   @Published var dailyRepository: DailyPromptRepository = DailyPromptRepository()
   @Published var dailys: [DailyPrompt] = []
+  @Published var blurredPrompt = true
 
   init() {
     // get all daily prompt answers
