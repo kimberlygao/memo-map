@@ -21,7 +21,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   @Published var preview = AVCaptureVideoPreviewLayer()
   
   @Published var isSaved = false
-
+  
   @Published var photos = []
   @Published var images : [UIImage] = []
   @Published var photo1 = Data(count: 0)
@@ -48,10 +48,11 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     if hasChecked {
       return
     }
-        
+    
     switch AVCaptureDevice.authorizationStatus(for: .video) {
     case .authorized:
       setUp()
+      hasChecked = true
       return
     case .notDetermined:
       AVCaptureDevice.requestAccess(for: .video) { (status) in
@@ -66,7 +67,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
       return
     }
     
-    hasChecked = true
+    
     
   }
   
@@ -82,8 +83,6 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
       self.setUpOutput()
       
       self.session.commitConfiguration()
-      
-      self.session.startRunning()
     }
   }
   
@@ -139,12 +138,6 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     }
   }
   
-  func setUpPreviewLayer() {
-//    self.preview = AVCaptureVideoPreviewLayer(session: self.session)
-//    self.preview.frame = view.frame
-//    self.preview.videoGravity = .resizeAspectFill
-  }
-  
   func takePhoto() {
     DispatchQueue.global(qos: .background).async {
       self.output.capturePhoto(with: self.getSettings(), delegate: self)
@@ -162,7 +155,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     
     var photo = Data(count: 0)
     photo = imageData
-
+    
     self.images.append(UIImage(data: photo)!)
     
     self.photos.append(photo)
@@ -178,7 +171,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
         self.takePhoto()
       }
     } else {
-//      self.session.stopRunning()
+      //      self.session.stopRunning()
       
       DispatchQueue.main.async {
         withAnimation{self.isTaken.toggle()}
@@ -186,13 +179,19 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     }
   }
   
+  func start () {
+    DispatchQueue.global(qos: .userInitiated).async {
+      self.session.startRunning()
+    }
+  }
+  
   func reTake() {
     DispatchQueue.global(qos: .background).async {
       self.flipCamera()
-//      self.session.startRunning()
+      //      self.session.startRunning()
       
       DispatchQueue.main.async {
-//        withAnimation{self.isTaken.toggle()}
+        //        withAnimation{self.isTaken.toggle()}
         self.image1Done = false
         self.isTaken = false
         self.photos = []
@@ -207,7 +206,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   
   func reset() {
     DispatchQueue.main.async {
-//      withAnimation{self.isTaken.toggle()}
+      //      withAnimation{self.isTaken.toggle()}
       
       self.image1Done = false
       self.isTaken = false
@@ -215,7 +214,7 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
       self.images = []
       self.isSaved = false
       self.showControls = true
-
+      
     }
     
     
@@ -235,21 +234,21 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     }
     
     session.commitConfiguration()
-
+    
   }
   
   func getSettings() -> AVCapturePhotoSettings {
     let settings = AVCapturePhotoSettings()
-
-        if backCameraOn && backCamera.hasFlash {
-            settings.flashMode = flashMode
-        } else if frontCamera.hasFlash {
-            settings.flashMode = flashMode
-        }
     
-        return settings
+    if backCameraOn && backCamera.hasFlash {
+      settings.flashMode = flashMode
+    } else if frontCamera.hasFlash {
+      settings.flashMode = flashMode
+    }
+    
+    return settings
   }
-
+  
   
   func toggleFlash() {
     if self.flashMode == .off {
@@ -267,5 +266,5 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     print("saved successfully")
   }
   
-
+  
 }

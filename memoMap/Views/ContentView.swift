@@ -107,6 +107,7 @@ struct ContentView: View {
             Spacer()
             Button(action: {
               showingCamera.toggle()
+              camera.start()
             }) {
               Image(systemName: "camera")
                 .font(.system(size: 24))

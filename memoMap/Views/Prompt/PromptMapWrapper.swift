@@ -10,7 +10,7 @@ import SwiftUI
 struct Overlay: View {
   let promptController : PromptController
   @Binding var blurredPrompt : Bool
-    
+  
   var body: some View {
     
     //        Text("13")
@@ -36,7 +36,7 @@ struct Overlay: View {
         .foregroundColor(.white)
       Spacer()
       Button(action: {
-          blurredPrompt.toggle()
+        blurredPrompt.toggle()
       }) {
         Text("Pick a Memory")
           .font(.callout)
@@ -69,22 +69,49 @@ struct PromptMapWrapper: View {
   @State var selectedPin: ImageAnnotation? = nil
   @Binding var findUser: Bool
   @State var blurredPrompt = true
-    @State var answered = false
+  @State var answered = false
+  @State var feedView = false
   
   var body: some View {
     
     if blurredPrompt {
-        PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered)
+      PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered)
         .blur(radius: 8, opaque: false)
         .overlay(Overlay(promptController: promptController, blurredPrompt: $blurredPrompt))
     } else {
       NavigationView {
         ZStack {
           // map view used to be here
-            PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered)
+          PromptMapView(selectedPin: self.$selectedPin, isBottomSheetOpen: self.$isBottomSheetOpen, mapViewController: mapViewController, memoryController: memoryController, findUser: self.$findUser, answered: self.$answered)
+          VStack {
+            HStack {
+              Button(action: {feedView.toggle()}) {
+                let color1 : Color =  feedView ? .blue : .white
+                let color2 : Color =  feedView ? .white : .blue
+                Text("Map")
+                  .font(.system(size: 12))
+                  .foregroundColor(color1)
+                  .padding(8)
+                  .padding(.leading, 8)
+                  .padding(.trailing, 8)
+                  .background(color2)
+                
+                Text("Feed")
+                  .font(.system(size: 12))
+                  .foregroundColor(color2)
+                  .padding(8)
+                  .padding(.leading, 8)
+                  .padding(.trailing, 8)
+                  .background(color1)
+                
+              }
+              .cornerRadius(10)
+            }
+            Spacer()
+          }
         }.sheet(isPresented: $showingSheet) {
           NavigationView {
-              RecentsSheetView(memoryController: memoryController, userController: userController, dailyController: dailyController, answered: self.$answered)
+            RecentsSheetView(memoryController: memoryController, userController: userController, dailyController: dailyController, answered: self.$answered)
             
           }.presentationDetents([.medium, .large])
         }
