@@ -1,6 +1,6 @@
 # memoMap
 
-##### Usage
+### Usage
 
 Clone the repository into your target directory:
 
