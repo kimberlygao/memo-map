@@ -41,7 +41,7 @@ Open up the project in Xcode (must be Version 14.1 and higher)
 Start running the app!
 
 
-## For the best experience,
+## For the best experience...
 
 - When the app first launches you need to tap “Allow Camera” and “Allow Location” then relaunch the app in order to get the full experience with the user locating feature.
 
