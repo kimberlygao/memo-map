@@ -13,6 +13,10 @@
 		2B3B4B0A292AA9DB00639C99 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */; };
 		2B3B4B0C292AA9DB00639C99 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B0B292AA9DB00639C99 /* Dependencies */; };
 		2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */; };
+		41AE63912942DFC000C7926C /* memoMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AE63902942DFC000C7926C /* memoMapTests.swift */; };
+		41AE63982942DFDC00C7926C /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AE63972942DFDC00C7926C /* UserTests.swift */; };
+		41AE639A2942E1C100C7926C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 41AE63992942E1C100C7926C /* FirebaseFirestore */; };
+		41AE639C2942E1C600C7926C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 41AE639B2942E1C600C7926C /* FirebaseStorage */; };
 		D5AED16340C5BEBBD3C5754A /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
 		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
@@ -91,6 +95,16 @@
 		E5EDE268293701AD0045402C /* MemoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDE267293701AD0045402C /* MemoryScrollView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		41AE63922942DFC000C7926C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5BFDC3A2913433300DF0180 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5BFDC412913433300DF0180;
+			remoteInfo = memoMap;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
 		2B3B4AD62925EB5000639C99 /* ImageAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
@@ -100,6 +114,9 @@
 		2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleter.swift; sourceTree = "<group>"; };
 		2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
 		2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSheetView.swift; sourceTree = "<group>"; };
+		41AE638E2942DFC000C7926C /* memoMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memoMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41AE63902942DFC000C7926C /* memoMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoMapTests.swift; sourceTree = "<group>"; };
+		41AE63972942DFDC00C7926C /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.release.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.release.xcconfig"; sourceTree = "<group>"; };
 		8FAA65C3D591395054E49171 /* Pods-memoMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.debug.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.debug.xcconfig"; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
@@ -154,6 +171,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		41AE638B2942DFC000C7926C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41AE639A2942E1C100C7926C /* FirebaseFirestore in Frameworks */,
+				41AE639C2942E1C600C7926C /* FirebaseStorage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5BFDC3F2913433300DF0180 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -194,6 +220,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41AE638F2942DFC000C7926C /* memoMapTests */ = {
+			isa = PBXGroup;
+			children = (
+				41AE63902942DFC000C7926C /* memoMapTests.swift */,
+				41AE63972942DFDC00C7926C /* UserTests.swift */,
+			);
+			path = memoMapTests;
+			sourceTree = "<group>";
+		};
 		8FAFD48423445AB465AE07C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				E5BFDC442913433300DF0180 /* memoMap */,
+				41AE638F2942DFC000C7926C /* memoMapTests */,
 				E5BFDC432913433300DF0180 /* Products */,
 				C9D7D516444C69217E9ADE63 /* Pods */,
 				8FAFD48423445AB465AE07C5 /* Frameworks */,
@@ -281,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				E5BFDC422913433300DF0180 /* memoMap.app */,
+				41AE638E2942DFC000C7926C /* memoMapTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -374,6 +411,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		41AE638D2942DFC000C7926C /* memoMapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41AE63962942DFC000C7926C /* Build configuration list for PBXNativeTarget "memoMapTests" */;
+			buildPhases = (
+				41AE638A2942DFC000C7926C /* Sources */,
+				41AE638B2942DFC000C7926C /* Frameworks */,
+				41AE638C2942DFC000C7926C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41AE63932942DFC000C7926C /* PBXTargetDependency */,
+			);
+			name = memoMapTests;
+			packageProductDependencies = (
+				41AE63992942E1C100C7926C /* FirebaseFirestore */,
+				41AE639B2942E1C600C7926C /* FirebaseStorage */,
+			);
+			productName = memoMapTests;
+			productReference = 41AE638E2942DFC000C7926C /* memoMapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E5BFDC412913433300DF0180 /* memoMap */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5BFDC502913433300DF0180 /* Build configuration list for PBXNativeTarget "memoMap" */;
@@ -431,9 +490,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					41AE638D2942DFC000C7926C = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = E5BFDC412913433300DF0180;
+					};
 					E5BFDC412913433300DF0180 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
@@ -457,11 +520,19 @@
 			projectRoot = "";
 			targets = (
 				E5BFDC412913433300DF0180 /* memoMap */,
+				41AE638D2942DFC000C7926C /* memoMapTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		41AE638C2942DFC000C7926C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5BFDC402913433300DF0180 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -517,6 +588,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		41AE638A2942DFC000C7926C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41AE63982942DFDC00C7926C /* UserTests.swift in Sources */,
+				41AE63912942DFC000C7926C /* memoMapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5BFDC3E2913433300DF0180 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -575,7 +655,53 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		41AE63932942DFC000C7926C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5BFDC412913433300DF0180 /* memoMap */;
+			targetProxy = 41AE63922942DFC000C7926C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		41AE63942942DFC000C7926C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 287QZQ3J8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-43.memoMapTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/memoMap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/memoMap";
+			};
+			name = Debug;
+		};
+		41AE63952942DFC000C7926C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 287QZQ3J8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-43.memoMapTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/memoMap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/memoMap";
+			};
+			name = Release;
+		};
 		E5BFDC4E2913433300DF0180 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -765,6 +891,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		41AE63962942DFC000C7926C /* Build configuration list for PBXNativeTarget "memoMapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41AE63942942DFC000C7926C /* Debug */,
+				41AE63952942DFC000C7926C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E5BFDC3D2913433300DF0180 /* Build configuration list for PBXProject "memoMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -814,6 +949,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = Dependencies;
+		};
+		41AE63992942E1C100C7926C /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		41AE639B2942E1C600C7926C /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 		E5BFDC5C2913456100DF0180 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
