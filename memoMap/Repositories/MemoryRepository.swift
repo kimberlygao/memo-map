@@ -9,32 +9,52 @@ import Foundation
 import Combine
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import UIKit
+import FirebaseStorage
 
 class MemoryRepository: ObservableObject {
   private let path: String = "memories"
   private let store = Firestore.firestore()
-
+  
   @Published var memories: [Memory] = []
   private var cancellables: Set<AnyCancellable> = []
-
+  
   init() {
-    self.get()
+    // get all memories
+    self.get({ (memories) -> Void in
+      let sorted = memories.sorted { $0.timestamp >= $1.timestamp }
+      self.memories = sorted
+    })
   }
-
-  func get() {
+  
+  func get(_ completionHandler: @escaping (_ memories: [Memory]) -> Void) {
     store.collection(path)
       .addSnapshotListener { querySnapshot, error in
         if let error = error {
-          print("Error getting memory: \(error.localizedDescription)")
+          print("Error getting memories: \(error.localizedDescription)")
           return
         }
-
-        self.memories = querySnapshot?.documents.compactMap { document in
+        
+        let memories = querySnapshot?.documents.compactMap { document in
           try? document.data(as: Memory.self)
         } ?? []
+        completionHandler(memories)
       }
   }
-
+  
+  func getPhoto(_ completionHandler: @escaping (_ image: UIImage) -> Void, _ url: String) -> Void {
+    let storage = Storage.storage()
+    let ref = storage.reference().child(url)
+    ref.getData(maxSize: 1 * 1024 * 1024) { data, error in
+      if let error = error {
+        print("Error getting photo \(url): \(error)")
+      } else {
+        let image = UIImage(data: data!)
+        completionHandler(image!)
+      }
+    }
+  }
+  
   // MARK: CRUD methods
   func add(_ memory: Memory) {
     do {
@@ -44,7 +64,7 @@ class MemoryRepository: ObservableObject {
       fatalError("Unable to add memory: \(error.localizedDescription).")
     }
   }
-
+  
   func update(_ memory: Memory) {
     guard let memoryID = memory.id else { return }
     
@@ -54,7 +74,7 @@ class MemoryRepository: ObservableObject {
       fatalError("Unable to update memory: \(error.localizedDescription).")
     }
   }
-
+  
   func remove(_ memory: Memory) {
     guard let memoryID = memory.id else { return }
     
@@ -65,6 +85,5 @@ class MemoryRepository: ObservableObject {
     }
   }
   
-
+  
 }
-

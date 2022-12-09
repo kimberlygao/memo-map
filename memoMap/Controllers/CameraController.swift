@@ -21,16 +21,17 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   @Published var preview = AVCaptureVideoPreviewLayer()
   
   @Published var isSaved = false
-
+  
   @Published var photos = []
   @Published var images : [UIImage] = []
   @Published var photo1 = Data(count: 0)
   @Published var photo2 = Data(count: 0)
   
-  var image1Done = false
+  @Published var image1Done = false
   
+  @Published var showControls = true
   var backCameraOn = true
-  var flashOn = false
+  @Published var flashMode : AVCaptureDevice.FlashMode = .off
   
   var backCamera : AVCaptureDevice!
   var frontCamera : AVCaptureDevice!
@@ -38,11 +39,20 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
   var backInput : AVCaptureInput!
   var frontInput : AVCaptureInput!
   
+  @Published var hasChecked = false
+  
+  
+  
   // check camera usage permissions
   func check() {
+    if hasChecked {
+      return
+    }
+    
     switch AVCaptureDevice.authorizationStatus(for: .video) {
     case .authorized:
       setUp()
+      hasChecked = true
       return
     case .notDetermined:
       AVCaptureDevice.requestAccess(for: .video) { (status) in
@@ -56,6 +66,8 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     default:
       return
     }
+    
+    
     
   }
   
@@ -71,22 +83,32 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
       self.setUpOutput()
       
       self.session.commitConfiguration()
-      
-      self.session.startRunning()
     }
   }
   
   func setUpInputs() {
-    if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
+    if let device = AVCaptureDevice.default(.builtInTripleCamera, for: .video, position: .back) {
       backCamera = device
+      do {
+        try backCamera.lockForConfiguration()
+        let zoomFactor:CGFloat = 8
+        backCamera.videoZoomFactor = zoomFactor
+        backCamera.unlockForConfiguration()
+      } catch {
+        print("ZOOM ERROR")
+      }
     } else {
-      fatalError("no back camera")
+      if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
+        backCamera = device
+      } else {
+        fatalError("no back camera")
+      }
     }
     
     if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
       frontCamera = device
     } else {
-      fatalError("no back camera")
+      fatalError("no front camera")
     }
     
     guard let bInput = try? AVCaptureDeviceInput(device: backCamera) else {
@@ -116,26 +138,12 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     }
   }
   
-  func setUpPreviewLayer() {
-    self.preview = AVCaptureVideoPreviewLayer(session: self.session)
-    self.preview.frame = view.frame
-    self.preview.videoGravity = .resizeAspectFill
-  }
-  
   func takePhoto() {
-    print("TAKEPHOTO")
     DispatchQueue.global(qos: .background).async {
-      self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-//      if self.image1Done {
-//        print("TAKING IMaGE 2")
-//        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-//        print("finished taking image 2")
-//      } else {
-//        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-//        self.flipCamera()
-//      }
-    
+      self.output.capturePhoto(with: self.getSettings(), delegate: self)
     }
+    
+    self.showControls = false
   }
   
   func photoOutput(_ _output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -147,21 +155,23 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     
     var photo = Data(count: 0)
     photo = imageData
-
+    
     self.images.append(UIImage(data: photo)!)
     
     self.photos.append(photo)
     
-    print(photos)
     
     if photos.count == 1 {
-      DispatchQueue.main.async {
+      let secondsToDelay = 1.5
+      DispatchQueue.main.async() {
         withAnimation{self.image1Done.toggle()}
       }
       self.flipCamera()
-      self.takePhoto()
+      DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay)  {
+        self.takePhoto()
+      }
     } else {
-      self.session.stopRunning()
+      //      self.session.stopRunning()
       
       DispatchQueue.main.async {
         withAnimation{self.isTaken.toggle()}
@@ -169,21 +179,45 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     }
   }
   
+  func start () {
+    DispatchQueue.global(qos: .userInitiated).async {
+      self.session.startRunning()
+    }
+  }
+  
   func reTake() {
-    print("RETAKING")
     DispatchQueue.global(qos: .background).async {
       self.flipCamera()
-      self.session.startRunning()
+      //      self.session.startRunning()
       
       DispatchQueue.main.async {
-        withAnimation{self.isTaken.toggle()}
+        //        withAnimation{self.isTaken.toggle()}
+        self.image1Done = false
+        self.isTaken = false
         self.photos = []
         self.images = []
         self.isSaved = false
-        self.image1Done = false
-        self.isTaken = false
+        self.showControls = true
       }
+      
+      
     }
+  }
+  
+  func reset() {
+    DispatchQueue.main.async {
+      //      withAnimation{self.isTaken.toggle()}
+      
+      self.image1Done = false
+      self.isTaken = false
+      self.photos = []
+      self.images = []
+      self.isSaved = false
+      self.showControls = true
+      
+    }
+    
+    
   }
   
   
@@ -200,24 +234,28 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     }
     
     session.commitConfiguration()
-
+    
   }
-
+  
+  func getSettings() -> AVCapturePhotoSettings {
+    let settings = AVCapturePhotoSettings()
+    
+    if backCameraOn && backCamera.hasFlash {
+      settings.flashMode = flashMode
+    } else if frontCamera.hasFlash {
+      settings.flashMode = flashMode
+    }
+    
+    return settings
+  }
+  
   
   func toggleFlash() {
-    let photoSetting = AVCapturePhotoSettings()
-    
-//    if flashOn
-//    switch photoSetting.flashMode {
-//      case .on:
-//        print("on")
-//      case .off:
-//        print("off")
-//      case .auto:
-//        print("auto")
-//    @unknown default:
-//      <#fatalError()#>
-//    }
+    if self.flashMode == .off {
+      self.flashMode = .on
+    } else {
+      self.flashMode = .off
+    }
   }
   
   func savePhoto () {
@@ -228,5 +266,5 @@ class CameraController: UIViewController, ObservableObject, AVCapturePhotoCaptur
     print("saved successfully")
   }
   
-
+  
 }

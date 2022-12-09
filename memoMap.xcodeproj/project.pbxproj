@@ -7,22 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B3B4AD529259BE900639C99 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */; };
+		2B3B4AD72925EB5000639C99 /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD62925EB5000639C99 /* ImageAnnotationView.swift */; };
+		2B3B4AD92925FFF500639C99 /* ImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4AD82925FFF500639C99 /* ImageAnnotation.swift */; };
+		2B3B4B0A292AA9DB00639C99 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */; };
+		2B3B4B0C292AA9DB00639C99 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 2B3B4B0B292AA9DB00639C99 /* Dependencies */; };
+		2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */; };
+		D5AED16340C5BEBBD3C5754A /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B54291CD20D00399450 /* AddFriendsView.swift */; };
-		E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B56291CD55E00399450 /* FriendsProfileView.swift */; };
 		E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B72291DFDBB00399450 /* MapViewController.swift */; };
 		E51B3B75291DFDBB00399450 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B73291DFDBB00399450 /* SearchViewController.swift */; };
 		E51B3B77291DFE5F00399450 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B76291DFE5F00399450 /* SearchView.swift */; };
-		E51B3B79291E20C100399450 /* FriendsProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B78291E20C100399450 /* FriendsProfileView2.swift */; };
 		E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B7A291E211D00399450 /* MemoryGridView.swift */; };
+		E51B3B7D292220C600399450 /* FriendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B7C292220C600399450 /* FriendRepository.swift */; };
+		E51B3B7F2922E1D400399450 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B7E2922E1D400399450 /* ProfileView.swift */; };
+		E51B3B812922E3E400399450 /* FriendRequestBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B3B802922E3E400399450 /* FriendRequestBar.swift */; };
+		E51FA26D293859D100C79CC6 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FA26C293859D100C79CC6 /* SearchController.swift */; };
+		E51FA26F293859EF00C79CC6 /* MapViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FA26E293859EF00C79CC6 /* MapViewWrapper.swift */; };
+		E51FA27129385A1D00C79CC6 /* CountClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FA27029385A1D00C79CC6 /* CountClusterAnnotationView.swift */; };
+		E51FA273293861AF00C79CC6 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B4B032926C49800639C99 /* LocationDetailView.swift */; };
 		E521D734291CB252002EB6FF /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D731291CB252002EB6FF /* UserRepository.swift */; };
 		E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D732291CB252002EB6FF /* PlaceRepository.swift */; };
 		E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521D733291CB252002EB6FF /* MemoryRepository.swift */; };
-		E54B64E929170F42006BBD2F /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64E829170F42006BBD2F /* Camera.swift */; };
 		E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EA29186494006BBD2F /* CameraControlsView.swift */; };
 		E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */; };
-		E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64EE29187345006BBD2F /* LocationRowView.swift */; };
-		E54B64F1291875BB006BBD2F /* MiniPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */; };
-		E54B64F329188969006BBD2F /* CapturedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B64F229188969006BBD2F /* CapturedImageView.swift */; };
 		E55AD3A8291C9C0100F46D54 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A2291C9C0100F46D54 /* Memory.swift */; };
 		E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */; };
 		E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3A4291C9C0100F46D54 /* Prompt.swift */; };
@@ -32,6 +40,12 @@
 		E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */; };
 		E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B4291C9D9400F46D54 /* UserController.swift */; };
 		E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */; };
+		E56F5F7A293FDBD60012AB41 /* PromptMapWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56F5F79293FDBD60012AB41 /* PromptMapWrapper.swift */; };
+		E59C2FD929402608009E12CE /* DailyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C2FD829402608009E12CE /* DailyRepository.swift */; };
+		E59C2FDB2940261D009E12CE /* PromptRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C2FDA2940261D009E12CE /* PromptRepository.swift */; };
+		E59C2FDD29402632009E12CE /* DailyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C2FDC29402632009E12CE /* DailyController.swift */; };
+		E59C2FDF29402647009E12CE /* PromptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C2FDE29402647009E12CE /* PromptController.swift */; };
+		E59C2FE1294031F5009E12CE /* PromptMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59C2FE0294031F5009E12CE /* PromptMapView.swift */; };
 		E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC452913433300DF0180 /* memoMapApp.swift */; };
 		E5BFDC482913433300DF0180 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC472913433300DF0180 /* ContentView.swift */; };
 		E5BFDC4A2913433300DF0180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BFDC492913433300DF0180 /* Assets.xcassets */; };
@@ -66,29 +80,44 @@
 		E5BFDC912913456200DF0180 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E5BFDC902913456200DF0180 /* FirebaseStorageCombine-Community */; };
 		E5BFDC972913499D00DF0180 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC962913499D00DF0180 /* MapView.swift */; };
 		E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC98291349A500DF0180 /* CameraView.swift */; };
-		E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC9A291349AF00DF0180 /* PromptView.swift */; };
 		E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDC9F29134DE500DF0180 /* ViewController.swift */; };
 		E5BFDCA229134E1400DF0180 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDCA129134E1400DF0180 /* Location.swift */; };
 		E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFDCA62913537900DF0180 /* CameraController.swift */; };
+		E5CF74B2293BA4910039287E /* RecentsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CF74B1293BA4910039287E /* RecentsSheetView.swift */; };
+		E5CF74B4293BA49F0039287E /* RecentsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CF74B3293BA49F0039287E /* RecentsGridView.swift */; };
+		E5CF74B6293BA4AE0039287E /* PromptScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CF74B5293BA4AE0039287E /* PromptScrollView.swift */; };
+		E5CF74B8293BA5770039287E /* PromptSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CF74B7293BA5770039287E /* PromptSelectView.swift */; };
+		E5EDE2662936CFFE0045402C /* SingleMemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */; };
+		E5EDE268293701AD0045402C /* MemoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDE267293701AD0045402C /* MemoryScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
+		2B3B4AD62925EB5000639C99 /* ImageAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
+		2B3B4AD82925FFF500639C99 /* ImageAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotation.swift; sourceTree = "<group>"; };
+		2B3B4B032926C49800639C99 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		2B3B4B052926C5BD00639C99 /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
+		2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleter.swift; sourceTree = "<group>"; };
+		2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
+		2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSheetView.swift; sourceTree = "<group>"; };
+		6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.release.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.release.xcconfig"; sourceTree = "<group>"; };
+		8FAA65C3D591395054E49171 /* Pods-memoMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memoMap.debug.xcconfig"; path = "Target Support Files/Pods-memoMap/Pods-memoMap.debug.xcconfig"; sourceTree = "<group>"; };
 		E51B3B54291CD20D00399450 /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
-		E51B3B56291CD55E00399450 /* FriendsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView.swift; sourceTree = "<group>"; };
 		E51B3B72291DFDBB00399450 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = memoMap/Controllers/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		E51B3B73291DFDBB00399450 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = memoMap/Controllers/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
 		E51B3B76291DFE5F00399450 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		E51B3B78291E20C100399450 /* FriendsProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfileView2.swift; sourceTree = "<group>"; };
 		E51B3B7A291E211D00399450 /* MemoryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGridView.swift; sourceTree = "<group>"; };
+		E51B3B7C292220C600399450 /* FriendRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRepository.swift; sourceTree = "<group>"; };
+		E51B3B7E2922E1D400399450 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E51B3B802922E3E400399450 /* FriendRequestBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestBar.swift; sourceTree = "<group>"; };
+		E51FA26C293859D100C79CC6 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		E51FA26E293859EF00C79CC6 /* MapViewWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewWrapper.swift; path = memoMap/Views/Map/MapViewWrapper.swift; sourceTree = SOURCE_ROOT; };
+		E51FA27029385A1D00C79CC6 /* CountClusterAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountClusterAnnotationView.swift; sourceTree = "<group>"; };
 		E521D731291CB252002EB6FF /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		E521D732291CB252002EB6FF /* PlaceRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceRepository.swift; sourceTree = "<group>"; };
 		E521D733291CB252002EB6FF /* MemoryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryRepository.swift; sourceTree = "<group>"; };
-		E54B64E829170F42006BBD2F /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		E54B64EA29186494006BBD2F /* CameraControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControlsView.swift; sourceTree = "<group>"; };
 		E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryControlsView.swift; sourceTree = "<group>"; };
-		E54B64EE29187345006BBD2F /* LocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRowView.swift; sourceTree = "<group>"; };
-		E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPhotoView.swift; sourceTree = "<group>"; };
-		E54B64F229188969006BBD2F /* CapturedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturedImageView.swift; sourceTree = "<group>"; };
 		E55AD3A2291C9C0100F46D54 /* Memory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequest.swift; sourceTree = "<group>"; };
 		E55AD3A4291C9C0100F46D54 /* Prompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
@@ -98,6 +127,12 @@
 		E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryController.swift; sourceTree = "<group>"; };
 		E55AD3B4291C9D9400F46D54 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceController.swift; sourceTree = "<group>"; };
+		E56F5F79293FDBD60012AB41 /* PromptMapWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptMapWrapper.swift; sourceTree = "<group>"; };
+		E59C2FD829402608009E12CE /* DailyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRepository.swift; sourceTree = "<group>"; };
+		E59C2FDA2940261D009E12CE /* PromptRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptRepository.swift; sourceTree = "<group>"; };
+		E59C2FDC29402632009E12CE /* DailyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyController.swift; sourceTree = "<group>"; };
+		E59C2FDE29402647009E12CE /* PromptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptController.swift; sourceTree = "<group>"; };
+		E59C2FE0294031F5009E12CE /* PromptMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptMapView.swift; sourceTree = "<group>"; };
 		E5BFDC422913433300DF0180 /* memoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5BFDC452913433300DF0180 /* memoMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoMapApp.swift; sourceTree = "<group>"; };
 		E5BFDC472913433300DF0180 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,11 +141,16 @@
 		E5BFDC592913449400DF0180 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5BFDC962913499D00DF0180 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E5BFDC98291349A500DF0180 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		E5BFDC9A291349AF00DF0180 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
 		E5BFDC9F29134DE500DF0180 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5BFDCA129134E1400DF0180 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E5BFDCA329134FD900DF0180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E5BFDCA62913537900DF0180 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		E5CF74B1293BA4910039287E /* RecentsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsSheetView.swift; sourceTree = "<group>"; };
+		E5CF74B3293BA49F0039287E /* RecentsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsGridView.swift; sourceTree = "<group>"; };
+		E5CF74B5293BA4AE0039287E /* PromptScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptScrollView.swift; sourceTree = "<group>"; };
+		E5CF74B7293BA5770039287E /* PromptSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptSelectView.swift; sourceTree = "<group>"; };
+		E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMemoryView.swift; sourceTree = "<group>"; };
+		E5EDE267293701AD0045402C /* MemoryScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +160,7 @@
 			files = (
 				E5BFDC6F2913456100DF0180 /* FirebaseDatabase in Frameworks */,
 				E5BFDC7D2913456100DF0180 /* FirebaseFunctionsCombine-Community in Frameworks */,
+				2B3B4B0A292AA9DB00639C99 /* ComposableArchitecture in Frameworks */,
 				E5BFDC752913456100DF0180 /* FirebaseFirestore in Frameworks */,
 				E5BFDC612913456100DF0180 /* FirebaseAnalyticsSwift in Frameworks */,
 				E5BFDC5D2913456100DF0180 /* FirebaseAnalytics in Frameworks */,
@@ -133,6 +174,7 @@
 				E5BFDC8D2913456200DF0180 /* FirebaseRemoteConfigSwift in Frameworks */,
 				E5BFDC7F2913456100DF0180 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				E5BFDC712913456100DF0180 /* FirebaseDatabaseSwift in Frameworks */,
+				2B3B4B0C292AA9DB00639C99 /* Dependencies in Frameworks */,
 				E5BFDC7B2913456100DF0180 /* FirebaseFunctions in Frameworks */,
 				E5BFDC912913456200DF0180 /* FirebaseStorageCombine-Community in Frameworks */,
 				E5BFDC8B2913456200DF0180 /* FirebaseRemoteConfig in Frameworks */,
@@ -145,18 +187,81 @@
 				E5BFDC772913456100DF0180 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				E5BFDC872913456100DF0180 /* FirebaseMessaging in Frameworks */,
 				E5BFDC832913456100DF0180 /* FirebaseInstallations in Frameworks */,
+				D5AED16340C5BEBBD3C5754A /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8FAFD48423445AB465AE07C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9D7D516444C69217E9ADE63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FAA65C3D591395054E49171 /* Pods-memoMap.debug.xcconfig */,
+				6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E51FA2342938549700C79CC6 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				2B3B4B0F292C146D00639C99 /* CountClusterAnnotationView.swift */,
+				2B3B4B052926C5BD00639C99 /* MapViewWrapper.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		E51FA2722938619900C79CC6 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E51FA26E293859EF00C79CC6 /* MapViewWrapper.swift */,
+				E5BFDC962913499D00DF0180 /* MapView.swift */,
+				E51FA27029385A1D00C79CC6 /* CountClusterAnnotationView.swift */,
+				E51B3B76291DFE5F00399450 /* SearchView.swift */,
+				2B3B4B032926C49800639C99 /* LocationDetailView.swift */,
+				2BBBAF9E29384D7300A1621E /* LocationSheetView.swift */,
+				2B3B4AD62925EB5000639C99 /* ImageAnnotationView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		E51FA274293955A400C79CC6 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				E51B3B802922E3E400399450 /* FriendRequestBar.swift */,
+				E51B3B54291CD20D00399450 /* AddFriendsView.swift */,
+				E51B3B7E2922E1D400399450 /* ProfileView.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		E51FA2752939567500C79CC6 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				E54B64EA29186494006BBD2F /* CameraControlsView.swift */,
+				E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */,
+				E5BFDC98291349A500DF0180 /* CameraView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		E521D730291CB252002EB6FF /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				E51B3B7C292220C600399450 /* FriendRepository.swift */,
 				E521D731291CB252002EB6FF /* UserRepository.swift */,
 				E521D732291CB252002EB6FF /* PlaceRepository.swift */,
 				E521D733291CB252002EB6FF /* MemoryRepository.swift */,
+				E59C2FD829402608009E12CE /* DailyRepository.swift */,
+				E59C2FDA2940261D009E12CE /* PromptRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -166,6 +271,9 @@
 			children = (
 				E5BFDC442913433300DF0180 /* memoMap */,
 				E5BFDC432913433300DF0180 /* Products */,
+				C9D7D516444C69217E9ADE63 /* Pods */,
+				8FAFD48423445AB465AE07C5 /* Frameworks */,
+				E51FA2342938549700C79CC6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,21 +311,15 @@
 		E5BFDC922913474E00DF0180 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5CF74B9293BBC140039287E /* Prompt */,
+				E51FA2722938619900C79CC6 /* Map */,
+				E51FA2752939567500C79CC6 /* Camera */,
+				E51FA274293955A400C79CC6 /* Friends */,
 				E5BFDC492913433300DF0180 /* Assets.xcassets */,
 				E5BFDC472913433300DF0180 /* ContentView.swift */,
-				E5BFDC962913499D00DF0180 /* MapView.swift */,
-				E51B3B76291DFE5F00399450 /* SearchView.swift */,
-				E5BFDC98291349A500DF0180 /* CameraView.swift */,
-				E54B64EA29186494006BBD2F /* CameraControlsView.swift */,
-				E54B64EC291864E5006BBD2F /* MemoryControlsView.swift */,
-				E5BFDC9A291349AF00DF0180 /* PromptView.swift */,
-				E54B64F0291875BB006BBD2F /* MiniPhotoView.swift */,
-				E54B64F229188969006BBD2F /* CapturedImageView.swift */,
-				E54B64EE29187345006BBD2F /* LocationRowView.swift */,
-				E51B3B54291CD20D00399450 /* AddFriendsView.swift */,
-				E51B3B56291CD55E00399450 /* FriendsProfileView.swift */,
-				E51B3B78291E20C100399450 /* FriendsProfileView2.swift */,
 				E51B3B7A291E211D00399450 /* MemoryGridView.swift */,
+				E5EDE267293701AD0045402C /* MemoryScrollView.swift */,
+				E5EDE2652936CFFE0045402C /* SingleMemoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,11 +330,13 @@
 				E5BFDCA129134E1400DF0180 /* Location.swift */,
 				E55AD3A7291C9C0100F46D54 /* DailyPrompt.swift */,
 				E55AD3A3291C9C0100F46D54 /* FriendRequest.swift */,
+				2B3B4AD429259BE900639C99 /* LocationAnnotation.swift */,
+				2B3B4B0D292AAF7900639C99 /* SearchCompleter.swift */,
+				2B3B4AD82925FFF500639C99 /* ImageAnnotation.swift */,
 				E55AD3A2291C9C0100F46D54 /* Memory.swift */,
 				E55AD3A5291C9C0100F46D54 /* Place.swift */,
 				E55AD3A4291C9C0100F46D54 /* Prompt.swift */,
 				E55AD3A6291C9C0100F46D54 /* User.swift */,
-				E54B64E829170F42006BBD2F /* Camera.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,6 +344,7 @@
 		E5BFDC9E29134DD600DF0180 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E51FA26C293859D100C79CC6 /* SearchController.swift */,
 				E55AD3B2291C9D8C00F46D54 /* MemoryController.swift */,
 				E55AD3B6291C9E4D00F46D54 /* PlaceController.swift */,
 				E5BFDC9F29134DE500DF0180 /* ViewController.swift */,
@@ -247,8 +352,23 @@
 				E55AD3B4291C9D9400F46D54 /* UserController.swift */,
 				E51B3B72291DFDBB00399450 /* MapViewController.swift */,
 				E51B3B73291DFDBB00399450 /* SearchViewController.swift */,
+				E59C2FDC29402632009E12CE /* DailyController.swift */,
+				E59C2FDE29402647009E12CE /* PromptController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E5CF74B9293BBC140039287E /* Prompt */ = {
+			isa = PBXGroup;
+			children = (
+				E5CF74B7293BA5770039287E /* PromptSelectView.swift */,
+				E5CF74B3293BA49F0039287E /* RecentsGridView.swift */,
+				E5CF74B1293BA4910039287E /* RecentsSheetView.swift */,
+				E5CF74B5293BA4AE0039287E /* PromptScrollView.swift */,
+				E56F5F79293FDBD60012AB41 /* PromptMapWrapper.swift */,
+				E59C2FE0294031F5009E12CE /* PromptMapView.swift */,
+			);
+			path = Prompt;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +378,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5BFDC502913433300DF0180 /* Build configuration list for PBXNativeTarget "memoMap" */;
 			buildPhases = (
+				51ED382E9063DA1AF691A9A9 /* [CP] Check Pods Manifest.lock */,
 				E5BFDC3E2913433300DF0180 /* Sources */,
 				E5BFDC3F2913433300DF0180 /* Frameworks */,
 				E5BFDC402913433300DF0180 /* Resources */,
+				98955CC2916BCA9730FAB7EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -295,6 +417,8 @@
 				E5BFDC8C2913456200DF0180 /* FirebaseRemoteConfigSwift */,
 				E5BFDC8E2913456200DF0180 /* FirebaseStorage */,
 				E5BFDC902913456200DF0180 /* FirebaseStorageCombine-Community */,
+				2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */,
+				2B3B4B0B292AA9DB00639C99 /* Dependencies */,
 			);
 			productName = memoMap;
 			productReference = E5BFDC422913433300DF0180 /* memoMap.app */;
@@ -326,6 +450,7 @@
 			mainGroup = E5BFDC392913433300DF0180;
 			packageReferences = (
 				E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = E5BFDC432913433300DF0180 /* Products */;
 			projectDirPath = "";
@@ -349,42 +474,100 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		51ED382E9063DA1AF691A9A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-memoMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98955CC2916BCA9730FAB7EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memoMap/Pods-memoMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E5BFDC3E2913433300DF0180 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E51B3B75291DFDBB00399450 /* SearchViewController.swift in Sources */,
+				E51FA26F293859EF00C79CC6 /* MapViewWrapper.swift in Sources */,
+				E5EDE2662936CFFE0045402C /* SingleMemoryView.swift in Sources */,
+				E59C2FDF29402647009E12CE /* PromptController.swift in Sources */,
+				E59C2FDB2940261D009E12CE /* PromptRepository.swift in Sources */,
 				E55AD3B7291C9E4D00F46D54 /* PlaceController.swift in Sources */,
-				E54B64F1291875BB006BBD2F /* MiniPhotoView.swift in Sources */,
+				E5EDE268293701AD0045402C /* MemoryScrollView.swift in Sources */,
 				E5BFDCA72913537900DF0180 /* CameraController.swift in Sources */,
 				E5BFDC482913433300DF0180 /* ContentView.swift in Sources */,
 				E55AD3A8291C9C0100F46D54 /* Memory.swift in Sources */,
 				E55AD3B5291C9D9400F46D54 /* UserController.swift in Sources */,
 				E5BFDC972913499D00DF0180 /* MapView.swift in Sources */,
+				2BBBAF9F29384D7300A1621E /* LocationSheetView.swift in Sources */,
 				E5BFDCA229134E1400DF0180 /* Location.swift in Sources */,
 				E55AD3AA291C9C0100F46D54 /* Prompt.swift in Sources */,
+				2B3B4AD72925EB5000639C99 /* ImageAnnotationView.swift in Sources */,
 				E54B64EB29186494006BBD2F /* CameraControlsView.swift in Sources */,
-				E51B3B57291CD55E00399450 /* FriendsProfileView.swift in Sources */,
+				E51FA26D293859D100C79CC6 /* SearchController.swift in Sources */,
+				E56F5F7A293FDBD60012AB41 /* PromptMapWrapper.swift in Sources */,
+				E51FA27129385A1D00C79CC6 /* CountClusterAnnotationView.swift in Sources */,
+				E51B3B7F2922E1D400399450 /* ProfileView.swift in Sources */,
+				E5CF74B6293BA4AE0039287E /* PromptScrollView.swift in Sources */,
 				E51B3B55291CD20D00399450 /* AddFriendsView.swift in Sources */,
+				2B3B4AD92925FFF500639C99 /* ImageAnnotation.swift in Sources */,
 				E5BFDC462913433300DF0180 /* memoMapApp.swift in Sources */,
-				E5BFDC9B291349AF00DF0180 /* PromptView.swift in Sources */,
+				E5CF74B2293BA4910039287E /* RecentsSheetView.swift in Sources */,
 				E51B3B77291DFE5F00399450 /* SearchView.swift in Sources */,
-				E54B64E929170F42006BBD2F /* Camera.swift in Sources */,
+				E59C2FD929402608009E12CE /* DailyRepository.swift in Sources */,
+				E5CF74B4293BA49F0039287E /* RecentsGridView.swift in Sources */,
+				E51B3B7D292220C600399450 /* FriendRepository.swift in Sources */,
+				E51B3B812922E3E400399450 /* FriendRequestBar.swift in Sources */,
 				E5BFDCA029134DE500DF0180 /* ViewController.swift in Sources */,
 				E521D734291CB252002EB6FF /* UserRepository.swift in Sources */,
 				E5BFDC99291349A500DF0180 /* CameraView.swift in Sources */,
 				E55AD3B3291C9D8C00F46D54 /* MemoryController.swift in Sources */,
-				E54B64F329188969006BBD2F /* CapturedImageView.swift in Sources */,
-				E54B64EF29187345006BBD2F /* LocationRowView.swift in Sources */,
 				E55AD3AB291C9C0100F46D54 /* Place.swift in Sources */,
 				E51B3B7B291E211D00399450 /* MemoryGridView.swift in Sources */,
 				E54B64ED291864E5006BBD2F /* MemoryControlsView.swift in Sources */,
+				E51FA273293861AF00C79CC6 /* LocationDetailView.swift in Sources */,
 				E55AD3AD291C9C0100F46D54 /* DailyPrompt.swift in Sources */,
 				E55AD3A9291C9C0100F46D54 /* FriendRequest.swift in Sources */,
 				E521D735291CB252002EB6FF /* PlaceRepository.swift in Sources */,
+				E59C2FDD29402632009E12CE /* DailyController.swift in Sources */,
+				2B3B4AD529259BE900639C99 /* LocationAnnotation.swift in Sources */,
+				E59C2FE1294031F5009E12CE /* PromptMapView.swift in Sources */,
+				E5CF74B8293BA5770039287E /* PromptSelectView.swift in Sources */,
 				E521D736291CB252002EB6FF /* MemoryRepository.swift in Sources */,
-				E51B3B79291E20C100399450 /* FriendsProfileView2.swift in Sources */,
 				E51B3B74291DFDBB00399450 /* MapViewController.swift in Sources */,
 				E55AD3AC291C9C0100F46D54 /* User.swift in Sources */,
 			);
@@ -509,9 +692,11 @@
 		};
 		E5BFDC512913433300DF0180 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FAA65C3D591395054E49171 /* Pods-memoMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"memoMap/Preview Content\"";
@@ -519,7 +704,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = memoMap/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to access your camera.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app would like to use your location.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app would like to access your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -532,8 +717,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kwgao.memoMap;
+				PRODUCT_BUNDLE_IDENTIFIER = kwgao1.memoMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -542,9 +728,11 @@
 		};
 		E5BFDC522913433300DF0180 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F42D79D76FA58DB9766787B /* Pods-memoMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"memoMap/Preview Content\"";
@@ -552,7 +740,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = memoMap/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to access your camera.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app would like to use your location.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app would like to access your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -565,8 +753,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kwgao.memoMap;
+				PRODUCT_BUNDLE_IDENTIFIER = kwgao1.memoMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -597,6 +786,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.46.0;
+			};
+		};
 		E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -608,6 +805,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2B3B4B09292AA9DB00639C99 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		2B3B4B0B292AA9DB00639C99 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B3B4B08292AA9DB00639C99 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = Dependencies;
+		};
 		E5BFDC5C2913456100DF0180 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E5BFDC5B2913456100DF0180 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

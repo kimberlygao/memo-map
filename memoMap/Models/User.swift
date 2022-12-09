@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct User: Identifiable, Codable {
+struct User: Identifiable, Codable, Hashable {
   
   // MARK: Fields
   @DocumentID var id: String?
@@ -20,7 +20,8 @@ struct User: Identifiable, Codable {
   var memories: [String]
   var name: String
   var password: String
-  var requests: [String]?
+  var requests: [String]
+  var pfp: String
   
   // MARK: Codable
   enum CodingKeys: String, CodingKey {
@@ -30,18 +31,19 @@ struct User: Identifiable, Codable {
     case memories
     case name
     case password
-    case requests = "friend_requests"
+    case requests
+    case pfp
   }
   
-  init(email: String, friends: [String], memories: [String], name: String, password: String, requests: [String]?) {
+  init(email: String, friends: [String], memories: [String], name: String, password: String, requests: [String], pfp: String) {
     self.email = email
     self.friends = friends
     self.memories = memories
     self.name = name
     self.password = password
     self.requests = requests
+    self.pfp = pfp
   }
 
 }
-
 

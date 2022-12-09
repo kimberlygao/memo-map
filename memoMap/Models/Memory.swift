@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-struct Memory: Identifiable, Codable {
+struct Memory: Identifiable, Codable, Hashable {
   
   // MARK: Fields
   @DocumentID var id: String?
@@ -18,6 +18,7 @@ struct Memory: Identifiable, Codable {
   var location: String
   var username: String
   var timestamp: Date
+  var memid: String
   
   // MARK: Codable
   enum CodingKeys: String, CodingKey {
@@ -27,9 +28,10 @@ struct Memory: Identifiable, Codable {
     case location
     case username
     case timestamp
+    case memid
   }
   
-  init(id: String, caption: String, front: String, back: String, location: String, username: String, timestamp: Date) {
+  init(id: String, caption: String, front: String, back: String, location: String, username: String, timestamp: Date, memid: String) {
     self.id = id
     self.caption = caption
     self.front = front
@@ -37,5 +39,6 @@ struct Memory: Identifiable, Codable {
     self.location = location
     self.username = username
     self.timestamp = timestamp
+    self.memid = memid
   }
 }
