@@ -43,14 +43,6 @@ struct MapViewWrapper: View {
                             }
                             Spacer()
                                    .frame(height: 20)
-                            
-                            
-//                            Button ("hello", action: {
-//                                let loc: Place? = placeController.places.first { $0.address == self.selectedPin?.address }
-//                                MemoryGridView(memoryController: memoryController, place: loc!, userController: userController)
-//                              print("in mapview wrapper")
-//                                print("address is", loc!)
-////                              print("")
 //
 //                            })
                             let loc: Place? = placeController.places.first { $0.address == self.selectedPin?.address }

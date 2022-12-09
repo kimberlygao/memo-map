@@ -14,8 +14,6 @@ protocol SearchControllerDelegate: AnyObject {
 }
 
 class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
-    //    private let label = UILa
-    
     @Published var annotations = [ImageAnnotation]()
     @Published var searchQuery = ""
     @Published var isSearching = false
@@ -33,9 +31,6 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func performSearch() {
-        print("searching")
-        //        self.mapView.removeAnnotations(mapView.annotations)
-        // reset search annotations
         if self.searchQuery == "" {
             self.annotations = []
         }
@@ -58,41 +53,11 @@ class SearchController: NSObject, ObservableObject, CLLocationManagerDelegate {
                 let annotation = ImageAnnotation(id: UUID().uuidString, locAnnotation: LA, image: UIImage(named: "blank") ?? UIImage(), address: "")
                 annotation.isMemory = false
                 annotation.image = UIImage(named: "blank")
-//                let annotation = ImageAnnotation(locAnnotation: loc)
-//                annotation.url = "https://lh3.googleusercontent.com/p/AF1QipP5UAJ9UxBIImLai1GyUC-pqgojujTOA3wbG8zy=s1360-w1360-h1020"
-//                let annotation = LocationAnnotation(title: mapItem.name ?? "", subtitle: "", coordinate: mapItem.placemark.coordinate)
-//                annotation.coordinate = mapItem.placemark.coordinate
-//                annotation.title = mapItem.name
-                
                 annotationsResult.append(annotation)
             })
             self.annotations = annotationsResult
             self.isSearching = true
-            //            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
         }
-        
-//        for annotation in self.annotations {
-//            print("loaded url:", annotation.url)
-//            DispatchQueue.main.async {
-//                let request = NSMutableURLRequest(url: URL(string: annotation.url)!)
-//                request.httpMethod = "GET"
-//                let session = URLSession(configuration: URLSessionConfiguration.default)
-//                let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
-//                    if error == nil {
-//                        let loc = LocationAnnotation(title: annotation.title ?? "", subtitle: annotation.subtitle ?? "", coordinate: annotation.coordinate)
-//                        let annotation = ImageAnnotation(locAnnotation: loc)
-////                        annotation.coordinate = memory.coordinate
-//                        annotation.image = UIImage(data: data!, scale: UIScreen.main.scale)
-////                        annotation.title = memory.title
-////                        annotation.subtitle = memory.subtitle
-////                        let locAnnotation = LocationAnnotation(title: memory.title, subtitle: memory.subtitle, coordinate: )
-//
-////                        let imageAnnotation = ImageAnnotation()
-//                    }
-//                }
-//                dataTask.resume()
-//            }
-//        }
-        print("all results:", self.annotations)
+//        print("all results:", self.annotations)
     }
 }

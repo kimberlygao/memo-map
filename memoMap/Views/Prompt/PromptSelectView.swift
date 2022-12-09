@@ -18,15 +18,13 @@ struct PromptSelectView: View {
     var body: some View {
       VStack {
         GeometryReader { geo in
-          SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: memory.back), smallImage: memoryController.getImageFromURL(url: memory.front), memory: memory, friendMemory: false, showLocation: false)
+          SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: memory.back), smallImage: memoryController.getImageFromURL(url: memory.front), memory: memory, friendMemory: false, showLocation: true)
             .frame(height: (geo.size.height - 30))
         }
         Button (action: {
           dailyController.selectAnswer(user: user, memory: memory)
             answered.toggle()
             promptController.showingRecents.toggle()
-          print("MEMORIES")
-          print(memoryController.memories)
         }) {
           Text("Select Memory")
         }
