@@ -135,14 +135,9 @@ struct ContentView: View {
           .opacity(0.9)
         }
       }
-      .sheet(isPresented: $showingSheet) {
-        NavigationView {
-//          LocationSheetView(memoryController: memoryController, place: placeController.places[0], userController: userController)
-        }.presentationDetents([.medium, .large])
-      }
-      .onAppear(perform: {
-          camera.check()
-      })
+//      .onAppear(perform: {
+//          camera.check()
+//      })
 
       
     }

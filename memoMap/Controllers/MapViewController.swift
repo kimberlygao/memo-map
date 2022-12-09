@@ -48,32 +48,4 @@ class MapViewController: NSObject, ObservableObject {
     return self.nearbyPlaces.map{$0.name ?? "no name"}
   }
   
-  
-  //    private func updateMapAnnotations(from mapView: MKMapView) {
-  //            // put all the nearby location annotations on the map
-  //            mapView.removeAnnotations(mapView.annotations)
-  //            let annotations = mapViewController.locations.map(LocationAnnotation.init)
-  //            mapView.addAnnotations(annotations)
-  //        }
-}
-
-
-//        private let regionRadius: CLLocationDistance = 1000
-//        func zoomMapOn(location: CLLocation)
-//        {
-//            let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-//            mapView.setRegion(coordinateRegion, animated: true)
-//        }
-//
-//        func checkLocationServiceAuthenticationStatus() {
-//            locationManager.delegate = self
-//            if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-//                mapView.showsUserLocation = true
-//            } else {
-//                locationManager.requestWhenInUseAuthorization()
-//            }
-//        }
-
-extension MapViewController : CLLocationManagerDelegate {
-  
 }

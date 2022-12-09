@@ -25,8 +25,6 @@ struct PromptSelectView: View {
           dailyController.selectAnswer(user: user, memory: memory)
             answered.toggle()
             promptController.showingRecents.toggle()
-          print("MEMORIES")
-          print(memoryController.memories)
         }) {
           Text("Select Memory")
         }
