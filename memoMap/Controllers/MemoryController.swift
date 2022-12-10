@@ -124,8 +124,6 @@ class MemoryController: ObservableObject {
     return pins
   }
   
-  
-  
   func getImageFromURL(url: String) -> UIImage {
     if let (_, image): (String, UIImage) = (self.images.first { $0.0 == url }) {
       return image
@@ -187,5 +185,12 @@ class MemoryController: ObservableObject {
     return date + " | " + time
   }
   
+  func placeToStr(placeID: String) -> String {
+    let place = placeController.places.first { $0.id! == placeID }
+    if let place = place {
+      return (place.name + ", " + place.city)
+    }
+      return "no place found"
+  }
   
 }

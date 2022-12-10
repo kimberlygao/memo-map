@@ -35,7 +35,7 @@ struct SingleMemoryView: View {
                   .frame(maxWidth: .infinity, alignment: .leading)
                   .foregroundColor(.black)
                 if showLocation {
-                  Text(memory.location)
+                  Text(memoryController.placeToStr(placeID: memory.location))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.gray)
                     .font(.system(size: 14))
