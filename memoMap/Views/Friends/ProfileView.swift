@@ -62,7 +62,7 @@ struct ProfileView: View {
           Spacer()
         }
         .padding(8)
-        .background(Color("light"))
+        .background(Color("pastel"))
         .cornerRadius(10)
 
       

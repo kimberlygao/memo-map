@@ -19,20 +19,6 @@ struct AddFriendsView: View {
   @ObservedObject var memoryController : MemoryController
   
   var body: some View {
-    Text("testing friendsdaily")
-    ForEach(memoryController.getFriendsDailys(user: userController.currentUser), id: \.self) { mem in
-      Text(mem.memid)
-      //            if let uiImage = image {
-      //            NavigationLink (destination: MemoryScrollView(memoryController: memoryController, memories: memories, scrollId: mem, placeName: place.name)){
-      //                Image(uiImage: memoryController.getImageFromURL(url: mem.back))
-      //                  .resizable()
-      //                  .aspectRatio(contentMode: .fill)
-      //                  .frame(width: (geo.size.width - 10) / 3, height: (geo.size.width - 10) / 3)
-      //                  .clipped()
-      //              }
-      //            }
-    }
-    
     VStack {
       
       HStack {

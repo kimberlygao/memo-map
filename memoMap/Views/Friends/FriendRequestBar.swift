@@ -66,7 +66,7 @@ struct FriendRequestBar: View {
     .padding(8)
     .padding(.leading, 6)
     .padding(.trailing, 6)
-    .background(Color("light"))
+    .background(Color("pastel"))
     .cornerRadius(10)
   }
 }

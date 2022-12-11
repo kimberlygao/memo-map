@@ -15,7 +15,6 @@ struct PromptScrollView: View {
   let userController : UserController
   
     var body: some View {
-      Text("placeholder")
       GeometryReader { geo in
         ScrollViewReader { value in
           ScrollView {
@@ -24,9 +23,9 @@ struct PromptScrollView: View {
                 VStack {
                   SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: mem.back), smallImage: memoryController.getImageFromURL(url: mem.front), memory: mem, friendMemory: true, showLocation: true)
               }
-                .frame(height: (geo.size.height - 40))
-                .padding(.top, 20)
-                .padding(.bottom, 30)
+                .frame(height: (geo.size.height - 30))
+                .padding(.top, 15)
+                .padding(.bottom, 15)
             }
           }.onAppear(
 //            perform: {value.scrollTo(scrollId)}

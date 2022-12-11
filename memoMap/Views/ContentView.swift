@@ -22,7 +22,7 @@ struct ContentView: View {
   @State var ownView = true
   @State var findUser = false
   @State private var showingSheet = false
-  @State private var mapButtonColor  = Color.blue
+  @State private var mapButtonColor  = Color("bold")
   @State private var promptButtonColor  = Color.black
   @State var answered = false
   
@@ -60,13 +60,13 @@ struct ContentView: View {
             HStack (alignment: .bottom) {
               Button(action: {ownView.toggle()}) {
                 VStack {
-                  let color1 : Color =  ownView ? .blue : .gray
+                  let color1 : Color =  ownView ? Color("bold") : .white
                   Image(systemName: "person")
                     .font(.system(size: 24))
                     .foregroundColor(color1)
                     .padding(6)
                     .padding(.top, 2)
-                  let color2 : Color =  ownView ? .gray : .blue
+                  let color2 : Color =  ownView ? .white : Color("bold")
                   Image(systemName: "globe.americas")
                     .font(.system(size: 24))
                     .foregroundColor(color2)
@@ -74,14 +74,14 @@ struct ContentView: View {
                     .padding(.bottom, 2)
                 }
               }
-              .background(Color("light"))
+              .background(Color("pastel"))
               .cornerRadius(50)
               
               Spacer()
                 Button(action: {findUser.toggle()}) {
                 Image(systemName: "location")
                   .font(.system(size: 24))
-                  .foregroundColor(.blue)
+                  .foregroundColor(Color("bold"))
               }
             }
             .padding(20)
@@ -98,7 +98,7 @@ struct ContentView: View {
             Spacer()
             Button (action : {
               showingPrompt = false
-              mapButtonColor = .blue
+              mapButtonColor = Color("bold")
               promptButtonColor = .black
             }) {
               Image(systemName: "map")
@@ -120,7 +120,7 @@ struct ContentView: View {
             Spacer()
             Button (action : {
               showingPrompt = true
-              promptButtonColor = .blue
+              promptButtonColor = Color("bold")
               mapButtonColor = .black
             }) {
               Image(systemName: "questionmark.circle")
@@ -135,11 +135,12 @@ struct ContentView: View {
           .opacity(0.9)
         }
       }
-      .onAppear(perform: {
-          camera.check()
-      })
+//      .onAppear(perform: {
+//          camera.check()
+//      })
 
       
     }
+    .accentColor(Color("bold"))
   }
 }
