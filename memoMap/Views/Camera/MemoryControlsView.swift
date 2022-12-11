@@ -24,7 +24,7 @@ struct MemoryControlsView: View {
           .foregroundColor(.black)
           .font(.system(size: 24))
         Menu(selectedLocation) {
-          ForEach (mapViewController.getNearbyLocations(using: MKLocalSearch.Request()), id: \.self) { name in
+          ForEach (mapViewController.nearbyPlaces, id: \.self) { name in
             Button(name, action: {
               selectedLocation = name
             })
@@ -66,6 +66,9 @@ struct MemoryControlsView: View {
     .padding(.bottom, 20)
     .padding(.top, 10)
     .frame(height: 350)
+    .onAppear(perform: {
+        mapViewController.requestNearbyLocations()
+    })
   }
 }
 
