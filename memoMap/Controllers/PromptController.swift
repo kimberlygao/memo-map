@@ -23,8 +23,12 @@ class PromptController: ObservableObject {
   }
 
   func getRandomPrompt() -> String {
-    let prompt = self.prompts.randomElement()!
-    return String(prompt.description)
+//    let prompt = self.prompts.randomElement()!
+//    return String(prompt.description)
+    
+    // for the purposes of demo we will be making the currprompt #1
+    return "Somewhere you would rather be at this moment"
+  
   }
 
 }
