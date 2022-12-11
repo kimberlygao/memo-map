@@ -97,7 +97,7 @@ struct SingleMemoryView: View {
           }
           .padding(8)
           .frame(width: geo.size.width - 40)
-          .background(Color("light"))
+          .background(Color("pastel"))
           .cornerRadius(10)
           .multilineTextAlignment(.leading)
           
