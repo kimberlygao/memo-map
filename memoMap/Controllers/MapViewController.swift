@@ -15,37 +15,29 @@ class MapViewController: NSObject, ObservableObject {
   let current : Location = Location()
   let locations: [Location] = []
   var mapView : MKMapView = MKMapView(frame: .zero)
-  var nearbyPlaces: [MKMapItem] = []
+  @Published var nearbyPlaces: [String] = []
   var searchRegion: MKCoordinateRegion = MKCoordinateRegion()
   @Published var mapRegion : MKCoordinateRegion = MKCoordinateRegion()
   @Published var locationAnnotations : [LocationAnnotation] = []
-  @Published var currMemories = [ImageAnnotation]()
   
   override init() {
     super.init()
   }
-  
-  
-  func getNearbyLocations(using searchRequest: MKLocalSearch.Request) -> [String] {
-    self.searchRegion = MKCoordinateRegion(center: self.current.coordinate, latitudinalMeters: 5, longitudinalMeters: 5)
-    searchRequest.region = self.searchRegion
-    searchRequest.naturalLanguageQuery = "Restaurants"
     
-    let localSearch = MKLocalSearch(request: searchRequest)
-    localSearch.start{
-      (resp, err) in
-      if let err = err {
-        print("Failed local search", err)
-        return
-      }
-      //success
-      self.nearbyPlaces = resp?.mapItems ?? []
-      if let updatedRegion = resp?.boundingRegion {
-        self.searchRegion = updatedRegion
-      }
-    }
-    
-    return self.nearbyPlaces.map{$0.name ?? "no name"}
-  }
+    func requestNearbyLocations() {
+            var region = MKCoordinateRegion()
+            region.center = CLLocationCoordinate2D(latitude: self.current.coordinate.latitude, longitude: self.current.coordinate.longitude)
+        
+        let req = MKLocalPointsOfInterestRequest(center: region.center, radius: 100.0)
+        req.pointOfInterestFilter = MKPointOfInterestFilter(including: [.restaurant, .cafe, .fitnessCenter, .gasStation, .hospital, .hotel, .library, .museum, .nationalPark, .nightlife, .park, .police, .postOffice, .publicTransport, .school, .stadium, .university, .winery, .zoo])
+                let search = MKLocalSearch(request: req)
+                search.start { response, error in
+                    guard let response = response else {
+                        print(error as Any)
+                        return
+                    }
+                    self.nearbyPlaces = response.mapItems.map{$0.name ?? "no name"}
+                }
+        }
   
 }

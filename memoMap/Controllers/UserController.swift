@@ -20,7 +20,7 @@ class UserController: ObservableObject {
     // get users
     self.userRepository.get({(users) -> Void in
       for user in users {
-        if user.id == "kwgao" {
+        if user.id == "fionac" {
           self.currentUser = user
         }
       }
