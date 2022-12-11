@@ -93,7 +93,7 @@ struct PromptMapWrapper: View {
           if (feedView) && ((selectedPin != nil) || (answered)) {
             VStack {
               Spacer()
-                .frame(height: 30)
+                .frame(height: 70)
               PromptScrollView(memoryController: memoryController, promptController: promptController, dailyController: dailyController, userController: userController)
               Spacer()
                 .frame(height: 40)
@@ -113,61 +113,69 @@ struct PromptMapWrapper: View {
                       .font(.title)
                     Spacer()
                   }
-                  //                  .background(.white)
-                  //                  .opacity(0.9)
-                  
                   HStack {
                     Text(promptController.currPrompt)
-//                      .background(.white)
-//                      .opacity(0.9)
                     Spacer()
                   }
-                  //                    .background(.white)
-                  //                    .opacity(0.9)
-                  
                   Spacer()
                 }
                 .padding(20)
               }
-              
-              
+
             }
           }
           if (answered) {
             VStack {
-              HStack {
-                Spacer()
-                Button(action: {feedView.toggle()}) {
-                  let color1 : Color =  feedView ? Color("bold") : .white
-                  let color2 : Color =  feedView ? .white : Color("bold")
-                  Text("Map")
-                    .font(.system(size: 12))
-                    .foregroundColor(color1)
-                    .padding(8)
-                    .padding(.leading, 8)
-                    .padding(.trailing, 8)
-                    .background(color2)
-                    .cornerRadius(10)
-                  
-                  Text("Feed")
-                    .font(.system(size: 12))
-                    .foregroundColor(color2)
-                    .padding(8)
-                    .padding(.leading, 8)
-                    .padding(.trailing, 8)
-                    .background(color1)
-                    .cornerRadius(10)
-                  
+              VStack {
+                HStack {
+                  Spacer()
+                    .background(.white.opacity(0.8))
+                  Button(action: {feedView.toggle()}) {
+                    let color1 : Color =  feedView ? Color("bold") : .white
+                    let color2 : Color =  feedView ? .white : Color("bold")
+                    Text("Map")
+                      .font(.system(size: 12))
+                      .foregroundColor(color1)
+                      .padding(8)
+                      .padding(.leading, 8)
+                      .padding(.trailing, 8)
+                      .background(color2)
+                      .cornerRadius(10)
+                    
+                    Text("Feed")
+                      .font(.system(size: 12))
+                      .foregroundColor(color2)
+                      .padding(8)
+                      .padding(.leading, 8)
+                      .padding(.trailing, 8)
+                      .background(color1)
+                      .cornerRadius(10)
+                    
+                  }
+                  .background(.white)
+                  .cornerRadius(10)
+                  .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                      .stroke(Color("bold"), lineWidth: 1)
+                  )
+                  Spacer()
+                    .background(.white.opacity(0.8))
                 }
-                .background(.white)
-                .cornerRadius(10)
-                .overlay(
-                  RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color("bold"), lineWidth: 1)
-                )
-                Spacer()
+                .padding(.bottom, 5)
+                .background(.white.opacity(0.8))
+                
+                HStack {
+                  Text(promptController.currPrompt)
+                    .fontWeight(.bold)
+                    .font(.system(size: 20))
+                    .padding(.leading, 20)
+                    .padding(.bottom, 10)
+                    .background(.white.opacity(0.8))
+                  Spacer()
+                }
               }
-//              .background(.white)
+//              .background(.ultraThickMaterial)
+              .background(.white.opacity(0.8))
               Spacer()
             }
           }

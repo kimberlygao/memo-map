@@ -95,7 +95,7 @@ struct SingleMemoryView: View {
             .padding(6)
             Spacer()
           }
-          .padding(8)
+          .padding(4)
           .frame(width: geo.size.width - 40)
           .background(Color("pastel"))
           .cornerRadius(10)

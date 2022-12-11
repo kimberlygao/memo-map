@@ -186,7 +186,7 @@ struct MapView: UIViewRepresentable {
 //        print("map set up!!")
         mapView.delegate = context.coordinator
         mapView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customLocationAnnotation")
-        mapView.tintColor = UIColor.systemIndigo
+        mapView.tintColor = UIColor(Color("bold"))
         setUpMapRegion(from: mapView)
         let config = MKStandardMapConfiguration(emphasisStyle: .muted)
         config.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: []))
