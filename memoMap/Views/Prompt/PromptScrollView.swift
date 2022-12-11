@@ -23,7 +23,7 @@ struct PromptScrollView: View {
                 VStack {
                   SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: mem.back), smallImage: memoryController.getImageFromURL(url: mem.front), memory: mem, friendMemory: true, showLocation: true)
               }
-                .frame(height: (geo.size.height - 30))
+                .frame(height: (geo.size.height - 0))
                 .padding(.top, 15)
                 .padding(.bottom, 15)
             }
