@@ -32,8 +32,6 @@ class UserController: ObservableObject {
     self.friendRequestRepository.get({(requests) -> Void in
       self.requests = requests
     })
-    
-    
   }
   
   func getFriends(user: User) -> [User] {
@@ -93,14 +91,15 @@ class UserController: ObservableObject {
   }
   
   func sendFriendRequest(currUser: User, receiver: User) {
-    let request = FriendRequest(id: UUID().uuidString, receiver: receiver.id!, requester: currUser.id!)
+    let id = UUID().uuidString
+    let request = FriendRequest(id: id, receiver: receiver.id!, requester: currUser.id!)
     friendRequestRepository.add(request)
     
     var curr = currUser
-    curr.requests.append(request.id!)
+    curr.requests.append(id)
     userRepository.update(curr)
     var rec = receiver
-    rec.requests.append(request.id!)
+    rec.requests.append(id)
     userRepository.update(rec)
   }
   
@@ -136,7 +135,7 @@ class UserController: ObservableObject {
   }
   
   func getUserFromMemory(mem: Memory) -> User? {
-      let users = self.users.filter { $0.id! == mem.username }
-      return users.first ?? nil
-    }
+    let users = self.users.filter { $0.id! == mem.username }
+    return users.first ?? nil
+  }
 }
