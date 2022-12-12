@@ -92,7 +92,7 @@ class UserController: ObservableObject {
   
   func sendFriendRequest(currUser: User, receiver: User) {
     let id = UUID().uuidString
-    let request = FriendRequest(id: id, receiver: receiver.id!, requester: currUser.id!)
+    let request = FriendRequest(receiver: receiver.id!, requester: currUser.id!, uuid: id)
     friendRequestRepository.add(request)
     
     var curr = currUser
@@ -104,20 +104,28 @@ class UserController: ObservableObject {
   }
   
   func processFriendRequest(currUser: User, requester: User, clicked: String) {
-    let request = self.requests.filter { $0.requester == requester.id && $0.receiver == currUser.id }
+    let request = self.requests.first { $0.requester == requester.id && $0.receiver == currUser.id }
+    
+    var curr = currUser
+    var reqer = requester
     
     if clicked == "accept" {
-      var curr = currUser
       curr.friends.append(requester.id!)
-      userRepository.update(curr)
-      var reqer = requester
       reqer.friends.append(currUser.id!)
-      userRepository.update(reqer)
     }
     
-    for req in request {
-      friendRequestRepository.remove(req)
+    let i = curr.requests.firstIndex(where: { $0 == request!.uuid })
+    let j = reqer.requests.firstIndex(where: { $0 == request!.uuid })
+    if let i = i {
+      curr.requests.remove(at: i)
     }
+    if let j = j {
+      reqer.requests.remove(at: j)
+    }
+    
+    userRepository.update(curr)
+    userRepository.update(reqer)
+    friendRequestRepository.remove(request!)
   }
   
   func getStats(user: User, memoryController: MemoryController) -> [String] {
