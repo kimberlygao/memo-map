@@ -115,7 +115,7 @@ class MemoryController: ObservableObject {
       let coords = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
       let imgUrl = mem.back
-      let img = self.getPfpUser(user: user)
+      let img = self.getPfpFromMemory(mem: mem)
         let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img, address: place.address)
       pin.isMemory = true
 
