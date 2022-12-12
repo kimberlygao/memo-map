@@ -14,11 +14,13 @@ struct FriendRequest: Identifiable, Codable {
   @DocumentID var id: String?
   var receiver: String
   var requester: String
+  var uuid: String
   
   // MARK: Codable
   enum CodingKeys: String, CodingKey {
     case id
     case receiver
     case requester
+    case uuid
   }
 }

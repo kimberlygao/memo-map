@@ -32,8 +32,6 @@ class UserController: ObservableObject {
     self.friendRequestRepository.get({(requests) -> Void in
       self.requests = requests
     })
-    
-    
   }
   
   func getFriends(user: User) -> [User] {
@@ -93,32 +91,41 @@ class UserController: ObservableObject {
   }
   
   func sendFriendRequest(currUser: User, receiver: User) {
-    let request = FriendRequest(id: UUID().uuidString, receiver: receiver.id!, requester: currUser.id!)
+    let id = UUID().uuidString
+    let request = FriendRequest(receiver: receiver.id!, requester: currUser.id!, uuid: id)
     friendRequestRepository.add(request)
     
     var curr = currUser
-    curr.requests.append(request.id!)
+    curr.requests.append(id)
     userRepository.update(curr)
     var rec = receiver
-    rec.requests.append(request.id!)
+    rec.requests.append(id)
     userRepository.update(rec)
   }
   
   func processFriendRequest(currUser: User, requester: User, clicked: String) {
-    let request = self.requests.filter { $0.requester == requester.id && $0.receiver == currUser.id }
+    let request = self.requests.first { $0.requester == requester.id && $0.receiver == currUser.id }
+    
+    var curr = currUser
+    var reqer = requester
     
     if clicked == "accept" {
-      var curr = currUser
       curr.friends.append(requester.id!)
-      userRepository.update(curr)
-      var reqer = requester
       reqer.friends.append(currUser.id!)
-      userRepository.update(reqer)
     }
     
-    for req in request {
-      friendRequestRepository.remove(req)
+    let i = curr.requests.firstIndex(where: { $0 == request!.uuid })
+    let j = reqer.requests.firstIndex(where: { $0 == request!.uuid })
+    if let i = i {
+      curr.requests.remove(at: i)
     }
+    if let j = j {
+      reqer.requests.remove(at: j)
+    }
+    
+    userRepository.update(curr)
+    userRepository.update(reqer)
+    friendRequestRepository.remove(request!)
   }
   
   func getStats(user: User, memoryController: MemoryController) -> [String] {
@@ -136,7 +143,7 @@ class UserController: ObservableObject {
   }
   
   func getUserFromMemory(mem: Memory) -> User? {
-      let users = self.users.filter { $0.id! == mem.username }
-      return users.first ?? nil
-    }
+    let users = self.users.filter { $0.id! == mem.username }
+    return users.first ?? nil
+  }
 }
