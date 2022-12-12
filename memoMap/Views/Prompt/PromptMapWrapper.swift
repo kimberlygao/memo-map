@@ -222,7 +222,7 @@ struct PromptMapWrapper: View {
                                         }
                                     }
                                     //              .background(.ultraThickMaterial)
-                                    .background(.white.opacity(0.8))
+                                    .background(.white)
                                     Spacer()
                                 }
                             }

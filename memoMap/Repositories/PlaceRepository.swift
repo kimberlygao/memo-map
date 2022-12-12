@@ -34,9 +34,7 @@ class PlaceRepository: ObservableObject {
           try? document.data(as: Place.self)
         } ?? []
         completionHandler(places)
-//        print("repo: \(self.places)")
       }
-//    print("outside: \(self.places)")
   }
 
   // MARK: CRUD methods

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct PromptSelectView: View {
-  var memoryController : MemoryController
-  var memory : Memory
+  var memoryController: MemoryController
+  var memory: Memory
     @Binding var answered : Bool
-  @ObservedObject var dailyController : DailyPromptController
+  @ObservedObject var dailyController: DailyPromptController
     @ObservedObject var promptController: PromptController
     @Binding var isRecentSheetOpen : Bool
   var user : User
@@ -29,6 +29,12 @@ struct PromptSelectView: View {
             promptController.showingRecents.toggle()
         }) {
           Text("Select Memory")
+            .padding(16)
+            .padding(.leading, 4)
+            .padding(.trailing, 4)
+            .foregroundColor(.white)
+            .background(Color("bold"))
+            .cornerRadius(10)
         }
         Spacer()
       }
