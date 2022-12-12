@@ -60,13 +60,13 @@ struct ContentView: View {
             HStack (alignment: .bottom) {
               Button(action: {ownView.toggle()}) {
                 VStack {
-                  let color1 : Color =  ownView ? Color("bold") : .white
+                  let color1 : Color =  ownView ? Color("bold") : .gray
                   Image(systemName: "person")
                     .font(.system(size: 24))
                     .foregroundColor(color1)
                     .padding(6)
                     .padding(.top, 2)
-                  let color2 : Color =  ownView ? .white : Color("bold")
+                  let color2 : Color =  ownView ? .gray : Color("bold")
                   Image(systemName: "globe.americas")
                     .font(.system(size: 24))
                     .foregroundColor(color2)

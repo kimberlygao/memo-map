@@ -20,7 +20,8 @@ struct AddFriendsView: View {
   
   var body: some View {
     VStack {
-      
+//      Spacer()
+//        .frame(height: 60)
       HStack {
         
         TextField("Search", text: $searchText)
@@ -54,48 +55,50 @@ struct AddFriendsView: View {
       .background(RoundedRectangle(cornerRadius: 50).stroke(.black))
       
       Spacer()
-        .frame(height: 40)
-      
-      VStack {
-        Text("Requests")
-          .fontWeight(.bold)
-          .frame(maxWidth: .infinity, alignment: .topLeading)
-        
-        ForEach (userController.getReceivedRequests(user: userController.currentUser).filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { person in
-          FriendRequestBar(friend: person, userController: userController, memoryController: memoryController)
-        }
-        
-        Spacer()
-          .frame(height: 20)
-        
-        Text("Friends")
-          .fontWeight(.bold)
-          .frame(maxWidth: .infinity, alignment: .topLeading)
-        
-        ForEach(userController.getFriends(user: userController.currentUser).filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { person in
-          FriendRequestBar(friend: person, userController: userController, memoryController: memoryController)
-        }
-      }
-      
-      if isEditing {
-        Spacer()
-          .frame(height: 20)
-        
-        Text("Suggestions")
-          .fontWeight(.bold)
-          .frame(maxWidth: .infinity, alignment: .topLeading)
-        ForEach(userController.users.filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { person in
-          if !["friends", "requestReceived"].contains(userController.getFriendStatus(currUser: userController.currentUser, otherUser: person)) {
-            if person.name != userController.currentUser.name {
-              FriendRequestBar(friend: person, userController: userController, memoryController: memoryController)
-            }
-           
+        .frame(height: 20)
+      ScrollView {
+        VStack {
+          Text("Requests")
+            .fontWeight(.bold)
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+          
+          ForEach (userController.getReceivedRequests(user: userController.currentUser).filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { person in
+            FriendRequestBar(friend: person, userController: userController, memoryController: memoryController)
+          }
+          
+          Spacer()
+            .frame(height: 20)
+          
+          Text("Friends")
+            .fontWeight(.bold)
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+          
+          ForEach(userController.getFriends(user: userController.currentUser).filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { person in
+            FriendRequestBar(friend: person, userController: userController, memoryController: memoryController)
           }
         }
+        
+        if isEditing {
+          Spacer()
+            .frame(height: 20)
+          
+          Text("Suggestions")
+            .fontWeight(.bold)
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+          ForEach(userController.users.filter({ searchText.isEmpty ? true : $0.name.contains(searchText) })) { person in
+            if !["friends", "requestReceived"].contains(userController.getFriendStatus(currUser: userController.currentUser, otherUser: person)) {
+              if person.name != userController.currentUser.name {
+                FriendRequestBar(friend: person, userController: userController, memoryController: memoryController)
+              }
+              
+            }
+          }
+        }
+        
+        Spacer()
       }
-      
-      Spacer()
     }
     .padding()
+    .navigationBarTitle("Add Friends")
   }
 }
