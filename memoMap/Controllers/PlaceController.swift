@@ -14,6 +14,7 @@ class PlaceController: ObservableObject {
   
   init() {
     self.placeRepository.get({(places) -> Void in
+      print("inside place controllllller", places)
       self.places = places
     })
   }
@@ -23,6 +24,6 @@ class PlaceController: ObservableObject {
       return place
     }
     print("no place found")
-    return Place(id: "0", address: "nil", city: "nil", latitude: 0.00, longitude: 0.00, name: "nil")
+    return Place(address: "nil", city: "nil", latitude: 0.00, longitude: 0.00, name: "nil")
   }
 }

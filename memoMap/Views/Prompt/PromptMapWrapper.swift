@@ -93,7 +93,7 @@ struct PromptMapWrapper: View {
           if (feedView) && ((selectedPin != nil) || (answered)) {
             VStack {
               Spacer()
-                .frame(height: 70)
+                .frame(height: 80)
               PromptScrollView(memoryController: memoryController, promptController: promptController, dailyController: dailyController, userController: userController)
               Spacer()
                 .frame(height: 40)
@@ -175,7 +175,7 @@ struct PromptMapWrapper: View {
                 }
               }
 //              .background(.ultraThickMaterial)
-              .background(.white.opacity(0.8))
+              .background(.white)
               Spacer()
             }
           }

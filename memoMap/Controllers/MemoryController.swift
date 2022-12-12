@@ -100,9 +100,14 @@ class MemoryController: ObservableObject {
   
   func getFriendsDailys(user: User) -> [Memory] {
     let users = userController.getFriends(user: user) + [userController.currentUser]
+    print("userssss", users)
     let usernames = users.map { $0.id! }
+    print("usernamessss", usernames)
     let answers = dailyController.dailys.filter { usernames.contains($0.id!) }
+    print("answersss", answers)
     let memoryIDs = answers.map { $0.memory }
+    print("memIDs", memoryIDs)
+    print("lasttt", self.memories)
     return self.memories.filter { memoryIDs.contains($0.memid) }
   }
   

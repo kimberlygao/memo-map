@@ -28,8 +28,7 @@ struct Place: Identifiable, Codable, Hashable {
     case name
   }
   
-  init(id: String, address: String, city: String, latitude: Double, longitude: Double, name: String) {
-    self.id = id
+  init(address: String, city: String, latitude: Double, longitude: Double, name: String) {
     self.address = address
     self.city = city
     self.latitude = latitude
