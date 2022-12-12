@@ -66,7 +66,7 @@ struct MapViewWrapper: View {
                 .zIndex(1)
                 
                 
-                MapView(mapViewController: mapViewController, searchController: searchController, memoryController: memoryController, annotations: searchController.annotations, currMemories: mapViewController.currMemories, selectedPin: self.$selectedPin,
+                MapView(mapViewController: mapViewController, searchController: searchController, memoryController: memoryController, annotations: searchController.annotations, selectedPin: self.$selectedPin,
                         isBottomSheetOpen: self.$isBottomSheetOpen, ownView: self.$ownView, findUser: self.$findUser
                 )
                 .navigationBarTitleDisplayMode(.inline)
