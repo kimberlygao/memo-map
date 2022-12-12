@@ -31,7 +31,7 @@ struct CameraControlsView: View {
           Spacer()
             .frame(width: 30)
           Button (action: camera.flipCamera, label: {
-            Image(systemName: "arrow.triangle.2.circlepath.camera")
+            Image(systemName: "arrow.triangle.2.circlepath")
               .foregroundColor(.white)
               .padding()
               .font(.system(size: 36))

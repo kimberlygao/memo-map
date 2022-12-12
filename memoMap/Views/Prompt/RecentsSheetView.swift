@@ -15,6 +15,7 @@ struct RecentsSheetView: View {
   @ObservedObject var dailyController : DailyPromptController
     @ObservedObject var promptController: PromptController
     @Binding var answered : Bool
+    @Binding var isRecentSheetOpen : Bool
   
   var body: some View {
     VStack(alignment: .leading){
@@ -25,7 +26,7 @@ struct RecentsSheetView: View {
       Spacer()
              .frame(height: 20)
       
-        RecentsGridView(memoryController: memoryController, userController: userController, dailyController: dailyController, promptController: promptController, answered: self.$answered)
+//        RecentsGridView(memoryController: memoryController, userController: userController, dailyController: dailyController, promptController: promptController, answered: self.$answered, isRecentSheetOpen: self.$isRecentSheetOpen)
     }
     .padding(20)
     .padding(.top, 10)

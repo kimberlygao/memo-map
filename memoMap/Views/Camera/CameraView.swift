@@ -76,7 +76,7 @@ struct CameraView: View {
             MemoryControlsView(camera: camera, memoryController: memoryController, mapViewController : mapViewController)
               .background(Color.white)
               .padding(.bottom)
-              .cornerRadius(20)
+              .cornerRadius(16)
           } else if camera.showControls {
             
             CameraControlsView(camera: camera)

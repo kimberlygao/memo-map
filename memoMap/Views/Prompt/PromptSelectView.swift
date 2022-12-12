@@ -13,6 +13,7 @@ struct PromptSelectView: View {
     @Binding var answered : Bool
   @ObservedObject var dailyController : DailyPromptController
     @ObservedObject var promptController: PromptController
+    @Binding var isRecentSheetOpen : Bool
   var user : User
   
     var body: some View {
@@ -24,6 +25,7 @@ struct PromptSelectView: View {
         Button (action: {
           dailyController.selectAnswer(user: user, memory: memory)
             answered.toggle()
+            isRecentSheetOpen.toggle()
             promptController.showingRecents.toggle()
         }) {
           Text("Select Memory")
