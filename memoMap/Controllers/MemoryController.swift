@@ -136,15 +136,25 @@ class MemoryController: ObservableObject {
     return UIImage()
   }
   
-  func saveMemory(caption: String, front: UIImage, back: UIImage, location: String) {
+  func saveMemory(caption: String, front: UIImage, back: UIImage, location: MKMapItem) {
     let id = UUID().uuidString
     let newfront =  uploadPhoto(front)
     let newback =  uploadPhoto(back)
     let time = Date() // format is 2022-11-10 04:30:39 +0000
     let username = "kwgao" // later on make this username of curr user
     
+    // first check if that place alr exists in our firebase
+    let loc: Place
+    if let temp = (placeController.places.first { $0.name == location.name! }) {
+      loc = temp
+    } else { // if not then add
+      let addr = location.placemark.subThoroughfare! + location.placemark.thoroughfare!
+      loc = Place(address: addr, city: location.placemark.locality!, latitude: location.placemark.coordinate.latitude, longitude: location.placemark.coordinate.longitude, name: location.name!)
+      placeController.placeRepository.add(loc)
+    }
+    
     // save to memory collection
-    let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time, memid: id)
+    let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: loc.id!, username: username, timestamp: time, memid: id)
     memoryRepository.add(mem)
     
     // update user collection
