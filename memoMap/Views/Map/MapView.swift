@@ -131,6 +131,7 @@ struct MapView: UIViewRepresentable {
 //            print("own view?", self.ownView)
             if !(searchController.isSearching) {
 //                print("not searching")
+                
                 setUpMemories(from: uiView)
             }
         }
@@ -163,12 +164,14 @@ struct MapView: UIViewRepresentable {
     private func setUpMemories(from mapView: MKMapView) {
 //        print("cluster before removal", clusterManager.annotations)
         let curr_user = memoryController.getCurrentUser()
+        let remove = mapView.annotations.filter({ !($0 is MKUserLocation) })
+        mapView.removeAnnotations(remove)
         if (self.ownView) {
-//            print("updating: your own memories")
 //            clusterManager.removeAll()
             let my_mems = memoryController.getMemoryPinsForUser(user: curr_user)
             mapView.addAnnotations(my_mems)
-            clusterManager.add(my_mems)
+//            print("updating: your own memories", my_mems)
+//            clusterManager.add(my_mems)
 //            print("cluster after add 1", clusterManager.annotations)
             //            mapView.showAnnotations(my_mems, animated: false)
         } else {
@@ -176,7 +179,8 @@ struct MapView: UIViewRepresentable {
 //            clusterManager.removeAll()
             let world_mems = memoryController.getFriendsMemoryPins(user: curr_user)
             mapView.addAnnotations(world_mems)
-            clusterManager.add(world_mems)
+//            print("updating: friends + your memories", world_mems)
+//            clusterManager.add(world_mems)
 //            print("cluster after add 2", clusterManager.annotations)
             //                mapView.showAnnotations(world_mems, animated: false)
         }
