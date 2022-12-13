@@ -14,7 +14,7 @@ class PlaceController: ObservableObject {
   
   init() {
     self.placeRepository.get({(places) -> Void in
-      print("inside place controllllller", places)
+//      print("inside place controllllller", places)
       self.places = places
     })
   }

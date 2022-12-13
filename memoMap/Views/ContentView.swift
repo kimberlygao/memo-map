@@ -135,9 +135,9 @@ struct ContentView: View {
           .opacity(0.9)
         }
       }
-//      .onAppear(perform: {
-//          camera.check()
-//      })
+      .onAppear(perform: {
+          camera.check()
+      })
 
       
     }
