@@ -1,6 +1,6 @@
-# memoMap
+# MemoMap
 
-memoMap is an app for people to keep in touch with friends by sharing travel and food photos. We are a digital map diary of places you've visited, which is not only fun to look back on but also share with friends. Users are able to create "memories" at a place by capturing a BeReal-style photo. All "memories" can be viewed either as a "pin" on the map or in a grid format. With searchable locations and a daily prompt feature that allows for fresh content, memoMap is the next-generation social media platform.
+MemoMap is a digital map diary app for connecting with friends through sharing photo memories tagged onto an interactive map. Add memories by capturing a front and back photo using the in-app camera and immediately see it show up as a pin on the map. MemoMap makes it easy to look back on all the memories you've made and the places you've been as pins on a map, and it's a great way to stay connected with friends who are traveling or living far away.
 
 
 ## Setup
@@ -46,3 +46,8 @@ Start running the app!
 - When the app first launches you need to tap “Allow Camera” and “Allow Location” then relaunch the app in order to get the full experience with the user locating feature.
 
 - Ensure that the device you are running memoMap on is in light mode
+
+## Testing notes
+We set up our unit testing files, which build, run, and pass. However, testing our app requires making calls to our Firestore database. After working with multiple TAs for over three hours and combing through every stackoverflow article, we still were not able to resolve the fatal thread error that we had. 
+
+Instead, we manually tested all of our functions using print statements, displaying it in the content view, and double-checking that the data was properly added/updated/deleted on Firestore. We felt that this way of testing still allowed us to ensure that our app was working as expected and also gave us more time to focus on refining details in our app. 
