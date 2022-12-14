@@ -42,7 +42,7 @@ struct Overlay: View {
             Button(action: {
                 dailyController.blurredPrompt.toggle()
                 isRecentSheetOpen.toggle()
-                minHeight = 200.0
+                minHeight = 0
             }) {
                 Text("Pick a Memory")
                     .font(.callout)

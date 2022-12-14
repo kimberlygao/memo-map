@@ -65,7 +65,7 @@ class MemoryController: ObservableObject {
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
       let imgUrl = mem.back
       let img = self.getImageFromURL(url: imgUrl)
-        let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img, address: place.address)
+      let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img, address: place.address)
       pin.isMemory = true
       
       pins.append(pin)
@@ -75,7 +75,7 @@ class MemoryController: ObservableObject {
   
   func getUserMemoriesForLocation(user: User, loc: Place) -> [Memory] {
     let allMems = self.getMemoriesForUser(user: user)
-    let filtered = allMems.filter { $0.location == loc.id }
+    let filtered = allMems.filter { $0.location == loc.locid }
     return filtered.sorted { $0.timestamp >= $1.timestamp }
   }
   
@@ -116,9 +116,9 @@ class MemoryController: ObservableObject {
       let locAnnotation = LocationAnnotation(title: place.name, subtitle: "none", coordinate: coords)
       let imgUrl = mem.back
       let img = self.getPfpFromMemory(mem: mem)
-        let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img, address: place.address)
+      let pin = ImageAnnotation(id: mem.memid, locAnnotation: locAnnotation, url: imgUrl, image: img, address: place.address)
       pin.isMemory = true
-
+      
       pins.append(pin)
     }
     return pins
@@ -131,15 +131,27 @@ class MemoryController: ObservableObject {
     return UIImage()
   }
   
-  func saveMemory(caption: String, front: UIImage, back: UIImage, location: String) {
+  func saveMemory(caption: String, front: UIImage, back: UIImage, location: MKMapItem) {
     let id = UUID().uuidString
     let newfront =  uploadPhoto(front)
     let newback =  uploadPhoto(back)
     let time = Date() // format is 2022-11-10 04:30:39 +0000
     let username = "kwgao" // later on make this username of curr user
     
+    // first check if that place alr exists in our firebase
+    let loc: Place
+    if let temp = (placeController.places.first { $0.name == location.name! }) {
+      loc = temp
+    } else { // if not then add
+      let addr = location.placemark.subThoroughfare! + " " + location.placemark.thoroughfare! + ", "
+      let city = location.placemark.locality!
+      let statezip = ", " + location.placemark.administrativeArea! + " " + location.placemark.postalCode!
+      loc = Place(address: addr + city + statezip, city: city, latitude: location.placemark.coordinate.latitude, longitude: location.placemark.coordinate.longitude, name: location.name!, locid: UUID().uuidString)
+      placeController.placeRepository.add(loc)
+    }
+    
     // save to memory collection
-    let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: location, username: username, timestamp: time, memid: id)
+    let mem = Memory(id: id, caption: caption, front: newfront, back: newback, location: loc.locid, username: username, timestamp: time, memid: id)
     memoryRepository.add(mem)
     
     // update user collection
@@ -190,7 +202,7 @@ class MemoryController: ObservableObject {
     if let place = place {
       return (place.name + ", " + place.city)
     }
-      return "no place found"
+    return "no place found"
   }
   
 }

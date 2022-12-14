@@ -9,11 +9,12 @@ import SwiftUI
 import MapKit
 
 struct MemoryControlsView: View {
-  @State private var selectedLocation = "Select Location"
+  @State private var selectedLocation: MKMapItem = MKMapItem()
+  @State private var selectedLocationStr: String = "Select Location"
   @State private var caption: String = ""
-  @StateObject var camera : CameraController
-  @ObservedObject var memoryController : MemoryController
-  @StateObject var mapViewController : MapViewController
+  @StateObject var camera: CameraController
+  @ObservedObject var memoryController: MemoryController
+  @StateObject var mapViewController: MapViewController
   @Environment(\.presentationMode) var presentationMode
   
   
@@ -23,10 +24,11 @@ struct MemoryControlsView: View {
         Image(systemName: "mappin.and.ellipse")
           .foregroundColor(.black)
           .font(.system(size: 24))
-        Menu(selectedLocation) {
-          ForEach (mapViewController.nearbyPlaces, id: \.self) { name in
-            Button(name, action: {
+        Menu(selectedLocationStr) {
+          ForEach (mapViewController.nearbyLocationData, id: \.self) { name in
+            Button(name.name!, action: {
               selectedLocation = name
+              selectedLocationStr = name.name!
             })
             
           }
@@ -44,7 +46,7 @@ struct MemoryControlsView: View {
       HStack {
         Spacer()
         Button(action: {
-          memoryController.saveMemory(caption: caption, front: camera.images[0], back: camera.images[1], location: "1")
+          memoryController.saveMemory(caption: caption, front: camera.images[0], back: camera.images[1], location: selectedLocation)
           camera.reTake()
           camera.session.stopRunning()
           presentationMode.wrappedValue.dismiss()
@@ -67,7 +69,7 @@ struct MemoryControlsView: View {
     .padding(.top, 10)
     .frame(height: 350)
     .onAppear(perform: {
-        mapViewController.requestNearbyLocations()
+      mapViewController.requestNearbyLocations()
     })
   }
 }
