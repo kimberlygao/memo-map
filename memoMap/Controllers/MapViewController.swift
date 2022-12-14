@@ -29,7 +29,7 @@ class MapViewController: NSObject, ObservableObject {
         var region = MKCoordinateRegion()
         region.center = CLLocationCoordinate2D(latitude: self.current.coordinate.latitude, longitude: self.current.coordinate.longitude)
         
-      let req = MKLocalPointsOfInterestRequest(center: region.center, radius: 200.0)
+      let req = MKLocalPointsOfInterestRequest(center: region.center, radius: 100.0)
         req.pointOfInterestFilter = MKPointOfInterestFilter(including: [.restaurant, .cafe, .fitnessCenter, .gasStation, .hospital, .hotel, .library, .museum, .nationalPark, .nightlife, .park, .police, .postOffice, .publicTransport, .school, .stadium, .university, .winery, .zoo])
         let search = MKLocalSearch(request: req)
         search.start { response, error in
