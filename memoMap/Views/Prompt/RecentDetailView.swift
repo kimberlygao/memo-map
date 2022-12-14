@@ -13,18 +13,18 @@ struct RecentDetailView<Content: View>: View {
     @Binding var isOpen: Bool
 
     let maxHeight: CGFloat
-    let minHeight: CGFloat
+    @Binding var minHeight: CGFloat
     let content: Content
 
     @GestureState private var translation: CGFloat = 0
 
     private var offset: CGFloat {
-        isOpen ? 0 : maxHeight - minHeight
+      isOpen ? 0 : (maxHeight - self.minHeight) 
     }
 
     private var indicator: some View {
         RoundedRectangle(cornerRadius: Constants.RADIUS)
-            .fill(Color.black)
+            .fill(Color("pastel"))
             .frame(
                 width: Constants.INDICATOR_WIDTH,
                 height: Constants.INDICATOR_HEIGHT
@@ -33,8 +33,8 @@ struct RecentDetailView<Content: View>: View {
         }
     }
 
-    init(isOpen: Binding<Bool>, maxHeight: CGFloat, @ViewBuilder content: () -> Content) {
-        self.minHeight = maxHeight * Constants.MIN_HEIGHT_RATIO
+  init(isOpen: Binding<Bool>, maxHeight: CGFloat, minHeight: Binding<CGFloat>, @ViewBuilder content: () -> Content) {
+        self._minHeight = minHeight // maxHeight * Constants.MIN_HEIGHT_RATIO
         self.maxHeight = maxHeight
         self.content = content()
         self._isOpen = isOpen
@@ -64,9 +64,5 @@ struct RecentDetailView<Content: View>: View {
                 }
             )
         }
-//        Spacer()
-//               .frame(height: 20)
-//
-//        MemoryGridView(memoryController: memoryController, place: place, userController: userController)
     }
 }

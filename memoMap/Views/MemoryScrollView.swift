@@ -12,6 +12,7 @@ struct MemoryScrollView: View {
   var memories : [Memory]
   var scrollId : Memory
   var placeName : String
+  @State var friendMemory : Bool
 
   var body: some View {
     GeometryReader { geo in
@@ -20,11 +21,11 @@ struct MemoryScrollView: View {
             ForEach(memories, id: \.self) { mem in
   //            if let uiImage = image {
               VStack {
-                SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: mem.back), smallImage: memoryController.getImageFromURL(url: mem.front), memory: mem, friendMemory: true, showLocation: false)
+                SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: mem.back), smallImage: memoryController.getImageFromURL(url: mem.front), memory: mem, friendMemory: friendMemory, showLocation: false)
             }
-              .frame(height: (geo.size.height - 40))
+              .frame(height: (geo.size.height - 80))
               .padding(.top, 20)
-              .padding(.bottom, 30)
+              .padding(.bottom, 15)
           }
         }.onAppear(
           perform: {value.scrollTo(scrollId)}

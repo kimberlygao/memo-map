@@ -13,8 +13,8 @@ struct SingleMemoryView: View {
   @State var smallImage : UIImage
   var memory : Memory
   let dateFormatter = DateFormatter()
-  var friendMemory : Bool
-  var showLocation : Bool
+  @State var friendMemory : Bool
+  @State var showLocation : Bool
   
   var body: some View {
     ZStack {
@@ -30,25 +30,34 @@ struct SingleMemoryView: View {
                 .frame(width: 35, height: 35)
                 .clipShape(Circle())
                 .padding(.trailing, 4)
-              VStack {
+            }
+            VStack {
+              if friendMemory {
                 Text(memory.username)
                   .frame(maxWidth: .infinity, alignment: .leading)
                   .foregroundColor(.black)
-                if showLocation {
-                  Text(memoryController.placeToStr(placeID: memory.location))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.gray)
-                    .font(.system(size: 14))
-                }
-                Text(memoryController.timeToStr(timestamp: memory.timestamp))
+                  .font(.system(size: 16))
+              } else {
+                Text("")
+                  .font(.system(size: 16))
+              }
+              
+              if showLocation {
+                Text(memoryController.placeToStr(placeID: memory.location))
                   .frame(maxWidth: .infinity, alignment: .leading)
                   .foregroundColor(.gray)
                   .font(.system(size: 14))
               }
-            } else {
+              
+              if !friendMemory && !showLocation {
+                Text("")
+                  .font(.system(size: 14))
+              }
+              
               Text(memoryController.timeToStr(timestamp: memory.timestamp))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.system(size: 14))
+                .foregroundColor(.gray)
             }
           }
           .padding(0)
@@ -91,6 +100,7 @@ struct SingleMemoryView: View {
           HStack { // caption
             VStack (alignment: .leading) {
               Text(memory.caption)
+                .font(.system(size: 16))
             }
             .padding(6)
             Spacer()

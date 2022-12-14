@@ -20,7 +20,7 @@ struct PromptSelectView: View {
       VStack {
         GeometryReader { geo in
           SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: memory.back), smallImage: memoryController.getImageFromURL(url: memory.front), memory: memory, friendMemory: false, showLocation: true)
-            .frame(height: (geo.size.height - 30))
+            .frame(height: (geo.size.height))
         }
         Button (action: {
           dailyController.selectAnswer(user: user, memory: memory)
@@ -29,12 +29,13 @@ struct PromptSelectView: View {
             promptController.showingRecents.toggle()
         }) {
           Text("Select Memory")
-            .padding(16)
+            .padding(12)
             .padding(.leading, 4)
             .padding(.trailing, 4)
             .foregroundColor(.white)
             .background(Color("bold"))
             .cornerRadius(10)
+            .font(.system(size: 18))
         }
         Spacer()
       }

@@ -13,25 +13,31 @@ struct PromptScrollView: View {
   let promptController : PromptController
   let dailyController : DailyPromptController
   let userController : UserController
+  @Binding var selectedPin : ImageAnnotation?
+//  var scrollId : Memory
   
-    var body: some View {
-      GeometryReader { geo in
-        ScrollViewReader { value in
-          ScrollView {
-            ForEach(memoryController.getFriendsDailys(user: userController.currentUser), id: \.self) { mem in
-    //            if let uiImage = image {
-                VStack {
-                  SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: mem.back), smallImage: memoryController.getImageFromURL(url: mem.front), memory: mem, friendMemory: true, showLocation: true)
-              }
-                .frame(height: (geo.size.height - 0))
-                .padding(.top, 15)
-                .padding(.bottom, 15)
+  var body: some View {
+    GeometryReader { geo in
+      ScrollViewReader { value in
+        ScrollView {
+          ForEach(memoryController.getFriendsDailys(user: userController.currentUser), id: \.self) { mem in
+            //            if let uiImage = image {
+            VStack {
+              SingleMemoryView(memoryController: memoryController, bigImage: memoryController.getImageFromURL(url: mem.back), smallImage: memoryController.getImageFromURL(url: mem.front), memory: mem, friendMemory: true, showLocation: true)
             }
-          }.onAppear(
-//            perform: {value.scrollTo(scrollId)}
-          )
-
-        }
+            .frame(height: (geo.size.height - 0))
+            .padding(.top, 15)
+            .padding(.bottom, 15)
+            
+//            if mem.id == selectedPin.id {
+//              self.scrollMem = mem
+//            }
+          }
+        }.onAppear(
+//          perform: {value.scrollTo(scrollId)}
+        )
+        
       }
     }
+  }
 }

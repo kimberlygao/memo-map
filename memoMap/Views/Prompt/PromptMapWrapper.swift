@@ -11,17 +11,9 @@ struct Overlay: View {
     let promptController : PromptController
     @ObservedObject var dailyController : DailyPromptController
     @Binding var isRecentSheetOpen: Bool
+  @Binding var minHeight : CGFloat
     
     var body: some View {
-        
-        //        Text("13")
-        //          .padding()
-        //          .overlay(
-        //            Circle()
-        //                .stroke(Color.blue, lineWidth: 4)
-        //                .background(Color.blue)
-        //              .padding(6)
-        //          )
         VStack {
             Spacer()
             Text("Hidden Content")
@@ -50,6 +42,7 @@ struct Overlay: View {
             Button(action: {
                 dailyController.blurredPrompt.toggle()
                 isRecentSheetOpen.toggle()
+                minHeight = 200.0
             }) {
                 Text("Pick a Memory")
                     .font(.callout)
@@ -82,6 +75,7 @@ struct PromptMapWrapper: View {
     //    @Binding var showingRecents : Bool
     @State var isRecentSheetOpen: Bool = false
     var threeColumnGrid = [GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5)]
+  @State var minHeight : CGFloat = 0.0
     
     
     var body: some View {
@@ -89,40 +83,44 @@ struct PromptMapWrapper: View {
         //        Button("hello", action: {
         //            print("memories", memories)
         //        })
-        GeometryReader { geometry in
+      GeometryReader { geo in
             ZStack(alignment: .top) {
                 VStack {
-                    RecentDetailView(isOpen: self.$isRecentSheetOpen, maxHeight: geometry.size.height * 0.8) {
-                        VStack(alignment: .leading){
-                            Text("Recents")
-                                .font(.system(size: 20))
-                                .fontWeight(.bold)
-                            Spacer()
-                                .frame(height: 20)
-                            //                                                        let memories = memoryController.getMemoriesForUser(user: userController.currentUser)
-                            if self.isRecentSheetOpen {
-                                ScrollView {
-                                    LazyVGrid(columns: threeColumnGrid, spacing: 5) {
-                                        ForEach(memories, id: \.self) { mem in
-                                            NavigationLink (destination: PromptSelectView(memoryController: memoryController, memory: mem, answered: self.$answered, dailyController: dailyController, promptController: promptController, isRecentSheetOpen: self.$isRecentSheetOpen, user: userController.currentUser)){
-                                                Image(uiImage: memoryController.getImageFromURL(url: mem.back))
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fill)
-                                                    .frame(width: (geometry.size.width - 10) / 3, height: (geometry.size.width - 10) / 3)
-                                                    .clipped()
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                  RecentDetailView(isOpen: self.$isRecentSheetOpen, maxHeight: geo.size.height * 0.8, minHeight: self.$minHeight) {
+                      VStack(alignment: .leading){
+                        HStack {
+                          Text("Recents")
+                            .font(.system(size: 20))
+                            .fontWeight(.bold)
+                          Spacer()
                         }
+                        Spacer()
+                          .frame(height: 20)
+                        if self.isRecentSheetOpen {
+                          GeometryReader { geometry in
+                            ScrollView {
+                              LazyVGrid(columns: threeColumnGrid, spacing: 5) {
+                                ForEach(memories, id: \.self) { mem in
+                                  NavigationLink (destination: PromptSelectView(memoryController: memoryController, memory: mem, answered: self.$answered, dailyController: dailyController, promptController: promptController, isRecentSheetOpen: self.$isRecentSheetOpen, user: userController.currentUser)){
+                                    Image(uiImage: memoryController.getImageFromURL(url: mem.back))
+                                      .resizable()
+                                      .aspectRatio(contentMode: .fill)
+                                      .frame(width: (geometry.size.width - 10) / 3, height: (geometry.size.width - 10) / 3)
+                                      .clipped()
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                        Spacer()
+                      }
                         .padding(20)
                         .padding(.top, 10)
                         
                     }
                 }
-                //                    .padding(20)
-                //                    .padding(.top, 10)
+
                 .edgesIgnoringSafeArea(.all)
                 .zIndex(1)
                 
@@ -132,16 +130,15 @@ struct PromptMapWrapper: View {
                         .navigationBarTitleDisplayMode(.inline)
                         .edgesIgnoringSafeArea(.all)
                         .blur(radius: 8, opaque: false)
-                        .overlay(Overlay(promptController: promptController, dailyController: dailyController, isRecentSheetOpen: self.$isRecentSheetOpen))
+                        .overlay(Overlay(promptController: promptController, dailyController: dailyController, isRecentSheetOpen: self.$isRecentSheetOpen, minHeight: self.$minHeight))
                 } else {
                     NavigationView {
                         ZStack {
-                            // map view used to be here
                             if (feedView) && ((selectedPin != nil) || (answered)) {
                                 VStack {
                                     Spacer()
                                         .frame(height: 70)
-                                    PromptScrollView(memoryController: memoryController, promptController: promptController, dailyController: dailyController, userController: userController)
+                                  PromptScrollView(memoryController: memoryController, promptController: promptController, dailyController: dailyController, userController: userController, selectedPin: self.$selectedPin)
                                     Spacer()
                                         .frame(height: 40)
                                 }
@@ -214,7 +211,7 @@ struct PromptMapWrapper: View {
                                         HStack {
                                             Text(promptController.currPrompt)
                                                 .fontWeight(.bold)
-                                                .font(.system(size: 20))
+                                                .font(.system(size: 18))
                                                 .padding(.leading, 20)
                                                 .padding(.bottom, 10)
                                                 .background(.white.opacity(0.8))

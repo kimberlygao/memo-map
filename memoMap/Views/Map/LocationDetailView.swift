@@ -24,7 +24,7 @@ struct LocationDetailView<Content: View>: View {
 
     private var indicator: some View {
         RoundedRectangle(cornerRadius: Constants.RADIUS)
-            .fill(Color.black)
+            .fill(Color("pastel"))
             .frame(
                 width: Constants.INDICATOR_WIDTH,
                 height: Constants.INDICATOR_HEIGHT
@@ -72,7 +72,7 @@ struct LocationDetailView<Content: View>: View {
 }
 
 enum Constants {
-    static let RADIUS: CGFloat = 16
+    static let RADIUS: CGFloat = 20
     static let INDICATOR_HEIGHT: CGFloat = 6
     static let INDICATOR_WIDTH: CGFloat = 60
     static let SNAP_RATIO: CGFloat = 0.25

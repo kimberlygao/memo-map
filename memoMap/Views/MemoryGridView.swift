@@ -11,17 +11,18 @@ struct MemoryGridView: View {
   @ObservedObject var memoryController: MemoryController
   var place : Place
   @ObservedObject var userController : UserController
+  @Binding var ownView: Bool
   
   var threeColumnGrid = [GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5)]
   
   var body: some View {
-    let memories = memoryController.getFriendsMemoriesForLocation(user: userController.currentUser, loc: place)
+    let memories = ownView ? memoryController.getUserMemoriesForLocation(user: userController.currentUser, loc: place) : memoryController.getFriendsMemoriesForLocation(user: userController.currentUser, loc: place)
     GeometryReader { geo in
       ScrollView {
         LazyVGrid(columns: threeColumnGrid, spacing: 5) {
           ForEach(memories, id: \.self) { mem in
 //            if let uiImage = image {
-            NavigationLink (destination: MemoryScrollView(memoryController: memoryController, memories: memories, scrollId: mem, placeName: place.name)){
+            NavigationLink (destination: MemoryScrollView(memoryController: memoryController, memories: memories, scrollId: mem, placeName: place.name, friendMemory: !ownView)){
                 Image(uiImage: memoryController.getImageFromURL(url: mem.back))
                   .resizable()
                   .aspectRatio(contentMode: .fill)

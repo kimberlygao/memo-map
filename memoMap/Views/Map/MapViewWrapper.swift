@@ -43,21 +43,10 @@ struct MapViewWrapper: View {
                             }
                             Spacer()
                                    .frame(height: 20)
-//
-//                            })
                             let loc: Place? = placeController.places.first { $0.address == self.selectedPin?.address }
                             if let loc = loc {
-                                MemoryGridView(memoryController: memoryController, place: loc, userController: userController)
+                              MemoryGridView(memoryController: memoryController, place: loc, userController: userController, ownView: $ownView)
                             }
-                            
-                            
-                            
-//                            MemoryGridView(memoryController: memoryController, place: loc!, userController: userController)
-                            
-//                            Spacer()
-//                                .frame(height: 20)
-                            
-//                            MemoryGridView(memoryController: memoryController)
                         }
                         .padding(20)
                     }
@@ -71,7 +60,40 @@ struct MapViewWrapper: View {
                 )
                 .navigationBarTitleDisplayMode(.inline)
                 .edgesIgnoringSafeArea(.all)
+                
+              VStack {
                 Spacer()
+                HStack (alignment: .bottom) {
+                  Button(action: {ownView.toggle()}) {
+                    VStack {
+                      let color1 : Color =  ownView ? Color("bold") : .gray
+                      Image(systemName: "person")
+                        .font(.system(size: 24))
+                        .foregroundColor(color1)
+                        .padding(6)
+                        .padding(.top, 2)
+                      let color2 : Color =  ownView ? .gray : Color("bold")
+                      Image(systemName: "globe.americas")
+                        .font(.system(size: 24))
+                        .foregroundColor(color2)
+                        .padding(6)
+                        .padding(.bottom, 2)
+                    }
+                  }
+                  .background(Color("pastel"))
+                  .cornerRadius(50)
+                  
+                  Spacer()
+                    Button(action: {findUser.toggle()}) {
+                    Image(systemName: "location")
+                      .font(.system(size: 24))
+                      .foregroundColor(Color("bold"))
+                  }
+                }
+                .padding(20)
+                Spacer()
+                  .frame(height: 40)
+              }
             }
         }
         //            .sheet(item: $selectedPlace) { place in
