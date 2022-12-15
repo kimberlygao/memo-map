@@ -47,7 +47,29 @@ Start running the app!
 
 - Ensure that the device you are running memoMap on is in light mode
 
-## Testing notes
+## Testing Notes
 We set up our unit testing files, which build, run, and pass. However, testing our app requires making calls to our Firestore database. After working with multiple TAs for over three hours and combing through every stackoverflow article, we still were not able to resolve the fatal thread error that we had. We tried millions of variations of linking and unlinking targets and binaries and also adding ```FirebaseApp.configure()``` in various possible places, but nothing was successful.
 
-Instead, we manually tested all of our functions using print statements, displaying it in the content view, and double-checking that the data was properly added/updated/deleted on Firestore. We felt that this way of testing still allowed us to ensure that our app was working as expected and also gave us more time to focus on refining details in our app. 
+Instead, we manually tested all of our functions using print statements, displaying it in the content view, and double-checking that the data was properly added/updated/deleted on Firestore. We felt that this way of testing still allowed us to ensure that our app was working as expected and also gave us more time to focus on refining details in our app.
+
+## Feature List
+### A-level
+- camera
+  - adding a memory to the map by capturing a front and back photo using the in-app camera
+  - adding a caption and selecting a location
+- map
+  - toggling between personal and world map to see your vs all your friends' memories on the map
+  - searching for specific locations on the map
+  - scrolling, zooming in/out on the map
+  - tapping on a pin to view the memories associated at that location in a grid format
+  - tapping on one of the images in the grid to display all those memories in a feed format
+
+### B-level
+- prompt
+  - selecting a past memory to satisfy the prompt
+  - view other friends answers either on a map or in a feed view
+- adding friends
+  - searching for specific users (case-sensitive)
+  - accepting/denying friend requests
+  - sending friend requests to other users
+  - viewing the profiles of other users
