@@ -48,6 +48,6 @@ Start running the app!
 - Ensure that the device you are running memoMap on is in light mode
 
 ## Testing notes
-We set up our unit testing files, which build, run, and pass. However, testing our app requires making calls to our Firestore database. After working with multiple TAs for over three hours and combing through every stackoverflow article, we still were not able to resolve the fatal thread error that we had. 
+We set up our unit testing files, which build, run, and pass. However, testing our app requires making calls to our Firestore database. After working with multiple TAs for over three hours and combing through every stackoverflow article, we still were not able to resolve the fatal thread error that we had. We tried millions of variations of linking and unlinking targets and binaries and also adding ```FirebaseApp.configure()``` in various possible places, but nothing was successful.
 
 Instead, we manually tested all of our functions using print statements, displaying it in the content view, and double-checking that the data was properly added/updated/deleted on Firestore. We felt that this way of testing still allowed us to ensure that our app was working as expected and also gave us more time to focus on refining details in our app. 
